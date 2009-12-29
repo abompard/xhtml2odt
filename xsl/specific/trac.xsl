@@ -49,7 +49,7 @@
 <xsl:template match="h:span[@class='underline']">
 	<text:span>
 		<xsl:attribute name="text:style-name">
-            <xsl:text>Underline</xsl:text>
+			<xsl:text>Underline</xsl:text>
 		</xsl:attribute>
 		<xsl:apply-templates/>
 	</text:span>

@@ -1,0 +1,12 @@
+XHTML2ODT
+=========
+
+Convert namespaced HTML to ODT.
+
+The HTML may be included in an ODT document.
+
+
+References
+----------
+ * http://lab.dotclear.org/wiki/plugin/odt
+ * http://www.dokuwiki.org/plugin:odt

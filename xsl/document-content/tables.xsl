@@ -120,7 +120,7 @@
 
 	<xsl:param name="horizontal-position" />
 	<xsl:param name="horizontal-count" />
-    <xsl:param name="vertical-position" />
+	<xsl:param name="vertical-position" />
 	<xsl:param name="vertical-count" />
 
 	<xsl:comment>horizontal-position=<xsl:value-of select="$horizontal-position"/></xsl:comment>
