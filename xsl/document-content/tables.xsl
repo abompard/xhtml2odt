@@ -48,16 +48,16 @@
 
 <xsl:template name="table.number">
 	<!-- compute number of section -->
-	<xsl:value-of select="count(preceding::h:informaltable)+count(preceding::h:table)+1"/>
+	<xsl:value-of select="count(preceding::h:table)+1"/>
 </xsl:template>
 
 <xsl:template match="h:table">
-    <xsl:if test="caption">
+    <xsl:if test="h:caption">
         <xsl:variable name="number">
             <xsl:call-template name="table.number"/>
         </xsl:variable>
         <text:h text:style-name="Heading-small">
-            <xsl:text>Table </xsl:text><xsl:value-of select="$number"/><xsl:text>. </xsl:text><xsl:value-of select="caption"/>
+            <xsl:text>Table </xsl:text><xsl:value-of select="$number"/><xsl:text>. </xsl:text><xsl:value-of select="h:caption"/>
         </text:h>
     </xsl:if>
     <table:table table:style-name="table-default">

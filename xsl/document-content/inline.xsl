@@ -140,10 +140,6 @@
 	</text:span>
 </xsl:template>
 
-<xsl:template match="h:span">
-    <xsl:apply-templates/>
-</xsl:template>
-
 <xsl:template match="h:br">
     <text:line-break/>
 </xsl:template>

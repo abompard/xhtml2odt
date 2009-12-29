@@ -52,8 +52,7 @@
 			child::h:ul|
 			child::h:ol|
 			child::h:blockquote|
-			child::h:pre|
-			child::h:screen
+			child::h:pre
 			">
 			<!-- continue without text:p creation to child element -->
 			
@@ -77,64 +76,18 @@
 
 <xsl:template name="paragraph">
 	
-	<xsl:variable name="position" select="position()"/>
-	<xsl:variable name="position_div" select="position() div 2"/>
-	<xsl:variable name="parent-previous" select="count(../preceding-sibling::node())"/>
-	<xsl:variable name="nodes-in-previous" select="count(../preceding-sibling::li[$position_div]/*)"/>
-	
 	<text:p>
 		
 		<xsl:attribute name="text:style-name">
 			<xsl:choose>
-				
-				<!-- deep magic part -->
 				<xsl:when test="parent::h:ul|parent::h:ol">
-					<xsl:choose>
-						
-						<!-- if paragraph is first in listitem                                 -->
-						<!-- this paragraph is as title of listitem                            -->
-						<xsl:when test="$position=2">
-							<xsl:choose>
-								<!-- very very very ugly hack :) but works very good :))))       -->
-								<!-- http://blogs.msdn.com/asanto/archive/2004/09/08/226663.aspx -->
-								<xsl:when test="$parent-previous = 1">para-list-begin</xsl:when>
-								
-								<!-- my very nice hack                                           -->
-								
-								<!-- when previous listitem has more than one element            -->
-								
-								<xsl:when test="$nodes-in-previous>1">para-list-padding</xsl:when>
-								
-								
-								<xsl:when test="../../@spacing='compact'">para-list-compact</xsl:when>
-								<xsl:when test="parent::h:ol/@spacing='compact'">para-list-compact</xsl:when>
-								<xsl:when test="parent::h:ul/@spacing='compact'">para-list-compact</xsl:when>
-								<xsl:otherwise>para-list-padding</xsl:otherwise>
-							</xsl:choose>
-						</xsl:when>
-						
-						<!-- all next paragraph in listitem -->
-						<xsl:otherwise>
-							<!--<xsl:text>para-padding</xsl:text>-->
-							<xsl:choose>
-								<xsl:when test="../../@spacing='compact'">para-list-compact</xsl:when>
-								<xsl:otherwise>list-item</xsl:otherwise>
-							</xsl:choose>
-							
-						</xsl:otherwise>
-						
-					</xsl:choose>
+					<xsl:text>list-item</xsl:text>
 				</xsl:when>
-				
-				
 				<xsl:when test="parent::h:blockquote">Quotations</xsl:when>
-				
-                <xsl:when test="contains(@style,'text-align:') and contains(@style,'center')">
-                    <xsl:text>center</xsl:text>
-                </xsl:when>
-
+				<xsl:when test="contains(@style,'text-align:') and contains(@style,'center')">
+					<xsl:text>center</xsl:text>
+				</xsl:when>
 				<xsl:otherwise>Text_20_body</xsl:otherwise>
-				
 			</xsl:choose>
 		</xsl:attribute>
 		

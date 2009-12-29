@@ -64,12 +64,12 @@
 <xsl:template match="text:p">
     <xsl:choose>
         <xsl:when test="
-            descendant::p|
-            child::h1|
-            child::h2|
-            child::h3|
-            child::h4|
-            child::h5
+            descendant::h:p|
+            child::h:h1|
+            child::h:h2|
+            child::h:h3|
+            child::h:h4|
+            child::h:h5
             ">
             <!-- continue without text:p creation to child element -->
             

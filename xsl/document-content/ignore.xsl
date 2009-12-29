@@ -54,15 +54,14 @@
 </xsl:template>
 
 <xsl:template match="h:head">
-	<xsl:apply-templates/>
-</xsl:template>
-
-<xsl:template match="h:title">
-	<xsl:apply-templates/>
 </xsl:template>
 
 <xsl:template match="h:body">
 	<xsl:apply-templates/>
+</xsl:template>
+
+<xsl:template match="h:span">
+    <xsl:apply-templates/>
 </xsl:template>
 
 </xsl:stylesheet>
