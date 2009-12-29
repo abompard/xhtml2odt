@@ -1,0 +1,4 @@
+<style:style style:name="Strong_20_Emphasis"
+    style:display-name="Strong Emphasis" style:family="text">
+	<style:text-properties fo:font-weight="bold"/>
+</style:style>

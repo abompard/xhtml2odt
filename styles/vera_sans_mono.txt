@@ -1,0 +1,3 @@
+<style:font-face style:name="Bitstream Vera Sans Mono"
+                 svg:font-family="&apos;Bitstream Vera Sans Mono&apos;"
+                 style:font-family-generic="swiss" style:font-pitch="fixed"/>

@@ -1,0 +1,5 @@
+<style:style style:name="Source"
+             style:display-name="Source Text" style:family="text">
+	<style:text-properties style:font-name="Bitstream Vera Sans Mono"
+	                       fo:font-size="9pt"/>
+</style:style>

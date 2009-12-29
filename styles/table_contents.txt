@@ -1,0 +1,5 @@
+<style:style style:name="Table_20_Contents" style:display-name="Table Contents"
+             style:family="paragraph" style:parent-style-name="Standard"
+             style:class="extra">
+	<style:paragraph-properties text:number-lines="false" text:line-number="0"/>
+</style:style>

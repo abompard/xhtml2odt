@@ -1,0 +1,8 @@
+<style:style style:name="Quotations" style:family="paragraph"
+             style:parent-style-name="Standard" style:class="html">
+	<style:paragraph-properties fo:margin-left="1cm" fo:margin-right="1cm"
+	                            fo:margin-top="0cm" fo:margin-bottom="0.5cm"
+	                            fo:text-indent="0cm" style:auto-text-indent="false"
+	                            fo:padding="0.2cm"
+	                            fo:border-left="0.088cm solid #999999"/>
+</style:style>

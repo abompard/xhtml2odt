@@ -1,0 +1,7 @@
+<style:style style:name="table-default.cell-A2" style:family="table-cell">
+	<style:table-cell-properties fo:padding="0.05cm"
+	                             fo:border-left="0.03cm solid #000000"
+	                             fo:border-right="none"
+	                             fo:border-top="none"
+	                             fo:border-bottom="0.01cm solid #000000"/>
+</style:style>

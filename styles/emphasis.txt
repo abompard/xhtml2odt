@@ -1,0 +1,4 @@
+<style:style style:name="Emphasis"
+             style:display-name="Emphasis" style:family="text">
+	<style:text-properties fo:font-style="italic"/>
+</style:style>

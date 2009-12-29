@@ -1,0 +1,3 @@
+<style:style style:name="Strike" style:family="text">
+    <style:text-properties style:text-line-through-style="solid"/>
+</style:style>

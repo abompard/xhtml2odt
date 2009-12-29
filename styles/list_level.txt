@@ -1,0 +1,8 @@
+<text:list-level-style-bullet text:level="%(level)s"
+        text:style-name="Numbering_20_Symbols"
+        text:bullet-char="•">
+	<style:list-level-properties
+	    text:space-before="%(space)scm"
+	    text:min-label-width="0.4cm"/>
+	<style:text-properties style:font-name="StarSymbol"/>
+</text:list-level-style-bullet>
