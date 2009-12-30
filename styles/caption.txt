@@ -1,5 +1,5 @@
-<style:style style:name="Caption" style:family="paragraph" style:class="extra"
-             style:parent-style-name="Standard">
+<style:style style:name="Caption" style:display-name="Caption" style:class="extra"
+             style:family="paragraph" style:parent-style-name="Standard">
 	<style:paragraph-properties fo:margin-top="0.2cm" fo:margin-bottom="0.2cm"
 	                            text:number-lines="false" text:line-number="0"/>
 	<style:text-properties fo:font-size="95%" fo:font-style="italic"/>
