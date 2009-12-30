@@ -36,6 +36,7 @@ Then, just run "nosetests tests"
 References
 ----------
  * http://lab.dotclear.org/wiki/plugin/odt
+ * http://trac-hacks.org/wiki/OdtExportPlugin
  * http://www.dokuwiki.org/plugin:odt
 
 
