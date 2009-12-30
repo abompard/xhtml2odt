@@ -92,6 +92,28 @@ class InlineElements(unittest.TestCase):
         print odt
         assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Strike">Test</text:span>\n'
 
+    def test_abbr(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><abbr title="content">abbr</abbr></p></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n'+\
+            '<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">'+\
+            'abbr<text:note text:note-class="footnote" text:id="ftn1">'+\
+            '<text:note-citation>1</text:note-citation>'+\
+            '<text:note-body><text:p text:style-name="Footnote">content</text:p></text:note-body>'+\
+            '</text:note></text:p>\n'
+
+    def test_acronym(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><acronym title="content">acronym</acronym></p></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n'+\
+            '<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">'+\
+            'acronym<text:note text:note-class="footnote" text:id="ftn1">'+\
+            '<text:note-citation>1</text:note-citation>'+\
+            '<text:note-body><text:p text:style-name="Footnote">content</text:p></text:note-body>'+\
+            '</text:note></text:p>\n'
+
 
 if __name__ == '__main__':
     unittest.main()

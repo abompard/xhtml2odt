@@ -1,0 +1,8 @@
+<style:style style:name="Footnote" style:display-name="Footnote"
+             style:family="paragraph" style:class="extra"
+             style:parent-style-name="Standard">
+	<style:paragraph-properties fo:margin-left="0.5cm" fo:margin-right="0cm"
+	       fo:text-indent="-0.5cm" style:auto-text-indent="false"
+	       text:number-lines="false" text:line-number="0"/>
+	<style:text-properties fo:font-size="10pt"/>
+</style:style>

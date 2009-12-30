@@ -151,5 +151,25 @@
 	</text:span>
 </xsl:template>
 
+<xsl:template match="h:abbr|h:acronym">
+	<xsl:apply-templates/>
+	<xsl:variable name="footnotenum"
+	              select="count(preceding::h:abbr) + count(preceding::h:acronym) + 1"/>
+	<text:note text:note-class="footnote">
+		<xsl:attribute name="text:id">
+			<xsl:text>ftn</xsl:text>
+			<xsl:value-of select="$footnotenum"/>
+		</xsl:attribute>
+		<text:note-citation>
+			<xsl:value-of select="$footnotenum"/>
+		</text:note-citation>
+		<text:note-body>
+			<text:p text:style-name="Footnote">
+				<xsl:value-of select="@title"/>
+			</text:p>
+		</text:note-body>
+	</text:note>
+</xsl:template>
+
 
 </xsl:stylesheet>
