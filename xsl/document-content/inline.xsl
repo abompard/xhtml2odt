@@ -171,5 +171,23 @@
 	</text:note>
 </xsl:template>
 
+<xsl:template match="h:big">
+	<text:span>
+		<xsl:attribute name="text:style-name">
+            <xsl:text>Big</xsl:text>
+		</xsl:attribute>
+		<xsl:apply-templates/>
+	</text:span>
+</xsl:template>
+
+<xsl:template match="h:small">
+	<text:span>
+		<xsl:attribute name="text:style-name">
+            <xsl:text>Small</xsl:text>
+		</xsl:attribute>
+		<xsl:apply-templates/>
+	</text:span>
+</xsl:template>
+
 
 </xsl:stylesheet>

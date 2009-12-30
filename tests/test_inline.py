@@ -114,6 +114,18 @@ class InlineElements(unittest.TestCase):
             '<text:note-body><text:p text:style-name="Footnote">content</text:p></text:note-body>'+\
             '</text:note></text:p>\n'
 
+    def test_big(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><big>Test</big></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Big">Test</text:span>\n'
+
+    def test_small(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><small>Test</small></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Small">Test</text:span>\n'
+
 
 if __name__ == '__main__':
     unittest.main()
