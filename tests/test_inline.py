@@ -72,13 +72,13 @@ class InlineElements(unittest.TestCase):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><code>Test</code></html>'
         odt = xhtml2odt(html)
         print odt
-        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Source">Test</text:span>\n'
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Teletype">Test</text:span>\n'
 
     def test_tt(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><tt>Test</tt></html>'
         odt = xhtml2odt(html)
         print odt
-        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Source">Test</text:span>\n'
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Teletype">Test</text:span>\n'
 
     def test_br(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><br/></html>'
