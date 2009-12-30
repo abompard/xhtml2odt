@@ -1,4 +1,5 @@
 <style:style style:name="Quotations" style:family="paragraph"
+             style:display-name="Quotations"
              style:parent-style-name="Standard" style:class="html">
 	<style:paragraph-properties fo:margin-left="1cm" fo:margin-right="1cm"
 	                            fo:margin-top="0cm" fo:margin-bottom="0.5cm"
