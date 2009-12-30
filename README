@@ -1,12 +1,54 @@
-XHTML2ODT
-=========
+XHTML2ODT - XHTML to ODT XML transformation
+===========================================
 
-Convert namespaced HTML to ODT.
+Copyright (C) 2009-2010 Aurelien Bompard <aurelien@bompard.org>
+Based on the work on docbook2odt, by Roman Fordinal
+http://open.comsultia.com/docbook2odf/
 
-The HTML may be included in an ODT document.
+These stylesheets convert namespaced HTML to ODT.
+
+The HTML may be included in an ODT document, the ODT will be left untouched.
+
+
+Caveats
+-------
+
+Styles: the styles are not added to the document. After converting to ODT, you
+must go through the styles used in the document and add the needed styles.
+Templates for those styles are provided in the "styles" subdirectory. If a
+style has a "display-name" property, it must be added to styles.xml. Otherwise
+it must be added to the automatic-styles section of content.xml.
+
+Images: images are not added, you must manually go trough the draw:image
+elements in the converted ODT text and use the xlink:href attribute to download
+or copy the image. While you're at it, you should update the image dimensions
+if the were not provided in the img tag.
+
+
+Tests
+-----
+The unit tests are python-based, you need to install the "nose" python module
+availble from PyPI (or your distribution).
+
+Then, just run "nosetests tests"
 
 
 References
 ----------
  * http://lab.dotclear.org/wiki/plugin/odt
  * http://www.dokuwiki.org/plugin:odt
+
+
+License
+-------
+License is GPL v2 or later.
+
+This program is free software; you can redistribute it and/or
+modify it under the terms of the GNU General Public License
+as published by the Free Software Foundation; either version 2
+of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
