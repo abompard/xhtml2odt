@@ -86,6 +86,7 @@
 					<xsl:text>center</xsl:text>
 				</xsl:when>
 				<xsl:when test="self::h:address">Sender</xsl:when>
+				<xsl:when test="self::h:center">center</xsl:when>
 				<xsl:otherwise>Text_20_body</xsl:otherwise>
 			</xsl:choose>
 		</xsl:attribute>
