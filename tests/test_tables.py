@@ -161,7 +161,7 @@ class TableElements(unittest.TestCase):
         # remove namespaces
         odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
         print odt
-        assert odt.count('<text:h text:style-name="Heading-small">Table 1. Caption</text:h>') > 0
+        assert odt.count('<text:p text:style-name="Caption">Table <text:sequence text:ref-name="refTable0" text:name="Table" text:formula="ooow:Table+1" style:num-format="1">1</text:sequence>: Caption</text:p>') > 0
 
     def test_table_header1(self):
         html = """<html xmlns="http://www.w3.org/1999/xhtml">

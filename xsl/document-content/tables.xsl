@@ -50,14 +50,6 @@
 </xsl:template>
 
 <xsl:template match="h:table">
-    <xsl:if test="h:caption">
-        <xsl:variable name="number">
-            <xsl:call-template name="table.number"/>
-        </xsl:variable>
-        <text:h text:style-name="Heading-small">
-            <xsl:text>Table </xsl:text><xsl:value-of select="$number"/><xsl:text>. </xsl:text><xsl:value-of select="h:caption"/>
-        </text:h>
-    </xsl:if>
     <table:table table:style-name="table-default">
         <table:table-column>
             <xsl:attribute name="table:number-columns-repeated">
@@ -67,6 +59,19 @@
         <!--<xsl:attribute name="table:name"></xsl:attribute>-->
         <xsl:apply-templates/>
     </table:table>
+    <xsl:if test="h:caption">
+        <xsl:variable name="number">
+            <xsl:call-template name="table.number"/>
+        </xsl:variable>
+        <text:p text:style-name="Caption">
+            <xsl:text>Table </xsl:text>
+            <text:sequence text:ref-name="refTable0" text:name="Table"
+                           text:formula="ooow:Table+1" style:num-format="1">
+                <xsl:value-of select="$number"/>
+            </text:sequence>
+            <xsl:text>: </xsl:text><xsl:value-of select="h:caption"/>
+        </text:p>
+    </xsl:if>
 </xsl:template>
 
 <xsl:template match="h:table/h:caption"/>
