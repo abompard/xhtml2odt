@@ -132,7 +132,7 @@
 <xsl:template match="h:code|h:tt">
 	<text:span>
 		<xsl:attribute name="text:style-name">
-            <xsl:text>Source</xsl:text>
+            <xsl:text>Teletype</xsl:text>
 		</xsl:attribute>
 		<xsl:apply-templates/>
 	</text:span>
