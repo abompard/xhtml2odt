@@ -85,6 +85,7 @@
 				<xsl:when test="contains(@style,'text-align:') and contains(@style,'center')">
 					<xsl:text>center</xsl:text>
 				</xsl:when>
+				<xsl:when test="self::h:address">Sender</xsl:when>
 				<xsl:otherwise>Text_20_body</xsl:otherwise>
 			</xsl:choose>
 		</xsl:attribute>

@@ -37,6 +37,12 @@ class BlockElements(unittest.TestCase):
         print odt
         assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">   Line with spaces <text:line-break/></text:p>\n'
 
+    def test_address(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><address>Test</address></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Sender">Test</text:p>\n'
+
 
 if __name__ == '__main__':
     unittest.main()
