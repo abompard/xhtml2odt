@@ -18,7 +18,6 @@
 	
 -->
 <xsl:stylesheet
-	version="1.0"
 	xmlns:h="http://www.w3.org/1999/xhtml"
 	xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
 	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -42,8 +41,7 @@
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0"
-	office:class="text"
-	office:version="1.0">
+	version="1.0">
 
 
 <xsl:template match="h:ul">

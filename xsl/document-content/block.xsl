@@ -41,7 +41,6 @@
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0"
-	exclude-result-prefixes="office xsl dc text style table draw fo xlink meta number svg chart dr3d math form script dom xforms xsd xsi presentation h"
 	version="1.0">
 
 
