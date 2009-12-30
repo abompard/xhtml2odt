@@ -1,0 +1,6 @@
+<style:style style:name="Heading_20_5" style:display-name="Heading 5"
+              style:family="paragraph" style:parent-style-name="Heading"
+              style:next-style-name="Text_20_body" style:class="text"
+              style:default-outline-level="5">
+	<style:text-properties fo:font-size="100%" fo:font-style="italic"/>
+</style:style>
