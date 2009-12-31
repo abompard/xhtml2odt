@@ -1,0 +1,9 @@
+<style:style style:name="Heading_20_6" style:display-name="Heading 6"
+              style:family="paragraph" style:parent-style-name="Heading"
+              style:next-style-name="Text_20_body" style:class="text"
+              style:default-outline-level="6">
+	<style:text-properties fo:font-size="90%" fo:font-weight="bold"
+                           style:text-underline-style="solid"
+                           style:text-underline-width="auto"
+                           style:text-underline-color="font-color"/>
+</style:style>

@@ -52,6 +52,15 @@ class SectionElements(unittest.TestCase):
 <text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_5">Test</text:h>
 """
 
+    def test_h6(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><h6>Test</h6></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
+<!--section level 6-->
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_6">Test</text:h>
+"""
+
     def test_h2_minuslevel_1(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><h2>Test</h2></html>'
         odt = xhtml2odt(html, heading_minus_level="1")

@@ -69,7 +69,8 @@
             child::h:h2|
             child::h:h3|
             child::h:h4|
-            child::h:h5
+            child::h:h5|
+            child::h:h6
             ">
             <!-- continue without text:p creation to child element -->
             

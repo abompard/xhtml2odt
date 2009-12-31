@@ -44,7 +44,7 @@
 	version="1.0">
 
 
-<xsl:template name="section" match="h:h1|h:h2|h:h3|h:h4|h:h5">
+<xsl:template name="section" match="h:h1|h:h2|h:h3|h:h4|h:h5|h:h6">
 	
 	<!-- compute level of section -->
 	<xsl:variable name="level">
