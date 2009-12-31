@@ -1,7 +1,0 @@
-<text:list-level-style-number text:level="%(level)s"
-        text:style-name="Numbering_20_Symbols"
-        style:num-suffix="." style:num-format="1">
-	<style:list-level-properties
-	    text:space-before="%(space)scm"
-		text:min-label-width="0.5cm"/>
-</text:list-level-style-number>
