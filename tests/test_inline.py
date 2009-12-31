@@ -80,6 +80,18 @@ class InlineElements(unittest.TestCase):
         print odt
         assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Teletype">Test</text:span>\n'
 
+    def test_samp(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><samp>Test</samp></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Teletype">Test</text:span>\n'
+
+    def test_kbd(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><kbd>Test</kbd></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Teletype">Test</text:span>\n'
+
     def test_br(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><br/></html>'
         odt = xhtml2odt(html)
@@ -128,6 +140,18 @@ class InlineElements(unittest.TestCase):
 
     def test_cite(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><cite>Test</cite></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Citation">Test</text:span>\n'
+
+    def test_dfn(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><dfn>Test</dfn></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Citation">Test</text:span>\n'
+
+    def test_var(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><var>Test</var></html>'
         odt = xhtml2odt(html)
         print odt
         assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Citation">Test</text:span>\n'

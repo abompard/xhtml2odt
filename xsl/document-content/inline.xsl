@@ -129,7 +129,7 @@
 	</text:span>
 </xsl:template>
 
-<xsl:template match="h:code|h:tt">
+<xsl:template match="h:code|h:tt|h:samp|h:kbd">
 	<text:span>
 		<xsl:attribute name="text:style-name">
             <xsl:text>Teletype</xsl:text>
@@ -189,7 +189,7 @@
 	</text:span>
 </xsl:template>
 
-<xsl:template match="h:cite">
+<xsl:template match="h:cite|h:dfn|h:var">
 	<text:span>
 		<xsl:attribute name="text:style-name">
             <xsl:text>Citation</xsl:text>
