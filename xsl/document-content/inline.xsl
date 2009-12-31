@@ -198,5 +198,14 @@
 	</text:span>
 </xsl:template>
 
+<xsl:template match="h:ins">
+	<text:span>
+		<xsl:attribute name="text:style-name">
+			<xsl:text>Underline</xsl:text>
+		</xsl:attribute>
+		<xsl:apply-templates/>
+	</text:span>
+</xsl:template>
+
 
 </xsl:stylesheet>
