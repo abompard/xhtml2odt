@@ -1,5 +1,5 @@
 <style:style style:name="Teletype" style:display-name="Teletype"
              style:family="text">
-	<style:text-properties style:font-name="Bitstream Vera Sans Mono"
+	<style:text-properties style:font-name="DejaVu Sans Mono"
 	                       fo:font-size="9pt"/>
 </style:style>
