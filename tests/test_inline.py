@@ -156,6 +156,12 @@ class InlineElements(unittest.TestCase):
         print odt
         assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Citation">Test</text:span>\n'
 
+    def test_q(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><q>Test</q></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n"Test"\n'
+
     def test_ins(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><ins>Test</ins></html>'
         odt = xhtml2odt(html)

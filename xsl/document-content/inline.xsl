@@ -198,6 +198,12 @@
 	</text:span>
 </xsl:template>
 
+<xsl:template match="h:q">
+    <xsl:text>"</xsl:text>
+    <xsl:apply-templates/>
+    <xsl:text>"</xsl:text>
+</xsl:template>
+
 <xsl:template match="h:ins">
 	<text:span>
 		<xsl:attribute name="text:style-name">
