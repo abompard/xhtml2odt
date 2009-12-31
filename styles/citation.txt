@@ -1,0 +1,3 @@
+<style:style style:name="Citation" style:display-name="Citation" style:family="text">
+	<style:text-properties fo:font-style="italic"/>
+</style:style>
