@@ -94,46 +94,31 @@
 
 
 <xsl:template match="h:em|h:i">
-	<text:span>
-		<xsl:attribute name="text:style-name">
-            <xsl:text>Emphasis</xsl:text>
-		</xsl:attribute>
+	<text:span text:style-name="Emphasis">
 		<xsl:apply-templates/>
 	</text:span>
 </xsl:template>
 
 <xsl:template match="h:strong|h:b">
-	<text:span>
-		<xsl:attribute name="text:style-name">
-            <xsl:text>Strong_20_Emphasis</xsl:text>
-		</xsl:attribute>
+	<text:span text:style-name="Strong_20_Emphasis">
 		<xsl:apply-templates/>
 	</text:span>
 </xsl:template>
 
 <xsl:template match="h:sup">
-	<text:span>
-		<xsl:attribute name="text:style-name">
-            <xsl:text>sup</xsl:text>
-		</xsl:attribute>
+	<text:span text:style-name="sup">
 		<xsl:apply-templates/>
 	</text:span>
 </xsl:template>
 
 <xsl:template match="h:sub">
-	<text:span>
-		<xsl:attribute name="text:style-name">
-            <xsl:text>sub</xsl:text>
-		</xsl:attribute>
+	<text:span text:style-name="sub">
 		<xsl:apply-templates/>
 	</text:span>
 </xsl:template>
 
 <xsl:template match="h:code|h:tt|h:samp|h:kbd">
-	<text:span>
-		<xsl:attribute name="text:style-name">
-            <xsl:text>Teletype</xsl:text>
-		</xsl:attribute>
+	<text:span text:style-name="Teletype">
 		<xsl:apply-templates/>
 	</text:span>
 </xsl:template>
@@ -143,10 +128,7 @@
 </xsl:template>
 
 <xsl:template match="h:del">
-	<text:span>
-		<xsl:attribute name="text:style-name">
-            <xsl:text>Strike</xsl:text>
-		</xsl:attribute>
+	<text:span text:style-name="Strike">
 		<xsl:apply-templates/>
 	</text:span>
 </xsl:template>
@@ -172,28 +154,19 @@
 </xsl:template>
 
 <xsl:template match="h:big">
-	<text:span>
-		<xsl:attribute name="text:style-name">
-            <xsl:text>Big</xsl:text>
-		</xsl:attribute>
+	<text:span text:style-name="Big">
 		<xsl:apply-templates/>
 	</text:span>
 </xsl:template>
 
 <xsl:template match="h:small">
-	<text:span>
-		<xsl:attribute name="text:style-name">
-            <xsl:text>Small</xsl:text>
-		</xsl:attribute>
+	<text:span text:style-name="Small">
 		<xsl:apply-templates/>
 	</text:span>
 </xsl:template>
 
 <xsl:template match="h:cite|h:dfn|h:var">
-	<text:span>
-		<xsl:attribute name="text:style-name">
-            <xsl:text>Citation</xsl:text>
-		</xsl:attribute>
+	<text:span text:style-name="Citation">
 		<xsl:apply-templates/>
 	</text:span>
 </xsl:template>
@@ -205,10 +178,7 @@
 </xsl:template>
 
 <xsl:template match="h:ins">
-	<text:span>
-		<xsl:attribute name="text:style-name">
-			<xsl:text>Underline</xsl:text>
-		</xsl:attribute>
+	<text:span text:style-name="Underline">
 		<xsl:apply-templates/>
 	</text:span>
 </xsl:template>

@@ -55,10 +55,7 @@
 </xsl:template>
 
 <xsl:template match="h:pre">
-    <text:p>
-        <xsl:attribute name="text:style-name">
-            <xsl:text>Preformatted_20_Text</xsl:text>
-        </xsl:attribute>
+    <text:p text:style-name="Preformatted_20_Text">
         <xsl:call-template name="pre.line">
             <xsl:with-param name="content" select="string(.)"/>
         </xsl:call-template>
