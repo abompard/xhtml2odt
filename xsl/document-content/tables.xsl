@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-	
-	xhtml2odt - XHTML to ODT XML transformation.
+    
+    xhtml2odt - XHTML to ODT XML transformation.
     Copyright (C) 2009 Aurelien Bompard
     Based on the work on docbook2odt, by Roman Fordinal
-	http://open.comsultia.com/docbook2odf/
-	
-	This program is free software; you can redistribute it and/or
-	modify it under the terms of the GNU General Public License
-	as published by the Free Software Foundation; either version 2
-	of the License, or (at your option) any later version.
-	
-	This program is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
-	
+    http://open.comsultia.com/docbook2odf/
+    
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of the GNU General Public License
+    as published by the Free Software Foundation; either version 2
+    of the License, or (at your option) any later version.
+    
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    
 -->
 <xsl:stylesheet
-	xmlns:h="http://www.w3.org/1999/xhtml"
-	xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-	xmlns:dc="http://purl.org/dc/elements/1.1/"
-	xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
-	xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
-	xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
-	xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
-	xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
-	xmlns:xlink="http://www.w3.org/1999/xlink"
-	xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" 
-	xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
-	xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"
-	xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0"
-	xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0"
-	xmlns:math="http://www.w3.org/1998/Math/MathML"
-	xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0"
-	xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0"
-	xmlns:dom="http://www.w3.org/2001/xml-events"
-	xmlns:xforms="http://www.w3.org/2002/xforms"
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0"
-	version="1.0">
+    xmlns:h="http://www.w3.org/1999/xhtml"
+    xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:dc="http://purl.org/dc/elements/1.1/"
+    xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+    xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0"
+    xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0"
+    xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
+    xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" 
+    xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
+    xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"
+    xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0"
+    xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0"
+    xmlns:math="http://www.w3.org/1998/Math/MathML"
+    xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0"
+    xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0"
+    xmlns:dom="http://www.w3.org/2001/xml-events"
+    xmlns:xforms="http://www.w3.org/2002/xforms"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0"
+    version="1.0">
 
 
 <xsl:template name="table.number">
-	<!-- compute number of section -->
-	<xsl:value-of select="count(preceding::h:table)+1"/>
+    <!-- compute number of section -->
+    <xsl:value-of select="count(preceding::h:table)+1"/>
 </xsl:template>
 
 <xsl:template match="h:table">
@@ -87,25 +87,25 @@
 </xsl:template>
 
 <xsl:template match="h:tbody">
-	<xsl:apply-templates/>
+    <xsl:apply-templates/>
 </xsl:template>
 
 <xsl:template match="h:tr">
-	<xsl:choose>
-		<!-- this is header -->
-		<xsl:when test="h:th">
-			<table:table-header-rows>
-				<table:table-row>
-					<xsl:apply-templates/>
-				</table:table-row>
-			</table:table-header-rows>
-		</xsl:when>
-		<xsl:otherwise>
-			<table:table-row>
-				<xsl:apply-templates/>
-			</table:table-row>
-		</xsl:otherwise>
-	</xsl:choose>
+    <xsl:choose>
+        <!-- this is header -->
+        <xsl:when test="h:th">
+            <table:table-header-rows>
+                <table:table-row>
+                    <xsl:apply-templates/>
+                </table:table-row>
+            </table:table-header-rows>
+        </xsl:when>
+        <xsl:otherwise>
+            <table:table-row>
+                <xsl:apply-templates/>
+            </table:table-row>
+        </xsl:otherwise>
+    </xsl:choose>
 </xsl:template>
 
 <xsl:template match="h:th">
@@ -133,115 +133,115 @@
 
 <xsl:template name="table-cell">
 
-	<xsl:param name="horizontal-position" />
-	<xsl:param name="horizontal-count" />
-	<xsl:param name="vertical-position" />
-	<xsl:param name="vertical-count" />
+    <xsl:param name="horizontal-position" />
+    <xsl:param name="horizontal-count" />
+    <xsl:param name="vertical-position" />
+    <xsl:param name="vertical-count" />
 
-	<xsl:comment>horizontal-position=<xsl:value-of select="$horizontal-position"/></xsl:comment>
-	<xsl:comment>horizontal-count=<xsl:value-of select="$horizontal-count"/></xsl:comment>
-	<xsl:comment>vertical-position=<xsl:value-of select="$vertical-position"/></xsl:comment>
-	<xsl:comment>vertical-count=<xsl:value-of select="$vertical-count"/></xsl:comment>
-	
-	<table:table-cell office:value-type="string">
-		
-		<xsl:attribute name="table:style-name">
-			<xsl:text>table-default.cell-</xsl:text>
-			<!-- prefix -->
-			<xsl:if test="self::h:th">
-				<xsl:text>H-</xsl:text>
-			</xsl:if>
-			<xsl:if test="parent::h:tr/parent::h:tfoot">
-				<xsl:text>F-</xsl:text>
-			</xsl:if>
-			<!-- postfix defined by cell position -->
-			<!--
-				__________
-				|A1|B1|C1|
-				|A2|B2|C2|
-				|A3|B3|C3|
-				^^^^^^^^^^
-				__________
-				|A4|B4|C4|
-				^^^^^^^^^^
-			-->
-			<xsl:choose>
-			
-				<!-- single -->
-				<xsl:when test="$horizontal-count = 1 and $vertical-count = 1">
-					<xsl:text>single</xsl:text>
-				</xsl:when>
+    <xsl:comment>horizontal-position=<xsl:value-of select="$horizontal-position"/></xsl:comment>
+    <xsl:comment>horizontal-count=<xsl:value-of select="$horizontal-count"/></xsl:comment>
+    <xsl:comment>vertical-position=<xsl:value-of select="$vertical-position"/></xsl:comment>
+    <xsl:comment>vertical-count=<xsl:value-of select="$vertical-count"/></xsl:comment>
+    
+    <table:table-cell office:value-type="string">
+        
+        <xsl:attribute name="table:style-name">
+            <xsl:text>table-default.cell-</xsl:text>
+            <!-- prefix -->
+            <xsl:if test="self::h:th">
+                <xsl:text>H-</xsl:text>
+            </xsl:if>
+            <xsl:if test="parent::h:tr/parent::h:tfoot">
+                <xsl:text>F-</xsl:text>
+            </xsl:if>
+            <!-- postfix defined by cell position -->
+            <!--
+                __________
+                |A1|B1|C1|
+                |A2|B2|C2|
+                |A3|B3|C3|
+                ^^^^^^^^^^
+                __________
+                |A4|B4|C4|
+                ^^^^^^^^^^
+            -->
+            <xsl:choose>
+            
+                <!-- single -->
+                <xsl:when test="$horizontal-count = 1 and $vertical-count = 1">
+                    <xsl:text>single</xsl:text>
+                </xsl:when>
 
-				<!-- A4 -->
-				<xsl:when test="$horizontal-position = 1 and $vertical-count = 1">
-					<xsl:text>A4</xsl:text>
-				</xsl:when>
-				<!-- C4 -->
-				<xsl:when test="$horizontal-position = $horizontal-count and $vertical-count = 1">
-					<xsl:text>C4</xsl:text>
-				</xsl:when>
-				<!-- B4 -->
-				<xsl:when test="$vertical-count = 1">
-					<xsl:text>B4</xsl:text>
-				</xsl:when>
-			
-				<!-- tfoot A -->
-				<xsl:when test="ancestor::h:tfoot and $horizontal-position = 1">
-					<xsl:text>A3</xsl:text>
-				</xsl:when>
-				<!-- tfoot B -->
-				<xsl:when test="ancestor::h:tfoot and $horizontal-position = $horizontal-count">
-					<xsl:text>C3</xsl:text>
-				</xsl:when>
-				<!-- tfoot C -->
-				<xsl:when test="ancestor::h:tfoot">
-					<xsl:text>B3</xsl:text>
-				</xsl:when>
-			
-				<!-- A3 -->
-				<xsl:when test="$horizontal-position = 1 and $vertical-position = $vertical-count">
-					<xsl:text>A3</xsl:text>
-				</xsl:when>
-				<!-- C3 -->
-				<xsl:when test="$horizontal-position = $horizontal-count and $vertical-position = $vertical-count">
-					<xsl:text>C3</xsl:text>
-				</xsl:when>
-				<!-- B3 -->
-				<xsl:when test="$vertical-position = $vertical-count">
-					<xsl:text>B3</xsl:text>
-				</xsl:when>
-			
-				<!-- A1 -->
-				<xsl:when test="$horizontal-position = 1 and $vertical-position = 1">
-					<xsl:text>A1</xsl:text>
-				</xsl:when>
-				<!-- C1 -->
-				<xsl:when test="$horizontal-position = $horizontal-count and $vertical-position = 1">
-					<xsl:text>C1</xsl:text>
-				</xsl:when>
-				<!-- B1 -->
-				<xsl:when test="$vertical-position = 1">
-					<xsl:text>B1</xsl:text>
-				</xsl:when>
-				
-				<!-- A2 -->
-				<xsl:when test="$horizontal-position = 1">
-					<xsl:text>A2</xsl:text>
-				</xsl:when>
-				<!-- C2 -->
-				<xsl:when test="$horizontal-position = $horizontal-count">
-					<xsl:text>C2</xsl:text>
-				</xsl:when>
-				
-				<!-- all other cells -->
-				<xsl:otherwise>
-					<xsl:text>B2</xsl:text>
-				</xsl:otherwise>
-				
-			</xsl:choose>
-			
-		</xsl:attribute>
-		
+                <!-- A4 -->
+                <xsl:when test="$horizontal-position = 1 and $vertical-count = 1">
+                    <xsl:text>A4</xsl:text>
+                </xsl:when>
+                <!-- C4 -->
+                <xsl:when test="$horizontal-position = $horizontal-count and $vertical-count = 1">
+                    <xsl:text>C4</xsl:text>
+                </xsl:when>
+                <!-- B4 -->
+                <xsl:when test="$vertical-count = 1">
+                    <xsl:text>B4</xsl:text>
+                </xsl:when>
+            
+                <!-- tfoot A -->
+                <xsl:when test="ancestor::h:tfoot and $horizontal-position = 1">
+                    <xsl:text>A3</xsl:text>
+                </xsl:when>
+                <!-- tfoot B -->
+                <xsl:when test="ancestor::h:tfoot and $horizontal-position = $horizontal-count">
+                    <xsl:text>C3</xsl:text>
+                </xsl:when>
+                <!-- tfoot C -->
+                <xsl:when test="ancestor::h:tfoot">
+                    <xsl:text>B3</xsl:text>
+                </xsl:when>
+            
+                <!-- A3 -->
+                <xsl:when test="$horizontal-position = 1 and $vertical-position = $vertical-count">
+                    <xsl:text>A3</xsl:text>
+                </xsl:when>
+                <!-- C3 -->
+                <xsl:when test="$horizontal-position = $horizontal-count and $vertical-position = $vertical-count">
+                    <xsl:text>C3</xsl:text>
+                </xsl:when>
+                <!-- B3 -->
+                <xsl:when test="$vertical-position = $vertical-count">
+                    <xsl:text>B3</xsl:text>
+                </xsl:when>
+            
+                <!-- A1 -->
+                <xsl:when test="$horizontal-position = 1 and $vertical-position = 1">
+                    <xsl:text>A1</xsl:text>
+                </xsl:when>
+                <!-- C1 -->
+                <xsl:when test="$horizontal-position = $horizontal-count and $vertical-position = 1">
+                    <xsl:text>C1</xsl:text>
+                </xsl:when>
+                <!-- B1 -->
+                <xsl:when test="$vertical-position = 1">
+                    <xsl:text>B1</xsl:text>
+                </xsl:when>
+                
+                <!-- A2 -->
+                <xsl:when test="$horizontal-position = 1">
+                    <xsl:text>A2</xsl:text>
+                </xsl:when>
+                <!-- C2 -->
+                <xsl:when test="$horizontal-position = $horizontal-count">
+                    <xsl:text>C2</xsl:text>
+                </xsl:when>
+                
+                <!-- all other cells -->
+                <xsl:otherwise>
+                    <xsl:text>B2</xsl:text>
+                </xsl:otherwise>
+                
+            </xsl:choose>
+            
+        </xsl:attribute>
+        
         <text:p>
             <xsl:choose>
                 <xsl:when test="self::h:th">
@@ -253,7 +253,7 @@
             </xsl:choose>
             <xsl:apply-templates/>
         </text:p>
-	</table:table-cell>
+    </table:table-cell>
 </xsl:template>
 
 
