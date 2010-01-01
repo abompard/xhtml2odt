@@ -112,7 +112,7 @@
         <xsl:with-param name="horizontal-position" select="count(preceding-sibling::*) + 1"/>
         <xsl:with-param name="horizontal-count" select="count(../*)"/>
         <xsl:with-param name="vertical-position" select="count(../preceding-sibling::h:tr) + 1"/>
-        <xsl:with-param name="vertical-count" select="count(../../*)"/>
+        <xsl:with-param name="vertical-count" select="count(../../h:tr)"/>
     </xsl:call-template>
 </xsl:template>
 
