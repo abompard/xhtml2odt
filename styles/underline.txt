@@ -1,4 +1,4 @@
-<style:style style:name="Underline" style:family="text">
+<style:style style:name="underline" style:family="text">
     <style:text-properties style:text-underline-style="solid"
                            style:text-underline-width="auto"
                            style:text-underline-color="font-color"/>

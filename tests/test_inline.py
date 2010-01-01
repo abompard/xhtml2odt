@@ -102,7 +102,7 @@ class InlineElements(unittest.TestCase):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><del>Test</del></html>'
         odt = xhtml2odt(html)
         print odt
-        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Strike">Test</text:span>\n'
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="strike">Test</text:span>\n'
 
     def test_abbr(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><abbr title="content">abbr</abbr></p></html>'
@@ -130,13 +130,13 @@ class InlineElements(unittest.TestCase):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><big>Test</big></html>'
         odt = xhtml2odt(html)
         print odt
-        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Big">Test</text:span>\n'
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="big">Test</text:span>\n'
 
     def test_small(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><small>Test</small></html>'
         odt = xhtml2odt(html)
         print odt
-        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Small">Test</text:span>\n'
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="small">Test</text:span>\n'
 
     def test_cite(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><cite>Test</cite></html>'
@@ -167,7 +167,7 @@ class InlineElements(unittest.TestCase):
         odt = xhtml2odt(html)
         print odt
         assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
-<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Underline">Test</text:span>
+<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="underline">Test</text:span>
 """
 
 

@@ -12,7 +12,7 @@ class SpecificTrac(unittest.TestCase):
         odt = xhtml2odt(html)
         print odt
         assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
-<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Underline">Test</text:span>
+<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="underline">Test</text:span>
 """
 
 

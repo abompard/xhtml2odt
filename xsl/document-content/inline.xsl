@@ -128,7 +128,7 @@
 </xsl:template>
 
 <xsl:template match="h:del">
-	<text:span text:style-name="Strike">
+	<text:span text:style-name="strike">
 		<xsl:apply-templates/>
 	</text:span>
 </xsl:template>
@@ -154,13 +154,13 @@
 </xsl:template>
 
 <xsl:template match="h:big">
-	<text:span text:style-name="Big">
+	<text:span text:style-name="big">
 		<xsl:apply-templates/>
 	</text:span>
 </xsl:template>
 
 <xsl:template match="h:small">
-	<text:span text:style-name="Small">
+	<text:span text:style-name="small">
 		<xsl:apply-templates/>
 	</text:span>
 </xsl:template>
@@ -178,7 +178,7 @@
 </xsl:template>
 
 <xsl:template match="h:ins">
-	<text:span text:style-name="Underline">
+	<text:span text:style-name="underline">
 		<xsl:apply-templates/>
 	</text:span>
 </xsl:template>
