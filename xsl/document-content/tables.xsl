@@ -58,6 +58,7 @@
         </table:table-column>
         <!--<xsl:attribute name="table:name"></xsl:attribute>-->
         <xsl:apply-templates/>
+        <xsl:apply-templates select="h:tfoot/*"/>
     </table:table>
     <xsl:if test="h:caption">
         <xsl:variable name="number">
@@ -82,7 +83,7 @@
 </xsl:template>
 
 <xsl:template match="h:tfoot">
-	<xsl:apply-templates/>
+    <!-- handled above in h:table -->
 </xsl:template>
 
 <xsl:template match="h:tbody">

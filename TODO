@@ -1,4 +1,3 @@
-- fix table footers (tfoot)
 - make sure all the used styles have a template (even generated styles, see tables)
 - column span support
 - add form elements support

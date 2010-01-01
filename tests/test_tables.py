@@ -401,19 +401,6 @@ class TableElements(unittest.TestCase):
         assert re.search(r"""
                              <table:table \s+ table:style-name="table-default"> \s*
                              <table:table-column \s+ table:number-columns-repeated="2"/> \s*
-                             <table:table-row> \s*
-
-                             <table:table-cell [^>]* # ---- Cell 1
-                             table:style-name="table-default.cell-F-A3">
-                             <text:p [^>]* >Cell1</text:p>
-                             </table:table-cell> \s*
-
-                             <table:table-cell [^>]* # ---- Cell 2
-                             table:style-name="table-default.cell-F-C3">
-                             <text:p [^>]* >Cell2</text:p>
-                             </table:table-cell> \s*
-
-                             </table:table-row> \s*
                              <table:table-row> \s* # ---- Line 1
 
                              <table:table-cell [^>]* # ---- Cell 3
@@ -437,6 +424,19 @@ class TableElements(unittest.TestCase):
                              <table:table-cell [^>]* # ---- Cell 6
                              table:style-name="table-default.cell-C2">
                              <text:p [^>]* >Cell6</text:p>
+                             </table:table-cell> \s*
+
+                             </table:table-row> \s*
+                             <table:table-row> \s* # ---- Footer
+
+                             <table:table-cell [^>]* # ---- Cell 1
+                             table:style-name="table-default.cell-F-A3">
+                             <text:p [^>]* >Cell1</text:p>
+                             </table:table-cell> \s*
+
+                             <table:table-cell [^>]* # ---- Cell 2
+                             table:style-name="table-default.cell-F-C3">
+                             <text:p [^>]* >Cell2</text:p>
                              </table:table-cell> \s*
 
                              </table:table-row> \s*
@@ -635,19 +635,6 @@ class TableElements(unittest.TestCase):
         assert re.search(r"""
                              <table:table \s+ table:style-name="table-default"> \s*
                              <table:table-column \s+ table:number-columns-repeated="2"/> \s*
-                             <table:table-row> \s*
-
-                             <table:table-cell [^>]* # ---- Cell 1
-                             table:style-name="table-default.cell-F-A3">
-                             <text:p [^>]* >Cell1</text:p>
-                             </table:table-cell> \s*
-
-                             <table:table-cell [^>]* # ---- Cell 2
-                             table:style-name="table-default.cell-F-C3">
-                             <text:p [^>]* >Cell2</text:p>
-                             </table:table-cell> \s*
-
-                             </table:table-row> \s*
                              <table:table-row> \s* # ---- Line 1
 
                              <table:table-cell [^>]* # ---- Cell 3
@@ -671,6 +658,19 @@ class TableElements(unittest.TestCase):
                              <table:table-cell [^>]* # ---- Cell 6
                              table:style-name="table-default.cell-C2">
                              <text:p [^>]* >Cell6</text:p>
+                             </table:table-cell> \s*
+
+                             </table:table-row> \s*
+                             <table:table-row> \s* # ---- Footer
+
+                             <table:table-cell [^>]* # ---- Cell 1
+                             table:style-name="table-default.cell-F-A3">
+                             <text:p [^>]* >Cell1</text:p>
+                             </table:table-cell> \s*
+
+                             <table:table-cell [^>]* # ---- Cell 2
+                             table:style-name="table-default.cell-F-C3">
+                             <text:p [^>]* >Cell2</text:p>
                              </table:table-cell> \s*
 
                              </table:table-row> \s*
