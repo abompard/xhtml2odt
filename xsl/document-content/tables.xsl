@@ -107,12 +107,23 @@
 	</xsl:choose>
 </xsl:template>
 
-<xsl:template match="h:td|h:th">
+<xsl:template match="h:th">
     <xsl:call-template name="table-cell">
         <xsl:with-param name="horizontal-position" select="count(preceding-sibling::*) + 1"/>
         <xsl:with-param name="horizontal-count" select="count(../*)"/>
         <xsl:with-param name="vertical-position" select="count(../preceding-sibling::h:tr) + 1"/>
-        <xsl:with-param name="vertical-count" select="count(../../h:tr)"/>
+        <xsl:with-param name="vertical-count" select="count(ancestor::h:table[1]/descendant::h:tr)"/>
+    </xsl:call-template>
+</xsl:template>
+
+<xsl:template match="h:td">
+    <xsl:call-template name="table-cell">
+        <xsl:with-param name="horizontal-position" select="count(preceding-sibling::*) + 1"/>
+        <xsl:with-param name="horizontal-count" select="count(../*)"/>
+        <xsl:with-param name="vertical-position" select="count(../preceding-sibling::h:tr)
+                                                       + count(ancestor::h:table[1]/descendant::h:thead/h:tr)
+                                                       + 1"/>
+        <xsl:with-param name="vertical-count" select="count(ancestor::h:table[1]/descendant::h:tr)"/>
     </xsl:call-template>
 </xsl:template>
 
@@ -171,6 +182,19 @@
 				<!-- B4 -->
 				<xsl:when test="$vertical-count = 1">
 					<xsl:text>B4</xsl:text>
+				</xsl:when>
+			
+				<!-- tfoot A -->
+				<xsl:when test="ancestor::h:tfoot and $horizontal-position = 1">
+					<xsl:text>A3</xsl:text>
+				</xsl:when>
+				<!-- tfoot B -->
+				<xsl:when test="ancestor::h:tfoot and $horizontal-position = $horizontal-count">
+					<xsl:text>C3</xsl:text>
+				</xsl:when>
+				<!-- tfoot C -->
+				<xsl:when test="ancestor::h:tfoot">
+					<xsl:text>B3</xsl:text>
 				</xsl:when>
 			
 				<!-- A3 -->

@@ -237,6 +237,10 @@ class TableElements(unittest.TestCase):
                 <td>Cell3</td>
                 <td>Cell4</td>
               </tr>
+              <tr>
+                <td>Cell5</td>
+                <td>Cell6</td>
+              </tr>
             </table>
         </html>
         """
@@ -264,16 +268,29 @@ class TableElements(unittest.TestCase):
 
                              </table:table-row> \s*
                              </table:table-header-rows> \s*
+                             <table:table-row> \s* # ---- Line 1
 
-                             <table:table-row> \s*
                              <table:table-cell [^>]* # ---- Cell 3
-                             table:style-name="table-default.cell-A3">
+                             table:style-name="table-default.cell-A2">
                              <text:p [^>]* >Cell3</text:p>
                              </table:table-cell> \s*
 
                              <table:table-cell [^>]* # ---- Cell 4
-                             table:style-name="table-default.cell-C3">
+                             table:style-name="table-default.cell-C2">
                              <text:p [^>]* >Cell4</text:p>
+                             </table:table-cell> \s*
+
+                             </table:table-row> \s*
+                             <table:table-row> \s* # ---- Line 2
+
+                             <table:table-cell [^>]* # ---- Cell 5
+                             table:style-name="table-default.cell-A3">
+                             <text:p [^>]* >Cell5</text:p>
+                             </table:table-cell> \s*
+
+                             <table:table-cell [^>]* # ---- Cell 5
+                             table:style-name="table-default.cell-C3">
+                             <text:p [^>]* >Cell6</text:p>
                              </table:table-cell> \s*
 
                              </table:table-row> \s*
@@ -294,6 +311,10 @@ class TableElements(unittest.TestCase):
                 <td>Cell3</td>
                 <td>Cell4</td>
               </tr>
+              <tr>
+                <td>Cell5</td>
+                <td>Cell6</td>
+              </tr>
             </table>
         </html>
         """
@@ -310,27 +331,40 @@ class TableElements(unittest.TestCase):
                              <table:table-row> \s*
 
                              <table:table-cell [^>]* # ---- Cell 1
-                             table:style-name="table-default.cell-H-A4">
+                             table:style-name="table-default.cell-H-A1">
                              <text:p [^>]* >Cell1</text:p>
                              </table:table-cell> \s*
 
                              <table:table-cell [^>]* # ---- Cell 2
-                             table:style-name="table-default.cell-H-C4">
+                             table:style-name="table-default.cell-H-C1">
                              <text:p [^>]* >Cell2</text:p>
                              </table:table-cell> \s*
 
                              </table:table-row> \s*
                              </table:table-header-rows> \s*
+                             <table:table-row> \s* # ---- Line 1
 
-                             <table:table-row> \s*
                              <table:table-cell [^>]* # ---- Cell 3
-                             table:style-name="table-default.cell-A4">
+                             table:style-name="table-default.cell-A2">
                              <text:p [^>]* >Cell3</text:p>
                              </table:table-cell> \s*
 
                              <table:table-cell [^>]* # ---- Cell 4
-                             table:style-name="table-default.cell-C4">
+                             table:style-name="table-default.cell-C2">
                              <text:p [^>]* >Cell4</text:p>
+                             </table:table-cell> \s*
+
+                             </table:table-row> \s*
+                             <table:table-row> \s* # ---- Line 2
+
+                             <table:table-cell [^>]* # ---- Cell 5
+                             table:style-name="table-default.cell-A3">
+                             <text:p [^>]* >Cell5</text:p>
+                             </table:table-cell> \s*
+
+                             <table:table-cell [^>]* # ---- Cell 6
+                             table:style-name="table-default.cell-C3">
+                             <text:p [^>]* >Cell6</text:p>
                              </table:table-cell> \s*
 
                              </table:table-row> \s*
@@ -351,6 +385,10 @@ class TableElements(unittest.TestCase):
                 <td>Cell3</td>
                 <td>Cell4</td>
               </tr>
+              <tr>
+                <td>Cell5</td>
+                <td>Cell6</td>
+              </tr>
             </table>
         </html>
         """
@@ -366,26 +404,39 @@ class TableElements(unittest.TestCase):
                              <table:table-row> \s*
 
                              <table:table-cell [^>]* # ---- Cell 1
-                             table:style-name="table-default.cell-F-A4">
+                             table:style-name="table-default.cell-F-A3">
                              <text:p [^>]* >Cell1</text:p>
                              </table:table-cell> \s*
 
                              <table:table-cell [^>]* # ---- Cell 2
-                             table:style-name="table-default.cell-F-C4">
+                             table:style-name="table-default.cell-F-C3">
                              <text:p [^>]* >Cell2</text:p>
                              </table:table-cell> \s*
 
                              </table:table-row> \s*
+                             <table:table-row> \s* # ---- Line 1
 
-                             <table:table-row> \s*
                              <table:table-cell [^>]* # ---- Cell 3
-                             table:style-name="table-default.cell-A4">
+                             table:style-name="table-default.cell-A1">
                              <text:p [^>]* >Cell3</text:p>
                              </table:table-cell> \s*
 
                              <table:table-cell [^>]* # ---- Cell 4
-                             table:style-name="table-default.cell-C4">
+                             table:style-name="table-default.cell-C1">
                              <text:p [^>]* >Cell4</text:p>
+                             </table:table-cell> \s*
+
+                             </table:table-row> \s*
+                             <table:table-row> \s* # ---- Line 2
+
+                             <table:table-cell [^>]* # ---- Cell 5
+                             table:style-name="table-default.cell-A2">
+                             <text:p [^>]* >Cell5</text:p>
+                             </table:table-cell> \s*
+
+                             <table:table-cell [^>]* # ---- Cell 6
+                             table:style-name="table-default.cell-C2">
+                             <text:p [^>]* >Cell6</text:p>
                              </table:table-cell> \s*
 
                              </table:table-row> \s*
@@ -491,6 +542,10 @@ class TableElements(unittest.TestCase):
                   <td>Cell3</td>
                   <td>Cell4</td>
                 </tr>
+                <tr>
+                  <td>Cell5</td>
+                  <td>Cell6</td>
+                </tr>
               </tbody>
             </table>
         </html>
@@ -508,27 +563,40 @@ class TableElements(unittest.TestCase):
                              <table:table-row> \s*
 
                              <table:table-cell [^>]* # ---- Cell 1
-                             table:style-name="table-default.cell-H-A4">
+                             table:style-name="table-default.cell-H-A1">
                              <text:p [^>]* >Cell1</text:p>
                              </table:table-cell> \s*
 
                              <table:table-cell [^>]* # ---- Cell 2
-                             table:style-name="table-default.cell-H-C4">
+                             table:style-name="table-default.cell-H-C1">
                              <text:p [^>]* >Cell2</text:p>
                              </table:table-cell> \s*
 
                              </table:table-row> \s*
                              </table:table-header-rows> \s*
+                             <table:table-row> \s* # ---- Line 1
 
-                             <table:table-row> \s*
                              <table:table-cell [^>]* # ---- Cell 3
-                             table:style-name="table-default.cell-A4">
+                             table:style-name="table-default.cell-A2">
                              <text:p [^>]* >Cell3</text:p>
                              </table:table-cell> \s*
 
                              <table:table-cell [^>]* # ---- Cell 4
-                             table:style-name="table-default.cell-C4">
+                             table:style-name="table-default.cell-C2">
                              <text:p [^>]* >Cell4</text:p>
+                             </table:table-cell> \s*
+
+                             </table:table-row> \s*
+                             <table:table-row> \s* # ---- Line 2
+
+                             <table:table-cell [^>]* # ---- Cell 5
+                             table:style-name="table-default.cell-A3">
+                             <text:p [^>]* >Cell5</text:p>
+                             </table:table-cell> \s*
+
+                             <table:table-cell [^>]* # ---- Cell 6
+                             table:style-name="table-default.cell-C3">
+                             <text:p [^>]* >Cell6</text:p>
                              </table:table-cell> \s*
 
                              </table:table-row> \s*
@@ -550,6 +618,10 @@ class TableElements(unittest.TestCase):
                   <td>Cell3</td>
                   <td>Cell4</td>
                 </tr>
+                <tr>
+                  <td>Cell5</td>
+                  <td>Cell6</td>
+                </tr>
               </tbody>
             </table>
         </html>
@@ -566,26 +638,39 @@ class TableElements(unittest.TestCase):
                              <table:table-row> \s*
 
                              <table:table-cell [^>]* # ---- Cell 1
-                             table:style-name="table-default.cell-F-A4">
+                             table:style-name="table-default.cell-F-A3">
                              <text:p [^>]* >Cell1</text:p>
                              </table:table-cell> \s*
 
                              <table:table-cell [^>]* # ---- Cell 2
-                             table:style-name="table-default.cell-F-C4">
+                             table:style-name="table-default.cell-F-C3">
                              <text:p [^>]* >Cell2</text:p>
                              </table:table-cell> \s*
 
                              </table:table-row> \s*
+                             <table:table-row> \s* # ---- Line 1
 
-                             <table:table-row> \s*
                              <table:table-cell [^>]* # ---- Cell 3
-                             table:style-name="table-default.cell-A4">
+                             table:style-name="table-default.cell-A1">
                              <text:p [^>]* >Cell3</text:p>
                              </table:table-cell> \s*
 
                              <table:table-cell [^>]* # ---- Cell 4
-                             table:style-name="table-default.cell-C4">
+                             table:style-name="table-default.cell-C1">
                              <text:p [^>]* >Cell4</text:p>
+                             </table:table-cell> \s*
+
+                             </table:table-row> \s*
+                             <table:table-row> \s* # ---- Line 2
+
+                             <table:table-cell [^>]* # ---- Cell 5
+                             table:style-name="table-default.cell-A2">
+                             <text:p [^>]* >Cell5</text:p>
+                             </table:table-cell> \s*
+
+                             <table:table-cell [^>]* # ---- Cell 6
+                             table:style-name="table-default.cell-C2">
+                             <text:p [^>]* >Cell6</text:p>
                              </table:table-cell> \s*
 
                              </table:table-row> \s*
