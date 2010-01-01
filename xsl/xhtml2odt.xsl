@@ -47,8 +47,8 @@
 <!-- SETTINGS -->
 <xsl:decimal-format name="staff" digit="D" />
 <xsl:output method="xml" indent="yes" omit-xml-declaration="no" encoding="utf-8"/>
-<!-- <xsl:strip-space elements="*"/> -->
-<!-- <xsl:preserve-space elements=""/> -->
+<xsl:strip-space elements="*"/>
+<!--<xsl:preserve-space elements=""/>-->
 
 
 <xsl:include href="param.xsl"/>
