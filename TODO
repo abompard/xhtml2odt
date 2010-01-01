@@ -1,5 +1,4 @@
-- make sure all the used styles have a template (even generated styles, see tables)
+- standardize style naming: capitalized for main styles and lowercase for autostyles
 - column span support
 - add form elements support
 - add font tag support
-- standardize style naming: capitalized for main styles and lowercase for autostyles

@@ -187,44 +187,6 @@ class TableElements(unittest.TestCase):
         assert str(odt).count('table:style-name="table-default.cell-A4"') > 0
         assert str(odt).count('table:style-name="table-default.cell-A4"') > 0
 
-    def test_table_th(self):
-        """Test <th> tags alone"""
-        html = """<html xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-              <tr>
-                <th>Cell 1</th>
-                <th>Cell 2</th>
-              </tr>
-            </table>
-        </html>
-        """
-        odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
-        print odt
-        assert re.search(r"""
-                             <table:table \s+ table:style-name="table-default"> \s*
-                             <table:table-column \s+ table:number-columns-repeated="2"/> \s*
-                             <table:table-header-rows> \s*
-                             <table:table-row> \s*
-
-                             <table:table-cell [^>]* # ---- Cell 1
-                             table:style-name="table-default.cell-H-A4">
-                             <text:p [^>]* >Cell[ ]1</text:p>
-                             </table:table-cell> \s*
-
-                             <table:table-cell [^>]* # ---- Cell 2
-                             table:style-name="table-default.cell-H-C4">
-                             <text:p [^>]* >Cell[ ]2</text:p>
-                             </table:table-cell> \s*
-
-                             </table:table-row> \s*
-                             </table:table-header-rows> \s*
-                             </table:table>
-                             """, str(odt), re.X)
-
     def test_table_th_td(self):
         """Test <th> tags with <td> tags"""
         html = """<html xmlns="http://www.w3.org/1999/xhtml">

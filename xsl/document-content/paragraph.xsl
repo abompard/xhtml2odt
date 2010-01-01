@@ -78,8 +78,12 @@
 		
 		<xsl:attribute name="text:style-name">
 			<xsl:choose>
-				<xsl:when test="parent::h:ul|parent::h:ol">
-					<xsl:text>list-item</xsl:text>
+                <!-- those two seem unnecessary, it's handled in lists.xsl -->
+				<xsl:when test="parent::h:ul">
+					<xsl:text>list-item-bullet</xsl:text>
+				</xsl:when>
+				<xsl:when test="parent::h:ol">
+					<xsl:text>list-item-number</xsl:text>
 				</xsl:when>
 				<xsl:when test="parent::h:blockquote">Quotations</xsl:when>
 				<xsl:when test="contains(@style,'text-align:') and contains(@style,'center')">

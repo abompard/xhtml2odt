@@ -148,7 +148,7 @@
 		<xsl:attribute name="table:style-name">
 			<xsl:text>table-default.cell-</xsl:text>
 			<!-- prefix -->
-			<xsl:if test="local-name() = 'th'">
+			<xsl:if test="self::h:th">
 				<xsl:text>H-</xsl:text>
 			</xsl:if>
 			<xsl:if test="parent::h:tr/parent::h:tfoot">
@@ -244,7 +244,7 @@
 		
         <text:p>
             <xsl:choose>
-                <xsl:when test="local-name() = 'th'">
+                <xsl:when test="self::h:th">
                     <xsl:attribute name="text:style-name">Table_20_Heading</xsl:attribute>
                 </xsl:when>
                 <xsl:otherwise>
