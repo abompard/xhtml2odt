@@ -155,6 +155,11 @@
 			-->
 			<xsl:choose>
 			
+				<!-- single -->
+				<xsl:when test="$horizontal-count = 1 and $vertical-count = 1">
+					<xsl:text>single</xsl:text>
+				</xsl:when>
+
 				<!-- A4 -->
 				<xsl:when test="$horizontal-position = 1 and $vertical-count = 1">
 					<xsl:text>A4</xsl:text>

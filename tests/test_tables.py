@@ -416,6 +416,36 @@ class TableElements(unittest.TestCase):
         print odt
         assert odt.count('<text:p text:style-name="Table_20_Heading">Cell</text:p>') > 0
 
+    def test_table_single_cell(self):
+        html = """<html xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+              <tr>
+                <td>Cell</td>
+              </tr>
+            </table>
+        </html>
+        """
+        odt = xhtml2odt(html)
+        # remove namespaces
+        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
+        # remove comments
+        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
+        print odt
+        assert re.search(r"""
+                             <table:table \s+ table:style-name="table-default"> \s*
+                             <table:table-column \s+ table:number-columns-repeated="1"/> \s*
+                             <table:table-row> \s* # -------- Line
+
+                             <table:table-cell [^>]* # ---- Cell
+                             table:style-name="table-default.cell-single">
+                             <text:p [^>]* >Cell</text:p>
+                             </table:table-cell> \s*
+
+                             </table:table-row> \s*
+                             </table:table>
+                             """, str(odt), re.X)
+
+
 
 if __name__ == '__main__':
     unittest.main()
