@@ -1,47 +1,65 @@
-XHTML2ODT - XHTML to ODT XML transformation
-===========================================
+XHTML to ODT XML transformation
+-------------------------------
 
-Copyright (C) 2009-2010 Aurelien Bompard <aurelien@bompard.org>
-Based on the work on docbook2odt, by Roman Fordinal
-http://open.comsultia.com/docbook2odf/
+These stylesheets convert namespaced XHTML to [ODT][1].
 
-These stylesheets convert namespaced HTML to ODT.
 
-The HTML may be included in an ODT document, the ODT will be left untouched.
+The HTML must be well-formed and valid, so I recommand running it through [Tidy][1] before sending it to the stylesheets.
+
+Those stylesheets do not build a whole ODT file, they only convert the XHTML to the equivalent OpenDocument XML. The result can then be inserted in a template ODT file. The HTML may be included in an ODT document, the ODT will be left untouched.
+
+This is based on the work on [docbook2odt][3], by Roman Fordinal. Many thanks to him.
+
+[1]: http://en.wikipedia.org/wiki/OpenDocument
+[2]: http://tidy.sourceforge.net/
+[3]: http://open.comsultia.com/docbook2odf/
 
 
 Caveats
 -------
 
-Styles: the styles are not added to the document. After converting to ODT, you
-must go through the styles used in the document and add the needed styles.
-Templates for those styles are provided in the "styles" subdirectory. If a
-style has a "display-name" property, it must be added to styles.xml. Otherwise
-it must be added to the automatic-styles section of content.xml.
+*Styles* : the styles are not added to the document. After converting to ODT, you must go through the styles used in the document and add the needed styles. Templates for those styles are provided in the "styles" subdirectory. If a style has a "display-name" property, it must be added to styles.xml. Otherwise it must be added to the automatic-styles section of content.xml.
 
-Images: images are not added, you must manually go trough the draw:image
-elements in the converted ODT text and use the xlink:href attribute to download
-or copy the image. While you're at it, you should update the image dimensions
-if the were not provided in the img tag.
+*Images* : images are not added, you must manually go trough the draw:image elements in the converted ODT text and use the xlink:href attribute to download or copy the image. While you're at it, you should update the image dimensions if the were not provided in the img tag.
+
+
+Command-line
+------------
+
+A command-line script to run the stylesheets is provided. It does import the style and the images, so while it's written in Python it can also be used as a code example for these two steps in another language. A PHP-base implementation can be found in the Dotclear ODT plugin available from http://lab.dotclear.org/wiki/plugin/odt.
+
+To get information on the script's options, run it with `--help`:
+
+    ./xhtml2odt.py --help
+
+The script can be installed on the system with the `make install` command.
 
 
 Tests
 -----
+
 The unit tests are python-based, you need to install the "nose" python module
 availble from PyPI (or your distribution).
 
-Then, just run "nosetests tests"
+Then, just run `nosetests tests`
 
 
 References
 ----------
- * http://lab.dotclear.org/wiki/plugin/odt
- * http://trac-hacks.org/wiki/OdtExportPlugin
- * http://www.dokuwiki.org/plugin:odt
+
+ * [ODT export for Dotclear](http://lab.dotclear.org/wiki/plugin/odt)
+ * [ODT export for Trac](http://trac-hacks.org/wiki/OdtExportPlugin)
+ * [ODT export for Dokuwiki](http://www.dokuwiki.org/plugin:odt) (not using this project, but similar and by the same author)
 
 
 License
 -------
+
+Copyright (C) 2009-2010 Aurelien Bompard <aurelien@bompard.org>
+
+Based on the work on docbook2odt, by Roman Fordinal
+http://open.comsultia.com/docbook2odf/
+
 License is GPL v2 or later.
 
 This program is free software; you can redistribute it and/or
