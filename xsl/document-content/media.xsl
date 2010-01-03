@@ -79,9 +79,9 @@
             <xsl:otherwise>
                 <!-- In OpenDocument svg:width and height must be defined. -->
                 <!-- Use defaults here -->
-                <xsl:attribute name="svg:width">8cm</xsl:attribute>
+                <xsl:attribute name="svg:width"><xsl:value-of select="$img_default_width"/></xsl:attribute>
                 <xsl:attribute name="style:rel-width">50%</xsl:attribute>
-                <xsl:attribute name="svg:height">6cm</xsl:attribute>
+                <xsl:attribute name="svg:height"><xsl:value-of select="$img_default_height"/></xsl:attribute>
                 <xsl:attribute name="style:rel-height">scale</xsl:attribute>
             </xsl:otherwise>
         </xsl:choose>

@@ -47,6 +47,8 @@
     <xsl:param name="root_url">http://localhost</xsl:param>
     <xsl:param name="heading_minus_level">0</xsl:param>
     <xsl:param name="para.padding">0.20cm</xsl:param>
+    <xsl:param name="img_default_width">8cm</xsl:param>
+    <xsl:param name="img_default_height">6cm</xsl:param>
     
 </xsl:stylesheet>
 
