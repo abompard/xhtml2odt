@@ -96,7 +96,9 @@
 
 <!-- Leave alone unknown tags -->
 <xsl:template match="*">
-    <xsl:message>Unknown tag : <xsl:value-of select="name(.)"/><xsl:value-of select="."/></xsl:message>
+    <xsl:if test="$debug">
+        <xsl:comment>Unknown tag : <xsl:value-of select="name(.)"/><xsl:value-of select="."/></xsl:comment>
+    </xsl:if>
     <xsl:copy>
         <xsl:copy-of select="@*"/>
         <xsl:apply-templates/>

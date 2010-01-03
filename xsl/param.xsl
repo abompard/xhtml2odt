@@ -43,8 +43,9 @@
     version="1.0">
     
     
-    <xsl:param name="root_url">http://<xsl:value-of select="$domain"/></xsl:param>
-    <!-- <xsl:param name="heading.minus.level">2</xsl:param> -->
+    <xsl:param name="debug"></xsl:param>
+    <xsl:param name="root_url">http://localhost</xsl:param>
+    <xsl:param name="heading_minus_level">0</xsl:param>
     <xsl:param name="para.padding">0.20cm</xsl:param>
     
 </xsl:stylesheet>
