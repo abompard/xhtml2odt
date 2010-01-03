@@ -426,35 +426,41 @@ def log(msg, verbose=False):
 def get_options():
     usage = "usage: %prog [options] -i input -o output -t template.odt"
     parser = OptionParser(usage=usage)
-    parser.add_option("-i", "--input", dest="input",
+    parser.add_option("-i", "--input", dest="input", metavar="FILE",
                       help="Read the html from this file")
-    parser.add_option("-o", "--output", dest="output",
+    parser.add_option("-o", "--output", dest="output", metavar="FILE",
                       help="Location of the output ODT file")
-    parser.add_option("-t", "--template", dest="template",
+    parser.add_option("-t", "--template", dest="template", metavar="FILE",
                       help="Location of the template ODT file")
     parser.add_option("-u", "--url", dest="url",
                       help="Use this URL for relative links")
     parser.add_option("-v", "--verbose", dest="verbose",
                       action="store_true", default=False,
                       help="Show what's going on")
+    parser.add_option("--html-id", dest="htmlid", metavar="ID",
+                      help="Only export from the element with this ID")
+    parser.add_option("--replace", dest="replace_keyword",
+                      default="ODT-INSERT", metavar="KEYWORD",
+                      help="Keyword to replace in the ODT template "
+                      "(default is %default)")
+    parser.add_option("--top-header-level", dest="top_header_level",
+                      type="int", default="1", metavar="LEVEL",
+                      help="Level of highest header in the HTML "
+                      "(default is %default)")
     parser.add_option("--img-default-width", dest="img_width",
-                      help="Default image width (default is 8cm)")
+                      metavar="WIDTH", default="8cm",
+                      help="Default image width (default is %default)")
     parser.add_option("--img-default-height", dest="img_height",
-                      help="Default image height (default is 6cm)")
-    parser.add_option("--dpi", dest="img_dpi", type="int", default=96,
-                      help="Screen resolution in DPI (Dots Per Inch)")
+                      metavar="HEIGHT", default="6cm",
+                      help="Default image height (default is %default)")
+    parser.add_option("--dpi", dest="img_dpi", type="int",
+                      default=96, metavar="DPI", help="Screen resolution "
+                      "in Dots Per Inch (default is %default)")
     parser.add_option("--no-network", dest="with_network",
                       action="store_false", default=True,
-                      help="Download remote images")
-    parser.add_option("--replace", dest="replace_keyword", default="ODT-INSERT",
-                      help="Keyword to replace in the ODT template")
+                      help="Do not download remote images")
     parser.add_option("--tpldir", dest="tpldir",
                       help="Override templates directory")
-    parser.add_option("--top-header-level", dest="top_header_level",
-                      type="int", default="1",
-                      help="Level of highest header in the HTML")
-    parser.add_option("--html-id", dest="htmlid",
-                      help="Only export from this element")
     options, args = parser.parse_args()
     if len(args) > 0:
         parser.error("illegal arguments: %s"% ", ".join(args))
