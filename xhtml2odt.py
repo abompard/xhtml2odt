@@ -133,8 +133,19 @@ class ODTFile(object):
         transform = etree.XSLT(xslt_doc)
         xhtml = self.handle_images(xhtml)
         xhtml = etree.fromstring(xhtml) # must be valid xml at this point
-        hml = str(self.options.top_header_level - 1)
-        odt = transform(xhtml, root_url='/', heading_minus_level=hml)
+        params = {
+            "root_url": "/",
+            "heading_minus_level": str(self.options.top_header_level - 1),
+        }
+        if self.options.verbose:
+            params["debug"] = "1"
+        if self.options.img_width:
+            params["img_default_width"] = etree.XSLT.strparam(
+                                            self.options.img_width)
+        if self.options.img_height:
+            params["img_default_height"] = etree.XSLT.strparam(
+                                            self.options.img_height)
+        odt = transform(xhtml, **params)
         return str(odt).replace('<?xml version="1.0" encoding="utf-8"?>','')
 
     def handle_images(self, xhtml):
@@ -404,10 +415,10 @@ def get_options():
     parser.add_option("-v", "--verbose", dest="verbose",
                       action="store_true", default=False,
                       help="Show what's going on")
-    parser.add_option("--img-max-x", dest="img_max_x", type="float",
-                      help="Maximum image width in cm")
-    parser.add_option("--img-max-y", dest="img_max_y", type="float",
-                      help="Maximum image height in cm")
+    parser.add_option("--img-default-width", dest="img_width",
+                      help="Default image width (default is 8cm)")
+    parser.add_option("--img-default-height", dest="img_height",
+                      help="Default image height (default is 6cm)")
     parser.add_option("--dpi", dest="img_dpi", type="int", default=96,
                       help="Screen resolution in DPI (Dots Per Inch)")
     parser.add_option("--no-network", dest="with_network",
