@@ -91,7 +91,7 @@
         <xsl:element name="draw:image">
             <xsl:attribute name="xlink:href"><xsl:value-of select="@src"/></xsl:attribute>
             <xsl:attribute name="xlink:type">simple</xsl:attribute>
-            <xsl:attribute name="xlink:type">embed</xsl:attribute>
+            <xsl:attribute name="xlink:show">embed</xsl:attribute>
             <xsl:attribute name="xlink:actuate">onLoad</xsl:attribute>
         </xsl:element>
 

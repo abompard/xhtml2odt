@@ -182,7 +182,7 @@ class ODTFile(object):
             return img_mo.group().replace(src, newsrc)
         try:
             tmpfile = self.download_img(newsrc)
-        except urllib2.HTTPError:
+        except (urllib2.HTTPError, urllib2.URLError):
             log("Failed getting %s" % newsrc, self.options.verbose)
             return img_mo.group()
         ret = self.handle_img(img_mo.group(), src, tmpfile)
@@ -194,7 +194,7 @@ class ODTFile(object):
         src = img_mo.group(1)
         try:
             tmpfile = self.download_img(src)
-        except urllib2.HTTPError:
+        except (urllib2.HTTPError, urllib2.URLError):
             return img_mo.group()
         ret = self.handle_img(img_mo.group(), src, tmpfile)
         os.remove(tmpfile)
