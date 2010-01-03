@@ -17,7 +17,7 @@ class MediaElements(unittest.TestCase):
                              text:anchor-type="paragraph" \s+
                              draw:name="imageobject-[a-z0-9]+" \s+
                              svg:width="8cm" \s+
-                             style:rel-width="50%" \s+
+                             style:rel-width="scale" \s+
                              svg:height="6cm" \s+
                              style:rel-height="scale" \s+
                              svg:y="0.20cm" \s+
@@ -25,7 +25,8 @@ class MediaElements(unittest.TestCase):
                                  <draw:image \s+
                                  xmlns:xlink="http://www.w3.org/1999/xlink" \s+
                                  xlink:href="imagesource" \s+
-                                 xlink:type="embed" \s+
+                                 xlink:type="simple" \s+
+                                 xlink:show="embed" \s+
                                  xlink:actuate="onLoad"/> \s*
                                  <svg:title/> \s*
                              </draw:frame>""", str(odt), re.X)
@@ -46,7 +47,8 @@ class MediaElements(unittest.TestCase):
                                  <draw:image \s+
                                  xmlns:xlink="http://www.w3.org/1999/xlink" \s+
                                  xlink:href="imagesource" \s+
-                                 xlink:type="embed" \s+
+                                 xlink:type="simple" \s+
+                                 xlink:show="embed" \s+
                                  xlink:actuate="onLoad"/> \s*
                                  <svg:title/> \s*
                              </draw:frame>""", str(odt), re.X)
