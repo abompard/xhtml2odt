@@ -28,6 +28,12 @@ Command-line script
 
 A command-line script to run the stylesheets is provided. It does import the styles and the images, so while it's written in Python it can also be used as a code example for these two steps in another language. A PHP-base implementation can be found in the [Dotclear ODT export plugin][].
 
+The script depends on the following Python modules:
+
+ * [uTidylib][]
+ * [lxml][]
+ * [PIL][]
+
 To get information on the script's options, run it with `--help`:
 
     ./xhtml2odt.py --help
@@ -35,6 +41,9 @@ To get information on the script's options, run it with `--help`:
 The script can be installed on the system with the `make install` command.
 
 [Dotclear ODT export plugin]: http://lab.dotclear.org/wiki/plugin/odt
+[uTidylib]: http://pypi.python.org/pypi/uTidylib
+[lxml]: http://pypi.python.org/pypi/lxml
+[PIL]: http://pypi.python.org/pypi/PIL
 
 
 Tests

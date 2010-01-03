@@ -33,7 +33,6 @@ import sys
 import zipfile
 import urllib2
 import urlparse
-import subprocess
 from glob import glob
 from StringIO import StringIO
 from optparse import OptionParser
@@ -42,7 +41,7 @@ import tidy
 from lxml import etree
 from PIL import Image
 
-#pylint#: disable-msg=E0611,C0301,C0111
+#pylint#: disable-msg=C0301,C0111
 
 INSTALL_PATH = "."
 
@@ -217,9 +216,10 @@ class ODTFile(object):
     def handle_img(self, full_tag, src, filename):
         log('Importing image: %s' % filename, self.options.verbose)
         if not os.path.exists(filename):
-            raise ODTExportError('Image "%s" is not readable or does not exist' % filename)
-        # TODO: generate a filename (with tempfile.mkstemp) to avoid weird filenames.
-        #       Maybe use img.format for the extension
+            raise ODTExportError('Image "%s" is not readable or does not exist'
+                                 % filename)
+        # TODO: generate a filename (with tempfile.mkstemp) to avoid weird
+        # filenames. Maybe use img.format for the extension
         if not os.path.exists(os.path.join(self.tmpdir, "Pictures")):
             os.mkdir(os.path.join(self.tmpdir, "Pictures"))
         shutil.copy(filename, os.path.join(self.tmpdir, "Pictures",
@@ -228,10 +228,12 @@ class ODTFile(object):
         try:
             img = Image.open(filename)
         except IOError:
-            log('Failed to identify image: %s' % filename, self.options.verbose)
+            log('Failed to identify image: %s' % filename,
+                self.options.verbose)
         else:
             width, height = img.size
-            log('Detected size: %spx x %spx' % (width, height), self.options.verbose)
+            log('Detected size: %spx x %spx' % (width, height),
+                self.options.verbose)
             width = width / float(self.options.img_dpi) * INCH_TO_CM
             height = height / float(self.options.img_dpi) * INCH_TO_CM
             newsrc += '" width="%scm" height="%scm' % (width, height)
@@ -245,7 +247,8 @@ class ODTFile(object):
         return xhtml
 
     def handle_relative_links(self, link_mo):
-        log("handling relative link: %s" % link_mo.group(1), self.options.verbose)
+        log("handling relative link: %s" % link_mo.group(1),
+            self.options.verbose)
         href = link_mo.group(1)
         if href.startswith("file://") or not self.options.url:
             # There's nothing we can do here
@@ -289,8 +292,10 @@ class ODTFile(object):
         name = style_name_mo.group(1)
         if name in self.fonts:
             return # already added
-        if self.xml["styles"].count('<style:font-face style:name="%s"' % name) > 0 or \
-            self.xml["content"].count('<style:font-face style:name="%s"' % name) > 0:
+        if self.xml["styles"].count('<style:font-face style:name="%s"'
+                                    % name) > 0 or \
+            self.xml["content"].count('<style:font-face style:name="%s"'
+                                    % name) > 0:
             return # already present in the template
         self.fonts[name] = font
 
@@ -307,8 +312,8 @@ class ODTFile(object):
                 if self.xml[xmlfile].count("<office:automatic-styles/>") > 0:
                     self.xml[xmlfile] = self.xml[xmlfile].replace(
                         "<office:automatic-styles/>",
-                        "<office:automatic-styles>%s</office:automatic-styles>" %
-                        autostyles)
+                        "<office:automatic-styles>%s" % autostyles + \
+                        "</office:automatic-styles>")
                 else:
                     self.xml[xmlfile] = self.xml[xmlfile].replace(
                         "</office:automatic-styles>",
