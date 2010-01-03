@@ -132,6 +132,7 @@ class ODTFile(object):
         xslt_doc = etree.parse(os.path.join(xsl_dir, "xhtml2odt.xsl"))
         transform = etree.XSLT(xslt_doc)
         xhtml = self.handle_images(xhtml)
+        xhtml = self.handle_links(xhtml)
         xhtml = etree.fromstring(xhtml) # must be valid xml at this point
         params = {
             "root_url": "/",
@@ -172,11 +173,13 @@ class ODTFile(object):
             filename = os.path.join(os.path.dirname(self.options.input), src)
         if os.path.exists(filename):
             return self.handle_img(img_mo.group(), src, filename)
-        if src.startswith("file://") or not self.options.url \
-                or not self.options.with_network:
+        if src.startswith("file://") or not self.options.url:
             # There's nothing we can do here
             return img_mo.group()
         newsrc = urlparse.urljoin(self.options.url, os.path.normpath(src))
+        if not self.options.with_network:
+            # Don't download it, just update the URL
+            return img_mo.group().replace(src, newsrc)
         try:
             tmpfile = self.download_img(newsrc)
         except urllib2.HTTPError:
@@ -233,6 +236,25 @@ class ODTFile(object):
             height = height / float(self.options.img_dpi) * INCH_TO_CM
             newsrc += '" width="%scm" height="%scm' % (width, height)
         return full_tag.replace(src, newsrc)
+
+    def handle_links(self, xhtml):
+        """Turn relative links into absolute links"""
+        # Handle local images
+        xhtml = re.sub('<a [^>]*href="([^"]+)"',
+                      self.handle_relative_links, xhtml)
+        return xhtml
+
+    def handle_relative_links(self, link_mo):
+        log("handling relative link: %s" % link_mo.group(1), self.options.verbose)
+        href = link_mo.group(1)
+        if href.startswith("file://") or not self.options.url:
+            # There's nothing we can do here
+            return link_mo.group()
+        if href.count("://"):
+            # This is an absolute link, don't touch it
+            return link_mo.group()
+        newhref = urlparse.urljoin(self.options.url, os.path.normpath(href))
+        return link_mo.group().replace(href, newhref)
 
     def insert_content(self, content):
         if self.options.replace_keyword and \
