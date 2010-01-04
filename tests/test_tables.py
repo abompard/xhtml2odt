@@ -111,7 +111,7 @@ class TableElements(unittest.TestCase):
                              """, str(odt), re.X)
 
     def test_table_oneline(self):
-        """One-line table"""
+        """<table> tag: only one line"""
         html = """<html xmlns="http://www.w3.org/1999/xhtml">
             <table>
               <tr>

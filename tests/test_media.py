@@ -9,6 +9,7 @@ from . import xhtml2odt
 class MediaElements(unittest.TestCase):
 
     def test_img1(self):
+        """<img> tag"""
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><img src="imagesource"/></html>'
         odt = xhtml2odt(html)
         print odt
@@ -32,6 +33,7 @@ class MediaElements(unittest.TestCase):
                              </draw:frame>""", str(odt), re.X)
 
     def test_img_small(self):
+        """<img> tag: small size -> inline"""
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><img src="imagesource" width="1cm" height="1cm"/></html>'
         odt = xhtml2odt(html)
         print odt
@@ -54,10 +56,12 @@ class MediaElements(unittest.TestCase):
                              </draw:frame>""", str(odt), re.X)
 
     def test_img_title(self):
+        """<img> tag: alt attribute"""
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><img src="imagesource" alt="imagetitle"/></html>'
         odt = xhtml2odt(html)
         print odt
         assert str(odt).count('<svg:title>imagetitle</svg:title>') == 1
+
 
 if __name__ == '__main__':
     unittest.main()

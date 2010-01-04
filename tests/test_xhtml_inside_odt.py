@@ -85,6 +85,7 @@ class XHTMLInsideODT(unittest.TestCase):
 """
 
     def test_odt(self):
+        """ODT inside ODT"""
         html = """
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">
   <text:anything>Test</text:anything>

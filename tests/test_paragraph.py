@@ -56,6 +56,7 @@ class ParagraphElements(unittest.TestCase):
 """
 
     def test_p_center1(self):
+        """<p> tag: with text-align: center (space)"""
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p style="text-align: center">Test</p></html>'
         odt = xhtml2odt(html)
         print odt
@@ -64,6 +65,7 @@ class ParagraphElements(unittest.TestCase):
 """
 
     def test_p_center2(self):
+        """<p> tag: with text-align:center (no space)"""
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p style="text-align:center">Test</p></html>'
         odt = xhtml2odt(html)
         print odt

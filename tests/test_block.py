@@ -26,12 +26,14 @@ class BlockElements(unittest.TestCase):
         assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">Test</text:p>\n'
 
     def test_pre2(self):
+        """<pre>: insertion of line breaks"""
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><pre>First line\nSecond line</pre></html>'
         odt = xhtml2odt(html)
         print odt
         assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">First line<text:line-break/>Second line</text:p>\n'
 
     def test_pre3(self):
+        """<pre>: space preservation"""
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><pre>   Line with spaces \n</pre></html>'
         odt = xhtml2odt(html)
         print odt

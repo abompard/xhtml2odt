@@ -32,6 +32,7 @@ class ListElements(unittest.TestCase):
 """
 
     def test_ul2(self):
+        """<ul> with two <li> inside"""
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><ul><li>Test1</li><li>Test2</li></ul></html>'
         odt = xhtml2odt(html)
         print odt
@@ -46,7 +47,8 @@ class ListElements(unittest.TestCase):
 </text:list>
 """
 
-    def test_ul3(self):
+    def test_ul_ul(self):
+        """<ul> with another <ul> inside"""
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><ul><li>Test1</li><li><ul><li>Test2</li></ul></li></ul></html>'
         odt = xhtml2odt(html)
         print odt
@@ -67,6 +69,7 @@ class ListElements(unittest.TestCase):
 """
 
     def test_ul_ol(self):
+        """<ul> with an <ol> inside"""
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><ul><li><ol><li>Test2</li></ol></li></ul></html>'
         odt = xhtml2odt(html)
         print odt

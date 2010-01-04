@@ -63,7 +63,7 @@ class SectionElements(unittest.TestCase):
 
     def test_h2_minuslevel_1(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><h2>Test</h2></html>'
-        odt = xhtml2odt(html, heading_minus_level="1")
+        odt = xhtml2odt(html, dict(heading_minus_level="1"))
         print odt
         assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
 <!--section level 1-->
@@ -72,7 +72,7 @@ class SectionElements(unittest.TestCase):
 
     def test_h3_minuslevel_2(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><h3>Test</h3></html>'
-        odt = xhtml2odt(html, heading_minus_level="2")
+        odt = xhtml2odt(html, dict(heading_minus_level="2"))
         print odt
         assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
 <!--section level 1-->
