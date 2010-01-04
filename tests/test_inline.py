@@ -13,32 +13,38 @@ class InlineElements(unittest.TestCase):
         print odt
         assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:a xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="target">Test</text:a>\n'
 
-    def test_a2(self):
+    def test_a_img(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><a href="target"><img src="image"/></a></html>'
         odt = xhtml2odt(html)
         print odt
         assert str(odt).startswith('<?xml version="1.0" encoding="utf-8"?>\n<draw:a ')
         assert str(odt).endswith('</draw:a>\n')
 
-    def test_a3(self):
+    def test_a_target_1(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><a href="http://localhost/localpage#target">Test</a></html>'
         odt = xhtml2odt(html, root_url="http://localhost/localpage")
         print odt
         assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:a xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="#target">Test</text:a>\n'
 
-    def test_a4(self):
+    def test_a_target_2(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><a href="http://localhost/otherpage#target">Test</a></html>'
         odt = xhtml2odt(html, root_url="http://localhost/localpage")
         print odt
         assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:a xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://localhost/otherpage#target">Test</text:a>\n'
 
-    def test_a5(self):
+    def test_a_target_3(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><a href="http://somewhere.else/otherpage#target">Test</a></html>'
         odt = xhtml2odt(html, root_url="http://localhost/localpage")
         print odt
         assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:a xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://somewhere.else/otherpage#target">Test</text:a>\n'
 
-    def test_a4(self):
+    def test_a_target_4(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><a href="http://localhost/localpage/otherpage#target">Test</a></html>'
+        odt = xhtml2odt(html, root_url="http://localhost/localpage")
+        print odt
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:a xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://localhost/localpage/otherpage#target">Test</text:a>\n'
+
+    def test_a_bookmark(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><a id="target">Test</a></html>'
         odt = xhtml2odt(html)
         print odt
