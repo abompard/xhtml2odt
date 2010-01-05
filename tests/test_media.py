@@ -16,6 +16,7 @@ class MediaElements(unittest.TestCase):
         assert re.search(r"""<draw:frame \s+
                              (xmlns:[a-z0-9=:".-]+ \s+)* # namespaces
                              text:anchor-type="paragraph" \s+
+                             draw:style-name="image-center" \s+
                              draw:name="imageobject-[a-z0-9]+" \s+
                              svg:width="8cm" \s+
                              style:rel-width="scale" \s+
@@ -62,6 +63,19 @@ class MediaElements(unittest.TestCase):
         print odt
         assert str(odt).count('<svg:title>imagetitle</svg:title>') == 1
 
+    def test_img_left(self):
+        """<img> tag: left-aligned"""
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><img src="imagesource" style="float:left" /></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt).count('draw:style-name="image-left"') == 1
+
+    def test_img_right(self):
+        """<img> tag: right-aligned"""
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><img src="imagesource" style="float:right" /></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt).count('draw:style-name="image-right"') == 1
 
 if __name__ == '__main__':
     unittest.main()

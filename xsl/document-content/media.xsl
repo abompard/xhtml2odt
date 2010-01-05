@@ -64,8 +64,17 @@
                 <xsl:attribute name="text:anchor-type">as-char</xsl:attribute>
                 <xsl:attribute name="draw:style-name">image-inline</xsl:attribute>
             </xsl:when>
+            <xsl:when test="contains(@style,'float:') and contains(@style,'left')">
+                <xsl:attribute name="text:anchor-type">paragraph</xsl:attribute>
+                <xsl:attribute name="draw:style-name">image-left</xsl:attribute>
+            </xsl:when>
+            <xsl:when test="contains(@style,'float:') and contains(@style,'right')">
+                <xsl:attribute name="text:anchor-type">paragraph</xsl:attribute>
+                <xsl:attribute name="draw:style-name">image-right</xsl:attribute>
+            </xsl:when>
             <xsl:otherwise>
                 <xsl:attribute name="text:anchor-type">paragraph</xsl:attribute>
+                <xsl:attribute name="draw:style-name">image-center</xsl:attribute>
             </xsl:otherwise>
         </xsl:choose>
 

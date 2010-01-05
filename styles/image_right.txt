@@ -1,0 +1,8 @@
+<style:style style:name="image-right" style:family="graphic"
+             style:parent-style-name="Graphics">
+    <style:graphic-properties style:wrap="left" style:vertical-pos="top"
+                              style:vertical-rel="paragraph-content"
+                              style:horizontal-pos="right"
+                              style:horizontal-rel="paragraph"
+                              style:flow-with-text="true"/>
+</style:style>

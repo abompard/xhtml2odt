@@ -1,0 +1,6 @@
+<style:style style:name="image-center" style:family="graphic"
+             style:parent-style-name="Graphics">
+    <style:graphic-properties style:wrap="none"
+                              style:horizontal-pos="center"
+                              style:horizontal-rel="paragraph"/>
+</style:style>
