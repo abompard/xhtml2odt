@@ -58,6 +58,12 @@
         </style:style>
     </xsl:if>
 
+    <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'emphasis']) = 0">
+        <style:style style:name="emphasis" style:family="text">
+            <style:text-properties fo:font-style="italic"/>
+        </style:style>
+    </xsl:if>
+
     <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'image-center']) = 0">
     <style:style style:name="image-center" style:family="graphic"
                  style:parent-style-name="Graphics">
@@ -118,6 +124,12 @@
     <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'strike']) = 0">
         <style:style style:name="strike" style:family="text">
             <style:text-properties style:text-line-through-style="solid"/>
+        </style:style>
+    </xsl:if>
+
+    <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'strong']) = 0">
+        <style:style style:name="strong" style:family="text">
+            <style:text-properties fo:font-weight="bold"/>
         </style:style>
     </xsl:if>
 

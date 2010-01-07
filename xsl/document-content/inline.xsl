@@ -94,13 +94,13 @@
 
 
 <xsl:template match="h:em|h:i">
-    <text:span text:style-name="Emphasis">
+    <text:span text:style-name="emphasis">
         <xsl:apply-templates/>
     </text:span>
 </xsl:template>
 
 <xsl:template match="h:strong|h:b">
-    <text:span text:style-name="Strong_20_Emphasis">
+    <text:span text:style-name="strong">
         <xsl:apply-templates/>
     </text:span>
 </xsl:template>

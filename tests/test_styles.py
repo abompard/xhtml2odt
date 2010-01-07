@@ -58,14 +58,14 @@ class Styles(unittest.TestCase):
     xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
     xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0">
 <office:styles>
-    <style:style style:name="Emphasis"/>
+    <style:style style:name="Heading_20_1"/>
 </office:styles>
 </office:document-content>"""
         odt = styles(odt)
         print odt
         # There's only one and it's the one we added (it's empty)
-        assert str(odt).count('style:name="Emphasis"') == 1
-        assert str(odt).count('<style:style style:name="Emphasis"/>') == 1
+        assert str(odt).count('style:name="Heading_20_1"') == 1
+        assert str(odt).count('<style:style style:name="Heading_20_1"/>') == 1
 
     def test_fonts_existing(self):
         """Don't add fonts if it already exists"""

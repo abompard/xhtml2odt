@@ -59,13 +59,6 @@
         </style:style>
     </xsl:if>
 
-    <xsl:if test="count(//office:styles/style:style[@style:name = 'Emphasis']) = 0">
-        <style:style style:name="Emphasis"
-                     style:display-name="Emphasis" style:family="text">
-            <style:text-properties fo:font-style="italic"/>
-        </style:style>
-    </xsl:if>
-
     <xsl:if test="count(//office:styles/style:style[@style:name = 'Footnote']) = 0">
         <style:style style:name="Footnote" style:display-name="Footnote"
                      style:family="paragraph" style:class="extra"
@@ -338,13 +331,6 @@
             <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0.100cm"
                                         text:number-lines="false" text:line-number="0"/>
             <style:text-properties fo:font-style="italic"/>
-        </style:style>
-    </xsl:if>
-
-    <xsl:if test="count(//office:styles/style:style[@style:name = 'Strong_20_Emphasis']) = 0">
-        <style:style style:name="Strong_20_Emphasis"
-            style:display-name="Strong Emphasis" style:family="text">
-            <style:text-properties fo:font-weight="bold"/>
         </style:style>
     </xsl:if>
 

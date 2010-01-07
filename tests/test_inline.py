@@ -61,25 +61,25 @@ class InlineElements(unittest.TestCase):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><em>Test</em></html>'
         odt = xhtml2odt(html)
         print odt
-        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Emphasis">Test</text:span>\n'
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="emphasis">Test</text:span>\n'
 
     def test_i(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><i>Test</i></html>'
         odt = xhtml2odt(html)
         print odt
-        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Emphasis">Test</text:span>\n'
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="emphasis">Test</text:span>\n'
 
     def test_strong(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><strong>Test</strong></html>'
         odt = xhtml2odt(html)
         print odt
-        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Strong_20_Emphasis">Test</text:span>\n'
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="strong">Test</text:span>\n'
 
     def test_b(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><b>Test</b></html>'
         odt = xhtml2odt(html)
         print odt
-        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Strong_20_Emphasis">Test</text:span>\n'
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:span xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="strong">Test</text:span>\n'
 
     def test_sub(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><sub>Test</sub></html>'
