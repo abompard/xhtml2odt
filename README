@@ -18,7 +18,7 @@ This is based on the work on [docbook2odt][], by Roman Fordinal. Many thanks to 
 Caveats
 -------
 
-**Styles** : the styles are not added to the document. After converting to ODT, you must go through the styles used in the document and add the needed styles. Templates for those styles are provided in the "styles" subdirectory. If a style has a "display-name" property, it must be added to styles.xml. Otherwise it must be added to the automatic-styles section of content.xml.
+**Styles** : some default styles will be added to the document, but not on the first pass. After converting to ODT, you must run the `content.xml` and the `styles.xml` files (in the ODT file) through the `xsl/styles.xsl` stylesheet to add the styles. When the default styles are added, the stylesheet checks that the style is not already present, so customizations to the template ODT file will be preserved. It will however add styles that are not used in the text, but that's harmless.
 
 **Images** : images are not added, you must manually go trough the draw:image elements in the converted ODT text and use the xlink:href attribute to download or copy the image. While you're at it, you should update the image dimensions if the were not provided in the img tag.
 
