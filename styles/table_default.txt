@@ -1,3 +1,0 @@
-<style:style style:name="table-default" style:family="table">
-    <style:table-properties style:width="100%" table:align="margins"/>
-</style:style>

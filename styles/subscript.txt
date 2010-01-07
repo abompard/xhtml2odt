@@ -1,3 +1,0 @@
-<style:style style:name="sub" style:family="text">
-     <style:text-properties style:text-position="sub 58%"/>
-</style:style>

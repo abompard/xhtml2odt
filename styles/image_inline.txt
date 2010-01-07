@@ -1,5 +1,0 @@
-<style:style style:name="image-inline" style:family="graphic"
-             style:parent-style-name="Graphics">
-    <style:graphic-properties style:vertical-pos="middle"
-                              style:vertical-rel="text"/>
-</style:style>

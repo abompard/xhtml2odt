@@ -1,3 +1,0 @@
-<style:font-face style:name="DejaVu Sans Mono"
-                 svg:font-family="&apos;DejaVu Sans Mono&apos;"
-                 style:font-family-generic="modern" style:font-pitch="fixed"/>

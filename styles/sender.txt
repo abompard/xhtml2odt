@@ -1,6 +1,0 @@
-<style:style style:name="Sender" style:display-name="Sender" style:class="extra"
-             style:family="paragraph" style:parent-style-name="Standard">
-    <style:paragraph-properties fo:margin-top="0cm" fo:margin-bottom="0.100cm"
-                                text:number-lines="false" text:line-number="0"/>
-    <style:text-properties fo:font-style="italic"/>
-</style:style>

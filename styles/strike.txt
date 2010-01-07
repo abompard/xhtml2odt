@@ -1,3 +1,0 @@
-<style:style style:name="strike" style:family="text">
-    <style:text-properties style:text-line-through-style="solid"/>
-</style:style>

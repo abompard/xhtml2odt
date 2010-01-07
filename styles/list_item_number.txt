@@ -1,3 +1,0 @@
-<style:style style:name="list-item-number" style:family="paragraph"
-             style:parent-style-name="Text_20_body"
-             style:list-style-name="Numbering_20_1"/>

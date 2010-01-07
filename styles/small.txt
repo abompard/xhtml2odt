@@ -1,3 +1,0 @@
-<style:style style:name="small" style:family="text">
-    <style:text-properties fo:font-size="80%"/>
-</style:style>
