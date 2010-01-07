@@ -130,7 +130,7 @@ class ODTFile(object):
         xhtml = self.handle_links(xhtml)
         xhtml = etree.fromstring(xhtml) # must be valid xml at this point
         params = {
-            "root_url": "/",
+            "url": "/",
             "heading_minus_level": str(self.options.top_header_level - 1),
         }
         if self.options.verbose:
