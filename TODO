@@ -1,3 +1,5 @@
+- validate generated output
+- make the inline image threshold a parameter
 - column span support
 - add form elements support
 - add font tag support
