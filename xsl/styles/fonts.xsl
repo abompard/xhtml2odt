@@ -18,7 +18,6 @@
     
 -->
 <xsl:stylesheet
-    xmlns:h="http://www.w3.org/1999/xhtml"
     xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -41,76 +40,16 @@
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0"
-    exclude-result-prefixes="office xsl dc text style table draw fo xlink meta number svg chart dr3d math form script dom xforms xsd xsi presentation h"
     version="1.0">
-    
-<!-- SETTINGS -->
-<xsl:decimal-format name="staff" digit="D" />
-<xsl:output method="xml" indent="yes" omit-xml-declaration="no" encoding="utf-8"/>
-<!--<xsl:strip-space elements="*"/>-->
-<!--<xsl:preserve-space elements=""/>-->
 
+<xsl:template name="fonts">
 
-<xsl:include href="param.xsl"/>
-<xsl:include href="styles/automatic-styles.xsl"/>
-<xsl:include href="styles/main-styles.xsl"/>
-<xsl:include href="styles/fonts.xsl"/>
+    <xsl:if test="count(//office:font-face-decls/style:font-face[@style:name = 'DejaVu Sans Mono']) = 0">
+        <style:font-face style:name="DejaVu Sans Mono"
+                         svg:font-family="&apos;DejaVu Sans Mono&apos;"
+                         style:font-family-generic="modern" style:font-pitch="fixed"/>
+    </xsl:if>
 
-
-<xsl:template match="/">
-    <xsl:apply-templates/>
-</xsl:template>
-
-
-<xsl:template match="office:automatic-styles">
-    <office:automatic-styles>
-        <!-- copy the existing styles -->
-        <xsl:for-each select="child::*">
-            <xsl:copy>
-                <xsl:copy-of select="@*"/>
-                <xsl:apply-templates/>
-            </xsl:copy>
-        </xsl:for-each>
-        <!-- add missing styles -->
-        <xsl:call-template name="autostyles"/>
-    </office:automatic-styles>
-</xsl:template>
-
-<xsl:template match="office:styles">
-    <office:styles>
-        <!-- copy the existing styles -->
-        <xsl:for-each select="child::*">
-            <xsl:copy>
-                <xsl:copy-of select="@*"/>
-                <xsl:apply-templates/>
-            </xsl:copy>
-        </xsl:for-each>
-        <!-- add missing styles -->
-        <xsl:call-template name="mainstyles"/>
-    </office:styles>
-</xsl:template>
-
-<xsl:template match="office:font-face-decls">
-    <office:font-face-decls>
-        <!-- copy the existing styles -->
-        <xsl:for-each select="child::*">
-            <xsl:copy>
-                <xsl:copy-of select="@*"/>
-                <xsl:apply-templates/>
-            </xsl:copy>
-        </xsl:for-each>
-        <!-- add missing styles -->
-        <xsl:call-template name="fonts"/>
-    </office:font-face-decls>
-</xsl:template>
-
-
-<!-- Leave alone unknown tags -->
-<xsl:template match="*">
-    <xsl:copy>
-        <xsl:copy-of select="@*"/>
-        <xsl:apply-templates/>
-    </xsl:copy>
 </xsl:template>
 
 </xsl:stylesheet>
