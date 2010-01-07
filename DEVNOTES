@@ -1,1 +1,0 @@
-comment faire pour scanner le content.xml quand on est en train d'appliquer la transformation sur le styles.xml ? -> on peut insérer tous les styles même si ils sont pas utilisés, c'est pas grave. Ce qui compte c'est de ne pas écraser des styles existants.

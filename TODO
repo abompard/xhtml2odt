@@ -4,3 +4,5 @@
 - add form elements support
 - add font tag support
 - rename the root_url param to url
+- check if we need to update manifest.xml when adding pictures
+- add tags to remove content from the template
