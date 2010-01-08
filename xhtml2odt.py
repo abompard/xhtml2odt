@@ -73,8 +73,7 @@ class HTMLFile(object):
         self.html = str(tidy.parseString(self.html, **tidy_options))
         # Replace nbsp with entity
         # http://www.mail-archive.com/analog-help@lists.meer.net/msg03670.html
-        self.html = self.html.replace("&nbsp;", "&#160;") \
-                             .replace("\xa0", "&#160;")
+        self.html = self.html.replace("&nbsp;", "&#160;")
         # Tidy creates newlines after <pre> (by indenting)
         self.html = re.sub('<pre([^>]*)>\n', '<pre\\1>', self.html)
 
