@@ -11,7 +11,10 @@ class MediaElements(unittest.TestCase):
     def test_img1(self):
         """<img> tag"""
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><img src="imagesource"/></html>'
-        odt = xhtml2odt(html)
+        odt = xhtml2odt(html, {
+            "img_default_width": "8cm",
+            "img_default_height": "6cm",
+        })
         print odt
         assert re.search(r"""<draw:frame \s+
                              (xmlns:[a-z0-9=:".-]+ \s+)* # namespaces
@@ -19,9 +22,7 @@ class MediaElements(unittest.TestCase):
                              draw:style-name="image-center" \s+
                              draw:name="imageobject-[a-z0-9]+" \s+
                              svg:width="8cm" \s+
-                             style:rel-width="scale" \s+
                              svg:height="6cm" \s+
-                             style:rel-height="scale" \s+
                              svg:y="0.20cm" \s+
                              draw:z-index="1"> \s*
                                  <draw:image \s+
@@ -32,6 +33,39 @@ class MediaElements(unittest.TestCase):
                                  xlink:actuate="onLoad"/> \s*
                                  <svg:title/> \s*
                              </draw:frame>""", str(odt), re.X)
+
+    def test_img_default_size(self):
+        """<img> tag: no width nor height given"""
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><img src="imagesource"/></html>'
+        odt = xhtml2odt(html, {
+            "img_default_width": "TEST_WIDTH",
+            "img_default_height": "TEST_HEIGHT",
+        })
+        print odt
+        assert str(odt).count('svg:width="TEST_WIDTH"') > 0
+        assert str(odt).count('svg:height="TEST_HEIGHT"') > 0
+
+    def test_img_given_size(self):
+        """<img> tag with width and height attributes"""
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><img src="imagesource" width="GIVEN_WIDTH" height="GIVEN_HEIGHT"/></html>'
+        odt = xhtml2odt(html, {
+            "img_default_width": "DEFAULT_WIDTH",
+            "img_default_height": "DEFAULT_HEIGHT",
+        })
+        print odt
+        assert str(odt).count('svg:width="GIVEN_WIDTH"') > 0
+        assert str(odt).count('svg:height="GIVEN_HEIGHT"') > 0
+
+    def test_img_given_width(self):
+        """<img> tag with width attr only: both dimensions must be given or the defaults are used"""
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><img src="imagesource" width="GIVEN_WIDTH"/></html>'
+        odt = xhtml2odt(html, {
+            "img_default_width": "DEFAULT_WIDTH",
+            "img_default_height": "DEFAULT_HEIGHT",
+        })
+        print odt
+        assert str(odt).count('svg:width="DEFAULT_WIDTH"') > 0
+        assert str(odt).count('svg:height="DEFAULT_HEIGHT"') > 0
 
     def test_img_small(self):
         """<img> tag: small size -> inline"""

@@ -229,8 +229,32 @@ class ODTFile(object):
             width, height = img.size
             log('Detected size: %spx x %spx' % (width, height),
                 self.options.verbose)
-            width = width / float(self.options.img_dpi) * INCH_TO_CM
-            height = height / float(self.options.img_dpi) * INCH_TO_CM
+            width_mo = re.search('width=["\']?([0-9]+)(?:px)?["\']?', full_tag)
+            height_mo = re.search('height=["\']?([0-9]+)(?:px)?["\']?', full_tag)
+            if width_mo and height_mo:
+                log('Forced size: %spx x %spx.' % (width_mo.group(),
+                        height_mo.group()), self.options.verbose)
+                width = float(width_mo.group(1)) / self.options.img_dpi * INCH_TO_CM
+                height = float(height_mo.group(1)) / self.options.img_dpi * INCH_TO_CM
+                full_tag = full_tag.replace(width_mo.group(), "")\
+                                   .replace(height_mo.group(), "")
+            elif width_mo and not height_mo:
+                newwidth = float(width_mo.group(1)) / float(self.options.img_dpi) * INCH_TO_CM
+                height = height * newwidth / width
+                width = newwidth
+                log('Forced width: %spx. Size will be: %scm x %scm' %
+                    (width_mo.group(1), width, height), self.options.verbose)
+                full_tag = full_tag.replace(width_mo.group(), "")
+            elif not width_mo and height_mo:
+                newheight = float(height_mo.group(1)) / float(self.options.img_dpi) * INCH_TO_CM
+                width = width * newheight / height
+                height = newheight
+                log('Forced height: %spx. Size will be: %scm x %scm' %
+                    (height_mo.group(1), height, width), self.options.verbose)
+                full_tag = full_tag.replace(height_mo.group(), "")
+            else:
+                width = width / float(self.options.img_dpi) * INCH_TO_CM
+                height = height / float(self.options.img_dpi) * INCH_TO_CM
             newsrc += '" width="%scm" height="%scm' % (width, height)
         return full_tag.replace(src, newsrc)
 
