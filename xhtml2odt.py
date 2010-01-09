@@ -145,12 +145,13 @@ class ODTFile(object):
 
     def handle_images(self, xhtml):
         # Handle local images
-        xhtml = re.sub('<img [^>]*src="([^"]+)"',
+        xhtml = re.sub('<img [^>]*src="([^"]+)"[^>]*>',
                       self.handle_local_img, xhtml)
         # Handle remote images
         if self.options.with_network:
-            xhtml = re.sub('<img [^>]*src="(https?://[^"]+)"',
+            xhtml = re.sub('<img [^>]*src="(https?://[^"]+)"[^>]*>',
                           self.handle_remote_img, xhtml)
+        #print xhtml
         return xhtml
 
     def handle_local_img(self, img_mo):
@@ -219,7 +220,8 @@ class ODTFile(object):
             os.mkdir(os.path.join(self.tmpdir, "Pictures"))
         shutil.copy(filename, os.path.join(self.tmpdir, "Pictures",
                                            os.path.basename(filename)))
-        newsrc = "Pictures/%s" % os.path.basename(filename)
+        full_tag = full_tag.replace('src="%s"' % src,
+                    'src="Pictures/%s"' % os.path.basename(filename))
         try:
             img = Image.open(filename)
         except IOError:
@@ -229,8 +231,8 @@ class ODTFile(object):
             width, height = img.size
             log('Detected size: %spx x %spx' % (width, height),
                 self.options.verbose)
-            width_mo = re.search('width=["\']?([0-9]+)(?:px)?["\']?', full_tag)
-            height_mo = re.search('height=["\']?([0-9]+)(?:px)?["\']?', full_tag)
+            width_mo = re.search('width="([0-9]+)(?:px)?"', full_tag)
+            height_mo = re.search('height="([0-9]+)(?:px)?"', full_tag)
             if width_mo and height_mo:
                 log('Forced size: %spx x %spx.' % (width_mo.group(),
                         height_mo.group()), self.options.verbose)
@@ -255,8 +257,11 @@ class ODTFile(object):
             else:
                 width = width / float(self.options.img_dpi) * INCH_TO_CM
                 height = height / float(self.options.img_dpi) * INCH_TO_CM
-            newsrc += '" width="%scm" height="%scm' % (width, height)
-        return full_tag.replace(src, newsrc)
+                log('Size converted to: %scm x %scm' % (height, width),
+                        self.options.verbose)
+            full_tag = full_tag.replace('<img',
+                    '<img width="%scm" height="%scm"' % (width, height))
+        return full_tag
 
     def handle_links(self, xhtml):
         """Turn relative links into absolute links"""
@@ -266,8 +271,6 @@ class ODTFile(object):
         return xhtml
 
     def handle_relative_links(self, link_mo):
-        log("handling relative link: %s" % link_mo.group(1),
-            self.options.verbose)
         href = link_mo.group(1)
         if href.startswith("file://") or not self.options.url:
             # There's nothing we can do here
@@ -275,6 +278,7 @@ class ODTFile(object):
         if href.count("://"):
             # This is an absolute link, don't touch it
             return link_mo.group()
+        log("handling relative link: %s" % href, self.options.verbose)
         newhref = urlparse.urljoin(self.options.url, os.path.normpath(href))
         return link_mo.group().replace(href, newhref)
 
