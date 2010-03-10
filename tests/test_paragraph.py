@@ -55,6 +55,16 @@ class ParagraphElements(unittest.TestCase):
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">Test</text:p>
 """
 
+    def test_p_containing_text_and_pre(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><p>Top text<pre>Test</pre>Bottom text</p></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Top text</text:p>""" + \
+"""<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">Test</text:p>""" + \
+"""<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Bottom text</text:p>
+"""
+
     def test_p_center1(self):
         """<p> tag: with text-align: center (space)"""
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p style="text-align: center">Test</p></html>'

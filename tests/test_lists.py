@@ -95,5 +95,20 @@ class ListElements(unittest.TestCase):
         assert str(odt).count('</table:table-cell>') == 4
 
 
+    def test_ul_in_dl(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><dl><dt>Term1</dt><dd>Def1<ul><li>Def1-LI</li></ul></dd></dl></html>'
+        odt = xhtml2odt(html)
+        print odt
+        target = """
+      <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Def1</text:p>
+      <text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
+        <text:list-item>
+          <text:p text:style-name="list-item-bullet">Def1-LI</text:p>
+        </text:list-item>
+      </text:list>
+"""
+        assert str(odt).count(target) == 1
+
+
 if __name__ == '__main__':
     unittest.main()

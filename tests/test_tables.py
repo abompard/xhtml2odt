@@ -640,6 +640,29 @@ class TableElements(unittest.TestCase):
                              """, str(odt), re.X)
 
 
+    def test_table_th_td_styles(self):
+        """Test paragraph styles in <th> and <td> tags"""
+        html = """<html xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+              <tr>
+                <th>Cell1</th>
+              </tr>
+              <tr>
+                <td>Cell2</td>
+              </tr>
+            </table>
+        </html>
+        """
+        odt = xhtml2odt(html)
+        # remove namespaces
+        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
+        # remove comments
+        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
+        print odt
+        assert str(odt).count("""<text:p text:style-name="Table_20_Heading">Cell1</text:p>""") == 1
+        assert str(odt).count("""<text:p text:style-name="Table_20_Contents">Cell2</text:p>""") == 1
+
+
 
 if __name__ == '__main__':
     unittest.main()

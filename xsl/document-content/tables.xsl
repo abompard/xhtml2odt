@@ -242,17 +242,8 @@
             
         </xsl:attribute>
         
-        <text:p>
-            <xsl:choose>
-                <xsl:when test="self::h:th">
-                    <xsl:attribute name="text:style-name">Table_20_Heading</xsl:attribute>
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:attribute name="text:style-name">Table_20_Contents</xsl:attribute>
-                </xsl:otherwise>
-            </xsl:choose>
-            <xsl:apply-templates/>
-        </text:p>
+        <xsl:call-template name="paragraph"/>
+
     </table:table-cell>
 </xsl:template>
 
