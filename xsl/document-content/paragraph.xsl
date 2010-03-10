@@ -94,10 +94,10 @@
                 <xsl:when test="contains(@style,'text-align:') and contains(@style,'center')">
                     <xsl:text>center</xsl:text>
                 </xsl:when>
-                <xsl:when test="self::h:address">Sender</xsl:when>
-                <xsl:when test="self::h:center">center</xsl:when>
-                <xsl:when test="self::h:th">Table_20_Heading</xsl:when>
-                <xsl:when test="self::h:td">Table_20_Contents</xsl:when>
+                <xsl:when test="self::h:address or (name() = '' and parent::h:address)">Sender</xsl:when>
+                <xsl:when test="self::h:center or (name() = '' and parent::h:center)">center</xsl:when>
+                <xsl:when test="self::h:th or (name() = '' and parent::h:th)">Table_20_Heading</xsl:when>
+                <xsl:when test="self::h:td or (name() = '' and parent::h:td)">Table_20_Contents</xsl:when>
                 <xsl:otherwise>Text_20_body</xsl:otherwise>
             </xsl:choose>
         </xsl:attribute>

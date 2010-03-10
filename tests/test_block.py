@@ -51,6 +51,21 @@ class BlockElements(unittest.TestCase):
         print odt
         assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="center">Test</text:p>\n'
 
+    def test_center_containing_ul(self):
+        """center tag containing block-type elements"""
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><center>Test1<ul><li>Test2</li></ul>Test3</center></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="center">Test1</text:p>""" + \
+"""<text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
+  <text:list-item>
+    <text:p text:style-name="list-item-bullet">Test2</text:p>
+  </text:list-item>
+</text:list>""" + \
+"""<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="center">Test3</text:p>
+"""
+
 
 if __name__ == '__main__':
     unittest.main()

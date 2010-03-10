@@ -459,6 +459,22 @@ class TableElements(unittest.TestCase):
         print odt
         assert odt.count('<text:p text:style-name="Table_20_Heading">Cell</text:p>') > 0
 
+    def test_table_text_style(self):
+        """Test text style inside <td> tags"""
+        html = """<html xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+              <tr>
+                <td>Cell</td>
+              </tr>
+            </table>
+        </html>
+        """
+        odt = xhtml2odt(html)
+        # remove namespaces
+        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
+        print odt
+        assert odt.count('<text:p text:style-name="Table_20_Contents">Cell</text:p>') > 0
+
     def test_table_single_cell(self):
         """Test single-cell tables (pretty useless if you ask me)"""
         html = """<html xmlns="http://www.w3.org/1999/xhtml">
@@ -639,28 +655,20 @@ class TableElements(unittest.TestCase):
                              </table:table> \s*
                              """, str(odt), re.X)
 
-
-    def test_table_th_td_styles(self):
-        """Test paragraph styles in <th> and <td> tags"""
-        html = """<html xmlns="http://www.w3.org/1999/xhtml">
-            <table>
-              <tr>
-                <th>Cell1</th>
-              </tr>
-              <tr>
-                <td>Cell2</td>
-              </tr>
-            </table>
-        </html>
-        """
+    def test_td_containing_ul(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><table><tr><td>Text1<ul><li>Text2</li></ul>Text3</td></tr></table></html>'
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
         print odt
-        assert str(odt).count("""<text:p text:style-name="Table_20_Heading">Cell1</text:p>""") == 1
-        assert str(odt).count("""<text:p text:style-name="Table_20_Contents">Cell2</text:p>""") == 1
+        target = """
+      <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Table_20_Contents">Text1</text:p>
+      <text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
+        <text:list-item>
+          <text:p text:style-name="list-item-bullet">Text2</text:p>
+        </text:list-item>
+      </text:list>
+      <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Table_20_Contents">Text3</text:p>
+"""
+        assert str(odt).count(target) == 1
 
 
 
