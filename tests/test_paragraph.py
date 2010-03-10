@@ -15,7 +15,7 @@ class ParagraphElements(unittest.TestCase):
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Test</text:p>
 """
 
-    def test_p_inside_ul(self):
+    def test_p_containing_ul(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><ul><li>Test</li></ul></p></html>'
         odt = xhtml2odt(html)
         print odt
@@ -27,7 +27,7 @@ class ParagraphElements(unittest.TestCase):
 </text:list>
 """
 
-    def test_p_inside_ol(self):
+    def test_p_containing_ol(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><ol><li>Test</li></ol></p></html>'
         odt = xhtml2odt(html)
         print odt
@@ -39,7 +39,7 @@ class ParagraphElements(unittest.TestCase):
 </text:list>
 """
 
-    def test_p_inside_blockquote(self):
+    def test_p_containing_blockquote(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><blockquote><p>Test</p></blockquote></p></html>'
         odt = xhtml2odt(html)
         print odt
@@ -47,7 +47,7 @@ class ParagraphElements(unittest.TestCase):
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Quotations">Test</text:p>
 """
 
-    def test_p_inside_pre(self):
+    def test_p_containing_pre(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><pre>Test</pre></p></html>'
         odt = xhtml2odt(html)
         print odt
