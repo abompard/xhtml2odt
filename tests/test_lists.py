@@ -94,6 +94,12 @@ class ListElements(unittest.TestCase):
         assert str(odt).count('</table:table-row>') == 2
         assert str(odt).count('</table:table-cell>') == 4
 
+    def test_dl_text_style(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><dl><dt>Term1</dt><dd>Def1</dd></dl></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt).count('text:style-name="Table_20_Contents">') == 2
+
     def test_ul_in_dl(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><dl><dt>Term1</dt><dd>Def1<ul><li>Def1-LI</li></ul></dd></dl></html>'
         odt = xhtml2odt(html)

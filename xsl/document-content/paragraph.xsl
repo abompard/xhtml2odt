@@ -110,6 +110,8 @@
                 <xsl:when test="$subject/self::h:center or (name($subject) = '' and $subject/parent::h:center)">center</xsl:when>
                 <xsl:when test="$subject/self::h:th or (name($subject) = '' and $subject/parent::h:th)">Table_20_Heading</xsl:when>
                 <xsl:when test="$subject/self::h:td or (name($subject) = '' and $subject/parent::h:td)">Table_20_Contents</xsl:when>
+                <xsl:when test="$subject/self::h:dt or (name($subject) = '' and $subject/parent::h:dt)">Table_20_Contents</xsl:when>
+                <xsl:when test="$subject/self::h:dd or (name($subject) = '' and $subject/parent::h:dd)">Table_20_Contents</xsl:when>
                 <xsl:otherwise>Text_20_body</xsl:otherwise>
             </xsl:choose>
         </xsl:attribute>
