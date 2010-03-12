@@ -56,39 +56,26 @@
             child::h:blockquote|
             child::h:pre
             ">
-            <!-- continue to child element without text:p creation -->
-            <!-- call template for each found element -->
-            <xsl:for-each select="child::h:ul | child::h:ol | child::h:blockquote | child::h:pre">
+            <xsl:for-each select="
+                    child::h:ul |
+                    child::h:ol |
+                    child::h:blockquote |
+                    child::h:pre
+                    ">
+                <!-- Paragraph with the text before -->
                 <xsl:if test="preceding-sibling::node()">
                     <xsl:call-template name="paragraph-content">
                         <xsl:with-param name="subject" select="preceding-sibling::node()"/>
                     </xsl:call-template>
                 </xsl:if>
+                <!-- Create the block-type element -->
                 <xsl:apply-templates select="."/>
+                <!-- Paragraph with the text after -->
                     <xsl:if test="following-sibling::node()">
                     <xsl:call-template name="paragraph-content">
                         <xsl:with-param name="subject" select="following-sibling::node()"/>
                     </xsl:call-template>
                 </xsl:if>
-                <!--
-                <xsl:choose>
-                    <xsl:when test="name() = ''">
-                        <!- text only ->
-                        <xsl:call-template name="paragraph-content"/>
-                    </xsl:when>
-                    <xsl:when test="string(name()) = 'ul' or
-                                    string(name()) = 'ol' or
-                                    string(name()) = 'blockquote' or
-                                    string(name()) = 'pre'
-                            ">
-                        <!- block element ->
-                        <xsl:apply-templates select="."/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:call-template name="paragraph-content"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-                -->
             </xsl:for-each>
         </xsl:when>
         <xsl:otherwise>
@@ -103,8 +90,6 @@
 <xsl:template name="paragraph-content">
     
     <xsl:param name="subject"/>
-    <!--<xsl:comment><xsl:value-of select="$subject"/></xsl:comment>
-    <xsl:comment><xsl:value-of select="name($subject/../..)"/></xsl:comment>-->
 
     <text:p>
         
