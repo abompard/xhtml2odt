@@ -62,4 +62,11 @@
     <xsl:apply-templates/>
 </xsl:template>
 
+<xsl:template match="h:script"/>
+<xsl:template match="h:noscript"/>
+
+<xsl:template match="h:object"/>
+
+<xsl:template match="h:form"/>
+
 </xsl:stylesheet>
