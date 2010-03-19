@@ -44,37 +44,33 @@
     version="1.0">
 
 
+<xsl:template match="h:ul" mode="inparagraph"/>
 <xsl:template match="h:ul">
     <xsl:param name="nolists" value="false()"/>
     <!-- No lists inside lists (handled separately, see below) -->
     <xsl:if test="not($nolists)">
-        <!-- apply all, only not li -->
-        <xsl:apply-templates/>
         <text:list text:style-name="List_20_1">
-            <!-- apply only li -->
-            <xsl:apply-templates mode="list"/>
+            <xsl:apply-templates select="h:li"/>
         </text:list>
     </xsl:if>
 </xsl:template>
 
 
+<xsl:template match="h:ol" mode="inparagraph"/>
 <xsl:template match="h:ol">
     <xsl:param name="nolists" value="false()"/>
     <!-- No lists inside lists (handled separately, see below) -->
     <xsl:if test="not($nolists)">
-        <!-- apply all, only not li -->
-        <xsl:apply-templates/>
         <text:list text:style-name="Numbering_20_1">
-            <!-- apply only li -->
-            <xsl:apply-templates mode="list" />
+            <xsl:apply-templates select="h:li" />
         </text:list>
     </xsl:if>
 </xsl:template>
 
 <!-- li -->
 
-<xsl:template match="h:li"/>
-<xsl:template match="h:li" mode="list">
+<xsl:template match="h:li" mode="inparagraph"/>
+<xsl:template match="h:li">
     <text:list-item>
         <text:p>
             <xsl:attribute name="text:style-name">
@@ -85,41 +81,46 @@
                     <xsl:otherwise></xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
-            <xsl:apply-templates>
+            <xsl:apply-templates select="child::node()" mode="inparagraph">
                 <!-- sublists must be after the </text:p> -->
                 <xsl:with-param name="nolists" select="true()"/>
             </xsl:apply-templates>
         </text:p>
-        <xsl:apply-templates select="h:ul|h:ol"/>
+        <xsl:apply-templates select="h:ul|h:ol|h:pre|h:blockquote"/>
     </text:list-item>
 </xsl:template>
-<!-- all other content in list -->
-<xsl:template match="h:*" mode="list"/>
 
 
 <!-- Definition lists -->
+<xsl:template match="h:dl" mode="inparagraph"/>
 <xsl:template match="h:dl">
     <table:table table:style-name="table-default">
         <table:table-column table:number-columns-repeated="2"/>
-        <xsl:for-each select="h:dt">
-            <table:table-row>
-                <xsl:call-template name="table-cell">
-                    <xsl:with-param name="horizontal-position" select="1"/>
-                    <xsl:with-param name="horizontal-count" select="2"/>
-                    <xsl:with-param name="vertical-position" select="count(preceding-sibling::h:dt) + 1"/>
-                    <xsl:with-param name="vertical-count" select="count(../h:dt)"/>
-                </xsl:call-template>
-                <xsl:for-each select="following-sibling::h:dd[1]">
-                    <xsl:call-template name="table-cell">
-                        <xsl:with-param name="horizontal-position" select="2"/>
-                        <xsl:with-param name="horizontal-count" select="2"/>
-                        <xsl:with-param name="vertical-position" select="count(preceding-sibling::h:dt)"/>
-                        <xsl:with-param name="vertical-count" select="count(../h:dt)"/>
-                    </xsl:call-template>
-                </xsl:for-each>
-            </table:table-row>
-        </xsl:for-each>
+        <xsl:apply-templates select="h:dt"/>
     </table:table>
+</xsl:template>
+
+<xsl:template match="h:dt" mode="inparagraph"/>
+<xsl:template match="h:dt">
+    <table:table-row>
+        <xsl:call-template name="table-cell">
+            <xsl:with-param name="horizontal-position" select="1"/>
+            <xsl:with-param name="horizontal-count" select="2"/>
+            <xsl:with-param name="vertical-position" select="count(preceding-sibling::h:dt) + 1"/>
+            <xsl:with-param name="vertical-count" select="count(../h:dt)"/>
+        </xsl:call-template>
+        <xsl:apply-templates select="following-sibling::h:dd[1]"/>
+    </table:table-row>
+</xsl:template>
+
+<xsl:template match="h:dd" mode="inparagraph"/>
+<xsl:template match="h:dd">
+    <xsl:call-template name="table-cell">
+        <xsl:with-param name="horizontal-position" select="2"/>
+        <xsl:with-param name="horizontal-count" select="2"/>
+        <xsl:with-param name="vertical-position" select="count(preceding-sibling::h:dt)"/>
+        <xsl:with-param name="vertical-count" select="count(../h:dt)"/>
+    </xsl:call-template>
 </xsl:template>
 
 

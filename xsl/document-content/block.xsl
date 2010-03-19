@@ -53,6 +53,7 @@
 <xsl:template match="h:hr">
     <text:p text:style-name="Horizontal_20_Line"/>
 </xsl:template>
+<xsl:template match="h:hr" mode="inparagraph"/>
 
 <xsl:template match="h:pre">
     <text:p text:style-name="Preformatted_20_Text">
@@ -61,6 +62,7 @@
         </xsl:call-template>
     </text:p>
 </xsl:template>
+<xsl:template match="h:pre" mode="inparagraph"/>
 
 <xsl:template name="pre.line">
     <xsl:param name="content"/>
@@ -82,10 +84,12 @@
     <!-- special formatting is defined in paragraph -->
     <xsl:call-template name="paragraph"/>
 </xsl:template>
+<xsl:template match="h:address" mode="inparagraph"/>
 
 <xsl:template match="h:center">
     <!-- special formatting is defined in paragraph -->
     <xsl:call-template name="paragraph"/>
 </xsl:template>
+<xsl:template match="h:center" mode="inparagraph"/>
 
 </xsl:stylesheet>

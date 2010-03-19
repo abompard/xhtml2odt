@@ -32,11 +32,28 @@ class IgnoreElements(unittest.TestCase):
         assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\nTest\n'
 
     def test_span(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><span>Test</span></p></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt) == '''<?xml version="1.0" encoding="utf-8"?>
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Test</text:p>
+'''
+
+    def test_span_outside_p(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><span>Test</span></html>'
         odt = xhtml2odt(html)
         print odt
-        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\nTest\n'
+        assert str(odt) == ''
 
+    def test_span_in_a(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><a><span>Test</span></a></p></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt) == '''<?xml version="1.0" encoding="utf-8"?>
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+  <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="">Test</text:a>
+</text:p>
+'''
 
 
 if __name__ == '__main__':

@@ -47,6 +47,7 @@
 <xsl:template match="h:p">
     <xsl:call-template name="paragraph"/>
 </xsl:template>
+<xsl:template match="h:p" mode="inparagraph"/>
 
 <xsl:template name="paragraph">
     <xsl:choose>
@@ -123,7 +124,7 @@
                     <xsl:value-of select="string()"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:apply-templates select="."/>
+                    <xsl:apply-templates select="." mode="inparagraph"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:for-each>

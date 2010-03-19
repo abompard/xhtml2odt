@@ -44,9 +44,10 @@
     version="1.0">
 
 
-<xsl:template match="h:span[@class='underline']">
+<xsl:template match="h:span[@class='underline']"/>
+<xsl:template match="h:span[@class='underline']" mode="inparagraph">
     <text:span text:style-name="underline">
-        <xsl:apply-templates/>
+        <xsl:apply-templates mode="inparagraph"/>
     </text:span>
 </xsl:template>
 

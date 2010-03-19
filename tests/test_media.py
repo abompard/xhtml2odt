@@ -34,6 +34,32 @@ class MediaElements(unittest.TestCase):
                                  <svg:title/> \s*
                              </draw:frame>""", str(odt), re.X)
 
+    def test_img2(self):
+        """<img> tag in paragraph"""
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><img src="imagesource"/></p></html>'
+        odt = xhtml2odt(html, {
+            "img_default_width": "8cm",
+            "img_default_height": "6cm",
+        })
+        print odt
+        assert re.search(r"""<draw:frame \s+
+                             (xmlns:[a-z0-9=:".-]+ \s+)* # namespaces
+                             text:anchor-type="paragraph" \s+
+                             draw:style-name="image-center" \s+
+                             draw:name="imageobject-[a-z0-9]+" \s+
+                             svg:width="8cm" \s+
+                             svg:height="6cm" \s+
+                             svg:y="0.20cm" \s+
+                             draw:z-index="1"> \s*
+                                 <draw:image \s+
+                                 xmlns:xlink="http://www.w3.org/1999/xlink" \s+
+                                 xlink:href="imagesource" \s+
+                                 xlink:type="simple" \s+
+                                 xlink:show="embed" \s+
+                                 xlink:actuate="onLoad"/> \s*
+                                 <svg:title/> \s*
+                             </draw:frame>""", str(odt), re.X)
+
     def test_img_default_size(self):
         """<img> tag: no width nor height given"""
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><img src="imagesource"/></html>'

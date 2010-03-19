@@ -65,7 +65,7 @@
             <xsl:value-of select="$level"/>
         </xsl:attribute>
 
-        <xsl:apply-templates/>
+        <xsl:apply-templates mode="inparagraph"/>
 
     </text:h>
     

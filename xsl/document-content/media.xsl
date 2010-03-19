@@ -45,6 +45,13 @@
 
 
 <xsl:template match="h:img">
+    <xsl:call-template name="image"/>
+</xsl:template>
+<xsl:template match="h:img" mode="inparagraph">
+    <xsl:call-template name="image"/>
+</xsl:template>
+
+<xsl:template name="image">
     
     <!-- @align                                                  -->
     <!-- @contentwidth                                           -->

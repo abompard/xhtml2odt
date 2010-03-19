@@ -18,10 +18,12 @@ class GenericTests(unittest.TestCase):
 
     def test_stripped_whitespaces(self):
         """Preservation of spaces between tags"""
-        html = '<html xmlns="http://www.w3.org/1999/xhtml"><span>First</span> <span>Second</span></html>'
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><span>First</span> <span>Second</span></p></html>'
         odt = xhtml2odt(html)
         print odt
-        assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>\nFirst Second\n"""
+        assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">First Second</text:p>
+"""
 
 
 if __name__ == '__main__':

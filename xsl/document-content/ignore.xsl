@@ -58,8 +58,9 @@
     <xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="h:span">
-    <xsl:apply-templates/>
+<xsl:template match="h:span"/>
+<xsl:template match="h:span" mode="inparagraph">
+    <xsl:apply-templates mode="inparagraph"/>
 </xsl:template>
 
 <xsl:template match="h:script"/>
