@@ -13,7 +13,7 @@ class SectionElements(unittest.TestCase):
         print odt
         assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
 <!--section level 1-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_1">Test</text:h>
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_1" text:outline-level="1">Test</text:h>
 """
 
     def test_h2(self):
@@ -22,7 +22,7 @@ class SectionElements(unittest.TestCase):
         print odt
         assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
 <!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2">Test</text:h>
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">Test</text:h>
 """
 
     def test_h3(self):
@@ -31,7 +31,7 @@ class SectionElements(unittest.TestCase):
         print odt
         assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
 <!--section level 3-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_3">Test</text:h>
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_3" text:outline-level="3">Test</text:h>
 """
 
     def test_h4(self):
@@ -40,7 +40,7 @@ class SectionElements(unittest.TestCase):
         print odt
         assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
 <!--section level 4-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_4">Test</text:h>
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_4" text:outline-level="4">Test</text:h>
 """
 
     def test_h5(self):
@@ -49,7 +49,7 @@ class SectionElements(unittest.TestCase):
         print odt
         assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
 <!--section level 5-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_5">Test</text:h>
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_5" text:outline-level="5">Test</text:h>
 """
 
     def test_h6(self):
@@ -58,7 +58,7 @@ class SectionElements(unittest.TestCase):
         print odt
         assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
 <!--section level 6-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_6">Test</text:h>
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_6" text:outline-level="6">Test</text:h>
 """
 
     def test_h2_minuslevel_1(self):
@@ -67,7 +67,7 @@ class SectionElements(unittest.TestCase):
         print odt
         assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
 <!--section level 1-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_1">Test</text:h>
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_1" text:outline-level="1">Test</text:h>
 """
 
     def test_h3_minuslevel_2(self):
@@ -76,7 +76,7 @@ class SectionElements(unittest.TestCase):
         print odt
         assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
 <!--section level 1-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_1">Test</text:h>
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_1" text:outline-level="1">Test</text:h>
 """
 
 

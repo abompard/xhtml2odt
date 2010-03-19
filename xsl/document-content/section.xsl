@@ -56,12 +56,10 @@
     </xsl:comment>
     
     <text:h>
-        <!--
-        <xsl:attribute name="text:outline-level">
+        <xsl:attribute name="text:style-name"><xsl:text>Heading_20_</xsl:text>
             <xsl:value-of select="$level"/>
         </xsl:attribute>
-        -->
-        <xsl:attribute name="text:style-name"><xsl:text>Heading_20_</xsl:text>
+        <xsl:attribute name="text:outline-level">
             <xsl:value-of select="$level"/>
         </xsl:attribute>
 

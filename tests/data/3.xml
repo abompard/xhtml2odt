@@ -97,7 +97,7 @@
     
       
         <!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2">Context Navigation</text:h>
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">Context Navigation</text:h>
           <text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
@@ -129,7 +129,7 @@
       
         
           <!--section level 1-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_1">Playground</text:h>
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_1" text:outline-level="1">Playground</text:h>
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 Essai d'export d'une image :
 </text:p>
@@ -213,7 +213,7 @@ Image distante :
         
       
           <!--section level 3-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_3">Attachments</text:h>
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_3" text:outline-level="3">Attachments</text:h>
           <text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
@@ -240,7 +240,7 @@ Image distante :
     
     
       <!--section level 3-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_3">Download in other formats:</text:h>
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_3" text:outline-level="3">Download in other formats:</text:h>
       <text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
   <text:list-item>
     <text:p text:style-name="list-item-bullet">

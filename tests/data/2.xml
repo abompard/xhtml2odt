@@ -6,7 +6,7 @@
 
 
   <!--section level 1-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_1">
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_1" text:outline-level="1">
   <draw:a xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/">
     <draw:frame xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="100" svg:height="100" svg:y="0.20cm" draw:z-index="1">
       <draw:image xlink:href="/blog/themes/gauret/img/logo.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
@@ -37,7 +37,7 @@
     </text:p>
     
     <!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2">
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">
   <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/12/30/Export-ODT-pour-Trac">Export ODT pour Trac</text:a>
 </text:h>
     
@@ -73,7 +73,7 @@
     </text:p>
     
     <!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2">
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">
   <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/10/17/T%C3%A9l%C3%A9phone-portable-%3A-pas-d-OS-parfait-en-vue">Téléphone portable : pas d'OS parfait en vue</text:a>
 </text:h>
     
@@ -110,7 +110,7 @@ Voilà un petit passage en revue des différentes options.</text:p>
     </text:p>
     
     <!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2">
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">
   <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/10/15/Blog-Action-Day-%3A-le-changement-climatique">Blog Action Day : le changement climatique</text:a>
 </text:h>
     
@@ -142,7 +142,7 @@ Voilà un petit passage en revue des différentes options.</text:p>
     </text:p>
     
     <!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2">
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">
   <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/09/27/Taxe-carbone%2C-mon-point-de-vue.">Taxe carbone, mon point de vue.</text:a>
 </text:h>
     
@@ -179,7 +179,7 @@ tonne de CO2.</text:p>
     </text:p>
     
     <!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2">
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">
   <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/09/05/Diablo-Swing-Orchestra-sur-Jamendo">Diablo Swing Orchestra sur Jamendo</text:a>
 </text:h>
     
@@ -244,7 +244,7 @@ tonne de CO2.</text:p>
     </text:p>
     
     <!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2">
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">
   <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/08/18/J.K.-Rowling%2C-une-experte-de-la-philosophie-bouddhiste">J.K. Rowling, une experte de la philosophie bouddhiste ?</text:a>
 </text:h>
     
@@ -258,7 +258,7 @@ tonne de CO2.</text:p>
           <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Sous ce titre accrocheur mais complètement débile, je voudrais vous faire part d’une réflexion qui m’a traversé l’esprit à propos d’un livre que je lis en ce moment.</text:p>
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Tout d’abord, souvenez-vous de cette scène dans “<text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://fr.wikipedia.org/wiki/Harry_Potter_et_le_Prisonnier_d%27Azkaban">Harry Potter et le Prisonnier d’Azkaban</text:a>”, où le <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://fr.wikipedia.org/wiki/Remus_Lupin">professeur Lupin</text:a> apprend aux élèves à combattre un <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://fr.wikipedia.org/wiki/%C3%89pouvantard#.C3.89pouvantard">Épouvantard</text:a> (<text:span text:style-name="emphasis">Boggart</text:span>). Il explique qu’il faut l’imaginer dans une forme rigolotte, et utiliser la formule « Riddikulus » pour le forcer à prendre cette forme. C’est l’éclat de rire du sorcier qui l’achève. Après l’explication du professeur, une file d’attente d’élèves se forme devant le placard où est enfermé l’Épouvantard, et c’est Neville qui est le premier. La porte s’ouvre, l’Épouvantard prend alors la forme du professeur Snape pour faire peur à Neville. Ce dernier, bien qu’effrayé au début, se re-concentre, imagine Snape dans les habits de sa grand mère, lance la formule, et voilà le terrible professeur dans un accoutrement des plus risibles ! Neville éclate de rire, l’Épouvantard disparaît, et au suivant !</text:p>
 <!--section level 3-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_3">Mais quel est le rapport avec le bouddhisme ?</text:h>
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_3" text:outline-level="3">Mais quel est le rapport avec le bouddhisme ?</text:h>
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Je suis en train de lire le livre « <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.amazon.fr/Plaidoyer-pour-bonheur-Matthieu-Ricard/dp/226614460X/">Plaidoyer pour le bonheur</text:a> », par <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://fr.wikipedia.org/wiki/Matthieu_Ricard">Matthieu Ricard</text:a> (que je vous recommande chaudement au passage). Un paragraphe m’a amené la scène précédente à l’esprit, je vous le cite ici :</text:p>
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Quotations">[… Il faut mener une introspection lucide.] On peut mener celle-ci en recourant à deux méthodes : l’une analytique, l’autre contemplative. </text:p>
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Quotations">L’analyse consiste à évaluer honnêtement les tenants et les
@@ -271,7 +271,7 @@ vraiment pas dans notre manière d’être et d’agir. Il faut ensuite
 aspirer ardemment à changer.</text:p>
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Quotations">L’attitude contemplative est plus subjective. Elle consiste à délaisser quelques instants le bouillonnement de nos pensées pour regarder calmement au fond de nous, comme on contemplerait un paysage intérieur, afin de découvrir ce qui incarne notre aspiration la plus chère.</text:p>
 <!--section level 3-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_3">Il dit qu’il voit pas le rapport…</text:h>
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_3" text:outline-level="3">Il dit qu’il voit pas le rapport…</text:h>
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">J’imagine tout à fait regarder au fond de soi les différents traumatismes, les obsessions et les névroses accumulés au fil des années, comme Neville a vu Snape sortir du placard. Ça fait peur, mais il faut rester concentré. Ensuite, on les analyse, on les décortique, et on trouve les causes, aussi minimes ou idiotes soient-elles. Une fois qu’on les a bien étalées au grand jour, et que tout est clair, la volonté de s’en débarrasser s’incarne en un « Riddikulus ! » intérieur. On rit de soi-même, ni pour la première ni pour la dernière fois, parce que finalement ça tenait à bien peu de choses. Et dans un « pop ! » accompagné de volutes de fumées, les névroses sont vaincues, les obsessions disparaissent, les traumatismes sont guéris.</text:p>
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Ça a l’air facile comme ça, et je me doute bien que c’est beaucoup plus de boulot que ça en a l’air, mais je trouve amusant que la Voie puisse être montrée par un <text:span text:style-name="emphasis">best seller</text:span> de la littérature pour enfants <draw:frame xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/blog/themes/gauret/smilies/smile.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>:)</svg:title></draw:frame></text:p>
     
@@ -293,7 +293,7 @@ aspirer ardemment à changer.</text:p>
     </text:p>
     
     <!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2">
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">
   <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/08/01/Au-nom-du-libre-je-te-baptise-%3A-Photo-Imp-%21">Au nom du libre je te baptise : Photo Imp !</text:a>
 </text:h>
     
@@ -335,7 +335,7 @@ aspirer ardemment à changer.</text:p>
   
   
     <!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2">À voir sur le web</text:h><text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">À voir sur le web</text:h><text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
       <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.matthieuricard.org/index.php/MR/blog/54_the_short_lived_triumph_of_selfishness/">Le triomphe éphémère de l'égoïsme sectaire (Matthieu Ricard)</text:a>
@@ -372,7 +372,7 @@ aspirer ardemment à changer.</text:p>
     </text:p>
   </text:list-item>
 </text:list><!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2">Gauret 2.0</text:h><text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">Gauret 2.0</text:h><text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
       <draw:a xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.linkedin.com/in/abompard">
@@ -454,7 +454,7 @@ aspirer ardemment à changer.</text:p>
     </text:p>
   </text:list-item>
 </text:list><!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2">S'abonner</text:h><text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
+<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">S'abonner</text:h><text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
       <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/feed/atom">Fil des billets</text:a>
