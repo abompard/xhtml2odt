@@ -105,7 +105,7 @@ class ListElements(unittest.TestCase):
         odt = xhtml2odt(html)
         print odt
         target = """
-      <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Def1</text:p>
+      <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Table_20_Contents">Def1</text:p>
       <text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
         <text:list-item>
           <text:p text:style-name="list-item-bullet">Def1-LI</text:p>
