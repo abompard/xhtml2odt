@@ -30,5 +30,11 @@ class Full(unittest.TestCase):
     def test_full_1(self):
         return self._run_full_test(1)
 
+    def test_full_2(self):
+        return self._run_full_test(2)
+
+    def test_full_3(self):
+        return self._run_full_test(3)
+
 if __name__ == '__main__':
     unittest.main()
