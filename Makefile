@@ -16,4 +16,7 @@ install: xhtml2odt.py template.odt $(wildcard styles/*) $(shell find xsl -type f
 tests:
 	nosetests tests
 
+clean:
+	find . -name "*.pyc" -exec rm -f {} \;
+
 .PHONY: all install tests
