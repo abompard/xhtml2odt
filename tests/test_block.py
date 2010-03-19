@@ -34,10 +34,17 @@ class BlockElements(unittest.TestCase):
 
     def test_pre3(self):
         """<pre>: space preservation"""
-        html = '<html xmlns="http://www.w3.org/1999/xhtml"><pre>   Line with spaces \n</pre></html>'
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><pre>   Line with spaces </pre></html>'
         odt = xhtml2odt(html)
         print odt
-        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">   Line with spaces <text:line-break/></text:p>\n'
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">   Line with spaces </text:p>\n'
+
+    def test_pre4(self):
+        """<pre>: removing last line-break"""
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><pre>Line\n</pre></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">Line</text:p>\n'
 
     def test_address(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><address>Test</address></html>'

@@ -69,10 +69,12 @@
     <xsl:choose>
         <xsl:when test="contains($content, '&#10;')">
             <xsl:value-of select="substring-before($content, '&#10;')"/>
-            <text:line-break/>
-            <xsl:call-template name="pre.line">
-                <xsl:with-param name="content" select="substring-after($content, '&#10;')"/>
-            </xsl:call-template>
+            <xsl:if test="substring-after($content, '&#10;') != ''">
+                <text:line-break/>
+                <xsl:call-template name="pre.line">
+                    <xsl:with-param name="content" select="substring-after($content, '&#10;')"/>
+                </xsl:call-template>
+            </xsl:if>
         </xsl:when>
         <xsl:otherwise>
             <xsl:value-of select="string($content)"/>
