@@ -45,6 +45,7 @@
 <xsl:include href="document-content/paragraph.xsl"/>
 <xsl:include href="document-content/block.xsl"/>
 <xsl:include href="document-content/inline.xsl"/>
+<xsl:include href="document-content/link.xsl"/>
 <xsl:include href="document-content/lists.xsl"/>
 <xsl:include href="document-content/section.xsl"/>
 <xsl:include href="document-content/media.xsl"/>
