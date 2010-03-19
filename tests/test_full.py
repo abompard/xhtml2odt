@@ -22,7 +22,7 @@ class Full(unittest.TestCase):
         odt = str(xhtml2odt(html))
         xml = full_test_cleanup.sub("", xml)
         odt = full_test_cleanup.sub("", odt)
-        #xml_file = open(os.path.join(tests_data, "%s.xml.orig" % testid), "w")
+        #xml_file = open(os.path.join(tests_data, "%s.xml.gen" % testid), "w")
         #xml_file.write(odt)
         #xml_file.close()
         assert odt == xml

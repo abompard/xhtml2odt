@@ -317,13 +317,47 @@ Example:
 </text:p>
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text"> llama::<text:line-break/>   some kind of mammal, with hair<text:line-break/> ppython::<text:line-break/>   some kind of reptile, without hair<text:line-break/>   (can you spot the typo?)<text:line-break/></text:p><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 Display:
-<table:table xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" table:style-name="table-default"><table:table-column table:number-columns-repeated="2"/><table:table-row><!--horizontal-position=1--><!--horizontal-count=2--><!--vertical-position=1--><!--vertical-count=2--><table:table-cell xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" office:value-type="string" table:style-name="table-default.cell-A1"><text:p text:style-name="Table_20_Contents">llama</text:p></table:table-cell><!--horizontal-position=2--><!--horizontal-count=2--><!--vertical-position=1--><!--vertical-count=2--><table:table-cell xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" office:value-type="string" table:style-name="table-default.cell-C1"><text:p text:style-name="Table_20_Contents">
+</text:p>
+<table:table xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" table:style-name="table-default">
+  <table:table-column table:number-columns-repeated="2"/>
+  <table:table-row>
+    <!--horizontal-position=1-->
+    <!--horizontal-count=2-->
+    <!--vertical-position=1-->
+    <!--vertical-count=2-->
+    <table:table-cell xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" office:value-type="string" table:style-name="table-default.cell-A1">
+      <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Table_20_Contents">llama</text:p>
+    </table:table-cell>
+    <!--horizontal-position=2-->
+    <!--horizontal-count=2-->
+    <!--vertical-position=1-->
+    <!--vertical-count=2-->
+    <table:table-cell xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" office:value-type="string" table:style-name="table-default.cell-C1">
+      <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Table_20_Contents">
 some kind of mammal, with hair
-</text:p></table:table-cell></table:table-row><table:table-row><!--horizontal-position=1--><!--horizontal-count=2--><!--vertical-position=2--><!--vertical-count=2--><table:table-cell xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" office:value-type="string" table:style-name="table-default.cell-A3"><text:p text:style-name="Table_20_Contents">ppython</text:p></table:table-cell><!--horizontal-position=2--><!--horizontal-count=2--><!--vertical-position=2--><!--vertical-count=2--><table:table-cell xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" office:value-type="string" table:style-name="table-default.cell-C3"><text:p text:style-name="Table_20_Contents">
+</text:p>
+    </table:table-cell>
+  </table:table-row>
+  <table:table-row>
+    <!--horizontal-position=1-->
+    <!--horizontal-count=2-->
+    <!--vertical-position=2-->
+    <!--vertical-count=2-->
+    <table:table-cell xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" office:value-type="string" table:style-name="table-default.cell-A3">
+      <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Table_20_Contents">ppython</text:p>
+    </table:table-cell>
+    <!--horizontal-position=2-->
+    <!--horizontal-count=2-->
+    <!--vertical-position=2-->
+    <!--vertical-count=2-->
+    <table:table-cell xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" office:value-type="string" table:style-name="table-default.cell-C3">
+      <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Table_20_Contents">
 some kind of reptile, without hair
 (can you spot the typo?)
-</text:p></table:table-cell></table:table-row></table:table>
 </text:p>
+    </table:table-cell>
+  </table:table-row>
+</table:table>
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 Note that you need a space in front of the defined term.
 </text:p>
