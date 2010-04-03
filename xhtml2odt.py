@@ -285,17 +285,24 @@ class ODTFile(object):
     def insert_content(self, content):
         if self.options.replace_keyword and \
             self.xml["content"].count(self.options.replace_keyword) > 0:
-            # TODO: this creates an empty line before and after the
-            # replace_keyword. It's not optimal, I should use a regexp to
-            # remove the previous opening <text:p> tag and the corresponding
-            # closing tag.
-            self.xml["content"] = self.xml["content"].replace(
-                self.options.replace_keyword,
-                '</text:p>%s<text:p text:style-name="Text_20_body">' % content)
+            self.xml["content"] = re.sub(
+                    "<text:p[^>]*>" +
+                    re.escape(self.options.replace_keyword)
+                    +"</text:p>", content, self.xml["content"])
         else:
             self.xml["content"] = self.xml["content"].replace(
                 '</office:text>',
                 content + '</office:text>')
+        # Cut unwanted text
+        if self.options.cut_start \
+                and self.xml["content"].count(self.options.cut_start) > 0 \
+                and self.options.cut_stop \
+                and self.xml["content"].count(self.options.cut_stop) > 0:
+            self.xml["content"] = re.sub(
+                    re.escape(self.options.cut_start)
+                    + ".*" +
+                    re.escape(self.options.cut_stop),
+                    "", self.xml["content"])
 
     def add_styles(self):
         xsl_dir = os.path.join(INSTALL_PATH, 'xsl')
@@ -361,6 +368,14 @@ def get_options():
                       default="ODT-INSERT", metavar="KEYWORD",
                       help="Keyword to replace in the ODT template "
                       "(default is %default)")
+    parser.add_option("--cut-start", dest="cut_start",
+                      default="ODT-CUT-START", metavar="KEYWORD",
+                      help="Keyword to start cutting text from the ODT "
+                      "template (default is %default)")
+    parser.add_option("--cut-stop", dest="cut_stop",
+                      default="ODT-CUT-STOP", metavar="KEYWORD",
+                      help="Keyword to stop cutting text from the ODT "
+                      "template (default is %default)")
     parser.add_option("--top-header-level", dest="top_header_level",
                       type="int", default="1", metavar="LEVEL",
                       help="Level of highest header in the HTML "
