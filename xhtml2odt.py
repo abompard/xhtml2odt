@@ -88,8 +88,8 @@ class ODTFile(object):
     def __init__(self, options):
         self.options = options
         self.template_dirs = []
-        if options.tpldir:
-            self.template_dirs.append(options.tpldir)
+        if options.stylesdir:
+            self.template_dirs.append(options.stylesdir)
         self.template_dirs.append(
             os.path.join(INSTALL_PATH, "styles")
         )
@@ -395,8 +395,8 @@ def get_options():
     parser.add_option("--no-network", dest="with_network",
                       action="store_false", default=True,
                       help="Do not download remote images")
-    parser.add_option("--tpldir", dest="tpldir",
-                      help="Override templates directory")
+    parser.add_option("--stylesdir", dest="stylesdir", metavar="DIR",
+                      help="Override the style templates directory")
     options, args = parser.parse_args()
     if len(args) > 0:
         parser.error("illegal arguments: %s"% ", ".join(args))
