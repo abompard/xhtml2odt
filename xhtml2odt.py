@@ -33,7 +33,6 @@ import sys
 import zipfile
 import urllib2
 import urlparse
-from glob import glob
 from StringIO import StringIO
 from optparse import OptionParser
 
@@ -236,19 +235,23 @@ class ODTFile(object):
             if width_mo and height_mo:
                 log('Forced size: %spx x %spx.' % (width_mo.group(),
                         height_mo.group()), self.options.verbose)
-                width = float(width_mo.group(1)) / self.options.img_dpi * INCH_TO_CM
-                height = float(height_mo.group(1)) / self.options.img_dpi * INCH_TO_CM
+                width = float(width_mo.group(1)) / self.options.img_dpi \
+                            * INCH_TO_CM
+                height = float(height_mo.group(1)) / self.options.img_dpi \
+                            * INCH_TO_CM
                 full_tag = full_tag.replace(width_mo.group(), "")\
                                    .replace(height_mo.group(), "")
             elif width_mo and not height_mo:
-                newwidth = float(width_mo.group(1)) / float(self.options.img_dpi) * INCH_TO_CM
+                newwidth = float(width_mo.group(1)) / \
+                           float(self.options.img_dpi) * INCH_TO_CM
                 height = height * newwidth / width
                 width = newwidth
                 log('Forced width: %spx. Size will be: %scm x %scm' %
                     (width_mo.group(1), width, height), self.options.verbose)
                 full_tag = full_tag.replace(width_mo.group(), "")
             elif not width_mo and height_mo:
-                newheight = float(height_mo.group(1)) / float(self.options.img_dpi) * INCH_TO_CM
+                newheight = float(height_mo.group(1)) / \
+                            float(self.options.img_dpi) * INCH_TO_CM
                 width = width * newheight / height
                 height = newheight
                 log('Forced height: %spx. Size will be: %scm x %scm' %
@@ -407,10 +410,10 @@ def get_options():
         parser.error("Can't find input file: %s" % options.input)
     if not os.path.exists(options.template):
         parser.error("Can't find template file: %s" % options.template)
-    return options, args
+    return options
 
 def main():
-    options, args = get_options()
+    options = get_options()
     htmlfile = HTMLFile(options)
     htmlfile.read()
     odtfile = ODTFile(options)
