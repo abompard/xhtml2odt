@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 # vim: set expandtab tabstop=4 shiftwidth=4:
 /**
@@ -23,32 +24,6 @@
  *
  * @package xhtml2odt
  */
-
-
-function main() {
-    global $html, $url;
-
-    $tpl_file = "template.odt";
-    $html_file = "test.html";
-    $url = "http://example.com";
-
-    $html = file_get_contents($html_file);
-
-    $odf = new dcOdf($tpl_file);
-
-    $title = "My example page"; // this would be your page's title
-    $odf->xslparams["url"] = $url; // this would be your app's URL
-    // the following setting depends on how <h> tags are used in you app
-    $odf->xslparams["heading_minus_level"] = 1;
-    // set the following values from your config
-    $odf->get_remote_images = true;
-    $odf->xslparams["img_default_width"] = "8cm";
-    $odf->xslparams["img_default_height"] = "6cm";
-
-    $odf->compile();
-
-    $odf->exportAsAttachedFile(str_replace('"','',$title).".odt");
-}
 
 
 /**
@@ -129,13 +104,23 @@ class dcODF {
      * - the rest of the function is identical
      */
     public function compile() {
+        global $html, $replace_tag;
         //$html = YourAppsTemplatingEngine($this->template);
         // here we'll just use the global $html variable.
         $odt = $this->xhtml2odt($html);
+        $odt = str_replace('<'.'?xml version="1.0" encoding="utf-8"?'.'>', '', $odt);
+        //print $html;
         //print $this->contentXml;
-        //print $output;
+        //print $odt;
+        //print "\n";
         //exit();
-        $this->contentXml = $odt;
+        // If you're using the ODT file as a template in a templating engine,
+        // you can just set $this->contentXml to the output of xhtml2odt()
+        if ($replace_tag and strpos($this->contentXml, $replace_tag) !== false) {
+            $this->contentXml = preg_replace("/<text:p[^>]*>$replace_tag<\/text:p>/", $odt, $this->contentXml);
+        } else {
+            $this->contentXml = str_replace("</office:text>", "$odt</office:text>", $this->contentXml);
+        }
         $this->addStyles();
     }
 
@@ -152,19 +137,17 @@ class dcODF {
      * white space after links. I didn't find a way around this.
      */
     public function cleanupInput($xhtml) {
-        // add namespace
-        $xhtml = str_replace("<office:document-content", '<office:document-content xmlns="http://www.w3.org/1999/xhtml"', $xhtml);
-        // replace html codes with unicode
-        // http://www.mail-archive.com/analog-help@lists.meer.net/msg03670.html
-        $xhtml = str_replace("&nbsp;","&#160;",$xhtml);
+        // add namespace if you used the ODT file as a template
+        //$xhtml = str_replace("<office:document-content", '<office:document-content xmlns="http://www.w3.org/1999/xhtml"', $xhtml);
 
         /* Won't work if you have ODT XML *and* XHTML as input */
         if (extension_loaded('tidy')) {
             $tidy_config = array(
                     'output-xhtml' => true,
-                    'add-xml-decl' => true,
+                    'add-xml-decl' => false,
                     'indent' => false,
                     'tidy-mark' => false,
+                    //'input-encoding' => "latin1",
                     'output-encoding' => "utf8",
                     'doctype' => "auto",
                     'wrap' => 0,
@@ -173,8 +156,14 @@ class dcODF {
             $tidy = new tidy;
             $tidy->parseString($xhtml, $tidy_config, 'utf8');
             $tidy->cleanRepair();
-            $xhtml = "$tidy";
+            //$xhtml = "$tidy";
         }
+
+        // replace html codes with unicode
+        // http://www.mail-archive.com/analog-help@lists.meer.net/msg03670.html
+        //$xhtml = str_replace("&nbsp;","&#160;",$xhtml);
+        $xhtml = html_entity_decode($xhtml, ENT_COMPAT, "UTF-8");
+
         return $xhtml;
     }
 
@@ -185,9 +174,10 @@ class dcODF {
      * @return string resulting ODT XML
      */
     public function xhtml2odt($xhtml) {
+        global $url;
         $xhtml = self::cleanupInput($xhtml);
         // handle images
-        $xhtml = preg_replace('#<img ([^>]*)src="http://'.$_SERVER["SERVER_NAME"].'#', '<img \1src="', $xhtml);
+        $xhtml = preg_replace('#<img ([^>]*)src="http://'.$url.'#', '<img \1src="', $xhtml);
         $xhtml = preg_replace_callback('#<img [^>]*src="(/[^"]+)"#', array($this,"handleLocalImg"), $xhtml);
         if ($this->get_remote_images) {
             $xhtml = preg_replace_callback('#<img [^>]*src="(https?://[^"]+)"#', array($this,"handleRemoteImg"), $xhtml);
@@ -203,6 +193,7 @@ class dcODF {
         foreach ($this->xslparams as $pkey=>$pval) {
             $proc->setParameter("", $pkey, $pval);
         }
+        $proc->setParameter("", "debug", "1");
         $output = $proc->transformToXML($xmldoc);
         if ($output === false) {
             throw new OdfException('XSLT transformation failed');
@@ -225,6 +216,7 @@ class dcODF {
         return $this->handleImg($file, $matches);
         */
         // We're a command-line app, so...
+        global $url;
         $matches[1] = $url."/".$matches[1];
         return $this->handleRemoteImg($matches);
     }
@@ -377,7 +369,7 @@ class dcODF {
      * @param string $name path to the file on the disk
      * @throws OdfException
      */
-    public function exportAsAttachedFile($name="") {
+    public function saveToFile($name="") {
         $this->_save();
         if( $name == "" ) {
             $name = md5(uniqid()) . ".odt";
@@ -407,5 +399,64 @@ class dcODF {
 
 }
 
+
+function parseOpts() {
+    $shortopts = "i:o:t:";
+    $longopts = array(
+        "url:",
+        "no-network",
+        "replace:",
+        "top-header-level:",
+        "img-default-width:",
+        "img-default-height:",
+    );
+    $usage = sprintf("Usage: %s [options] -i input.html -o output.odt -t template.odt\n", $GLOBALS["argv"][0]);
+    $options = getopt($shortopts, $longopts);
+    foreach (array("i", "o", "t") as $reqopt) {
+        if (!array_key_exists($reqopt, $options)) {
+            die("Missing '-$reqopt' option.\n".$usage);
+        }
+    }
+    return $options;
+}
+
+/**
+ * Main function, everything starts here
+ */
+function main() {
+    global $html, $url, $replace_tag;
+
+    $options = parseOpts();
+    $html_file = $options["i"];
+    $tpl_file = $options["t"];
+    $url = array_key_exists("url", $options) ? $options["url"] : "";
+    $top_header_level = array_key_exists("top-header-level", $options)
+                            ? int($options["top-header-level"]) : 1;
+    $img_width = array_key_exists("img-default-width", $options) 
+                            ? $options["img-default-width"] : "8cm";
+    $img_height = array_key_exists("img-default-height", $options) 
+                            ? $options["img-default-height"] : "6cm";
+    $replace_tag = array_key_exists("replace", $options)
+                            ? $options["replace"] : "";
+
+    $html = file_get_contents($html_file);
+
+    $odf = new dcOdf($tpl_file);
+
+    $odf->xslparams["url"] = $url; // this would be your app's URL
+    // the following setting depends on how <h> tags are used in you app
+    $odf->xslparams["heading_minus_level"] = $top_header_level;
+    // set the following values from your config
+    $odf->get_remote_images = array_key_exists("no-network", $options);
+    $odf->xslparams["img_default_width"] = $img_width;
+    $odf->xslparams["img_default_height"] = $img_height;
+
+    $odf->compile();
+
+    $odf->saveToFile($options["o"]);
+    print "Wrote document to: ".$options["o"]."\n";
+}
+
+main();
 
 ?>
