@@ -35,7 +35,7 @@ class OdfException extends Exception {}
 /**
  * Handling of an ODT file based on a template (another ODT file)
  */
-class dcODF {
+class ODTFile {
     protected $odtfile;
     protected $odtfilepath;
     protected $tmpfiles = array();
@@ -106,7 +106,7 @@ class dcODF {
     public function compile() {
         //$html = YourAppsTemplatingEngine($this->template);
         // here we'll just use the global $html variable.
-        global $html, $replace_tag;
+        global $html, $options;
         $odt = $this->xhtml2odt($html);
         $odt = str_replace('<'.'?xml version="1.0" encoding="utf-8"?'.'>', '', $odt);
         // You can do some debugging here if you want to.
@@ -119,10 +119,14 @@ class dcODF {
         // you can just set $this->contentXml to the output of xhtml2odt()
         // Here, we'll show how to replace a given string in the template, or
         // how to append text to the template.
-        if ($replace_tag and strpos($this->contentXml, $replace_tag) !== false) {
-            $this->contentXml = preg_replace("/<text:p[^>]*>$replace_tag<\/text:p>/", $odt, $this->contentXml);
+        if ($options["replace"] and
+                strpos($this->contentXml, $options["replace"]) !== false) {
+            $this->contentXml = preg_replace(
+                    "/<text:p[^>]*>".$options["replace"]."<\/text:p>/",
+                    $odt, $this->contentXml);
         } else {
-            $this->contentXml = str_replace("</office:text>", "$odt</office:text>", $this->contentXml);
+            $this->contentXml = str_replace("</office:text>",
+                    "$odt</office:text>", $this->contentXml);
         }
         // Add the missing styles (used in content.xml but not defined in
         // styles.xml or automatic styles
@@ -181,22 +185,7 @@ class dcODF {
     public function xhtml2odt($xhtml) {
         global $url;
         $xhtml = self::cleanupInput($xhtml);
-        // handle images
-        $xhtml = preg_replace('#<img ([^>]*)src="http://'.$url.'#',
-                              '<img \1src="', $xhtml);
-        // Since we're a command-line script, there is no notion of "local
-        // image", so I must convert to absolute URLs. Don't do this in a webapp.
-        $xhtml = preg_replace('#<img ([^>]*)src="(/[^"]+)"#',
-                              '<img \1src="'.$url.'\2"', $xhtml);
-        // The next line will never be called in this command-line script, but
-        // would be very useful in a webapp.
-        //$xhtml = preg_replace_callback('#<img [^>]*src="(/[^"]+)"[^>]*#',
-        //                               array($this,"handleLocalImg"), $xhtml);
-        if ($this->get_remote_images) {
-            $xhtml = preg_replace_callback(
-                        '#<img [^>]*src="(https?://[^"]+)"[^>]*#',
-                        array($this,"handleRemoteImg"), $xhtml);
-        }
+        $xhtml = $this->handleImages($xhtml);
         // run the stylesheets
         $xsl = dirname(__FILE__)."/xsl";
         $xmldoc = new DOMDocument();
@@ -216,17 +205,86 @@ class dcODF {
     }
 
     /**
+     * Handle images.
+     *
+     * Download and include them when possible. Local and remote images are
+     * handled differently.
+     *
+     * @param string $xhtml XHTML to look for images in
+     * @return string XHTML with normalized img tags
+     */
+    protected function handleImages($xhtml) {
+        global $options;
+        // Turn false absolute URLs into relative ones. Useful for a webapp.
+        $xhtml = preg_replace('#<img ([^>]*)src="http://'.$options["url"].'#',
+                              '<img \1src="', $xhtml);
+        /* Since we're a command-line script, there is no notion of a "local
+           image". Our handleLocalImg function will just convert the source
+           to absolute URLs. See the top of the function for an example of
+           what you could do in a webapp (2 lines !)
+         */
+        $xhtml = preg_replace_callback('#<img [^>]*src="([^"]+)"[^>]*>#',
+                                       array($this,"handleLocalImg"), $xhtml);
+        if ($this->get_remote_images) {
+            $xhtml = preg_replace_callback(
+                        '#<img [^>]*src="(https?://[^"]+)"[^>]*#',
+                        array($this,"handleRemoteImg"), $xhtml);
+        }
+        return $xhtml;
+    }
+
+    /**
      * Handling of local images (on this server)
      *
      * Must be called as a regexp callback. Outsources all the hard work to
      * the {@link handleImg} method.
      *
+     * This implementation downloads the files that come from the same domain
+     * as the XHTML document cames from, but server-based export plugins can
+     * just retrieve it from the local disk, using either the DOCUMENT_ROOT
+     * or any appropriate method (depending on the web application you're
+     * writing an export plugin for).
+     *
      * @param array $matches regexp matches
      * @return string regexp replacement
      */
     protected function handleLocalImg($matches) {
-        $file = $_SERVER["DOCUMENT_ROOT"].$matches[1];
+        global $options;
+        $src = $matches[1];
+        /* Example for a webapp:
+        $file = $_SERVER["DOCUMENT_ROOT"].$src;
         return $this->handleImg($file, $matches);
+        What follows is more complicated because we're a command-line script:
+        - if the image is really local, include it
+        - else, turn it into an absolute URL which will be downloaded later
+        */
+        if (strpos("://", $src) !== false and strpos("file://", $src) != 0) {
+            // This is an absolute link, don't touch it
+            return $matches[0];
+        }
+        if (strpos("file://", $src) == 0) {
+            $file = substr($src, 7);
+        } elseif (strpos("/", $src) == 0) {
+            $file = $src;
+        } else {
+            // relative link
+            $file = dirname($options["i"])."/".$src;
+        }
+        if (realpath($file) !== false) {
+            return $this->handleImg(realpath($file), $matches);
+        }
+        if (!$options["url"]) {
+            // There's nothing we can do here
+            return $matches[0];
+        }
+        if (function_exists("http_build_url")) {
+            $newsrc = http_build_url($options["url"], $src);
+            print "using http_build_url: $newsrc\n";
+        } else {
+            $newsrc = $options["url"]."/".$src;
+            print "not using http_build_url: $newsrc\n";
+        }
+        return str_replace($src, $newsrc, $matches[0]);
     }
 
     /*
@@ -243,6 +301,7 @@ class dcODF {
             return $matches[0]; // abort
         }
         $url = $matches[1];
+        print $url."\n";
         // Use you app's cache directory here instead of null:
         $tempfilename = tempnam(null,"xhtml2odt-");
         $this->tmpfiles []= $tempfilename;
@@ -430,7 +489,7 @@ function usage() {
 }
 
 function parseOpts() {
-    $shortopts = "i:o:t:h";
+    $shortopts = "i:o:t:u:h";
     $longopts = array(
         "help",
         "url:",
@@ -450,40 +509,65 @@ function parseOpts() {
             usage();
         }
     }
+    if (!array_key_exists("url", $options)
+        and array_key_exists("u", $options)) {
+        $options["url"] = $options["u"];
+    }
+    $input_url = @parse_url($options["i"]);
+    if (isset($input_url["scheme"])) {
+        $options["url"] = $options["i"];
+    }
     if (!array_key_exists("url", $options)) {
         print "Warning: you did not supply the '--url' option, "
              ."relative images will not be included.\n";
+    }
+    $input_url = @parse_url($options["url"]);
+    $options["url"] = sprintf("%s://%s%s%s",
+                        $input_url["scheme"], $input_url["host"],
+                        isset($input_url["port"]) ?
+                            ":".$input_url["port"] : "",
+                        isset($input_url["path"]) ?
+                            dirname($input_url["path"]) : "");
+    if (!extension_loaded('tidy')) {
+        print "Warning: you should install the 'tidy' PHP extension to ensure "
+             +"a good conversion (or else your HTML must be valid already !)";
+    }
+    if (!isset($options["url"])) {
+        $options["url"] = "";
+    }
+    if (isset($option["top-header-level"])) {
+        $options["top-header-level"] = int($options["top-header-level"]);
+    } else {
+        $options["top-header-level"] = 1;
+    }
+    if (!isset($options["img-default-width"])) {
+        $options["img-default-width"] = "8cm";
+    }
+    if (!isset($options["img-default-height"])) {
+        $options["img-default-height"] = "6cm";
+    }
+    if (!isset($options["replace"])) {
+        $options["replace"] = "";
     }
     return $options;
 }
 
 function main() {
-    global $html, $url, $replace_tag;
+    global $html, $options;
 
     $options = parseOpts();
-    $html_file = $options["i"];
-    $tpl_file = $options["t"];
-    $url = array_key_exists("url", $options) ? $options["url"] : "";
-    $top_header_level = array_key_exists("top-header-level", $options)
-                            ? int($options["top-header-level"]) : 1;
-    $img_width = array_key_exists("img-default-width", $options) 
-                            ? $options["img-default-width"] : "8cm";
-    $img_height = array_key_exists("img-default-height", $options) 
-                            ? $options["img-default-height"] : "6cm";
-    $replace_tag = array_key_exists("replace", $options)
-                            ? $options["replace"] : "";
 
-    $html = file_get_contents($html_file);
+    $html = file_get_contents($options["i"]);
 
-    $odf = new dcOdf($tpl_file);
+    $odf = new ODTFile($options["t"]);
 
-    $odf->xslparams["url"] = $url; // this would be your app's URL
+    $odf->xslparams["url"] = $options["url"]; // this would be your app's URL
     // the following setting depends on how <h> tags are used in you app
-    $odf->xslparams["heading_minus_level"] = $top_header_level;
+    $odf->xslparams["heading_minus_level"] = $options["top-header-level"];
     // set the following values from your config
-    $odf->get_remote_images = array_key_exists("url", $options);
-    $odf->xslparams["img_default_width"] = $img_width;
-    $odf->xslparams["img_default_height"] = $img_height;
+    $odf->get_remote_images = ($options["url"] != "");
+    $odf->xslparams["img_default_width"] = $options["img-default-width"];
+    $odf->xslparams["img_default_height"] = $options["img-default-height"];
 
     $odf->compile();
 
