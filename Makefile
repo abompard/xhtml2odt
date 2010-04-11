@@ -19,4 +19,15 @@ tests:
 clean:
 	find . -name "*.pyc" -exec rm -f {} \;
 
-.PHONY: all install tests
+doc: doc-py/_build/html/index.html doc-php/index.html
+	@echo "Python doc is in doc-py/_build/html/index.html"
+	@echo "PHP doc is in doc-php/index.html"
+
+doc-py/_build/html/index.html: xhtml2odt.py
+	-$(MAKE) -C doc-py html
+
+doc-php/index.html: xhtml2odt.php
+	-phpdoc -t doc-php -f xhtml2odt.php
+
+
+.PHONY: all install tests clean doc

@@ -1,1 +1,3 @@
 *.pyc
+doc-py/_build
+doc-php/*
