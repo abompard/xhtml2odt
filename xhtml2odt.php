@@ -16,11 +16,17 @@
  * 
  * @author Aurélien Bompard <aurelien@bompard.org>
  * @copyright Aurélien Bompard <aurelien@bompard.org> 2009-2010
- * @license http://www.gnu.org/licenses/agpl-3.0.html AGPLv3
+ * @license http://www.gnu.org/licenses/gpl-2.0.html GPLv2+
  * 
- * Licensed under the AGPL version 3.0.
- * A copy of this license is available in LICENSE file or at
- * http://www.gnu.org/licenses/agpl-3.0.html
+ * This program is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU General Public License
+ * as published by the Free Software Foundation; either version 2
+ * of the License, or (at your option) any later version.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
  *
  * @package xhtml2odt
  */
