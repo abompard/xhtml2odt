@@ -29,11 +29,18 @@
 /**
  * Conversion failure
  */
-class OdfException extends Exception {}
+class ODTException extends Exception {}
 
 
 /**
  * Handling of an ODT file based on a template (another ODT file)
+ *
+ * The template ODT file is given to the constructor. Then, you must:
+ * - set the XSLT parameters,
+ * - call the {@link compile} method,
+ * - use either the {@link saveToFile} method or the {@link
+ *   exportAsAttachedFile} method, depending on whether you want to save the
+ *   file on disk or to push the result to the browser.
  */
 class ODTFile {
     protected $odtfile;
@@ -50,25 +57,30 @@ class ODTFile {
     public $get_remote_images = true;
     const PIXEL_TO_CM = 0.026458333;
 
+    /**
+     * Constructor
+     *
+     * @param string $template the path to the template ODT file
+     */
     public function __construct($template) {
         $this->template = $template;
         if (! class_exists('ZipArchive')) {
-            throw new OdfException('Zip extension not loaded - check your php
+            throw new ODTException('Zip extension not loaded - check your php
                 settings, PHP5.2 minimum with zip extension is required for
                 using OdtExport'); ;
         }
         // Loading content.xml and styles.xml from the template
         $this->odtfile = new ZipArchive();
         if ($this->odtfile->open($template) !== true) {
-          throw new OdfException("Error while Opening the file '$template' -
+          throw new ODTException("Error while Opening the file '$template' -
                                   Check your odt file");
         }
         if (($this->contentXml = $this->odtfile->getFromName('content.xml')) === false) {
-            throw new OdfException("Nothing to parse - check that the
+            throw new ODTException("Nothing to parse - check that the
                                     content.xml file is correctly formed");
         }
         if (($this->stylesXml = $this->odtfile->getFromName('styles.xml')) === false) {
-          throw new OdfException("Nothing to parse - check that the
+          throw new ODTException("Nothing to parse - check that the
                                   styles.xml file is correctly formed");
         }
         $this->odtfile->close();
@@ -199,7 +211,7 @@ class ODTFile {
         }
         $output = $proc->transformToXML($xmldoc);
         if ($output === false) {
-            throw new OdfException('XSLT transformation failed');
+            throw new ODTException('XSLT transformation failed');
         }
         return $output;
     }
@@ -241,9 +253,9 @@ class ODTFile {
      *
      * This implementation downloads the files that come from the same domain
      * as the XHTML document cames from, but server-based export plugins can
-     * just retrieve it from the local disk, using either the DOCUMENT_ROOT
-     * or any appropriate method (depending on the web application you're
-     * writing an export plugin for).
+     * just retrieve it from the local disk, using either the
+     * <samp>DOCUMENT_ROOT</samp> or any appropriate method (depending on the
+     * web application you're writing an export plugin for).
      *
      * @param array $matches regexp matches
      * @return string regexp replacement
@@ -328,11 +340,11 @@ class ODTFile {
      * @param string $file the path to the image
      * @param array $matches regexp matches
      * @return string regext replacement
-     * @throws OdfException
+     * @throws ODTException
      */
     protected function handleImg($file, $matches) {
         if (!is_readable($file)) {
-            throw new OdfException("Image $file is not readable or does "
+            throw new ODTException("Image $file is not readable or does "
                                   ."not exist");
         }
         $width = 0;
@@ -398,16 +410,16 @@ class ODTFile {
     /**
      * Internal save
      *
-     * @throws OdfException
+     * @throws ODTException
      */
     protected function _save() {
         $this->odtfile->open($this->odtfilepath, ZIPARCHIVE::CREATE);
         $this->_parse();
         if (! $this->odtfile->addFromString('content.xml', $this->contentXml)) {
-            throw new OdfException('Error during file export');
+            throw new ODTException('Error during file export');
         }
         if (! $this->odtfile->addFromString('styles.xml', $this->stylesXml)) {
-            throw new OdfException('Error during file export');
+            throw new ODTException('Error during file export');
         }
         foreach ($this->images as $imageKey => $imageValue) {
             $this->odtfile->addFile($imageKey, 'Pictures/' . $imageValue);
@@ -421,12 +433,12 @@ class ODTFile {
      * If you're a web app, you'll probably want this.
      *
      * @param string $name name of the file to download (optional)
-     * @throws OdfException
+     * @throws ODTException
      */
     public function exportAsAttachedFile($name="") {
         $this->_save();
         if (headers_sent($filename, $linenum)) {
-            throw new OdfException("headers already sent ($filename at $linenum)");
+            throw new ODTException("headers already sent ($filename at $linenum)");
         }
         if( $name == "" ) {
             $name = md5(uniqid()) . ".odt";
@@ -443,7 +455,7 @@ class ODTFile {
      * exportAsAttachedFile} to have the browser download the file.
      *
      * @param string $name path to the file on the disk
-     * @throws OdfException
+     * @throws ODTException
      */
     public function saveToFile($name="") {
         $this->_save();
@@ -469,7 +481,7 @@ class ODTFile {
         $this->contentXml = $proc->transformToXML($contentxml);
         $this->stylesXml = $proc->transformToXML($stylesxml);
         if ($this->contentXml === false or $this->stylesXml === false) {
-            throw new OdfException('Adding of styles failed');
+            throw new ODTException('Adding of styles failed');
         }
     }
 
