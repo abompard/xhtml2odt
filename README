@@ -23,12 +23,19 @@ Caveats
 **Images** : images are not added, you must manually go trough the draw:image elements in the converted ODT text and use the xlink:href attribute to download or copy the image. While you're at it, you should update the image dimensions if the were not provided in the img tag.
 
 
-Command-line script
--------------------
+Command-line scripts
+--------------------
 
-A command-line script to run the stylesheets is provided. It does import the styles and the images, so while it's written in Python it can also be used as a code example for these two steps in another language. A PHP-base implementation can be found in the [Dotclear ODT export plugin][].
+Two command-line scripts to run the stylesheets are provided, one is Python-based, the other is PHP-based. They do import the styles and the images, so they can also be used as a code example for these two steps in other languages and actual export plugins.
 
-The script depends on the following Python modules:
+Documentation for both scripts can be generated using the "`make doc`" command. This will require [sphinx][] for python and [phpDocumentor][] for PHP.
+
+[sphinx]: http://sphinx.pocoo.org/
+[phpDocumentor]: http://www.phpdoc.org/
+
+### The python script
+
+The python script is the preferred command-line script, because it currently is a little more complete than the PHP script. It depends on the following Python modules:
 
  * [uTidylib][]
  * [lxml][]
@@ -40,19 +47,33 @@ To get information on the script's options, run it with `--help`:
 
 The script can be installed on the system with the `make install` command.
 
-[Dotclear ODT export plugin]: http://lab.dotclear.org/wiki/plugin/odt
 [uTidylib]: http://pypi.python.org/pypi/uTidylib
 [lxml]: http://pypi.python.org/pypi/lxml
 [PIL]: http://pypi.python.org/pypi/PIL
+
+### The PHP script
+
+The PHP script can be used as an example to create an ODT export plugin for a PHP-based application. It contains comments on what you should do differently in a web-based application. If you want a real PHP-based export plugin, you can look at the code of the [Dotclear ODT export plugin][].
+
+The PHP script requires the [zip][] module, and will work better with the [tidy][] extension.
+
+To get information on the script's options, run it with `--help`:
+
+    ./xhtml2odt.php --help
+
+[Dotclear ODT export plugin]: http://lab.dotclear.org/wiki/plugin/odt
+[zip]: http://php.net/manual/en/zip.installation.php
+[tidy]: http://php.net/manual/en/book.tidy.php
 
 
 Tests
 -----
 
-The unit tests are python-based, you need to install the "nose" python module
-availble from PyPI (or your distribution).
+The unit tests are python-based, you need to install the [nose][] python module availble from PyPI (or your distribution).
 
-Then, just run `nosetests tests`.
+Then, just run "`nosetests tests`".
+
+[nose]: http://pypi.python.org/pypi/nose/
 
 
 References
