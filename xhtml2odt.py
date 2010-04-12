@@ -246,11 +246,17 @@ class ODTFile(object):
         if self.options.verbose:
             params["debug"] = "1"
         if self.options.img_width:
-            params["img_default_width"] = etree.XSLT.strparam(
-                                            self.options.img_width)
+            if hasattr(etree.XSLT, "strparam"):
+                params["img_default_width"] = etree.XSLT.strparam(
+                                                self.options.img_width)
+            else: # lxml < 2.2
+                params["img_default_width"] = "'%s'" % self.options.img_width
         if self.options.img_height:
-            params["img_default_height"] = etree.XSLT.strparam(
-                                            self.options.img_height)
+            if hasattr(etree.XSLT, "strparam"):
+                params["img_default_height"] = etree.XSLT.strparam(
+                                                self.options.img_height)
+            else: # lxml < 2.2
+                params["img_default_height"] = "'%s'" % self.options.img_height
         odt = transform(xhtml, **params)
         return str(odt).replace('<?xml version="1.0" encoding="utf-8"?>','')
 
