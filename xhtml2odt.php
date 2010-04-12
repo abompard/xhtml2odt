@@ -536,7 +536,7 @@ function parseOpts() {
     }
     if (!array_key_exists("u", $options)) {
         print "Warning: you did not supply the '-u' option, "
-             ."relative images will not be included.\n";
+             ."the images in the page will not be included.\n";
     }
     $input_url = @parse_url($options["u"]);
     $options["u"] = sprintf("%s://%s%s%s",
@@ -545,9 +545,13 @@ function parseOpts() {
                             ":".$input_url["port"] : "",
                         isset($input_url["path"]) ?
                             dirname($input_url["path"]) : "");
+    if (!extension_loaded('curl')) {
+        print "Warning: you did not install the 'curl' PHP extension, "
+             ."the images in the page will not be included.\n";
+    }
     if (!extension_loaded('tidy')) {
         print "Warning: you should install the 'tidy' PHP extension to ensure "
-             +"a good conversion (or else your HTML must be valid already !)";
+             ."a good conversion (or else your HTML must be valid already !)\n";
     }
     if (!isset($options["u"])) {
         $options["u"] = "";
