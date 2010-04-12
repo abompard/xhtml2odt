@@ -137,10 +137,10 @@ class ODTFile {
         // you can just set $this->contentXml to the output of xhtml2odt()
         // Here, we'll show how to replace a given string in the template, or
         // how to append text to the template.
-        if ($options["replace"] and
-                strpos($this->contentXml, $options["replace"]) !== false) {
+        if ($options["r"] and
+                strpos($this->contentXml, $options["r"]) !== false) {
             $this->contentXml = preg_replace(
-                    "/<text:p[^>]*>".$options["replace"]."<\/text:p>/",
+                    "/<text:p[^>]*>".$options["r"]."<\/text:p>/",
                     $odt, $this->contentXml);
         } else {
             $this->contentXml = str_replace("</office:text>",
@@ -201,7 +201,6 @@ class ODTFile {
      * @return string resulting ODT XML
      */
     public function xhtml2odt($xhtml) {
-        global $url;
         $xhtml = self::cleanupInput($xhtml);
         $xhtml = $this->handleImages($xhtml);
         // run the stylesheets
@@ -234,7 +233,7 @@ class ODTFile {
     protected function handleImages($xhtml) {
         global $options;
         // Turn false absolute URLs into relative ones. Useful for a webapp.
-        $xhtml = preg_replace('#<img ([^>]*)src="http://'.$options["url"].'#',
+        $xhtml = preg_replace('#<img ([^>]*)src="http://'.$options["u"].'#',
                               '<img \1src="', $xhtml);
         /* Since we're a command-line script, there is no notion of a "local
            image". Our handleLocalImg function will just convert the source
@@ -291,15 +290,15 @@ class ODTFile {
         if (realpath($file) !== false) {
             return $this->handleImg(realpath($file), $matches);
         }
-        if (!$options["url"]) {
+        if (!$options["u"]) {
             // There's nothing we can do here
             return $matches[0];
         }
         if (function_exists("http_build_url")) {
-            $newsrc = http_build_url($options["url"], $src);
+            $newsrc = http_build_url($options["u"], $src);
             print "using http_build_url: $newsrc\n";
         } else {
-            $newsrc = $options["url"]."/".$src;
+            $newsrc = $options["u"]."/".$src;
             print "not using http_build_url: $newsrc\n";
         }
         return str_replace($src, $newsrc, $matches[0]);
@@ -497,8 +496,8 @@ class ODTFile {
 function usage() {
     $message = sprintf("Usage: %s [options] -i input.html -o output.odt -t template.odt\n", $GLOBALS["argv"][0]);
     $message .= "Options:
-    --url <URL> : the remote URL you downloaded the page from. This is required to include remote images.
-    --replace <KEYWORD> : a keyword in the template document to replace with the converted text.
+    -u <URL> : the remote URL you downloaded the page from. This is required to include remote images.
+    -r <KEYWORD> : a keyword in the template document to replace with the converted text.
     --top-header-level <LEVEL> : the maximum header level used in your HTML page (1 for <h1>, 2 for <h2> etc.).
     --img-default-width <SIZE> : the default width for images.
     --img-default-height <SIZE> : the default height for images.
@@ -507,11 +506,9 @@ function usage() {
 }
 
 function parseOpts() {
-    $shortopts = "i:o:t:u:h";
+    $shortopts = "i:o:t:u:r:h";
     $longopts = array(
         "help",
-        "url:",
-        "replace:",
         "top-header-level:",
         "img-default-width:",
         "img-default-height:",
@@ -527,20 +524,16 @@ function parseOpts() {
             usage();
         }
     }
-    if (!array_key_exists("url", $options)
-        and array_key_exists("u", $options)) {
-        $options["url"] = $options["u"];
-    }
     $input_url = @parse_url($options["i"]);
     if (isset($input_url["scheme"])) {
-        $options["url"] = $options["i"];
+        $options["u"] = $options["i"];
     }
-    if (!array_key_exists("url", $options)) {
-        print "Warning: you did not supply the '--url' option, "
+    if (!array_key_exists("u", $options)) {
+        print "Warning: you did not supply the '-u' option, "
              ."relative images will not be included.\n";
     }
-    $input_url = @parse_url($options["url"]);
-    $options["url"] = sprintf("%s://%s%s%s",
+    $input_url = @parse_url($options["u"]);
+    $options["u"] = sprintf("%s://%s%s%s",
                         $input_url["scheme"], $input_url["host"],
                         isset($input_url["port"]) ?
                             ":".$input_url["port"] : "",
@@ -550,8 +543,8 @@ function parseOpts() {
         print "Warning: you should install the 'tidy' PHP extension to ensure "
              +"a good conversion (or else your HTML must be valid already !)";
     }
-    if (!isset($options["url"])) {
-        $options["url"] = "";
+    if (!isset($options["u"])) {
+        $options["u"] = "";
     }
     if (isset($option["top-header-level"])) {
         $options["top-header-level"] = int($options["top-header-level"]);
@@ -564,8 +557,8 @@ function parseOpts() {
     if (!isset($options["img-default-height"])) {
         $options["img-default-height"] = "6cm";
     }
-    if (!isset($options["replace"])) {
-        $options["replace"] = "";
+    if (!isset($options["r"])) {
+        $options["r"] = "";
     }
     return $options;
 }
@@ -579,11 +572,11 @@ function main() {
 
     $odf = new ODTFile($options["t"]);
 
-    $odf->xslparams["url"] = $options["url"]; // this would be your app's URL
+    $odf->xslparams["url"] = $options["u"]; // this would be your app's URL
     // the following setting depends on how <h> tags are used in you app
     $odf->xslparams["heading_minus_level"] = $options["top-header-level"];
     // set the following values from your config
-    $odf->get_remote_images = ($options["url"] != "");
+    $odf->get_remote_images = ($options["u"] != "");
     $odf->xslparams["img_default_width"] = $options["img-default-width"];
     $odf->xslparams["img_default_height"] = $options["img-default-height"];
 
