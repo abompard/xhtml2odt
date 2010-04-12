@@ -72,8 +72,13 @@ class ODTFile {
         $this->template = $template;
         if (! class_exists('ZipArchive')) {
             throw new ODTException('Zip extension not loaded - check your php
-                settings, PHP5.2 minimum with zip extension is required for
-                using OdtExport'); ;
+                settings, PHP 5.2 minimum with zip and XSL extensions is
+                required.'); ;
+        }
+        if (! class_exists('XSLTProcessor')) {
+            throw new ODTException('XSL extension not loaded - check your php
+                settings, PHP 5.2 minimum with zip and XSL extensions is
+                required.'); ;
         }
         // Loading content.xml and styles.xml from the template
         $this->odtfile = new ZipArchive();
