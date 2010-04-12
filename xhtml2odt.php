@@ -280,23 +280,33 @@ class ODTFile {
         - if the image is really local, include it
         - else, turn it into an absolute URL which will be downloaded later
         */
-        if (strpos("://", $src) !== false and strpos("file://", $src) != 0) {
+        if (strpos($src, "://") !== false and
+                strpos($src, "file://") === false) {
             // This is an absolute link, don't touch it
+            if (isset($options["v"])) {
+                print "Local image: $src is an absolute link\n";
+            }
             return $matches[0];
         }
-        if (strpos("file://", $src) == 0) {
+        if (strpos($src, "file://") == 0) {
             $file = substr($src, 7);
-        } elseif (strpos("/", $src) == 0) {
+        } elseif (strpos($src, "/") == 0) {
             $file = $src;
         } else {
             // relative link
             $file = dirname($options["i"])."/".$src;
         }
         if (realpath($file) !== false) {
+            if (isset($options["v"])) {
+                print "Local image: $src is actually local !\n";
+            }
             return $this->handleImg(realpath($file), $matches);
         }
         if (!$options["u"]) {
             // There's nothing we can do here
+            if (isset($options["v"])) {
+                print "Local image: $src not local, can't download\n";
+            }
             return $matches[0];
         }
         if (function_exists("http_build_url")) {
@@ -304,6 +314,7 @@ class ODTFile {
         } else {
             $newsrc = $options["u"]."/".$src;
         }
+        if (isset($options["v"])) print "Local image: $src -> $newsrc\n";
         return str_replace($src, $newsrc, $matches[0]);
     }
 
