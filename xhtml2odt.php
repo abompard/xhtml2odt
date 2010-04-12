@@ -296,10 +296,8 @@ class ODTFile {
         }
         if (function_exists("http_build_url")) {
             $newsrc = http_build_url($options["u"], $src);
-            print "using http_build_url: $newsrc\n";
         } else {
             $newsrc = $options["u"]."/".$src;
-            print "not using http_build_url: $newsrc\n";
         }
         return str_replace($src, $newsrc, $matches[0]);
     }
@@ -314,11 +312,14 @@ class ODTFile {
      * @return string regexp replacement
      */
     protected function handleRemoteImg($matches) {
+        global $options;
         if (!function_exists("curl_init")) {
             return $matches[0]; // abort
         }
         $url = $matches[1];
-        print $url."\n";
+        if (isset($options["v"])) {
+            print "Downloading image from: $url\n";
+        }
         // Use you app's cache directory here instead of null:
         $tempfilename = tempnam(null,"xhtml2odt-");
         $this->tmpfiles []= $tempfilename;
@@ -506,7 +507,7 @@ function usage() {
 }
 
 function parseOpts() {
-    $shortopts = "i:o:t:u:r:h";
+    $shortopts = "i:o:t:u:r:vh";
     $longopts = array(
         "help",
         "top-header-level:",
