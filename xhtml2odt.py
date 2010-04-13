@@ -523,7 +523,6 @@ class ODTFile(object):
                 to_skip = len(self.tmpdir) + 1
                 internalpath = os.path.join(root[to_skip:], cur_file)
                 newzf.write(realpath, internalpath)
-                print realpath, internalpath
         newzf.close()
 
     def save(self, output=None):
