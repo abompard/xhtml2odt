@@ -520,8 +520,10 @@ class ODTFile(object):
         for root, dirs, files in os.walk(self.tmpdir):
             for cur_file in files:
                 realpath = os.path.join(root, cur_file)
-                internalpath = os.path.join(root.replace(self.tmpdir, ""), cur_file)
+                to_skip = len(self.tmpdir) + 1
+                internalpath = os.path.join(root[to_skip:], cur_file)
                 newzf.write(realpath, internalpath)
+                print realpath, internalpath
         newzf.close()
 
     def save(self, output=None):
