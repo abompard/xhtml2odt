@@ -545,17 +545,19 @@ function parseOpts() {
     if (isset($input_url["scheme"])) {
         $options["u"] = $options["i"];
     }
-    if (!array_key_exists("u", $options)) {
+    if (isset($options["u"])) {
+        $input_url = @parse_url($options["u"]);
+        $options["u"] = sprintf("%s://%s%s%s",
+                            $input_url["scheme"], $input_url["host"],
+                            isset($input_url["port"]) ?
+                                ":".$input_url["port"] : "",
+                            isset($input_url["path"]) ?
+                                dirname($input_url["path"]) : "");
+    } else {
         print "Warning: you did not supply the '-u' option, "
              ."the images in the page will not be included.\n";
+        $options["u"] = "";
     }
-    $input_url = @parse_url($options["u"]);
-    $options["u"] = sprintf("%s://%s%s%s",
-                        $input_url["scheme"], $input_url["host"],
-                        isset($input_url["port"]) ?
-                            ":".$input_url["port"] : "",
-                        isset($input_url["path"]) ?
-                            dirname($input_url["path"]) : "");
     if (!extension_loaded('curl')) {
         print "Warning: you did not install the 'curl' PHP extension, "
              ."the images in the page will not be included.\n";
@@ -563,9 +565,6 @@ function parseOpts() {
     if (!extension_loaded('tidy')) {
         print "Warning: you should install the 'tidy' PHP extension to ensure "
              ."a good conversion (or else your HTML must be valid already !)\n";
-    }
-    if (!isset($options["u"])) {
-        $options["u"] = "";
     }
     if (isset($option["top-header-level"])) {
         $options["top-header-level"] = int($options["top-header-level"]);
