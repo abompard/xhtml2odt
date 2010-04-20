@@ -153,6 +153,8 @@ class HTMLFile(object):
                             output_encoding='utf8', doctype='auto',
                             wrap=0, char_encoding='utf8')
         self.html = str(tidy.parseString(self.html, **tidy_options))
+        if not self.html:
+            raise ODTExportError("Tidy could not clean up the document, aborting.")
         # Replace nbsp with entity
         # http://www.mail-archive.com/analog-help@lists.meer.net/msg03670.html
         self.html = self.html.replace("&nbsp;", "&#160;")
@@ -164,7 +166,14 @@ class HTMLFile(object):
         Replace the HTML content by an element in the content. The element
         is selected by its HTML ID.
         """
-        html_tree = etree.fromstring(self.html)
+        try:
+            html_tree = etree.fromstring(self.html)
+        except etree.XMLSyntaxError, e:
+            if self.options.verbose:
+                raise
+            else:
+                raise ODTExportError("The XHTML is still not valid after "
+                                     "Tidy's work, I can't convert it.")
         selected = html_tree.xpath("//*[@id='%s']" % self.options.htmlid)
         self.html = etree.tostring(selected[0], method="html")
 
@@ -238,7 +247,14 @@ class ODTFile(object):
         transform = etree.XSLT(xslt_doc)
         xhtml = self.handle_images(xhtml)
         xhtml = self.handle_links(xhtml)
-        xhtml = etree.fromstring(xhtml) # must be valid xml at this point
+        try:
+            xhtml = etree.fromstring(xhtml) # must be valid xml at this point
+        except etree.XMLSyntaxError, e:
+            if self.options.verbose:
+                raise
+            else:
+                raise ODTExportError("The XHTML is still not valid after "
+                                     "Tidy's work, I can't convert it.")
         params = {
             "url": "/",
             "heading_minus_level": str(self.options.top_header_level - 1),
@@ -624,12 +640,17 @@ def main():
     Main function, called when the script is invoked on the command line.
     """
     options = get_options()
-    htmlfile = HTMLFile(options)
-    htmlfile.read()
-    odtfile = ODTFile(options)
-    odtfile.open()
-    odtfile.import_xhtml(htmlfile.html)
-    odtfile.save(options.output)
+    try:
+        htmlfile = HTMLFile(options)
+        htmlfile.read()
+        odtfile = ODTFile(options)
+        odtfile.open()
+        odtfile.import_xhtml(htmlfile.html)
+        odtfile.save(options.output)
+    except ODTExportError, e:
+        print >>sys.stderr, e
+        print >>sys.stderr, "Conversion failed."
+        sys.exit(1)
 
 if __name__ == '__main__':
     main()
