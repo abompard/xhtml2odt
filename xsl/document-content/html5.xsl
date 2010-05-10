@@ -43,30 +43,66 @@
     xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0"
     version="1.0">
 
-<xsl:template match="h:div">
+
+<xsl:template match="h:section">
     <xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="h:html">
+<xsl:template match="h:header">
     <xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="h:head"/>
-
-<xsl:template match="h:body">
+<xsl:template match="h:footer">
     <xsl:apply-templates/>
 </xsl:template>
 
-<xsl:template match="h:span"/>
-<xsl:template match="h:span" mode="inparagraph">
+<xsl:template match="h:summary">
+    <!-- TODO: Add space on the left and right of the text -->
+    <xsl:apply-templates/>
+</xsl:template>
+
+<xsl:template match="h:article">
+    <xsl:apply-templates/>
+</xsl:template>
+
+<xsl:template match="h:nav"/> <!-- only keep the content -->
+
+<xsl:template match="h:aside">
+    <!-- TODO: make a floating frame -->
+    <xsl:apply-templates/>
+</xsl:template>
+
+<xsl:template match="h:hgroup">
+    <xsl:apply-templates/>
+</xsl:template>
+
+<xsl:template match="h:time" mode="inparagraph">
+    <xsl:apply-templates mode="inparagraph"/>
+</xsl:template>
+<xsl:template match="h:time"/>
+
+<xsl:template match="h:mark" mode="inparagraph">
+    <!-- TODO: make the text background color yellow -->
     <xsl:apply-templates mode="inparagraph"/>
 </xsl:template>
 
-<xsl:template match="h:script"/>
-<xsl:template match="h:noscript"/>
+<xsl:template match="h:canvas"/>
 
-<xsl:template match="h:object"/>
+<!-- TODO: include the source ? -->
+<xsl:template match="h:audio"/>
+<xsl:template match="h:video"/>
+<xsl:template match="h:source"/>
 
-<xsl:template match="h:form"/>
+<!-- form elements -->
+<xsl:template match="h:command|h:datalist|h:details|h:meter|h:output|h:progress|h:keygen"/>
+
+<!-- TODO: make a frame around it -->
+<xsl:template match="h:figure"/>
+<xsl:template match="h:figcaption"/>
+
+<xsl:template match="h:ruby|h:rt|h:rp" mode="inparagraph">
+    <xsl:apply-templates mode="inparagraph"/>
+</xsl:template>
+<xsl:template match="h:ruby|h:rt|h:rp"/>
 
 </xsl:stylesheet>

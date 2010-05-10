@@ -51,5 +51,6 @@
 <xsl:include href="document-content/media.xsl"/>
 <xsl:include href="document-content/tables.xsl"/>
 <xsl:include href="document-content/ignore.xsl"/>
+<xsl:include href="document-content/html5.xsl"/>
 
 </xsl:stylesheet>
