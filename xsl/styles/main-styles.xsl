@@ -360,6 +360,33 @@
         </style:style>
     </xsl:if>
 
+    <xsl:if test="count(//office:styles/style:style[@style:name = 'Marginalia']) = 0">
+        <style:style style:name="Marginalia" style:display-name="Marginalia"
+                     style:family="graphic">
+            <style:graphic-properties svg:width="8.5cm" style:rel-width="50%"
+                                      fo:min-height="0.5cm"
+                                      text:anchor-type="paragraph"
+                                      svg:x="0cm" svg:y="0cm"
+                                      fo:margin-left="0.2cm"
+                                      fo:margin-right="0cm"
+                                      fo:margin-top="0.1cm"
+                                      fo:margin-bottom="0.1cm"
+                                      style:wrap="parallel"
+                                      style:number-wrapped-paragraphs="no-limit"
+                                      style:wrap-contour="false"
+                                      style:vertical-pos="top"
+                                      style:vertical-rel="paragraph"
+                                      style:horizontal-pos="right"
+                                      style:horizontal-rel="paragraph"
+                                      fo:background-color="transparent"
+                                      style:background-transparency="100%"
+                                      fo:padding="0.15cm"
+                                      fo:border="0.002cm solid #000000"
+                                      style:shadow="none">
+            </style:graphic-properties>
+        </style:style>
+    </xsl:if>
+
 </xsl:template>
 
 </xsl:stylesheet>

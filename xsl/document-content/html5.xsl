@@ -68,8 +68,15 @@
 <xsl:template match="h:nav"/> <!-- only keep the content -->
 
 <xsl:template match="h:aside">
-    <!-- TODO: make a floating frame -->
-    <xsl:apply-templates/>
+    <text:p text:style-name="Text_20_body">
+        <draw:frame draw:style-name="Marginalia"
+                    text:anchor-type="paragraph"
+                    svg:width="8.5cm" style:rel-width="50%">
+            <draw:text-box fo:min-height="0.5cm">
+                <xsl:apply-templates/>
+            </draw:text-box>
+        </draw:frame>
+    </text:p>
 </xsl:template>
 
 <xsl:template match="h:hgroup">
