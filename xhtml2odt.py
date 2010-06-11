@@ -151,6 +151,7 @@ class HTMLFile(object):
         tidy_options = dict(output_xhtml=1, add_xml_decl=1, indent=1,
                             tidy_mark=0, #input_encoding=str(self.charset),
                             output_encoding='utf8', doctype='auto',
+                            new_blocklevel_tags="aside",
                             wrap=0, char_encoding='utf8')
         self.html = str(tidy.parseString(self.html, **tidy_options))
         if not self.html:
