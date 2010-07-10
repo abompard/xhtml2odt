@@ -1,0 +1,35 @@
+[FILES]
+.I @DATADIR@/template.odt
+.RS
+The system wide ODT template file.
+.RE
+.I @DATADIR@/styles
+.RS
+The system wide styles definitions.
+.RE
+.I @DATADIR@/xsl
+.RS
+The conversion stylesheets.
+
+[EXAMPLE]
+First, download the HTML page:
+.RS
+$ wget -O wp-odt.html http://fr.wikipedia.org/wiki/OpenDocument
+.RE
+Then, convert it to ODT, selecting only the "content" element:
+.RS
+$ xhtml2odt -i wp-odt.html -o wp-odt.odt --html-id content \\
+.RS
+-u http://fr.wikipedia.org/wiki/OpenDocument
+.RE
+.RE
+
+[REPORTING BUGS]
+Report bugs on the XHTML2ODT tracker at <http://xhtml2odt.org>.
+
+[AUTHOR]
+Aurelien Bompard <aurelien(a)bompard.org>
+
+[COPYRIGHT]
+(C) 2009-2010 Aurelien Bompard <aurelien(a)bompard.org>
+

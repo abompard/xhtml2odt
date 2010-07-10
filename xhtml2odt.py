@@ -114,6 +114,7 @@ INSTALL_PATH = "."
 INCH_TO_CM = 2.54
 CHARSET = "utf-8"
 
+__version__ = 0.1
 
 class ODTExportError(Exception): pass
 
@@ -587,6 +588,8 @@ def get_options():
     """
     usage = "usage: %prog [options] -i input -o output -t template.odt"
     parser = OptionParser(usage=usage)
+    parser.add_option("--version", dest="version", action="store_true",
+                      help="Show the version and exit")
     parser.add_option("-i", "--input", dest="input", metavar="FILE",
                       help="Read the html from this file")
     parser.add_option("-o", "--output", dest="output", metavar="FILE",
@@ -631,6 +634,9 @@ def get_options():
     parser.add_option("--stylesdir", dest="stylesdir", metavar="DIR",
                       help="Override the style templates directory")
     options, args = parser.parse_args()
+    if options.version:
+        print "xhtml2odt %s" % __version__
+        sys.exit(0)
     if len(args) > 0:
         parser.error("illegal arguments: %s"% ", ".join(args))
     if not options.input:
