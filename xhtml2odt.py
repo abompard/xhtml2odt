@@ -175,7 +175,15 @@ class HTMLFile(object):
                 raise ODTExportError("The XHTML is still not valid after "
                                      "Tidy's work, I can't convert it.")
         selected = html_tree.xpath("//*[@id='%s']" % self.options.htmlid)
-        self.html = etree.tostring(selected[0], method="html")
+        if selected:
+            self.html = etree.tostring(selected[0], method="html")
+        else:
+            print >>sys.stderr, "Can't find the selected HTML id: %s, " \
+                                % self.options.htmlid \
+                               +"converting everything."
+            print self.html
+            etree.dump(html_tree)
+            raise ODTExportError()
 
 
 class ODTFile(object):
