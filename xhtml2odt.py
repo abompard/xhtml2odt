@@ -13,7 +13,7 @@ as OpenOffice.org, KOffice, and others.
 It uses a template ODT file which will be filled with the converted content of
 the exported Wiki page.
 
-Based on the work on docbook2odt_, by Roman Fordinal
+Inspired by the work on docbook2odt_, by Roman Fordinal
 
 .. _docbook2odt: http://open.comsultia.com/docbook2odf/
 
@@ -76,15 +76,17 @@ The full help message is::
 License
 -------
 
+GNU LGPL v2 or later: http://www.gnu.org/licenses/lgpl-2.0.html
+
 This program is free software; you can redistribute it and/or
-modify it under the terms of the GNU General Public License
-as published by the Free Software Foundation; either version 2
-of the License, or (at your option) any later version.
+modify it under the terms of the GNU Library General Public
+License as published by the Free Software Foundation; either
+version 2 of the License, or (at your option) any later version.
 
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Library General Public License for more details.
 
 Code
 ----
