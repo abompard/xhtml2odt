@@ -1,8 +1,0 @@
-- make the inline image threshold a parameter
-- column span support
-- add form elements support
-- add font tag support
-- check if we need to update manifest.xml when adding pictures
-- HTML5 support. Spec:
-  - http://www.w3.org/TR/html5-diff/
-  - http://dev.w3.org/html5/spec/Overview.html
