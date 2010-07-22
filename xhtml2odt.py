@@ -187,9 +187,6 @@ class HTMLFile(object):
             print >> sys.stderr, "Can't find the selected HTML id: %s, " \
                                  % self.options.htmlid \
                                 +"converting everything."
-            print self.html
-            etree.dump(html_tree)
-            raise ODTExportError()
 
 
 class ODTFile(object):
