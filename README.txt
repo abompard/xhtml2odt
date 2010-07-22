@@ -3,7 +3,7 @@ XHTML to ODT XML transformation
 
 These stylesheets convert namespaced XHTML to [ODT][].
 
-You can [download them][download] directly from the development branch using Gitorious.
+You can [download them][download] from the project's [website].
 
 The HTML must be well-formed and valid, so I recommand running it through [Tidy][] before sending it to the stylesheets.
 
@@ -14,7 +14,8 @@ This is based on the work on [docbook2odt][], by Roman Fordinal. Many thanks to 
 [ODT]: http://en.wikipedia.org/wiki/OpenDocument
 [Tidy]: http://tidy.sourceforge.net/
 [docbook2odt]: http://open.comsultia.com/docbook2odf/
-[download]: http://gitorious.org/xhtml2odt/xhtml2odt/archive-tarball/master
+[download]: http://xhtml2odt.org/dl/
+[website]: http://xhtml2odt.org
 
 
 Caveats
