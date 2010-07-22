@@ -116,7 +116,9 @@ CHARSET = "utf-8"
 
 __version__ = 0.1
 
-class ODTExportError(Exception): pass
+class ODTExportError(Exception):
+    """Base exception for ODT conversion errors"""
+    pass
 
 class HTMLFile(object):
     """
@@ -157,7 +159,8 @@ class HTMLFile(object):
                             wrap=0, char_encoding='utf8')
         self.html = str(tidy.parseString(self.html, **tidy_options))
         if not self.html:
-            raise ODTExportError("Tidy could not clean up the document, aborting.")
+            raise ODTExportError(
+                        "Tidy could not clean up the document, aborting.")
         # Replace nbsp with entity
         # http://www.mail-archive.com/analog-help@lists.meer.net/msg03670.html
         self.html = self.html.replace("&nbsp;", "&#160;")
@@ -171,7 +174,7 @@ class HTMLFile(object):
         """
         try:
             html_tree = etree.fromstring(self.html)
-        except etree.XMLSyntaxError, e:
+        except etree.XMLSyntaxError:
             if self.options.verbose:
                 raise
             else:
@@ -181,9 +184,9 @@ class HTMLFile(object):
         if selected:
             self.html = etree.tostring(selected[0], method="html")
         else:
-            print >>sys.stderr, "Can't find the selected HTML id: %s, " \
-                                % self.options.htmlid \
-                               +"converting everything."
+            print >> sys.stderr, "Can't find the selected HTML id: %s, " \
+                                 % self.options.htmlid \
+                                +"converting everything."
             print self.html
             etree.dump(html_tree)
             raise ODTExportError()
@@ -205,6 +208,7 @@ class ODTFile(object):
             "styles": "",
         }
         self.tmpdir = tempfile.mkdtemp(prefix="xhtml2odt-")
+        self.zfile = None
 
     def open(self):
         """
@@ -260,7 +264,7 @@ class ODTFile(object):
         xhtml = self.handle_links(xhtml)
         try:
             xhtml = etree.fromstring(xhtml) # must be valid xml at this point
-        except etree.XMLSyntaxError, e:
+        except etree.XMLSyntaxError:
             if self.options.verbose:
                 raise
             else:
@@ -663,9 +667,9 @@ def main():
         odtfile.open()
         odtfile.import_xhtml(htmlfile.html)
         odtfile.save(options.output)
-    except ODTExportError, e:
-        print >>sys.stderr, e
-        print >>sys.stderr, "Conversion failed."
+    except ODTExportError, ex:
+        print >> sys.stderr, ex
+        print >> sys.stderr, "Conversion failed."
         sys.exit(1)
 
 if __name__ == '__main__':
