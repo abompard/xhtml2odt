@@ -11,7 +11,9 @@ standardized as ISO/IEC 26300:2006, and the native format of office suites such
 as OpenOffice.org, KOffice, and others.
 
 It uses a template ODT file which will be filled with the converted content of
-the exported Wiki page.
+the XHTML page.
+
+Website: http://xhtml2odt.org
 
 Inspired by the work on docbook2odt_, by Roman Fordinal
 

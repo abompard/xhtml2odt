@@ -11,12 +11,14 @@
  * It uses a template ODT file which will be filled with the converted
  * content of the exported Wiki page.
  * 
- * Based on the work on {@link http://open.comsultia.com/docbook2odf/
+ * Inspired by the work on {@link http://open.comsultia.com/docbook2odf/
  * docbook2odt}, by Roman Fordinal
  * 
+ * @link http://xhtml2odt.org xhtml2odt project
  * @author Aurélien Bompard <aurelien@bompard.org>
  * @copyright Aurélien Bompard <aurelien@bompard.org> 2009-2010
  * @license http://www.gnu.org/licenses/lgpl-2.0.html LGPLv2+
+ * @package xhtml2odt
  * 
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Library General Public
@@ -28,12 +30,12 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Library General Public License for more details.
  * 
- * @package xhtml2odt
  */
 
 
 /**
  * Conversion failure
+ * @package xhtml2odt
  */
 class ODTException extends Exception {}
 
@@ -47,6 +49,7 @@ class ODTException extends Exception {}
  * - use either the {@link saveToFile} method or the {@link
  *   exportAsAttachedFile} method, depending on whether you want to save the
  *   file on disk or to push the result to the browser.
+ * @package xhtml2odt
  */
 class ODTFile {
     protected $odtfile;
@@ -510,6 +513,9 @@ class ODTFile {
 }
 
 
+/**
+ * Print a usage message and exit
+ */
 function usage() {
     $message = sprintf("Usage: %s [options] -i input.html -o output.odt -t template.odt\n", $GLOBALS["argv"][0]);
     $message .= "Options:
@@ -522,6 +528,9 @@ function usage() {
     die($message);
 }
 
+/**
+ * Parse the command line options
+ */
 function parseOpts() {
     $shortopts = "i:o:t:u:r:vh";
     $longopts = array(
@@ -583,6 +592,14 @@ function parseOpts() {
     return $options;
 }
 
+/**
+ * This function runs the whole conversion process:
+ * - read command line options
+ * - read the input file
+ * - create the {@link ODTFile} instance and set the stylesheet parameters
+ * - run the {@link ODTFile::compile()} method
+ * - save the resulting file with the {@link ODTFile::saveToFile()} method
+ */
 function main() {
     global $html, $options;
 

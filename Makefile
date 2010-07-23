@@ -4,7 +4,7 @@ DATADIR = $(PREFIX)/share/xhtml2odt
 DESTDIR =
 
 all:
-	@echo "Usage: make [install | tests]"
+	@echo "Usage: make [install | tests | doc]"
 
 install: xhtml2odt.py template.odt $(wildcard styles/*) $(shell find xsl -type f) xhtml2odt.1
 	mkdir -p $(DESTDIR)$(DATADIR) $(DESTDIR)$(BINDIR)
@@ -31,7 +31,8 @@ doc-py/_build/html/index.html: xhtml2odt.py
 	-$(MAKE) -C doc-py html
 
 doc-php/index.html: xhtml2odt.php
-	-phpdoc -t doc-php -f xhtml2odt.php
+	-phpdoc -t doc-php -f xhtml2odt.php -ti "xhtml2odt -- convert XHTML to ODT"
+	find doc-php -name "*.html" | xargs sed -i -e 's/charset=iso-8859-1/charset=utf-8/'
 
 xhtml2odt.1: xhtml2odt.py xhtml2odt.1.post
 	sed -e 's,@DATADIR@,$(DATADIR),g' xhtml2odt.1.post > xhtml2odt.1.post.tmp
