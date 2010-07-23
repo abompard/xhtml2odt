@@ -1,18 +1,23 @@
 PREFIX = /usr/local
 BINDIR = $(PREFIX)/bin
-DATADIR = $(PREFIX)/share/xhtml2odt
+DATADIR = $(PREFIX)/share
 DESTDIR =
 
 all:
-	@echo "Usage: make [install | tests | doc]"
+	@echo "Usage: make [install | uninstall | tests | doc]"
 
 install: xhtml2odt.py template.odt $(wildcard styles/*) $(shell find xsl -type f) xhtml2odt.1
-	mkdir -p $(DESTDIR)$(DATADIR) $(DESTDIR)$(BINDIR)
-	cp -pr template.odt xsl styles $(DESTDIR)$(DATADIR)/
-	sed -e 's,^INSTALL_PATH\s*=\s*.*,INSTALL_PATH = "$(DATADIR)",' xhtml2odt.py > $(DESTDIR)$(BINDIR)/xhtml2odt
+	mkdir -p $(DESTDIR)$(DATADIR)/xhtml2odt $(DESTDIR)$(BINDIR)
+	cp -pr template.odt xsl styles $(DESTDIR)$(DATADIR)/xhtml2odt/
+	sed -e 's,^INSTALL_PATH\s*=\s*.*,INSTALL_PATH = "$(DATADIR)/xhtml2odt",' xhtml2odt.py > $(DESTDIR)$(BINDIR)/xhtml2odt
 	chmod 755 $(DESTDIR)$(BINDIR)/xhtml2odt
 	touch --reference xhtml2odt.py $(DESTDIR)$(BINDIR)/xhtml2odt
 	install -p -m 644 -D xhtml2odt.1 $(DESTDIR)$(DATADIR)/man/man1/xhtml2odt.1
+
+uninstall:
+	rm -f $(DESTDIR)$(BINDIR)/xhtml2odt
+	rm -f $(DESTDIR)$(DATADIR)/man/man1/xhtml2odt.1
+	rm -rf $(DESTDIR)$(DATADIR)/xhtml2odt
 
 tests:
 	nosetests tests
@@ -39,4 +44,4 @@ xhtml2odt.1: xhtml2odt.py xhtml2odt.1.post
 	help2man -n "Convert an XHTML page to an ODT document" -s 1 -N -o $@ -i xhtml2odt.1.post.tmp ./xhtml2odt.py
 	rm -f xhtml2odt.1.post.tmp
 
-.PHONY: all install tests clean doc
+.PHONY: all install uninstall tests clean doc

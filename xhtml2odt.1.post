@@ -1,13 +1,13 @@
 [FILES]
-.I @DATADIR@/template.odt
+.I @DATADIR@/xhtml2odt/template.odt
 .RS
 The system wide ODT template file.
 .RE
-.I @DATADIR@/styles
+.I @DATADIR@/xhtml2odt/styles
 .RS
 The system wide styles definitions.
 .RE
-.I @DATADIR@/xsl
+.I @DATADIR@/xhtml2odt/xsl
 .RS
 The conversion stylesheets.
 
