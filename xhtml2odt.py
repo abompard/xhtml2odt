@@ -647,7 +647,11 @@ def get_options():
     if not options.output:
         parser.error("No output provided")
     if not options.template:
-        parser.error("No ODT template provided")
+        default_template = os.path.join(INSTALL_PATH, "template.odt")
+        if os.path.exists(default_template):
+            options.template = default_template
+        else:
+            parser.error("No ODT template provided")
     if not os.path.exists(options.input):
         parser.error("Can't find input file: %s" % options.input)
     if not os.path.exists(options.template):
