@@ -154,5 +154,12 @@
     </text:span>
 </xsl:template>
 
+<xsl:template match="h:u"/>
+<xsl:template match="h:u" mode="inparagraph">
+    <text:span text:style-name="underline">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:span>
+</xsl:template>
+
 
 </xsl:stylesheet>
