@@ -23,25 +23,45 @@ class SpecificTrac(unittest.TestCase):
         print odt
         self.assertEquals(str(odt),"")
 
-    def test_highlight_k(self):
-        html = '<html xmlns="http://www.w3.org/1999/xhtml"><div class="code"><pre><span class="k">Test</span></pre></div></html>'
+
+class SpecificPygments(unittest.TestCase):
+
+    def _test_mapping(self, css, odtstyle):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><div class="code"><pre><span class="%s">Test</span></pre></div></html>' % css
         odt = xhtml2odt(html)
         print odt
         self.assertEquals(str(odt), """<?xml version="1.0" encoding="utf-8"?>
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">
-  <text:span text:style-name="strong">Test</text:span>
+  <text:span text:style-name="%s">Test</text:span>
 </text:p>
-""")
+""" % odtstyle)
+
+    def test_highlight_k(self):
+        self._test_mapping("k", "strong")
+
+    def test_highlight_kn(self):
+        self._test_mapping("kn", "strong")
 
     def test_highlight_nc(self):
-        html = '<html xmlns="http://www.w3.org/1999/xhtml"><div class="code"><pre><span class="nc">Test</span></pre></div></html>'
-        odt = xhtml2odt(html)
-        print odt
-        self.assertEquals(str(odt), """<?xml version="1.0" encoding="utf-8"?>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">
-  <text:span text:style-name="syntax-highlight.class">Test</text:span>
-</text:p>
-""")
+        self._test_mapping("nc", "syntax-highlight.class")
+
+    def test_highlight_nf(self):
+        self._test_mapping("nf", "syntax-highlight.function")
+
+    def test_highlight_nt(self):
+        self._test_mapping("nt", "syntax-highlight.tag")
+
+    def test_highlight_na(self):
+        self._test_mapping("na", "syntax-highlight.attr")
+
+    def test_highlight_nb(self):
+        self._test_mapping("nb", "syntax-highlight.builtin")
+
+    def test_highlight_nn(self):
+        self._test_mapping("nn", "syntax-highlight.namespace")
+
+    def test_highlight_ne(self):
+        self._test_mapping("ne", "syntax-highlight.exception")
 
     def test_highlight_p(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><div class="code"><pre><span class="p">Test</span></pre></div></html>'
@@ -51,45 +71,38 @@ class SpecificTrac(unittest.TestCase):
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">Test</text:p>
 """)
 
-    def test_highlight_nf(self):
-        html = '<html xmlns="http://www.w3.org/1999/xhtml"><div class="code"><pre><span class="nf">Test</span></pre></div></html>'
-        odt = xhtml2odt(html)
-        print odt
-        self.assertEquals(str(odt), """<?xml version="1.0" encoding="utf-8"?>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">
-  <text:span text:style-name="syntax-highlight.function">Test</text:span>
-</text:p>
-""")
-
     def test_highlight_bp(self):
-        html = '<html xmlns="http://www.w3.org/1999/xhtml"><div class="code"><pre><span class="bp">Test</span></pre></div></html>'
-        odt = xhtml2odt(html)
-        print odt
-        self.assertEquals(str(odt), """<?xml version="1.0" encoding="utf-8"?>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">
-  <text:span text:style-name="syntax-highlight.builtin.pseudo">Test</text:span>
-</text:p>
-""")
+        self._test_mapping("bp", "syntax-highlight.builtin.pseudo")
 
     def test_highlight_s(self):
-        html = '<html xmlns="http://www.w3.org/1999/xhtml"><div class="code"><pre><span class="s">Test</span></pre></div></html>'
-        odt = xhtml2odt(html)
-        print odt
-        self.assertEquals(str(odt), """<?xml version="1.0" encoding="utf-8"?>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">
-  <text:span text:style-name="syntax-highlight.string">Test</text:span>
-</text:p>
-""")
+        self._test_mapping("s", "syntax-highlight.string")
+
+    def test_highlight_sd(self):
+        self._test_mapping("sd", "syntax-highlight.string")
+
+    def test_highlight_si(self):
+        self._test_mapping("si", "syntax-highlight.string")
+
+    def test_highlight_se(self):
+        self._test_mapping("se", "syntax-highlight.string")
 
     def test_highlight_o(self):
-        html = '<html xmlns="http://www.w3.org/1999/xhtml"><div class="code"><pre><span class="o">Test</span></pre></div></html>'
-        odt = xhtml2odt(html)
-        print odt
-        self.assertEquals(str(odt), """<?xml version="1.0" encoding="utf-8"?>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">
-  <text:span text:style-name="strong">Test</text:span>
-</text:p>
-""")
+        self._test_mapping("o", "strong")
+
+    def test_highlight_ow(self):
+        self._test_mapping("ow", "strong")
+
+    def test_highlight_c(self):
+        self._test_mapping("c", "syntax-highlight.comment")
+
+    def test_highlight_err(self):
+        self._test_mapping("err", "syntax-highlight.error")
+
+    def test_highlight_mi(self):
+        self._test_mapping("mi", "syntax-highlight.number")
+
+    def test_highlight_mf(self):
+        self._test_mapping("mf", "syntax-highlight.number")
 
 
 if __name__ == '__main__':

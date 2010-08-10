@@ -112,6 +112,13 @@
     </text:span>
 </xsl:template>
 
+<!-- Name.Exception -->
+<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='ne']" mode="inparagraph">
+    <text:span text:style-name="syntax-highlight.exception">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:span>
+</xsl:template>
+
 <!-- Punctuation -->
 <xsl:template match="h:div[@class='code']/h:pre/h:span[@class='p']" mode="inparagraph">
     <xsl:apply-templates mode="inparagraph"/>
@@ -131,8 +138,36 @@
     </text:span>
 </xsl:template>
 
+<!-- String.Double -->
+<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='sd']" mode="inparagraph">
+    <text:span text:style-name="syntax-highlight.string">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:span>
+</xsl:template>
+
+<!-- String.Interpol -->
+<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='si']" mode="inparagraph">
+    <text:span text:style-name="syntax-highlight.string">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:span>
+</xsl:template>
+
+<!-- String.Escape -->
+<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='se']" mode="inparagraph">
+    <text:span text:style-name="syntax-highlight.string">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:span>
+</xsl:template>
+
 <!-- Operator -->
 <xsl:template match="h:div[@class='code']/h:pre/h:span[@class='o']" mode="inparagraph">
+    <text:span text:style-name="strong">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:span>
+</xsl:template>
+
+<!-- Operator.Word -->
+<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='ow']" mode="inparagraph">
     <text:span text:style-name="strong">
         <xsl:apply-templates mode="inparagraph"/>
     </text:span>
@@ -154,14 +189,14 @@
 
 <!-- Number.Integer -->
 <xsl:template match="h:div[@class='code']/h:pre/h:span[@class='mi']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.int">
+    <text:span text:style-name="syntax-highlight.number">
         <xsl:apply-templates mode="inparagraph"/>
     </text:span>
 </xsl:template>
 
 <!-- Number.Float -->
 <xsl:template match="h:div[@class='code']/h:pre/h:span[@class='mf']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.float">
+    <text:span text:style-name="syntax-highlight.number">
         <xsl:apply-templates mode="inparagraph"/>
     </text:span>
 </xsl:template>

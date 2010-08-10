@@ -89,6 +89,13 @@
         </style:style>
     </xsl:if>
 
+    <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'syntax-highlight.exception']) = 0">
+        <style:style style:name="syntax-highlight.exception" style:family="text">
+            <style:text-properties fo:color="#990000"
+                                   fo:font-weight="bold"/>
+        </style:style>
+    </xsl:if>
+
     <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'syntax-highlight.builtin.pseudo']) = 0">
         <style:style style:name="syntax-highlight.builtin.pseudo" style:family="text">
             <style:text-properties fo:color="#999999"/>
@@ -115,14 +122,8 @@
         </style:style>
     </xsl:if>
 
-    <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'syntax-highlight.int']) = 0">
-        <style:style style:name="syntax-highlight.int" style:family="text">
-            <style:text-properties fo:color="#009999"/>
-        </style:style>
-    </xsl:if>
-
-    <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'syntax-highlight.float']) = 0">
-        <style:style style:name="syntax-highlight.float" style:family="text">
+    <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'syntax-highlight.number']) = 0">
+        <style:style style:name="syntax-highlight.number" style:family="text">
             <style:text-properties fo:color="#009999"/>
         </style:style>
     </xsl:if>
