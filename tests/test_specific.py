@@ -63,6 +63,9 @@ class SpecificPygments(unittest.TestCase):
     def test_highlight_ne(self):
         self._test_mapping("ne", "syntax-highlight.exception")
 
+    def test_highlight_nv(self):
+        self._test_mapping("nv", "syntax-highlight.var")
+
     def test_highlight_p(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><div class="code"><pre><span class="p">Test</span></pre></div></html>'
         odt = xhtml2odt(html)
@@ -85,6 +88,12 @@ class SpecificPygments(unittest.TestCase):
 
     def test_highlight_se(self):
         self._test_mapping("se", "syntax-highlight.string")
+
+    def test_highlight_sb(self):
+        self._test_mapping("sb", "syntax-highlight.string")
+
+    def test_highlight_s2(self):
+        self._test_mapping("s2", "syntax-highlight.string")
 
     def test_highlight_o(self):
         self._test_mapping("o", "strong")

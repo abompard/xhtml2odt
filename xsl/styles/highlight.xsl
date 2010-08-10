@@ -96,6 +96,12 @@
         </style:style>
     </xsl:if>
 
+    <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'syntax-highlight.var']) = 0">
+        <style:style style:name="syntax-highlight.var" style:family="text">
+            <style:text-properties fo:color="#009999"/>
+        </style:style>
+    </xsl:if>
+
     <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'syntax-highlight.builtin.pseudo']) = 0">
         <style:style style:name="syntax-highlight.builtin.pseudo" style:family="text">
             <style:text-properties fo:color="#999999"/>

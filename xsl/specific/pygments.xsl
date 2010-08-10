@@ -119,6 +119,13 @@
     </text:span>
 </xsl:template>
 
+<!-- Name.Variable -->
+<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='nv']" mode="inparagraph">
+    <text:span text:style-name="syntax-highlight.var">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:span>
+</xsl:template>
+
 <!-- Punctuation -->
 <xsl:template match="h:div[@class='code']/h:pre/h:span[@class='p']" mode="inparagraph">
     <xsl:apply-templates mode="inparagraph"/>
@@ -154,6 +161,20 @@
 
 <!-- String.Escape -->
 <xsl:template match="h:div[@class='code']/h:pre/h:span[@class='se']" mode="inparagraph">
+    <text:span text:style-name="syntax-highlight.string">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:span>
+</xsl:template>
+
+<!-- String.Backtick -->
+<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='sb']" mode="inparagraph">
+    <text:span text:style-name="syntax-highlight.string">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:span>
+</xsl:template>
+
+<!-- String.Single -->
+<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='s2']" mode="inparagraph">
     <text:span text:style-name="syntax-highlight.string">
         <xsl:apply-templates mode="inparagraph"/>
     </text:span>
