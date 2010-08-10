@@ -348,6 +348,9 @@
         </style:style>
     </xsl:if>
 
+
+<!-- Specific -->
+
     <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'underline']) = 0">
         <style:style style:name="underline" style:family="text">
             <style:text-properties style:text-underline-style="solid"
