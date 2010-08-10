@@ -37,7 +37,8 @@ class BlockElements(unittest.TestCase):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><pre>   Line with spaces </pre></html>'
         odt = xhtml2odt(html)
         print odt
-        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">   Line with spaces </text:p>\n'
+        # note: one of the spaces below is a non-breaking space, can you spot it ? ;-)
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">   Line with spaces </text:p>\n'
 
     def test_pre4(self):
         """<pre>: removing last line-break"""

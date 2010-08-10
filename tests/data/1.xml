@@ -315,7 +315,7 @@ The wiki also supports definition lists.
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 Example:
 </text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text"> llama::<text:line-break/>   some kind of mammal, with hair<text:line-break/> ppython::<text:line-break/>   some kind of reptile, without hair<text:line-break/>   (can you spot the typo?)</text:p><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text"> llama::<text:line-break/>   some kind of mammal, with hair<text:line-break/> ppython::<text:line-break/>   some kind of reptile, without hair<text:line-break/>   (can you spot the typo?)</text:p><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 Display:
 </text:p>
 <table:table xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" table:style-name="table-default">
@@ -371,7 +371,7 @@ Example:
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text"> {{{<text:line-break/>  def HelloWorld():<text:line-break/>      print "Hello World"<text:line-break/> }}}</text:p><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 Display:
 </text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text"> def HelloWorld():<text:line-break/>     print "Hello World"</text:p><!--section level 2-->
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text"> def HelloWorld():<text:line-break/>     print "Hello World"</text:p><!--section level 2-->
 <text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">Blockquotes</text:h>
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 In order to mark a paragraph as blockquote, indent that paragraph with two spaces.
@@ -379,7 +379,7 @@ In order to mark a paragraph as blockquote, indent that paragraph with two space
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 Example:
 </text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">  This text is a quote from someone else.</text:p><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">  This text is a quote from someone else.</text:p><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 Display:
 </text:p>
 
