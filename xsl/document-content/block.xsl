@@ -64,24 +64,43 @@
 
 <xsl:template match="h:pre">
     <text:p text:style-name="Preformatted_20_Text">
-        <xsl:call-template name="pre.line">
-            <xsl:with-param name="content" select="string(.)"/>
-        </xsl:call-template>
+        <xsl:apply-templates mode="inparagraph"/>
     </text:p>
 </xsl:template>
 <xsl:template match="h:pre" mode="inparagraph"/>
 
+<xsl:template match="h:pre/text()" mode="inparagraph">
+    <!-- Don't generate the last line break before the </pre> -->
+    <xsl:variable name="content">
+        <xsl:choose>
+            <xsl:when test="contains(., '&#10;')
+                            and position() = last()
+                            and substring(., string-length(.)) = '&#10;'">
+                <xsl:value-of select="substring(., 1, string-length(.)-1)"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="."/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
+    <!-- Now call the main template, which will handle the line-breaking -->
+    <xsl:call-template name="pre.line">
+        <xsl:with-param name="content" select="$content"/>
+    </xsl:call-template>
+</xsl:template>
+
 <xsl:template name="pre.line">
     <xsl:param name="content"/>
     <xsl:choose>
+        <!-- This line-breaking manipulation is classical, e.g.:
+             http://skew.org/xml/stylesheets/linefeed2br/
+        -->
         <xsl:when test="contains($content, '&#10;')">
             <xsl:value-of select="substring-before($content, '&#10;')"/>
-            <xsl:if test="substring-after($content, '&#10;') != ''">
-                <text:line-break/>
-                <xsl:call-template name="pre.line">
-                    <xsl:with-param name="content" select="substring-after($content, '&#10;')"/>
-                </xsl:call-template>
-            </xsl:if>
+            <text:line-break/>
+            <xsl:call-template name="pre.line">
+                <xsl:with-param name="content" select="substring-after($content, '&#10;')"/>
+            </xsl:call-template>
         </xsl:when>
         <xsl:otherwise>
             <xsl:value-of select="string($content)"/>

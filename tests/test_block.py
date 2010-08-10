@@ -46,6 +46,19 @@ class BlockElements(unittest.TestCase):
         print odt
         assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">Line</text:p>\n'
 
+    def test_pre5(self):
+        """<pre>: adjacent subelements"""
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><pre><span>Line1</span>\n<span>Line2</span></pre></html>'
+        odt = xhtml2odt(html)
+        self.assertEquals(str(odt), '<?xml version="1.0" encoding="utf-8"?>\n<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">Line1<text:line-break/>Line2</text:p>\n')
+
+    def test_pre6(self):
+        """<pre>: removing last line-break of many"""
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><pre>Line1\nLine2\n</pre></html>'
+        odt = xhtml2odt(html)
+        print odt
+        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\n<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">Line1<text:line-break/>Line2</text:p>\n'
+
     def test_address(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><address>Test</address></html>'
         odt = xhtml2odt(html)
