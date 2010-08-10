@@ -50,5 +50,6 @@
     version="1.0">
     
 <xsl:include href="specific/trac.xsl"/>
+<xsl:include href="specific/pygments.xsl"/>
 
 </xsl:stylesheet>
