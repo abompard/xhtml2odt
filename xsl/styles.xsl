@@ -102,14 +102,14 @@
 
 <xsl:template match="office:font-face-decls">
     <office:font-face-decls>
-        <!-- copy the existing styles -->
+        <!-- copy the existing fonts -->
         <xsl:for-each select="child::*">
             <xsl:copy>
                 <xsl:copy-of select="@*"/>
                 <xsl:apply-templates/>
             </xsl:copy>
         </xsl:for-each>
-        <!-- add missing styles -->
+        <!-- add missing fonts -->
         <xsl:call-template name="fonts"/>
     </office:font-face-decls>
 </xsl:template>
