@@ -31,7 +31,7 @@ class SpecificPygments(unittest.TestCase):
         odt = xhtml2odt(html)
         print odt
         self.assertEquals(str(odt), """<?xml version="1.0" encoding="utf-8"?>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Source_20_Code">
   <text:span text:style-name="%s">Test</text:span>
 </text:p>
 """ % odtstyle)
@@ -104,7 +104,7 @@ class SpecificPygments(unittest.TestCase):
         odt = xhtml2odt(html)
         print odt
         self.assertEquals(str(odt), """<?xml version="1.0" encoding="utf-8"?>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">Test</text:p>
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Source_20_Code">Test</text:p>
 """)
 
     def test_highlight_c(self):

@@ -320,6 +320,15 @@
         </style:style>
     </xsl:if>
 
+    <xsl:if test="count(//office:styles/style:style[@style:name = 'Source_20_Code']) = 0">
+        <style:style style:name="Source_20_Code"
+                     style:display-name="Source Code" style:family="paragraph"
+                     style:parent-style-name="Preformatted_20_Text">
+            <style:paragraph-properties fo:padding="0.05cm" style:shadow="none"
+                                        fo:border="0.002cm solid #c0c0c0"/>
+        </style:style>
+    </xsl:if>
+
     <xsl:if test="count(//office:styles/style:style[@style:name = 'Quotations']) = 0">
         <style:style style:name="Quotations" style:family="paragraph"
                      style:display-name="Quotations"

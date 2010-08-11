@@ -51,6 +51,12 @@
     version="1.0">
 
 
+<xsl:template match="h:div[@class='code']/h:pre">
+    <text:p text:style-name="Source_20_Code">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:p>
+</xsl:template>
+
 <!--
      Code highlighting
      This is incomplete, see http://pygments.org/docs/tokens/
