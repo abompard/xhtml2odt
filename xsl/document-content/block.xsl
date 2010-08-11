@@ -96,15 +96,19 @@
              http://skew.org/xml/stylesheets/linefeed2br/
         -->
         <xsl:when test="contains($content, '&#10;')">
-            <xsl:value-of select="substring-before($content, '&#10;')"/>
+            <xsl:call-template name="pre.line">
+                <xsl:with-param name="content" select="substring-before($content, '&#10;')"/>
+            </xsl:call-template>
             <text:line-break/>
             <xsl:call-template name="pre.line">
                 <xsl:with-param name="content" select="substring-after($content, '&#10;')"/>
             </xsl:call-template>
         </xsl:when>
         <xsl:when test="contains($content, '  ')">
-            <xsl:value-of select="substring-before($content, '  ')"/>
-            <xsl:text> &#xa0;</xsl:text>
+            <xsl:call-template name="pre.line">
+                <xsl:with-param name="content" select="substring-before($content, '  ')"/>
+            </xsl:call-template>
+            <text:s text:c="2"/>
             <xsl:call-template name="pre.line">
                 <xsl:with-param name="content" select="substring-after($content, '  ')"/>
             </xsl:call-template>
