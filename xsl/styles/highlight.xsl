@@ -114,6 +114,12 @@
         </style:style>
     </xsl:if>
 
+    <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'syntax-highlight.number']) = 0">
+        <style:style style:name="syntax-highlight.number" style:family="text">
+            <style:text-properties fo:color="#009999"/>
+        </style:style>
+    </xsl:if>
+
     <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'syntax-highlight.comment']) = 0">
         <style:style style:name="syntax-highlight.comment" style:family="text">
             <style:text-properties fo:color="#999988"
@@ -125,12 +131,6 @@
         <style:style style:name="syntax-highlight.error" style:family="text">
             <style:text-properties fo:color="#a61717"
                                    fo:background-color="#e3d2d2"/>
-        </style:style>
-    </xsl:if>
-
-    <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'syntax-highlight.number']) = 0">
-        <style:style style:name="syntax-highlight.number" style:family="text">
-            <style:text-properties fo:color="#009999"/>
         </style:style>
     </xsl:if>
 

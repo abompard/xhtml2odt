@@ -66,14 +66,6 @@ class SpecificPygments(unittest.TestCase):
     def test_highlight_nv(self):
         self._test_mapping("nv", "syntax-highlight.var")
 
-    def test_highlight_p(self):
-        html = '<html xmlns="http://www.w3.org/1999/xhtml"><div class="code"><pre><span class="p">Test</span></pre></div></html>'
-        odt = xhtml2odt(html)
-        print odt
-        self.assertEquals(str(odt), """<?xml version="1.0" encoding="utf-8"?>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">Test</text:p>
-""")
-
     def test_highlight_bp(self):
         self._test_mapping("bp", "syntax-highlight.builtin.pseudo")
 
@@ -95,23 +87,31 @@ class SpecificPygments(unittest.TestCase):
     def test_highlight_s2(self):
         self._test_mapping("s2", "syntax-highlight.string")
 
+    def test_highlight_mi(self):
+        self._test_mapping("mi", "syntax-highlight.number")
+
+    def test_highlight_mf(self):
+        self._test_mapping("mf", "syntax-highlight.number")
+
     def test_highlight_o(self):
         self._test_mapping("o", "strong")
 
     def test_highlight_ow(self):
         self._test_mapping("ow", "strong")
 
+    def test_highlight_p(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><div class="code"><pre><span class="p">Test</span></pre></div></html>'
+        odt = xhtml2odt(html)
+        print odt
+        self.assertEquals(str(odt), """<?xml version="1.0" encoding="utf-8"?>
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">Test</text:p>
+""")
+
     def test_highlight_c(self):
         self._test_mapping("c", "syntax-highlight.comment")
 
     def test_highlight_err(self):
         self._test_mapping("err", "syntax-highlight.error")
-
-    def test_highlight_mi(self):
-        self._test_mapping("mi", "syntax-highlight.number")
-
-    def test_highlight_mf(self):
-        self._test_mapping("mf", "syntax-highlight.number")
 
 
 if __name__ == '__main__':

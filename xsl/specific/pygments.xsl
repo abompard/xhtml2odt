@@ -56,170 +56,106 @@
      This is incomplete, see http://pygments.org/docs/tokens/
 -->
 
-<!-- Keyword -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='k']" mode="inparagraph">
-    <text:span text:style-name="strong">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- Keyword.Namespace -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='kn']" mode="inparagraph">
-    <text:span text:style-name="strong">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- Name.Class -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='nc']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.class">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- Name.Function -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='nf']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.function">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- Name.Tag -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='nt']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.tag">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- Name.Attribute -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='na']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.attr">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- Name.Builtin -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='nb']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.builtin">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- Name.Namespace -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='nn']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.namespace">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- Name.Exception -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='ne']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.exception">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- Name.Variable -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='nv']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.var">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- Punctuation -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='p']" mode="inparagraph">
-    <xsl:apply-templates mode="inparagraph"/>
-</xsl:template>
-
-<!-- Name.Builtin.Pseudo -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='bp']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.builtin.pseudo">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- String -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='s']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.string">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- String.Double -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='sd']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.string">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- String.Interpol -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='si']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.string">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- String.Escape -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='se']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.string">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- String.Backtick -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='sb']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.string">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- String.Single -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='s2']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.string">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- Operator -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='o']" mode="inparagraph">
-    <text:span text:style-name="strong">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- Operator.Word -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='ow']" mode="inparagraph">
-    <text:span text:style-name="strong">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- Comment -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='c']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.comment">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- Generic.Error -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='err']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.error">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- Number.Integer -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='mi']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.number">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
-</xsl:template>
-
-<!-- Number.Float -->
-<xsl:template match="h:div[@class='code']/h:pre/h:span[@class='mf']" mode="inparagraph">
-    <text:span text:style-name="syntax-highlight.number">
-        <xsl:apply-templates mode="inparagraph"/>
-    </text:span>
+<xsl:template match="h:div[@class='code']/h:pre/h:span[@class]" mode="inparagraph">
+    <xsl:choose>
+        <!-- Keyword and Keyword.* -->
+        <xsl:when test="substring(@class,1,1) = 'k'">
+            <text:span text:style-name="strong">
+                <xsl:apply-templates mode="inparagraph"/>
+            </text:span>
+        </xsl:when>
+        <!-- Name.Class -->
+        <xsl:when test="@class = 'nc'">
+            <text:span text:style-name="syntax-highlight.class">
+                <xsl:apply-templates mode="inparagraph"/>
+            </text:span>
+        </xsl:when>
+        <!-- Name.Function -->
+        <xsl:when test="@class = 'nf'">
+            <text:span text:style-name="syntax-highlight.function">
+                <xsl:apply-templates mode="inparagraph"/>
+            </text:span>
+        </xsl:when>
+        <!-- Name.Tag -->
+        <xsl:when test="@class = 'nt'">
+            <text:span text:style-name="syntax-highlight.tag">
+                <xsl:apply-templates mode="inparagraph"/>
+            </text:span>
+        </xsl:when>
+        <!-- Name.Attribute -->
+        <xsl:when test="@class = 'na'">
+            <text:span text:style-name="syntax-highlight.attr">
+                <xsl:apply-templates mode="inparagraph"/>
+            </text:span>
+        </xsl:when>
+        <!-- Name.Builtin -->
+        <xsl:when test="@class = 'nb'">
+            <text:span text:style-name="syntax-highlight.builtin">
+                <xsl:apply-templates mode="inparagraph"/>
+            </text:span>
+        </xsl:when>
+        <!-- Name.Namespace -->
+        <xsl:when test="@class = 'nn'">
+            <text:span text:style-name="syntax-highlight.namespace">
+                <xsl:apply-templates mode="inparagraph"/>
+            </text:span>
+        </xsl:when>
+        <!-- Name.Exception -->
+        <xsl:when test="@class = 'ne'">
+            <text:span text:style-name="syntax-highlight.exception">
+                <xsl:apply-templates mode="inparagraph"/>
+            </text:span>
+        </xsl:when>
+        <!-- Name.Variable -->
+        <xsl:when test="@class = 'nv'">
+            <text:span text:style-name="syntax-highlight.var">
+                <xsl:apply-templates mode="inparagraph"/>
+            </text:span>
+        </xsl:when>
+        <!-- Name.Builtin.Pseudo -->
+        <xsl:when test="@class = 'bp'">
+            <text:span text:style-name="syntax-highlight.builtin.pseudo">
+                <xsl:apply-templates mode="inparagraph"/>
+            </text:span>
+        </xsl:when>
+        <!-- String and String.* -->
+        <xsl:when test="substring(@class,1,1) = 's'">
+            <text:span text:style-name="syntax-highlight.string">
+                <xsl:apply-templates mode="inparagraph"/>
+            </text:span>
+        </xsl:when>
+        <!-- Number and Number.* -->
+        <xsl:when test="substring(@class,1,1) = 'm'">
+            <text:span text:style-name="syntax-highlight.number">
+                <xsl:apply-templates mode="inparagraph"/>
+            </text:span>
+        </xsl:when>
+        <!-- Operator and Operator.Word -->
+        <xsl:when test="substring(@class,1,1) = 'o'">
+            <text:span text:style-name="strong">
+                <xsl:apply-templates mode="inparagraph"/>
+            </text:span>
+        </xsl:when>
+        <!-- Punctuation -->
+        <xsl:when test="@class = 'p'">
+            <xsl:apply-templates mode="inparagraph"/>
+        </xsl:when>
+        <!-- Comment and Comment.* -->
+        <xsl:when test="substring(@class,1,1) = 'c'">
+            <text:span text:style-name="syntax-highlight.comment">
+                <xsl:apply-templates mode="inparagraph"/>
+            </text:span>
+        </xsl:when>
+        <!-- Generic.Error -->
+        <xsl:when test="@class = 'err'">
+            <text:span text:style-name="syntax-highlight.error">
+                <xsl:apply-templates mode="inparagraph"/>
+            </text:span>
+        </xsl:when>
+        <xsl:otherwise>
+            <xsl:apply-templates mode="inparagraph"/>
+        </xsl:otherwise>
+    </xsl:choose>
 </xsl:template>
 
 </xsl:stylesheet>
