@@ -62,13 +62,15 @@
             child::h:ul|
             child::h:ol|
             child::h:blockquote|
-            child::h:pre
+            child::h:pre |
+            child::h:div
             ">
             <xsl:for-each select="
                     child::h:ul |
                     child::h:ol |
                     child::h:blockquote |
-                    child::h:pre
+                    child::h:pre |
+                    child::h:div
                     ">
                 <!-- Paragraph with the text before -->
                 <xsl:if test="preceding-sibling::node()">
