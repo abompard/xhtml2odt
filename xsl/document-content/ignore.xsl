@@ -54,7 +54,6 @@
     <xsl:apply-templates/>
 </xsl:template>
 <xsl:template match="h:div" mode="inparagraph">
-    <xsl:comment>div in para</xsl:comment>
     <xsl:apply-templates/>
 </xsl:template>
 
