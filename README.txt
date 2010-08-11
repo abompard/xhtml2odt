@@ -29,9 +29,9 @@ Caveats
 Command-line scripts
 --------------------
 
-Two command-line scripts to run the stylesheets are provided, one is Python-based, the other is PHP-based. They do import the styles and the images, so they can also be used as a code example for these two steps in other languages and actual export plugins.
+Three command-line scripts to run the stylesheets are provided, one is Python-based, the other is PHP-based, the last one is shell-based. The first two do import the styles and the images, so they can also be used as a code example for these two steps in other languages and actual export plugins. The shell script is more of a minimalist approach to demonstrate the simplest possible use of the stylesheets.
 
-Documentation for both scripts can be generated using the "`make doc`" command. This will require [sphinx][] for python and [phpDocumentor][] for PHP.
+Documentation for the PHP and Python scripts can be generated using the "`make doc`" command. This will require [sphinx][] for Python and [phpDocumentor][] for PHP.
 
 [sphinx]: http://sphinx.pocoo.org/
 [phpDocumentor]: http://www.phpdoc.org/
