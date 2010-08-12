@@ -68,6 +68,13 @@
 </xsl:template>
 
 <xsl:template match="h:span"/>
+<xsl:template match="h:span[@style]" mode="inparagraph">
+    <!-- leave the style handling to xsl/styles.xsl -->
+    <xsl:copy>
+        <xsl:copy-of select="@*"/>
+        <xsl:apply-templates/>
+    </xsl:copy>
+</xsl:template>
 <xsl:template match="h:span" mode="inparagraph">
     <xsl:apply-templates mode="inparagraph"/>
 </xsl:template>
