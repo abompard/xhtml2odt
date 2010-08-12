@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
+import re
 from lxml import etree
 from . import styles
 
@@ -81,6 +82,35 @@ class Styles(unittest.TestCase):
         # There's only one and it's the one we added (it's empty)
         assert str(odt).count('style:name="DejaVu Sans Mono"') == 1
         assert str(odt).count('<style:font-face style:name="DejaVu Sans Mono"/>') == 1
+
+
+class Highlight(unittest.TestCase):
+
+    def test_add_autostyle(self):
+        odt_tpl = """<office:document-content
+    xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+    xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+    xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0">
+<office:automatic-styles/>
+<office:text><text:span text:style-name="syntax-highlight.%s">test</text:span></office:text>
+</office:document-content>"""
+        for style_name in ["class", "function", "tag", "attr", "builtin", "namespace", "exception", "var", "builtin.pseudo", "string", "number"]:
+            odt = odt_tpl % style_name
+            odt = styles(odt)
+            self.assertEquals(str(odt).count('style:name="syntax-highlight.%s"' % style_name), 1)
+
+    def test_only_useful(self):
+        odt = """<office:document-content
+    xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
+    xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"
+    xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0">
+<office:automatic-styles/>
+</office:document-content>"""
+        odt = styles(odt)
+        style_names_match = re.findall('style:name="([^"]+)"', str(odt))
+        for style_name in style_names_match:
+            if style_name.startswith("syntax-highlight."):
+                self.fail("useless style: %s" % style_name)
 
 
 
