@@ -44,4 +44,7 @@ xhtml2odt.1: xhtml2odt.py xhtml2odt.1.post
 	help2man -n "Convert an XHTML page to an ODT document" -s 1 -N -o $@ -i xhtml2odt.1.post.tmp ./xhtml2odt.py
 	rm -f xhtml2odt.1.post.tmp
 
+ChangeLog.txt:
+	git log --pretty --numstat --summary | git2cl > ChangeLog.txt
+
 .PHONY: all install uninstall tests clean doc
