@@ -63,6 +63,7 @@
 <xsl:include href="styles/main-styles.xsl"/>
 <xsl:include href="styles/fonts.xsl"/>
 <xsl:include href="styles/highlight.xsl"/>
+<xsl:include href="styles/inline.xsl"/>
 
 
 <xsl:template match="/">
@@ -84,6 +85,8 @@
         <xsl:call-template name="autostyles"/>
         <!-- add missing syntax highlighting styles -->
         <xsl:call-template name="highlight"/>
+        <!-- add missing inline styles -->
+        <xsl:call-template name="inline"/>
     </office:automatic-styles>
 </xsl:template>
 
@@ -117,6 +120,17 @@
     </office:font-face-decls>
 </xsl:template>
 
+<!-- Convert the <span> tags which have inline CSS properties in the style
+     attribute. See the styles/inline.xsl stylesheet for details -->
+<xsl:template match="h:span[@style]">
+    <text:span>
+        <xsl:attribute name="text:style-name">
+            <xsl:text>inline-style.</xsl:text>
+            <xsl:value-of select="generate-id(.)"/>
+        </xsl:attribute>
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:span>
+</xsl:template>
 
 <!-- Leave alone unknown tags -->
 <xsl:template match="*">
