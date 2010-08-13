@@ -329,6 +329,15 @@
         </style:style>
     </xsl:if>
 
+    <xsl:if test="count(//office:styles/style:style[@style:name = 'Source_20_Code_20_Numbered']) = 0">
+        <style:style style:name="Source_20_Code_20_Numbered"
+                     style:display-name="Source Code Numbered" style:family="paragraph"
+                     style:list-style-name="Numbering_20_1"
+                     style:parent-style-name="Source_20_Code">
+            <style:paragraph-properties text:number-lines="true" text:line-number="1"/>
+        </style:style>
+    </xsl:if>
+
     <xsl:if test="count(//office:styles/style:style[@style:name = 'Quotations']) = 0">
         <style:style style:name="Quotations" style:family="paragraph"
                      style:display-name="Quotations"
