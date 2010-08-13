@@ -231,7 +231,7 @@ The wiki supports both ordered/numbered and unordered lists.
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 Example:
 </text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text"> * Item 1<text:line-break/>   * Item 1.1<text:line-break/>      * Item 1.1.1   <text:line-break/>      * Item 1.1.2<text:line-break/>      * Item 1.1.3<text:line-break/>   * Item 1.2<text:line-break/> * Item 2<text:line-break/><text:line-break/> 1. Item 1<text:line-break/>   a. Item 1.a<text:line-break/>   a. Item 1.b<text:line-break/>      i. Item 1.b.i<text:line-break/>      i. Item 1.b.ii<text:line-break/> 1. Item 2<text:line-break/>And numbered lists can also be given an explicit number:<text:line-break/> 3. Item 3</text:p><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text"> * Item 1<text:line-break/><text:s text:c="2"/> * Item 1.1<text:line-break/><text:s text:c="2"/><text:s text:c="2"/><text:s text:c="2"/>* Item 1.1.1<text:s text:c="2"/> <text:line-break/><text:s text:c="2"/><text:s text:c="2"/><text:s text:c="2"/>* Item 1.1.2<text:line-break/><text:s text:c="2"/><text:s text:c="2"/><text:s text:c="2"/>* Item 1.1.3<text:line-break/><text:s text:c="2"/> * Item 1.2<text:line-break/> * Item 2<text:line-break/><text:line-break/> 1. Item 1<text:line-break/><text:s text:c="2"/> a. Item 1.a<text:line-break/><text:s text:c="2"/> a. Item 1.b<text:line-break/><text:s text:c="2"/><text:s text:c="2"/><text:s text:c="2"/>i. Item 1.b.i<text:line-break/><text:s text:c="2"/><text:s text:c="2"/><text:s text:c="2"/>i. Item 1.b.ii<text:line-break/> 1. Item 2<text:line-break/>And numbered lists can also be given an explicit number:<text:line-break/> 3. Item 3</text:p><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 Display:
 </text:p>
 <text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
@@ -315,7 +315,7 @@ The wiki also supports definition lists.
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 Example:
 </text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text"> llama::<text:line-break/>   some kind of mammal, with hair<text:line-break/> ppython::<text:line-break/>   some kind of reptile, without hair<text:line-break/>   (can you spot the typo?)</text:p><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text"> llama::<text:line-break/><text:s text:c="2"/> some kind of mammal, with hair<text:line-break/> ppython::<text:line-break/><text:s text:c="2"/> some kind of reptile, without hair<text:line-break/><text:s text:c="2"/> (can you spot the typo?)</text:p><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 Display:
 </text:p>
 <table:table xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" table:style-name="table-default">
@@ -368,10 +368,10 @@ Block containing preformatted text are suitable for source code snippets, notes 
   
 Example:
 </text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text"> {{{<text:line-break/>  def HelloWorld():<text:line-break/>      print "Hello World"<text:line-break/> }}}</text:p><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text"> {{{<text:line-break/><text:s text:c="2"/>def HelloWorld():<text:line-break/><text:s text:c="2"/><text:s text:c="2"/><text:s text:c="2"/>print "Hello World"<text:line-break/> }}}</text:p><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 Display:
 </text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text"> def HelloWorld():<text:line-break/>     print "Hello World"</text:p><!--section level 2-->
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text"> def HelloWorld():<text:line-break/><text:s text:c="2"/><text:s text:c="2"/> print "Hello World"</text:p><!--section level 2-->
 <text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">Blockquotes</text:h>
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 In order to mark a paragraph as blockquote, indent that paragraph with two spaces.
@@ -379,7 +379,7 @@ In order to mark a paragraph as blockquote, indent that paragraph with two space
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 Example:
 </text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">  This text is a quote from someone else.</text:p><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text"><text:s text:c="2"/>This text is a quote from someone else.</text:p><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 Display:
 </text:p>
 
@@ -595,14 +595,14 @@ Display:
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 Example:
 </text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">{{{<text:line-break/>#!python<text:line-break/>class Test:<text:line-break/><text:line-break/>    def __init__(self):<text:line-break/>        print "Hello World"<text:line-break/>if __name__ == '__main__':<text:line-break/>   Test()<text:line-break/>}}}</text:p>
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">{{{<text:line-break/>#!python<text:line-break/>class Test:<text:line-break/><text:line-break/><text:s text:c="2"/><text:s text:c="2"/>def __init__(self):<text:line-break/><text:s text:c="2"/><text:s text:c="2"/><text:s text:c="2"/><text:s text:c="2"/>print "Hello World"<text:line-break/>if __name__ == '__main__':<text:line-break/><text:s text:c="2"/> Test()<text:line-break/>}}}</text:p>
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 Display:
 </text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Source_20_Code"><text:span text:style-name="strong">class</text:span> <text:span text:style-name="syntax-highlight.class">Test</text:span>:<text:line-break/>    <text:span text:style-name="strong">def</text:span> <text:span text:style-name="syntax-highlight.function">__init__</text:span>(<text:span text:style-name="syntax-highlight.builtin.pseudo">self</text:span>):<text:line-break/>        <text:span text:style-name="strong">print</text:span> <text:span text:style-name="syntax-highlight.string">"Hello World"</text:span><text:line-break/><text:span text:style-name="strong">if</text:span> __name__ <text:span text:style-name="strong">==</text:span> <text:span text:style-name="syntax-highlight.string">'__main__'</text:span>:<text:line-break/>   Test()</text:p><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Source_20_Code"><text:span text:style-name="strong">class</text:span> <text:span text:style-name="syntax-highlight.class">Test</text:span>:<text:line-break/><text:s text:c="2"/><text:s text:c="2"/><text:span text:style-name="strong">def</text:span> <text:span text:style-name="syntax-highlight.function">__init__</text:span>(<text:span text:style-name="syntax-highlight.builtin.pseudo">self</text:span>):<text:line-break/><text:s text:c="2"/><text:s text:c="2"/><text:s text:c="2"/><text:s text:c="2"/><text:span text:style-name="strong">print</text:span> <text:span text:style-name="syntax-highlight.string">"Hello World"</text:span><text:line-break/><text:span text:style-name="strong">if</text:span> __name__ <text:span text:style-name="strong">==</text:span> <text:span text:style-name="syntax-highlight.string">'__main__'</text:span>:<text:line-break/><text:s text:c="2"/> Test()</text:p><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 Perl:
 </text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Source_20_Code"><text:span text:style-name="strong">my</text:span> (<text:span text:style-name="syntax-highlight.var">$test</text:span>) <text:span text:style-name="strong">=</text:span> <text:span text:style-name="syntax-highlight.number">0</text:span>;<text:line-break/><text:span text:style-name="strong">if</text:span> (<text:span text:style-name="syntax-highlight.var">$test</text:span> <text:span text:style-name="strong">&gt;</text:span> <text:span text:style-name="syntax-highlight.number">0</text:span>) {<text:line-break/>    <text:span text:style-name="strong">print</text:span> <text:span text:style-name="syntax-highlight.string">"hello"</text:span>;<text:line-break/>}</text:p><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Source_20_Code"><text:span text:style-name="strong">my</text:span> (<text:span text:style-name="syntax-highlight.var">$test</text:span>) <text:span text:style-name="strong">=</text:span> <text:span text:style-name="syntax-highlight.number">0</text:span>;<text:line-break/><text:span text:style-name="strong">if</text:span> (<text:span text:style-name="syntax-highlight.var">$test</text:span> <text:span text:style-name="strong">&gt;</text:span> <text:span text:style-name="syntax-highlight.number">0</text:span>) {<text:line-break/><text:s text:c="2"/><text:s text:c="2"/><text:span text:style-name="strong">print</text:span> <text:span text:style-name="syntax-highlight.string">"hello"</text:span>;<text:line-break/>}</text:p><text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
 See <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/wiki/WikiProcessors">WikiProcessors</text:a> for more information.
 </text:p>
 <!--section level 2-->
