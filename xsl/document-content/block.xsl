@@ -75,7 +75,7 @@
 </xsl:template>
 <xsl:template match="h:pre" mode="inparagraph"/>
 
-<xsl:template match="h:pre/text()" mode="inparagraph">
+<xsl:template match="h:pre//text()" mode="inparagraph">
     <!-- Don't generate the last line break before the </pre> -->
     <xsl:variable name="content">
         <xsl:choose>
@@ -115,12 +115,26 @@
                 <xsl:with-param name="content" select="substring-after($content, '&#10;')"/>
             </xsl:call-template>
         </xsl:when>
+        <xsl:otherwise>
+            <!-- here we're on a single line, call pre.line.single to preserve
+                 spaces -->
+            <xsl:call-template name="pre.line.single">
+                <xsl:with-param name="content" select="string($content)"/>
+            </xsl:call-template>
+        </xsl:otherwise>
+    </xsl:choose>
+</xsl:template>
+
+<!-- This template escapes adjacent spaces -->
+<xsl:template name="pre.line.single">
+    <xsl:param name="content"/>
+    <xsl:choose>
         <xsl:when test="contains($content, '  ')">
-            <xsl:call-template name="pre.line">
+            <xsl:call-template name="pre.line.single">
                 <xsl:with-param name="content" select="substring-before($content, '  ')"/>
             </xsl:call-template>
             <text:s text:c="2"/>
-            <xsl:call-template name="pre.line">
+            <xsl:call-template name="pre.line.single">
                 <xsl:with-param name="content" select="substring-after($content, '  ')"/>
             </xsl:call-template>
         </xsl:when>
