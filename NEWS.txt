@@ -1,0 +1,27 @@
+Changes in XHTML2ODT
+====================
+
+Version 1.1
+-----------
+
+* Beginning of partial support for syntax highlighting. Supported highlighters:
+* Bugfixes in the handling of <pre> tags
+* Addition of a simple bash script to run the stylesheets
+* Source code paragraph have their own paragraph style, to ease customization
+
+*Note on syntax highlighting*: the supported highlighters are:
+
+* Pygments_ (partial support)
+* inline CSS in ``<span>`` tags (partial support, obviously), tested with
+  GeSHi_
+
+.. _Pygments: http://pygments.org/
+.. _GeSHi: http://qbnz.com/highlighter/
+
+
+Version 1.0
+-----------
+* Initial stable release, see the website for details
+
+
+# vim:syntax=rst
