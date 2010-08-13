@@ -27,6 +27,9 @@ clean:
 	rm -f xhtml2odt.1
 	rm -rf doc-py/_build
 	rm -rf doc-php/*
+	rm -rf ChangeLog.txt
+	rm -rf xhtml2odt-*.tar.gz*
+	rm -rf xhtml2odt-*.zip*
 
 doc: doc-py/_build/html/index.html doc-php/index.html
 	@echo "Python doc is in doc-py/_build/html/index.html"
@@ -44,7 +47,34 @@ xhtml2odt.1: xhtml2odt.py xhtml2odt.1.post
 	help2man -n "Convert an XHTML page to an ODT document" -s 1 -N -o $@ -i xhtml2odt.1.post.tmp ./xhtml2odt.py
 	rm -f xhtml2odt.1.post.tmp
 
-ChangeLog.txt:
+# Release code
+
+LATEST := $(shell git tag | grep ^v | tail -n 1 | tr -d v)
+
+release: ChangeLog.txt xhtml2odt-$(LATEST).tar.gz.asc xhtml2odt-$(LATEST).zip.asc
+
+ChangeLog.txt: .git/refs/tags/v$(LATEST)
 	git log --pretty --numstat --summary | git2cl > ChangeLog.txt
 
-.PHONY: all install uninstall tests clean doc
+xhtml2odt-$(LATEST).tar.gz: ChangeLog.txt
+	git archive --format=tar --prefix=xhtml2odt-$(LATEST)/ -o xhtml2odt-$(LATEST).tar v$(LATEST)
+	mkdir xhtml2odt-$(LATEST)/
+	cp -a ChangeLog.txt xhtml2odt-$(LATEST)/
+	tar -rf xhtml2odt-$(LATEST).tar xhtml2odt-$(LATEST)/ChangeLog.txt
+	rm -f xhtml2odt-$(LATEST)/ChangeLog.txt
+	rmdir xhtml2odt-$(LATEST)/
+	gzip xhtml2odt-$(LATEST).tar
+
+xhtml2odt-$(LATEST).zip: ChangeLog.txt
+	git archive --format=zip --prefix=xhtml2odt-$(LATEST)/ -o $@ v$(LATEST)
+	mkdir xhtml2odt-$(LATEST)/
+	cp -a ChangeLog.txt xhtml2odt-$(LATEST)/
+	zip -g $@ xhtml2odt-$(LATEST)/ChangeLog.txt
+	rm -f xhtml2odt-$(LATEST)/ChangeLog.txt
+	rmdir xhtml2odt-$(LATEST)/
+
+%.asc: %
+	gpg --detach-sign -a $^
+
+
+.PHONY: all install uninstall tests clean doc release
