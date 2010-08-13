@@ -62,6 +62,9 @@
 </xsl:template>
 <xsl:template match="h:hr" mode="inparagraph"/>
 
+<!--
+    Preformatted paragraphs management
+-->
 <xsl:template match="h:pre">
     <text:p text:style-name="Preformatted_20_Text">
         <xsl:apply-templates mode="inparagraph"/>
@@ -92,6 +95,10 @@
     </xsl:call-template>
 </xsl:template>
 
+<!--
+    this template splits newline-separated pararagraphs into multiple
+    paragraphs
+-->
 <xsl:template name="pre.line">
     <xsl:param name="content"/>
     <xsl:choose>
@@ -99,6 +106,7 @@
              http://skew.org/xml/stylesheets/linefeed2br/
         -->
         <xsl:when test="contains($content, '&#10;')">
+            <!-- split in two -->
             <xsl:call-template name="pre.line">
                 <xsl:with-param name="content" select="substring-before($content, '&#10;')"/>
             </xsl:call-template>
@@ -121,6 +129,7 @@
         </xsl:otherwise>
     </xsl:choose>
 </xsl:template>
+
 
 <xsl:template match="h:address">
     <!-- special formatting is defined in paragraph -->
