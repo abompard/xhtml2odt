@@ -118,19 +118,20 @@ class ListElements(unittest.TestCase):
         #http://trac-hacks.org/ticket/6823
         html = '''<html xmlns="http://www.w3.org/1999/xhtml"><ul><li>Line1<pre>pre content</pre></li><li>Line2</li></ul></html>'''
         odt = xhtml2odt(html)
-        print odt
-        target = """
-<text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
+        odt = str(odt).replace(' xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"', '')
+        odt = odt.replace('<?xml version="1.0" encoding="utf-8"?>\n', '')
+        target = """<text:list text:style-name="List_20_1">
   <text:list-item>
     <text:p text:style-name="list-item-bullet">Line1</text:p>
     <text:p text:style-name="Preformatted_20_Text">pre content</text:p>
+    <text:p text:style-name="Text_20_body"/>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">Line2</text:p>
   </text:list-item>
 </text:list>
 """
-        assert str(odt).count(target) == 1
+        self.assertEquals(odt, target)
 
     def test_li_containing_inline1(self):
         html = '''<html xmlns="http://www.w3.org/1999/xhtml"><ul><li>Line1<b>inline content</b></li><li>Line2</li></ul></html>'''

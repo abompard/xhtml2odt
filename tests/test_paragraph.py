@@ -50,30 +50,30 @@ class ParagraphElements(unittest.TestCase):
     def test_p_containing_pre(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><pre>Test</pre></p></html>'
         odt = xhtml2odt(html)
-        print odt
-        assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">Test</text:p>
-"""
+        odt = str(odt).replace(' xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"', '')
+        odt = odt.replace('<?xml version="1.0" encoding="utf-8"?>\n', '')
+        self.assertEquals(odt, """<text:p text:style-name="Preformatted_20_Text">Test</text:p>"""
+                               """<text:p text:style-name="Text_20_body"/>\n""")
 
     def test_p_containing_text_and_block(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p>Top text<pre>Test</pre>Bottom text</p></html>'
         odt = xhtml2odt(html)
-        print odt
-        assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Top text</text:p>""" + \
-"""<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">Test</text:p>""" + \
-"""<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Bottom text</text:p>
-"""
+        odt = str(odt).replace(' xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"', '')
+        odt = odt.replace('<?xml version="1.0" encoding="utf-8"?>\n', '')
+        self.assertEquals(odt, """<text:p text:style-name="Text_20_body">Top text</text:p>"""
+                               """<text:p text:style-name="Preformatted_20_Text">Test</text:p>"""
+                               """<text:p text:style-name="Text_20_body"/>""" # added by the <pre> tag for readability
+                               """<text:p text:style-name="Text_20_body">Bottom text</text:p>\n""")
 
     def test_p_containing_text_and_inline_and_block(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p>Top <sup>sup text</sup> text<pre>Test</pre></p></html>'
         odt = xhtml2odt(html)
-        print odt
-        assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Top """ + \
-"""<text:span text:style-name="sup">sup text</text:span> text</text:p>""" + \
-"""<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">Test</text:p>
-"""
+        odt = str(odt).replace(' xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"', '')
+        odt = odt.replace('<?xml version="1.0" encoding="utf-8"?>\n', '')
+        self.assertEquals(odt, """<text:p text:style-name="Text_20_body">Top """
+                               """<text:span text:style-name="sup">sup text</text:span> text</text:p>"""
+                               """<text:p text:style-name="Preformatted_20_Text">Test</text:p>"""
+                               """<text:p text:style-name="Text_20_body"/>\n""")
 
 #    def test_p_containing_text_and_2_blocks(self):
 #        # Unsupported yet
@@ -91,13 +91,13 @@ class ParagraphElements(unittest.TestCase):
     def test_p_containing_text_and_2_inlines(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p>Top text<sup>inline text 1</sup>Middle text<sup>inline text 2</sup>Bottom text<pre>Test</pre></p></html>'
         odt = xhtml2odt(html)
-        print odt
-        assert str(odt) == """<?xml version="1.0" encoding="utf-8"?>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Top text""" + \
-"""<text:span text:style-name="sup">inline text 1</text:span>Middle text""" + \
-"""<text:span text:style-name="sup">inline text 2</text:span>Bottom text</text:p>""" + \
-"""<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Preformatted_20_Text">Test</text:p>
-"""
+        odt = str(odt).replace(' xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"', '')
+        odt = odt.replace('<?xml version="1.0" encoding="utf-8"?>\n', '')
+        self.assertEquals(odt, """<text:p text:style-name="Text_20_body">Top text"""
+                               """<text:span text:style-name="sup">inline text 1</text:span>Middle text"""
+                               """<text:span text:style-name="sup">inline text 2</text:span>Bottom text</text:p>"""
+                               """<text:p text:style-name="Preformatted_20_Text">Test</text:p>"""
+                               """<text:p text:style-name="Text_20_body"/>\n""")
 
     def test_p_center1(self):
         """<p> tag: with text-align: center (space)"""

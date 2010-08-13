@@ -314,7 +314,7 @@
                      style:display-name="Preformatted Text" style:family="paragraph"
                      style:parent-style-name="Standard" style:class="html">
             <style:paragraph-properties fo:margin-left="1cm" fo:margin-right="1cm"
-                                        fo:margin-top="0cm" fo:margin-bottom="0.2cm"/>
+                                        fo:margin-top="0cm" fo:margin-bottom="0cm"/>
             <style:text-properties style:font-name="DejaVu Sans Mono"
                                    fo:font-size="9pt"/>
         </style:style>

@@ -55,6 +55,9 @@
     <text:p text:style-name="Source_20_Code">
         <xsl:apply-templates mode="inparagraph"/>
     </text:p>
+    <!-- The Preformatted_20_Text style has a margin-bottom of 0, so we add an
+         empty line here -->
+    <text:p text:style-name="Text_20_body"/>
 </xsl:template>
 
 <!--
