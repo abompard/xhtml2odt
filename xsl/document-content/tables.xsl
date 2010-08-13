@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-    
+
     xhtml2odt - XHTML to ODT XML transformation.
     Copyright (C) 2009 Aurelien Bompard
     Inspired by the work on docbook2odt, by Roman Fordinal
     http://open.comsultia.com/docbook2odf/
-    
+
     License: LGPL v2.1 or later <http://www.gnu.org/licenses/lgpl-2.1.html>
 
     This library is free software; you can redistribute it and/or
     modify it under the terms of the GNU Lesser General Public
     License as published by the Free Software Foundation; either
     version 2.1 of the License, or (at your option) any later version.
-    
+
     This library is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
     Lesser General Public License for more details.
-    
+
     You should have received a copy of the GNU Lesser General Public
     License along with this library; if not, write to the Free Software
     Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
@@ -35,7 +35,7 @@
     xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0"
     xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0"
     xmlns:xlink="http://www.w3.org/1999/xlink"
-    xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" 
+    xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0"
     xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0"
     xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0"
     xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0"
@@ -149,9 +149,9 @@
     <xsl:comment>horizontal-count=<xsl:value-of select="$horizontal-count"/></xsl:comment>
     <xsl:comment>vertical-position=<xsl:value-of select="$vertical-position"/></xsl:comment>
     <xsl:comment>vertical-count=<xsl:value-of select="$vertical-count"/></xsl:comment>
-    
+
     <table:table-cell office:value-type="string">
-        
+
         <xsl:attribute name="table:style-name">
             <xsl:text>table-default.cell-</xsl:text>
             <!-- prefix -->
@@ -173,7 +173,7 @@
                 ^^^^^^^^^^
             -->
             <xsl:choose>
-            
+
                 <!-- single -->
                 <xsl:when test="$horizontal-count = 1 and $vertical-count = 1">
                     <xsl:text>single</xsl:text>
@@ -191,7 +191,7 @@
                 <xsl:when test="$vertical-count = 1">
                     <xsl:text>B4</xsl:text>
                 </xsl:when>
-            
+
                 <!-- tfoot A -->
                 <xsl:when test="ancestor::h:tfoot and $horizontal-position = 1">
                     <xsl:text>A3</xsl:text>
@@ -204,7 +204,7 @@
                 <xsl:when test="ancestor::h:tfoot">
                     <xsl:text>B3</xsl:text>
                 </xsl:when>
-            
+
                 <!-- A3 -->
                 <xsl:when test="$horizontal-position = 1 and $vertical-position = $vertical-count">
                     <xsl:text>A3</xsl:text>
@@ -217,7 +217,7 @@
                 <xsl:when test="$vertical-position = $vertical-count">
                     <xsl:text>B3</xsl:text>
                 </xsl:when>
-            
+
                 <!-- A1 -->
                 <xsl:when test="$horizontal-position = 1 and $vertical-position = 1">
                     <xsl:text>A1</xsl:text>
@@ -230,7 +230,7 @@
                 <xsl:when test="$vertical-position = 1">
                     <xsl:text>B1</xsl:text>
                 </xsl:when>
-                
+
                 <!-- A2 -->
                 <xsl:when test="$horizontal-position = 1">
                     <xsl:text>A2</xsl:text>
@@ -239,16 +239,16 @@
                 <xsl:when test="$horizontal-position = $horizontal-count">
                     <xsl:text>C2</xsl:text>
                 </xsl:when>
-                
+
                 <!-- all other cells -->
                 <xsl:otherwise>
                     <xsl:text>B2</xsl:text>
                 </xsl:otherwise>
-                
+
             </xsl:choose>
-            
+
         </xsl:attribute>
-        
+
         <xsl:call-template name="paragraph"/>
 
     </table:table-cell>

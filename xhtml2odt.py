@@ -46,7 +46,7 @@ options.  The main options are:
 The full help message is::
 
     Usage: xhtml2odt.py [options] -i input -o output -t template.odt
-    
+
     Options:
       -h, --help            show this help message and exit
       -i FILE, --input=FILE

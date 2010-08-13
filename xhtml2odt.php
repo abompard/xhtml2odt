@@ -3,33 +3,33 @@
 # vim: set expandtab tabstop=4 shiftwidth=4:
 /**
  * xhtml2odt - XHTML to ODT XML transformation
- * 
+ *
  * This script can convert a wiki page to the OpenDocument Text (ODT) format,
  * standardized as ISO/IEC 26300:2006, and the native format of office suites
  * such as OpenOffice.org, KOffice, and others.
- * 
+ *
  * It uses a template ODT file which will be filled with the converted
  * content of the exported Wiki page.
- * 
+ *
  * Inspired by the work on {@link http://open.comsultia.com/docbook2odf/
  * docbook2odt}, by Roman Fordinal
- * 
+ *
  * @link http://xhtml2odt.org xhtml2odt project
  * @author Aurélien Bompard <aurelien@bompard.org>
  * @copyright Aurélien Bompard <aurelien@bompard.org> 2009-2010
  * @license http://www.gnu.org/licenses/lgpl-2.1.html LGPLv2+
  * @package xhtml2odt
- * 
+ *
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
  * License as published by the Free Software Foundation; either
  * version 2.1 of the License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Library General Public License for more details.
- * 
+ *
  */
 
 
@@ -187,7 +187,7 @@ class ODTFile {
                     'doctype' => "auto",
                     'wrap' => 0,
                     'char-encoding' => "utf8",
-                ); 
+                );
             $tidy = new tidy;
             $tidy->parseString($xhtml, $tidy_config, 'utf8');
             $tidy->cleanRepair();
@@ -214,7 +214,7 @@ class ODTFile {
         // run the stylesheets
         $xsl = dirname(__FILE__)."/xsl";
         $xmldoc = new DOMDocument();
-        $xmldoc->loadXML($xhtml); 
+        $xmldoc->loadXML($xhtml);
         $xsldoc = new DOMDocument();
         $xsldoc->load($xsl."/xhtml2odt.xsl");
         $proc = new XSLTProcessor();
@@ -400,7 +400,7 @@ class ODTFile {
         // Remove existing sizes and replace them with the calculated size
         return str_replace($matches[1],"Pictures/".basename($file).'" width="'.$width.'cm" height="'.$height.'cm', $matches[0]);
     }
-        
+
     /**
      * Inserts the generated ODT XML code into the content.xml and styles.xml
      * files
@@ -496,9 +496,9 @@ class ODTFile {
     protected function addStyles() {
         $xsl = dirname(__FILE__)."/xsl";
         $contentxml = new DOMDocument();
-        $contentxml->loadXML($this->contentXml); 
+        $contentxml->loadXML($this->contentXml);
         $stylesxml = new DOMDocument();
-        $stylesxml->loadXML($this->stylesXml); 
+        $stylesxml->loadXML($this->stylesXml);
         $xsldoc = new DOMDocument();
         $xsldoc->load($xsl."/styles.xsl");
         $proc = new XSLTProcessor();
@@ -540,7 +540,7 @@ function parseOpts() {
         "img-default-height:",
     );
     $options = getopt($shortopts, $longopts);
-    if (array_key_exists("h", $options) or 
+    if (array_key_exists("h", $options) or
         array_key_exists("help", $options)) {
         usage();
     }
