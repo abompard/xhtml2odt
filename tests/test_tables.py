@@ -152,6 +152,50 @@ class TableElements(unittest.TestCase):
                              </table:table> \s*
                              """, str(odt), re.X)
 
+    def test_table_onecol(self):
+        """<table> tag: only one column"""
+        html = """<html xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+              <tr><td>Cell 1</td></tr>
+              <tr><td>Cell 2</td></tr>
+              <tr><td>Cell 3</td></tr>
+            </table>
+        </html>
+        """
+        odt = xhtml2odt(html)
+        # remove namespaces
+        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
+        # remove comments
+        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
+        print odt
+        assert re.search(r"""
+                             <table:table \s+ table:style-name="table-default"> \s*
+                             <table:table-column \s+ table:number-columns-repeated="1"/> \s*
+
+                             <table:table-row> \s* # -------- Line 1
+                             <table:table-cell [^>]* # ---- Cell 1
+                             table:style-name="table-default.cell-C1"> \s*
+                             <text:p [^>]* >Cell[ ]1</text:p> \s*
+                             </table:table-cell> \s*
+                             </table:table-row> \s*
+
+                             <table:table-row> \s* # -------- Line 2
+                             <table:table-cell [^>]* # ---- Cell 2
+                             table:style-name="table-default.cell-C2"> \s*
+                             <text:p [^>]* >Cell[ ]2</text:p> \s*
+                             </table:table-cell> \s*
+                             </table:table-row> \s*
+
+                             <table:table-row> \s* # -------- Line 3
+                             <table:table-cell [^>]* # ---- Cell 3
+                             table:style-name="table-default.cell-C3"> \s*
+                             <text:p [^>]* >Cell[ ]3</text:p> \s*
+                             </table:table-cell> \s*
+                             </table:table-row> \s*
+
+                             </table:table> \s*
+                             """, str(odt), re.X)
+
     def test_table_caption(self):
         """Test <caption> tag alone"""
         html = """<html xmlns="http://www.w3.org/1999/xhtml">

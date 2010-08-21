@@ -171,6 +171,11 @@
                 __________
                 |A4|B4|C4|
                 ^^^^^^^^^^
+                ____
+                |C1|
+                |C2|
+                |C3|
+                ^^^^
             -->
             <xsl:choose>
 
@@ -206,7 +211,7 @@
                 </xsl:when>
 
                 <!-- A3 -->
-                <xsl:when test="$horizontal-position = 1 and $vertical-position = $vertical-count">
+                <xsl:when test="$horizontal-position = 1 and $horizontal-count != 1 and $vertical-position = $vertical-count">
                     <xsl:text>A3</xsl:text>
                 </xsl:when>
                 <!-- C3 -->
@@ -219,7 +224,7 @@
                 </xsl:when>
 
                 <!-- A1 -->
-                <xsl:when test="$horizontal-position = 1 and $vertical-position = 1">
+                <xsl:when test="$horizontal-position = 1 and $horizontal-position != $horizontal-count and $vertical-position = 1">
                     <xsl:text>A1</xsl:text>
                 </xsl:when>
                 <!-- C1 -->
@@ -232,7 +237,7 @@
                 </xsl:when>
 
                 <!-- A2 -->
-                <xsl:when test="$horizontal-position = 1">
+                <xsl:when test="$horizontal-position = 1 and $horizontal-position != $horizontal-count">
                     <xsl:text>A2</xsl:text>
                 </xsl:when>
                 <!-- C2 -->
