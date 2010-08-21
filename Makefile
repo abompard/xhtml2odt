@@ -8,7 +8,7 @@ all:
 
 install: xhtml2odt.py template.odt $(wildcard styles/*) $(shell find xsl -type f) xhtml2odt.1
 	mkdir -p $(DESTDIR)$(DATADIR)/xhtml2odt $(DESTDIR)$(BINDIR)
-	cp -pr template.odt xsl styles $(DESTDIR)$(DATADIR)/xhtml2odt/
+	cp -pr template.odt xsl $(DESTDIR)$(DATADIR)/xhtml2odt/
 	sed -e 's,^INSTALL_PATH\s*=\s*.*,INSTALL_PATH = "$(DATADIR)/xhtml2odt",' xhtml2odt.py > $(DESTDIR)$(BINDIR)/xhtml2odt
 	chmod 755 $(DESTDIR)$(BINDIR)/xhtml2odt
 	touch --reference xhtml2odt.py $(DESTDIR)$(BINDIR)/xhtml2odt
