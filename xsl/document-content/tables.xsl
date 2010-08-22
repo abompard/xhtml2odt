@@ -166,7 +166,7 @@
         <xsl:attribute name="table:style-name">
             <xsl:text>table-default.cell-</xsl:text>
             <!-- prefix -->
-            <xsl:if test="self::h:th">
+            <xsl:if test="self::h:th and $vertical-position = 1">
                 <xsl:text>H-</xsl:text>
             </xsl:if>
             <xsl:if test="parent::h:tr/parent::h:tfoot">

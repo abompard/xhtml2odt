@@ -487,6 +487,29 @@ class TableElements(unittest.TestCase):
                              </table:table> \s*
                              """, str(odt), re.X)
 
+    def test_table_th_not_on_first_line(self):
+        html = """<html xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+              <tr>
+                <td>Cell1</td>
+                <td>Cell2</td>
+              </tr>
+              <tr>
+                <th>Cell3</th>
+                <td>Cell4</td>
+              </tr>
+            </table>
+        </html>
+        """
+        odt = xhtml2odt(html)
+        # remove namespaces
+        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
+        # remove comments
+        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
+        print odt
+        self.assertEquals(str(odt).count("table-default.cell-H"), 0,
+                          "Table header styles can only be on the first line")
+
     def test_table_header_text_style(self):
         """Test text style inside <th> tags"""
         html = """<html xmlns="http://www.w3.org/1999/xhtml">
