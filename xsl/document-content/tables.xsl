@@ -102,17 +102,28 @@
         <!-- this is header -->
         <xsl:when test="h:th">
             <table:table-header-rows>
-                <table:table-row>
-                    <xsl:apply-templates/>
-                </table:table-row>
+                <xsl:call-template name="make-table-row"/>
             </table:table-header-rows>
         </xsl:when>
         <xsl:otherwise>
-            <table:table-row>
-                <xsl:apply-templates/>
-            </table:table-row>
+            <xsl:call-template name="make-table-row"/>
         </xsl:otherwise>
     </xsl:choose>
+</xsl:template>
+
+<xsl:template name="make-table-row">
+    <table:table-row>
+        <!-- fill covered-table-cells for rowspans on the first column -->
+        <xsl:for-each select="preceding-sibling::h:tr/*[position() = 1 and @rowspan != 1]">
+            <xsl:call-template name="make-rowspan-covered-table-cell">
+                <xsl:with-param name="vertical-position">
+                    <xsl:value-of select="count(preceding-sibling::h:tr) + 1"/>
+                </xsl:with-param>
+            </xsl:call-template>
+        </xsl:for-each>
+        <!-- do the cell handling now -->
+        <xsl:apply-templates/>
+    </table:table-row>
 </xsl:template>
 
 <xsl:template match="h:th">
@@ -254,9 +265,61 @@
 
         </xsl:attribute>
 
+        <xsl:if test="@colspan and @colspan != 1">
+            <xsl:attribute name="table:number-columns-spanned">
+                <xsl:value-of select="@colspan"/>
+            </xsl:attribute>
+        </xsl:if>
+
+        <xsl:if test="@rowspan and @rowspan != 1">
+            <xsl:attribute name="table:number-rows-spanned">
+                <xsl:value-of select="@rowspan"/>
+            </xsl:attribute>
+        </xsl:if>
+
         <xsl:call-template name="paragraph"/>
 
     </table:table-cell>
+
+    <!-- fill covered-table-cells for colspans -->
+    <xsl:if test="@colspan and @colspan != 1">
+        <xsl:call-template name="make-covered-table-cell">
+            <xsl:with-param name="num">
+                <xsl:value-of select="@colspan"/>
+            </xsl:with-param>
+        </xsl:call-template>
+    </xsl:if>
+
+    <!-- fill covered-table-cells for rowspans -->
+    <xsl:for-each select="../preceding-sibling::h:tr/*[position() = $horizontal-position + 1 and @rowspan != 1]">
+        <xsl:call-template name="make-rowspan-covered-table-cell">
+            <xsl:with-param name="vertical-position">
+                <xsl:value-of select="$vertical-position"/>
+            </xsl:with-param>
+        </xsl:call-template>
+    </xsl:for-each>
+
+</xsl:template>
+
+
+<xsl:template name="make-covered-table-cell">
+    <xsl:param name="num"/>
+    <xsl:if test="$num > 1">
+        <table:covered-table-cell/>
+        <xsl:call-template name="make-covered-table-cell">
+            <xsl:with-param name="num">
+                <xsl:value-of select="$num - 1"/>
+            </xsl:with-param>
+        </xsl:call-template>
+    </xsl:if>
+</xsl:template>
+
+<xsl:template name="make-rowspan-covered-table-cell">
+    <xsl:param name="vertical-position"/>
+    <xsl:variable name="spanned-vertical-position" select="count(../preceding-sibling::h:tr) + 1"/>
+    <xsl:if test="$spanned-vertical-position + @rowspan - 1 >= $vertical-position">
+        <table:covered-table-cell/>
+    </xsl:if>
 </xsl:template>
 
 

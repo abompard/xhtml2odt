@@ -714,6 +714,176 @@ class TableElements(unittest.TestCase):
 """
         assert str(odt).count(target) == 1
 
+    def test_table_colspan1(self):
+        html = """<html xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+              <tr>
+                <td colspan="2">Cell 1</td>
+              </tr>
+            </table>
+        </html>
+        """
+        odt = xhtml2odt(html)
+        # remove namespaces
+        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
+        # remove comments
+        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
+        print odt
+        assert re.search(r"""
+                             .*
+                             <table:table-row> \s* # -------- Line 1
+                             <table:table-cell [^>]* # ---- Cell 1
+                             table:number-columns-spanned="2"> \s*
+                             <text:p [^>]* >Cell[ ]1</text:p> \s*
+                             </table:table-cell> \s*
+
+                             <table:covered-table-cell/> \s*
+
+                             </table:table-row> \s*
+                             .*
+                             """, str(odt), re.X)
+
+    def test_table_colspan2(self):
+        html = """<html xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+              <tr>
+                <td colspan="3">Cell 1</td>
+              </tr>
+            </table>
+        </html>
+        """
+        odt = xhtml2odt(html)
+        # remove namespaces
+        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
+        # remove comments
+        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
+        print odt
+        assert re.search(r"""
+                             .*
+                             <table:table-row> \s* # -------- Line 1
+                             <table:table-cell [^>]* # ---- Cell 1
+                             table:number-columns-spanned="3"> \s*
+                             <text:p [^>]* >Cell[ ]1</text:p> \s*
+                             </table:table-cell> \s*
+
+                             <table:covered-table-cell/> \s*
+                             <table:covered-table-cell/> \s*
+
+                             </table:table-row> \s*
+                             .*
+                             """, str(odt), re.X)
+
+    def test_table_rowspan1(self):
+        html = """<html xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+              <tr>
+                <td rowspan="2">Cell 1</td><td>Cell 2</td>
+              </tr>
+              <tr>
+                <td>Cell 3</td>
+              </tr>
+            </table>
+        </html>
+        """
+        odt = xhtml2odt(html)
+        # remove namespaces
+        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
+        # remove comments
+        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
+        print odt
+        assert re.search(r"""
+                             .*
+                             <table:table-row> \s* # -------- Line 1
+
+                             <table:table-cell [^>]* # ---- Cell 1
+                             table:number-rows-spanned="2"> \s*
+                             <text:p [^>]* >Cell[ ]1</text:p> \s*
+                             </table:table-cell> \s*
+
+                             <table:table-cell [^>]*> \s* # ---- Cell 2
+                             <text:p [^>]* >Cell[ ]2</text:p> \s*
+                             </table:table-cell> \s*
+
+                             </table:table-row> \s*
+                             <table:table-row> \s* # -------- Line 2
+
+                             <table:covered-table-cell/> \s*
+
+                             <table:table-cell [^>]*> \s* # ---- Cell 3
+                             <text:p [^>]* >Cell[ ]3</text:p> \s*
+                             </table:table-cell> \s*
+
+                             </table:table-row> \s*
+                             .*
+                             """, str(odt), re.X)
+
+    def test_table_rowspan2(self):
+        html = """<html xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+              <tr>
+                <td>Cell 1</td><td rowspan="3">Cell 2</td><td>Cell 3</td>
+              </tr>
+              <tr>
+                <td>Cell 4</td><td>Cell 5</td>
+              </tr>
+              <tr>
+                <td>Cell 6</td><td>Cell 7</td>
+              </tr>
+            </table>
+        </html>
+        """
+        odt = xhtml2odt(html)
+        # remove namespaces
+        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
+        # remove comments
+        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
+        print odt
+        assert re.search(r"""
+                             .*
+                             <table:table-row> \s* # -------- Line 1
+
+                             <table:table-cell [^>]*> \s* # ---- Cell 1
+                             <text:p [^>]* >Cell[ ]1</text:p> \s*
+                             </table:table-cell> \s*
+
+                             <table:table-cell [^>]* # ---- Cell 2
+                             table:number-rows-spanned="3"> \s*
+                             <text:p [^>]* >Cell[ ]2</text:p> \s*
+                             </table:table-cell> \s*
+
+                             <table:table-cell [^>]*> \s* # ---- Cell 3
+                             <text:p [^>]* >Cell[ ]3</text:p> \s*
+                             </table:table-cell> \s*
+
+                             </table:table-row> \s*
+                             <table:table-row> \s* # -------- Line 2
+
+                             <table:table-cell [^>]*> \s* # ---- Cell 4
+                             <text:p [^>]* >Cell[ ]4</text:p> \s*
+                             </table:table-cell> \s*
+
+                             <table:covered-table-cell/> \s*
+
+                             <table:table-cell [^>]*> \s* # ---- Cell 5
+                             <text:p [^>]* >Cell[ ]5</text:p> \s*
+                             </table:table-cell> \s*
+
+                             </table:table-row> \s*
+                             <table:table-row> \s* # -------- Line 2
+
+                             <table:table-cell [^>]*> \s* # ---- Cell 6
+                             <text:p [^>]* >Cell[ ]6</text:p> \s*
+                             </table:table-cell> \s*
+
+                             <table:covered-table-cell/> \s*
+
+                             <table:table-cell [^>]*> \s* # ---- Cell 7
+                             <text:p [^>]* >Cell[ ]7</text:p> \s*
+                             </table:table-cell> \s*
+
+                             </table:table-row> \s*
+                             .*
+                             """, str(odt), re.X)
 
 
 if __name__ == '__main__':
