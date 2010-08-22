@@ -117,6 +117,13 @@ class ParagraphElements(unittest.TestCase):
 <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="center">Test</text:p>
 """
 
+    def test_p_inside_p(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><table><tr><td><p>Test</p></td></tr></table></html>'
+        odt = xhtml2odt(html)
+        print odt
+        self.assertEquals(str(odt).count("Test"), 1,
+            "Paragraphs inside paragraph-like elements should be accepted")
+
 
 if __name__ == '__main__':
     unittest.main()

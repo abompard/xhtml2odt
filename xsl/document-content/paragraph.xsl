@@ -54,7 +54,9 @@
 <xsl:template match="h:p">
     <xsl:call-template name="paragraph"/>
 </xsl:template>
-<xsl:template match="h:p" mode="inparagraph"/>
+<xsl:template match="h:p" mode="inparagraph">
+    <xsl:apply-templates/>
+</xsl:template>
 
 <xsl:template name="paragraph">
     <xsl:choose>
