@@ -1,6 +1,17 @@
 Changes in XHTML2ODT
 ====================
 
+Version 1.2
+-----------
+
+* Allow nested tables
+* Make image inline threshold a parameter (#1), and remove the para.padding
+  parameter
+* Better support for tags inside table cells
+* Table colspan support, and basic rowspan support
+* Makefile fix
+
+
 Version 1.1
 -----------
 
