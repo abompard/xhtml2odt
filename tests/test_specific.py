@@ -10,18 +10,14 @@ class SpecificTrac(unittest.TestCase):
     def test_underline(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><span class="underline">Test</span></p></html>'
         odt = xhtml2odt(html)
-        odt = str(odt).replace(' xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"', '')
-        odt = odt.replace('<?xml version="1.0" encoding="utf-8"?>\n', '')
         self.assertEquals(odt, """<text:p text:style-name="Text_20_body">
   <text:span text:style-name="underline">Test</text:span>
-</text:p>
-""")
+</text:p>""")
 
     def test_underline_outside_p(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><span class="underline">Test</span></html>'
         odt = xhtml2odt(html)
-        print odt
-        self.assertEquals(str(odt),"")
+        self.assertEquals(odt, "")
 
 
 class SpecificPygments(unittest.TestCase):
@@ -29,11 +25,9 @@ class SpecificPygments(unittest.TestCase):
     def _test_mapping(self, css, odtstyle):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><div class="code"><pre><span class="%s">Test</span></pre></div></html>' % css
         odt = xhtml2odt(html)
-        odt = str(odt).replace(' xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"', '')
-        odt = odt.replace('<?xml version="1.0" encoding="utf-8"?>\n', '')
         self.assertEquals(odt, """<text:p text:style-name="Source_20_Code">
   <text:span text:style-name="%s">Test</text:span>
-</text:p><text:p text:style-name="Text_20_body"/>\n""" % odtstyle)
+</text:p><text:p text:style-name="Text_20_body"/>""" % odtstyle)
 
     def test_highlight_k(self):
         self._test_mapping("k", "strong")
@@ -101,10 +95,8 @@ class SpecificPygments(unittest.TestCase):
     def test_highlight_p(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><div class="code"><pre><span class="p">Test</span></pre></div></html>'
         odt = xhtml2odt(html)
-        odt = str(odt).replace(' xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"', '')
-        odt = odt.replace('<?xml version="1.0" encoding="utf-8"?>\n', '')
         self.assertEquals(odt, """<text:p text:style-name="Source_20_Code">Test</text:p>"""
-                               """<text:p text:style-name="Text_20_body"/>\n""")
+                               """<text:p text:style-name="Text_20_body"/>""")
 
     def test_highlight_c(self):
         self._test_mapping("c", "syntax-highlight.comment")

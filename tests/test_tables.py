@@ -42,10 +42,6 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
         print odt
         assert re.search(r"""
                              <table:table \s+ table:style-name="table-default"> \s*
@@ -108,7 +104,7 @@ class TableElements(unittest.TestCase):
                              </table:table-row> \s*
 
                              </table:table> \s*
-                             """, str(odt), re.X)
+                             """, odt, re.X)
 
     def test_table_oneline(self):
         """<table> tag: only one line"""
@@ -123,10 +119,6 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
         print odt
         assert re.search(r"""
                              <table:table \s+ table:style-name="table-default"> \s*
@@ -150,7 +142,7 @@ class TableElements(unittest.TestCase):
 
                              </table:table-row> \s*
                              </table:table> \s*
-                             """, str(odt), re.X)
+                             """, odt, re.X)
 
     def test_table_onecol(self):
         """<table> tag: only one column"""
@@ -163,10 +155,6 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
         print odt
         assert re.search(r"""
                              <table:table \s+ table:style-name="table-default"> \s*
@@ -194,7 +182,7 @@ class TableElements(unittest.TestCase):
                              </table:table-row> \s*
 
                              </table:table> \s*
-                             """, str(odt), re.X)
+                             """, odt, re.X)
 
     def test_table_nested(self):
         html = """<html xmlns="http://www.w3.org/1999/xhtml">
@@ -212,10 +200,6 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
         print odt
         assert re.search(r"""
                              <table:table [^>]* > \s* # Table 1
@@ -235,7 +219,7 @@ class TableElements(unittest.TestCase):
                              </table:table-cell> \s*
                              </table:table-row> \s*
                              </table:table> \s*
-                             """, str(odt), re.X)
+                             """, odt, re.X)
 
     def test_table_caption(self):
         """Test <caption> tag alone"""
@@ -246,8 +230,6 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
         print odt
         assert odt.count('<text:p text:style-name="Caption">Table <text:sequence text:ref-name="refTable0" text:name="Table" text:formula="ooow:Table+1" style:num-format="1">1</text:sequence>: Caption</text:p>') > 0
 
@@ -264,13 +246,9 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
         print odt
-        assert str(odt).count('table:style-name="table-default.cell-A4"') > 0
-        assert str(odt).count('table:style-name="table-default.cell-A4"') > 0
+        assert odt.count('table:style-name="table-default.cell-A4"') > 0
+        assert odt.count('table:style-name="table-default.cell-A4"') > 0
 
     def test_table_th_td(self):
         """Test <th> tags with <td> tags"""
@@ -292,10 +270,6 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
         print odt
         assert re.search(r"""
                              <table:table \s+ table:style-name="table-default"> \s*
@@ -342,7 +316,7 @@ class TableElements(unittest.TestCase):
 
                              </table:table-row> \s*
                              </table:table>
-                             """, str(odt), re.X)
+                             """, odt, re.X)
 
     def test_table_thead_no_tbody(self):
         """Test <thead> tag without <tbody>"""
@@ -366,10 +340,6 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
         print odt
         assert re.search(r"""
                              <table:table \s+ table:style-name="table-default"> \s*
@@ -416,7 +386,7 @@ class TableElements(unittest.TestCase):
 
                              </table:table-row> \s*
                              </table:table> \s*
-                             """, str(odt), re.X)
+                             """, odt, re.X)
 
     def test_table_tfoot_no_tbody(self):
         """Test <tfoot> tag without <tbody>"""
@@ -440,10 +410,6 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
         print odt
         assert re.search(r"""
                              <table:table \s+ table:style-name="table-default"> \s*
@@ -488,7 +454,7 @@ class TableElements(unittest.TestCase):
 
                              </table:table-row> \s*
                              </table:table> \s*
-                             """, str(odt), re.X)
+                             """, odt, re.X)
 
     def test_table_tbody(self):
         """Test <tbody> tag"""
@@ -504,10 +470,6 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
         print odt
         assert re.search(r"""
                              <table:table \s+ table:style-name="table-default"> \s*
@@ -526,7 +488,7 @@ class TableElements(unittest.TestCase):
 
                              </table:table-row> \s*
                              </table:table> \s*
-                             """, str(odt), re.X)
+                             """, odt, re.X)
 
     def test_table_th_not_on_first_line(self):
         html = """<html xmlns="http://www.w3.org/1999/xhtml">
@@ -543,12 +505,8 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
         print odt
-        self.assertEquals(str(odt).count("table-default.cell-H"), 0,
+        self.assertEquals(odt.count("table-default.cell-H"), 0,
                           "Table header styles can only be on the first line")
 
     def test_table_header_text_style(self):
@@ -562,8 +520,6 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
         print odt
         assert odt.count('<text:p text:style-name="Table_20_Heading">Cell</text:p>') > 0
 
@@ -578,8 +534,6 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
         print odt
         assert odt.count('<text:p text:style-name="Table_20_Contents">Cell</text:p>') > 0
 
@@ -594,10 +548,6 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
         print odt
         assert re.search(r"""
                              <table:table \s+ table:style-name="table-default"> \s*
@@ -611,7 +561,7 @@ class TableElements(unittest.TestCase):
 
                              </table:table-row> \s*
                              </table:table> \s*
-                             """, str(odt), re.X)
+                             """, odt, re.X)
 
     def test_table_thead_tbody(self):
         """Test <thead> tag with <tbody>"""
@@ -637,10 +587,6 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
         print odt
         assert re.search(r"""
                              <table:table \s+ table:style-name="table-default"> \s*
@@ -687,7 +633,7 @@ class TableElements(unittest.TestCase):
 
                              </table:table-row> \s*
                              </table:table> \s*
-                             """, str(odt), re.X)
+                             """, odt, re.X)
 
     def test_table_tfoot_tbody(self):
         """Test <tfoot> tag with <tbody>"""
@@ -713,10 +659,6 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
         print odt
         assert re.search(r"""
                              <table:table \s+ table:style-name="table-default"> \s*
@@ -761,22 +703,22 @@ class TableElements(unittest.TestCase):
 
                              </table:table-row> \s*
                              </table:table> \s*
-                             """, str(odt), re.X)
+                             """, odt, re.X)
 
     def test_td_containing_ul(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><table><tr><td>Text1<ul><li>Text2</li></ul>Text3</td></tr></table></html>'
         odt = xhtml2odt(html)
         print odt
         target = """
-      <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Table_20_Contents">Text1</text:p>
-      <text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
+      <text:p text:style-name="Table_20_Contents">Text1</text:p>
+      <text:list text:style-name="List_20_1">
         <text:list-item>
           <text:p text:style-name="list-item-bullet">Text2</text:p>
         </text:list-item>
       </text:list>
-      <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Table_20_Contents">Text3</text:p>
+      <text:p text:style-name="Table_20_Contents">Text3</text:p>
 """
-        assert str(odt).count(target) == 1
+        self.assertEquals(odt.count(target), 1)
 
     def test_table_colspan1(self):
         html = """<html xmlns="http://www.w3.org/1999/xhtml">
@@ -788,10 +730,6 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
         print odt
         assert re.search(r"""
                              .*
@@ -805,7 +743,7 @@ class TableElements(unittest.TestCase):
 
                              </table:table-row> \s*
                              .*
-                             """, str(odt), re.X)
+                             """, odt, re.X)
 
     def test_table_colspan2(self):
         html = """<html xmlns="http://www.w3.org/1999/xhtml">
@@ -817,10 +755,6 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
         print odt
         assert re.search(r"""
                              .*
@@ -835,7 +769,7 @@ class TableElements(unittest.TestCase):
 
                              </table:table-row> \s*
                              .*
-                             """, str(odt), re.X)
+                             """, odt, re.X)
 
     def test_table_rowspan1(self):
         html = """<html xmlns="http://www.w3.org/1999/xhtml">
@@ -850,10 +784,6 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
         print odt
         assert re.search(r"""
                              .*
@@ -879,7 +809,7 @@ class TableElements(unittest.TestCase):
 
                              </table:table-row> \s*
                              .*
-                             """, str(odt), re.X)
+                             """, odt, re.X)
 
     def test_table_rowspan2(self):
         html = """<html xmlns="http://www.w3.org/1999/xhtml">
@@ -897,10 +827,6 @@ class TableElements(unittest.TestCase):
         </html>
         """
         odt = xhtml2odt(html)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
-        # remove comments
-        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
         print odt
         assert re.search(r"""
                              .*
@@ -947,7 +873,7 @@ class TableElements(unittest.TestCase):
 
                              </table:table-row> \s*
                              .*
-                             """, str(odt), re.X)
+                             """, odt, re.X)
 
 
 if __name__ == '__main__':

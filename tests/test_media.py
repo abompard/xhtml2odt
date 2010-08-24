@@ -17,7 +17,6 @@ class MediaElements(unittest.TestCase):
         })
         print odt
         assert re.search(r"""<draw:frame \s+
-                             (xmlns:[a-z0-9=:".-]+ \s+)* # namespaces
                              text:anchor-type="paragraph" \s+
                              draw:style-name="image-center" \s+
                              draw:name="imageobject-[a-z0-9]+" \s+
@@ -32,7 +31,7 @@ class MediaElements(unittest.TestCase):
                                  xlink:show="embed" \s+
                                  xlink:actuate="onLoad"/> \s*
                                  <svg:title/> \s*
-                             </draw:frame>""", str(odt), re.X)
+                             </draw:frame>""", odt, re.X)
 
     def test_img2(self):
         """<img> tag in paragraph"""
@@ -43,7 +42,6 @@ class MediaElements(unittest.TestCase):
         })
         print odt
         assert re.search(r"""<draw:frame \s+
-                             (xmlns:[a-z0-9=:".-]+ \s+)* # namespaces
                              text:anchor-type="paragraph" \s+
                              draw:style-name="image-center" \s+
                              draw:name="imageobject-[a-z0-9]+" \s+
@@ -58,7 +56,7 @@ class MediaElements(unittest.TestCase):
                                  xlink:show="embed" \s+
                                  xlink:actuate="onLoad"/> \s*
                                  <svg:title/> \s*
-                             </draw:frame>""", str(odt), re.X)
+                             </draw:frame>""", odt, re.X)
 
     def test_img_default_size(self):
         """<img> tag: no width nor height given"""
@@ -68,8 +66,8 @@ class MediaElements(unittest.TestCase):
             "img_default_height": "TEST_HEIGHT",
         })
         print odt
-        assert str(odt).count('svg:width="TEST_WIDTH"') > 0
-        assert str(odt).count('svg:height="TEST_HEIGHT"') > 0
+        assert odt.count('svg:width="TEST_WIDTH"') > 0
+        assert odt.count('svg:height="TEST_HEIGHT"') > 0
 
     def test_img_given_size(self):
         """<img> tag with width and height attributes"""
@@ -79,8 +77,8 @@ class MediaElements(unittest.TestCase):
             "img_default_height": "DEFAULT_HEIGHT",
         })
         print odt
-        assert str(odt).count('svg:width="GIVEN_WIDTH"') > 0
-        assert str(odt).count('svg:height="GIVEN_HEIGHT"') > 0
+        assert odt.count('svg:width="GIVEN_WIDTH"') > 0
+        assert odt.count('svg:height="GIVEN_HEIGHT"') > 0
 
     def test_img_given_width(self):
         """<img> tag with width attr only: both dimensions must be given or the defaults are used"""
@@ -90,8 +88,8 @@ class MediaElements(unittest.TestCase):
             "img_default_height": "DEFAULT_HEIGHT",
         })
         print odt
-        assert str(odt).count('svg:width="DEFAULT_WIDTH"') > 0
-        assert str(odt).count('svg:height="DEFAULT_HEIGHT"') > 0
+        assert odt.count('svg:width="DEFAULT_WIDTH"') > 0
+        assert odt.count('svg:height="DEFAULT_HEIGHT"') > 0
 
     def test_img_small(self):
         """<img> tag: small size -> inline"""
@@ -99,7 +97,6 @@ class MediaElements(unittest.TestCase):
         odt = xhtml2odt(html)
         print odt
         assert re.search(r"""<draw:frame \s+
-                             (xmlns:[a-z0-9=:".-]+ \s+)* # namespaces
                              text:anchor-type="as-char" \s+
                              draw:style-name="image-inline" \s+
                              draw:name="imageobject-[a-z0-9]+" \s+
@@ -114,28 +111,25 @@ class MediaElements(unittest.TestCase):
                                  xlink:show="embed" \s+
                                  xlink:actuate="onLoad"/> \s*
                                  <svg:title/> \s*
-                             </draw:frame>""", str(odt), re.X)
+                             </draw:frame>""", odt, re.X)
 
     def test_img_title(self):
         """<img> tag: alt attribute"""
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><img src="imagesource" alt="imagetitle"/></html>'
         odt = xhtml2odt(html)
-        print odt
-        assert str(odt).count('<svg:title>imagetitle</svg:title>') == 1
+        self.assertEquals(odt.count('<svg:title>imagetitle</svg:title>'), 1)
 
     def test_img_left(self):
         """<img> tag: left-aligned"""
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><img src="imagesource" style="float:left" /></html>'
         odt = xhtml2odt(html)
-        print odt
-        assert str(odt).count('draw:style-name="image-left"') == 1
+        self.assertEquals(odt.count('draw:style-name="image-left"'), 1)
 
     def test_img_right(self):
         """<img> tag: right-aligned"""
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><img src="imagesource" style="float:right" /></html>'
         odt = xhtml2odt(html)
-        print odt
-        assert str(odt).count('draw:style-name="image-right"') == 1
+        self.assertEquals(odt.count('draw:style-name="image-right"'), 1)
 
 if __name__ == '__main__':
     unittest.main()

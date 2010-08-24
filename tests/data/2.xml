@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 
 
 
@@ -6,9 +5,9 @@
 
 
   <!--section level 1-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_1" text:outline-level="1">
-  <draw:a xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/">
-    <draw:frame xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="100" svg:height="100" svg:y="0.20cm" draw:z-index="1">
+<text:h text:style-name="Heading_20_1" text:outline-level="1">
+  <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/">
+    <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="100" svg:height="100" svg:y="0.20cm" draw:z-index="1">
       <draw:image xlink:href="/blog/themes/gauret/img/logo.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
       <svg:title>Gauret</svg:title>
     </draw:frame>
@@ -17,7 +16,7 @@
 
   
 
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body"><text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="#main">Aller au contenu</text:a> |
+<text:p text:style-name="Text_20_body"><text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="#main">Aller au contenu</text:a> |
 <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="#blognav">Aller au menu</text:a> |
 <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="#search">Aller à la recherche</text:a></text:p>
 
@@ -27,7 +26,7 @@
   
       
 
-        <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+        <text:p text:style-name="Text_20_body">
         
           mer.        
         
@@ -37,33 +36,33 @@
     </text:p>
     
     <!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">
+<text:h text:style-name="Heading_20_2" text:outline-level="2">
   <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/12/30/Export-ODT-pour-Trac">Export ODT pour Trac</text:a>
 </text:h>
     
-    <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+    <text:p text:style-name="Text_20_body">
      Le mercredi 30 décembre 2009, 11:27 
             <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/category/Informatique/Developpement">Développement</text:a>
                         <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/tag/libre">libre</text:a>,                        <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/tag/odf">odf</text:a>                </text:p>
 
     
     
-          <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Et voilà, je viens de boucler une première version utilisable d’un <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://trac-hacks.org/wiki/OdtExportPlugin">plugin d’export ODT</text:a> pour <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://trac.edgewall.org/">Trac</text:a>.</text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Parce que <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.dokuwiki.org/plugin:odt">une fois</text:a> c’est bien, <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://lab.dotclear.org/wiki/plugin/odt/fr">deux fois</text:a> c’est mieux, et trois fois bonjour les dég… euh, non en fait ça devrait marcher pareil que le reste. Il faut excuser mon humour pourri, mais je <text:span text:style-name="strike">cauchemarde</text:span> rêve de l’XML en ce moment.</text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Après avoir bien cherché, je suis obligé de me rendre à l’évidence : il n’y a <text:span text:style-name="emphasis">toujours personne d’autre que moi</text:span> qui ait écrit de feuille de style XSLT pour convertir de l’HTML en ODT. Dans l’autre sens, il y en a pléthore, mais dans ce sens, rien. Comme j’ai réutilisé pour le plugin Trac les feuilles que j’avais écrites pour <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://lab.dotclear.org/wiki/plugin/odt/fr">le plugin Dotclear</text:a>, je me suis dit qu’il n’était pas forcément complètement stupide d’en faire un projet séparé. C’est donc ce que j’ai fait, j’ai ouvert un projet sur Gitorious appelé <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://lab.dotclear.org/wiki/plugin/odt/fr">xhtml2odt</text:a> (oui, très original, je sais). J’en ai profité pour écrire tout un tas de tests unitaires, pour m’éviter les régressions et aussi parce que ça se prête quand même bien aux conversions <draw:frame xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/blog/themes/gauret/smilies/smile.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>:)</svg:title></draw:frame> .</text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Je vais maintenant adapter le plugin Dotclear pour qu’il utilise ces feuilles, qui ont été légèrement améliorées lors de la réalisation du plugin Trac.</text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Si vous décidez de les utiliser pour un autre plugin d’export ODT dans une autre appli, ce serait cool de m’envoyer un petit mail, ça m’intéresse <draw:frame xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/blog/themes/gauret/smilies/smile.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>:)</svg:title></draw:frame></text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Voilà, si vous utilisez Trac et que vous êtes intéressé par l’export ODT des les pages du wiki, n’hésitez pas à tester ! Ce n’est pas encore parfait mais c’est déjà suffisamment avancé pour que vos retours soient utiles.</text:p>
+          <text:p text:style-name="Text_20_body">Et voilà, je viens de boucler une première version utilisable d’un <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://trac-hacks.org/wiki/OdtExportPlugin">plugin d’export ODT</text:a> pour <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://trac.edgewall.org/">Trac</text:a>.</text:p>
+<text:p text:style-name="Text_20_body">Parce que <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.dokuwiki.org/plugin:odt">une fois</text:a> c’est bien, <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://lab.dotclear.org/wiki/plugin/odt/fr">deux fois</text:a> c’est mieux, et trois fois bonjour les dég… euh, non en fait ça devrait marcher pareil que le reste. Il faut excuser mon humour pourri, mais je <text:span text:style-name="strike">cauchemarde</text:span> rêve de l’XML en ce moment.</text:p>
+<text:p text:style-name="Text_20_body">Après avoir bien cherché, je suis obligé de me rendre à l’évidence : il n’y a <text:span text:style-name="emphasis">toujours personne d’autre que moi</text:span> qui ait écrit de feuille de style XSLT pour convertir de l’HTML en ODT. Dans l’autre sens, il y en a pléthore, mais dans ce sens, rien. Comme j’ai réutilisé pour le plugin Trac les feuilles que j’avais écrites pour <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://lab.dotclear.org/wiki/plugin/odt/fr">le plugin Dotclear</text:a>, je me suis dit qu’il n’était pas forcément complètement stupide d’en faire un projet séparé. C’est donc ce que j’ai fait, j’ai ouvert un projet sur Gitorious appelé <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://lab.dotclear.org/wiki/plugin/odt/fr">xhtml2odt</text:a> (oui, très original, je sais). J’en ai profité pour écrire tout un tas de tests unitaires, pour m’éviter les régressions et aussi parce que ça se prête quand même bien aux conversions <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/blog/themes/gauret/smilies/smile.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>:)</svg:title></draw:frame> .</text:p>
+<text:p text:style-name="Text_20_body">Je vais maintenant adapter le plugin Dotclear pour qu’il utilise ces feuilles, qui ont été légèrement améliorées lors de la réalisation du plugin Trac.</text:p>
+<text:p text:style-name="Text_20_body">Si vous décidez de les utiliser pour un autre plugin d’export ODT dans une autre appli, ce serait cool de m’envoyer un petit mail, ça m’intéresse <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/blog/themes/gauret/smilies/smile.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>:)</svg:title></draw:frame></text:p>
+<text:p text:style-name="Text_20_body">Voilà, si vous utilisez Trac et que vous êtes intéressé par l’export ODT des les pages du wiki, n’hésitez pas à tester ! Ce n’est pas encore parfait mais c’est déjà suffisamment avancé pour que vos retours soient utiles.</text:p>
     
     
-          <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+          <text:p text:style-name="Text_20_body">
               <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/12/30/Export-ODT-pour-Trac#comments">10 commentaires</text:a>
               <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/12/30/Export-ODT-pour-Trac#pings">aucun rétrolien</text:a>              </text:p>
         
     
           
 
-        <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+        <text:p text:style-name="Text_20_body">
         
           sam.        
         
@@ -73,34 +72,34 @@
     </text:p>
     
     <!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">
+<text:h text:style-name="Heading_20_2" text:outline-level="2">
   <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/10/17/T%C3%A9l%C3%A9phone-portable-%3A-pas-d-OS-parfait-en-vue">Téléphone portable : pas d'OS parfait en vue</text:a>
 </text:h>
     
-    <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+    <text:p text:style-name="Text_20_body">
      Le samedi 17 octobre 2009, 15:59 
             <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/category/Informatique/Ethique-en-informatique">Éthique en informatique</text:a>
                         <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/tag/libre">libre</text:a>,                        <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/tag/long">long</text:a>                </text:p>
 
     
-          <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Je m’intéresse, comme beaucoup en ce moment, à ce qui se passe dans le monde des <text:span text:style-name="emphasis">smartphones</text:span>, ces
+          <text:p text:style-name="Text_20_body">Je m’intéresse, comme beaucoup en ce moment, à ce qui se passe dans le monde des <text:span text:style-name="emphasis">smartphones</text:span>, ces
 téléphones / PDA dont tout le monde parle. Malheureusement, pour
 quelqu’un attaché à ses libertés électroniques (et plus généralement,
 n’ayant pas envie de se faire prendre pour un porte-feuille sur
 pattes), j’ai la forte impression qu’il n’y a pas de Graal en vue…
 Voilà un petit passage en revue des différentes options.</text:p>
-      <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body"><text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/10/17/T%C3%A9l%C3%A9phone-portable-%3A-pas-d-OS-parfait-en-vue">Lire la suite</text:a>...</text:p>
+      <text:p text:style-name="Text_20_body"><text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/10/17/T%C3%A9l%C3%A9phone-portable-%3A-pas-d-OS-parfait-en-vue">Lire la suite</text:a>...</text:p>
     
     
     
-          <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+          <text:p text:style-name="Text_20_body">
               <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/10/17/T%C3%A9l%C3%A9phone-portable-%3A-pas-d-OS-parfait-en-vue#comments">21 commentaires</text:a>
               <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/10/17/T%C3%A9l%C3%A9phone-portable-%3A-pas-d-OS-parfait-en-vue#pings">aucun rétrolien</text:a>              </text:p>
         
     
           
 
-        <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+        <text:p text:style-name="Text_20_body">
         
           jeu.        
         
@@ -110,29 +109,29 @@ Voilà un petit passage en revue des différentes options.</text:p>
     </text:p>
     
     <!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">
+<text:h text:style-name="Heading_20_2" text:outline-level="2">
   <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/10/15/Blog-Action-Day-%3A-le-changement-climatique">Blog Action Day : le changement climatique</text:a>
 </text:h>
     
-    <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+    <text:p text:style-name="Text_20_body">
      Le jeudi 15 octobre 2009, 08:15 
             <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/category/Ecologie-et-societe">Écologie et société</text:a>
                         <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/tag/long">long</text:a>                </text:p>
 
     
-          <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Cette année, le <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.blogactionday.org/">Blog Action Day</text:a> a pour thème le changement climatique. Ça tombe bien, comme vous avez pu le remarquer, c’est un sujet qui m’intéresse très fortement… Voilà donc un petit résumé de ce que j’essaye de faire pour ne pas trop pourrir la vie de ceux qui viendront après moi. </text:p>
-      <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body"><text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/10/15/Blog-Action-Day-%3A-le-changement-climatique">Lire la suite</text:a>...</text:p>
+          <text:p text:style-name="Text_20_body">Cette année, le <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.blogactionday.org/">Blog Action Day</text:a> a pour thème le changement climatique. Ça tombe bien, comme vous avez pu le remarquer, c’est un sujet qui m’intéresse très fortement… Voilà donc un petit résumé de ce que j’essaye de faire pour ne pas trop pourrir la vie de ceux qui viendront après moi. </text:p>
+      <text:p text:style-name="Text_20_body"><text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/10/15/Blog-Action-Day-%3A-le-changement-climatique">Lire la suite</text:a>...</text:p>
     
     
     
-          <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+          <text:p text:style-name="Text_20_body">
               <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/10/15/Blog-Action-Day-%3A-le-changement-climatique#comments">7 commentaires</text:a>
               <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/10/15/Blog-Action-Day-%3A-le-changement-climatique#pings">aucun rétrolien</text:a>              </text:p>
         
     
           
 
-        <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+        <text:p text:style-name="Text_20_body">
         
           dim.        
         
@@ -142,34 +141,34 @@ Voilà un petit passage en revue des différentes options.</text:p>
     </text:p>
     
     <!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">
+<text:h text:style-name="Heading_20_2" text:outline-level="2">
   <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/09/27/Taxe-carbone%2C-mon-point-de-vue.">Taxe carbone, mon point de vue.</text:a>
 </text:h>
     
-    <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+    <text:p text:style-name="Text_20_body">
      Le dimanche 27 septembre 2009, 22:22 
             <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/category/Ecologie-et-societe">Écologie et société</text:a>
                         <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/tag/long">long</text:a>                </text:p>
 
     
-          <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Tout le monde en parle en ce moment, les avis sont très tranchés, il
+          <text:p text:style-name="Text_20_body">Tout le monde en parle en ce moment, les avis sont très tranchés, il
 s’agit de la <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://fr.wikipedia.org/wiki/Taxe_carbone">taxe carbone</text:a>. La fameuse taxe qui, telle la TIPP, la taxe
 sur le tabac, et d’autres encore, va faire monter le prix des produits
 pétroliers dont nous dépendons. Appelée “<text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://fr.wikipedia.org/wiki/Contribution_climat-%C3%A9nergie">Contribution Climat-Énergie</text:a>”
 en France, elle a été annoncée pour le budget 2010, et sera de 17€ la
 tonne de CO2.</text:p>
-      <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body"><text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/09/27/Taxe-carbone%2C-mon-point-de-vue.">Lire la suite</text:a>...</text:p>
+      <text:p text:style-name="Text_20_body"><text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/09/27/Taxe-carbone%2C-mon-point-de-vue.">Lire la suite</text:a>...</text:p>
     
     
     
-          <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+          <text:p text:style-name="Text_20_body">
               <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/09/27/Taxe-carbone%2C-mon-point-de-vue.#comments">20 commentaires</text:a>
               <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/09/27/Taxe-carbone%2C-mon-point-de-vue.#pings">aucun rétrolien</text:a>              </text:p>
         
     
           
 
-        <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+        <text:p text:style-name="Text_20_body">
         
           sam.        
         
@@ -179,26 +178,26 @@ tonne de CO2.</text:p>
     </text:p>
     
     <!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">
+<text:h text:style-name="Heading_20_2" text:outline-level="2">
   <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/09/05/Diablo-Swing-Orchestra-sur-Jamendo">Diablo Swing Orchestra sur Jamendo</text:a>
 </text:h>
     
-    <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+    <text:p text:style-name="Text_20_body">
      Le samedi  5 septembre 2009, 18:51 
             <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/category/Sur-le-Web">Sur le Web</text:a>
                         <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/tag/libre">libre</text:a>,                        <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/tag/musique">musique</text:a>                </text:p>
 
     
     
-          <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body"><text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/fr/album/49216">Trouvaille musicale de la semaine</text:a>, complètement par chance, sur <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/">Jamendo</text:a>.</text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Pour ceux qui ne connaissent pas encore, <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/">Jamendo</text:a> est un site de diffusion de musique sous licence <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://fr.creativecommons.org/">Creative Commons</text:a>. J’ai écrit <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/post/2006/02/05/Jamendo">un petit billet sur le sujet</text:a> il y a quelques années. Toute la musique que vous trouverez là-bas est au minimum librement téléchargeable et distribuable, et même parfois plus (remixable, utilisable commercialement, etc…). Alors bien sûr, vous n’y trouverez pas Britney Spears et autres Star Academy, les artistes y sont généralement auto-produits. Mais attention, ça ne veut pas dire qu’il n’y a que de la musique ressemblant à celle du cousin Kevin dans sa cave, ou à celle de <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.laquadrature.net/">5 gus dans un garage</text:a>. J’en veux pour preuve l’énorme découverte de cette semaine : <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/fr/artist/Diablo_Swing_Orchestra_%282%29">Diablo Swing Orchestra</text:a>.</text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Dès les <text:span text:style-name="emphasis">tags</text:span>, le groupe annonce la couleur : Jazz-Métal. Oulà ! Mais quelle est donc cette chose ? Je vous laisse vous faire une idée avec le lecteur ci-dessous.</text:p>
+          <text:p text:style-name="Text_20_body"><text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/fr/album/49216">Trouvaille musicale de la semaine</text:a>, complètement par chance, sur <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/">Jamendo</text:a>.</text:p>
+<text:p text:style-name="Text_20_body">Pour ceux qui ne connaissent pas encore, <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/">Jamendo</text:a> est un site de diffusion de musique sous licence <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://fr.creativecommons.org/">Creative Commons</text:a>. J’ai écrit <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/post/2006/02/05/Jamendo">un petit billet sur le sujet</text:a> il y a quelques années. Toute la musique que vous trouverez là-bas est au minimum librement téléchargeable et distribuable, et même parfois plus (remixable, utilisable commercialement, etc…). Alors bien sûr, vous n’y trouverez pas Britney Spears et autres Star Academy, les artistes y sont généralement auto-produits. Mais attention, ça ne veut pas dire qu’il n’y a que de la musique ressemblant à celle du cousin Kevin dans sa cave, ou à celle de <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.laquadrature.net/">5 gus dans un garage</text:a>. J’en veux pour preuve l’énorme découverte de cette semaine : <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/fr/artist/Diablo_Swing_Orchestra_%282%29">Diablo Swing Orchestra</text:a>.</text:p>
+<text:p text:style-name="Text_20_body">Dès les <text:span text:style-name="emphasis">tags</text:span>, le groupe annonce la couleur : Jazz-Métal. Oulà ! Mais quelle est donc cette chose ? Je vous laisse vous faire une idée avec le lecteur ci-dessous.</text:p>
 
 
 
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Alors ? C’est-y pas gigantesque ? Lisez-aussi <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/fr/artist/Diablo_Swing_Orchestra_%282%29">la description du groupe</text:a> sur Jamendo, c’est bien fun <draw:frame xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/blog/themes/gauret/smilies/smile.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>:)</svg:title></draw:frame></text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Mes préférées :</text:p>
-<text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
+<text:p text:style-name="Text_20_body">Alors ? C’est-y pas gigantesque ? Lisez-aussi <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/fr/artist/Diablo_Swing_Orchestra_%282%29">la description du groupe</text:a> sur Jamendo, c’est bien fun <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/blog/themes/gauret/smilies/smile.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>:)</svg:title></draw:frame></text:p>
+<text:p text:style-name="Text_20_body">Mes préférées :</text:p>
+<text:list text:style-name="List_20_1">
   <text:list-item>
     <text:p text:style-name="list-item-bullet"><text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/fr/track/391002">Balrog Boogie</text:a> (comment elle déchire celle-là…)</text:p>
   </text:list-item>
@@ -222,19 +221,19 @@ tonne de CO2.</text:p>
       <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/fr/track/391004">Infralove</text:a>
     </text:p>
   </text:list-item>
-</text:list>Ouais, presque toutes, quoi, et les autres sont vraiment bien aussi… Évidemment, la chanteuse rappelle un peu la belle époque de <text:a xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/fr/track/391004">Nightwish</text:a> (ce qui n’est pas pour me déplaire…), mais il n’y a pas que ça, la musique est très bonne elle-aussi.
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Certes, tout n’est pas parfait sur Jamendo, il faut chercher un peu pour trouver ce qui vous plaît. Mais quand on tombe sur un groupe comme ça, on accepte facilement les quelques écoutes ratées. Au passage, j’en profite pour lister <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/fr/user/gauret/starred_albums">les albums que j’ai bien aimé</text:a>.</text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Je souhaite le plus grand succès possible au <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/fr/artist/Diablo_Swing_Orchestra_%282%29">Diablo Swing Orchestra</text:a>, en espérant qu’ils continuent à placer leur musique sous licence Creative Commons. Merci pour la musique, vous êtes très très forts !</text:p>
+</text:list>Ouais, presque toutes, quoi, et les autres sont vraiment bien aussi… Évidemment, la chanteuse rappelle un peu la belle époque de <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/fr/track/391004">Nightwish</text:a> (ce qui n’est pas pour me déplaire…), mais il n’y a pas que ça, la musique est très bonne elle-aussi.<text:line-break xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"/>
+<text:p text:style-name="Text_20_body">Certes, tout n’est pas parfait sur Jamendo, il faut chercher un peu pour trouver ce qui vous plaît. Mais quand on tombe sur un groupe comme ça, on accepte facilement les quelques écoutes ratées. Au passage, j’en profite pour lister <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/fr/user/gauret/starred_albums">les albums que j’ai bien aimé</text:a>.</text:p>
+<text:p text:style-name="Text_20_body">Je souhaite le plus grand succès possible au <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/fr/artist/Diablo_Swing_Orchestra_%282%29">Diablo Swing Orchestra</text:a>, en espérant qu’ils continuent à placer leur musique sous licence Creative Commons. Merci pour la musique, vous êtes très très forts !</text:p>
     
     
-          <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+          <text:p text:style-name="Text_20_body">
               <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/09/05/Diablo-Swing-Orchestra-sur-Jamendo#comments">7 commentaires</text:a>
               <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/09/05/Diablo-Swing-Orchestra-sur-Jamendo#pings">aucun rétrolien</text:a>              </text:p>
         
     
           
 
-        <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+        <text:p text:style-name="Text_20_body">
         
           mar.        
         
@@ -244,24 +243,24 @@ tonne de CO2.</text:p>
     </text:p>
     
     <!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">
+<text:h text:style-name="Heading_20_2" text:outline-level="2">
   <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/08/18/J.K.-Rowling%2C-une-experte-de-la-philosophie-bouddhiste">J.K. Rowling, une experte de la philosophie bouddhiste ?</text:a>
 </text:h>
     
-    <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+    <text:p text:style-name="Text_20_body">
      Le mardi 18 août 2009, 20:50 
             <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/category/Pens%C3%A9es-diverses">Pensées diverses</text:a>
                 </text:p>
 
     
     
-          <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Sous ce titre accrocheur mais complètement débile, je voudrais vous faire part d’une réflexion qui m’a traversé l’esprit à propos d’un livre que je lis en ce moment.</text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Tout d’abord, souvenez-vous de cette scène dans “<text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://fr.wikipedia.org/wiki/Harry_Potter_et_le_Prisonnier_d%27Azkaban">Harry Potter et le Prisonnier d’Azkaban</text:a>”, où le <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://fr.wikipedia.org/wiki/Remus_Lupin">professeur Lupin</text:a> apprend aux élèves à combattre un <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://fr.wikipedia.org/wiki/%C3%89pouvantard#.C3.89pouvantard">Épouvantard</text:a> (<text:span text:style-name="emphasis">Boggart</text:span>). Il explique qu’il faut l’imaginer dans une forme rigolotte, et utiliser la formule « Riddikulus » pour le forcer à prendre cette forme. C’est l’éclat de rire du sorcier qui l’achève. Après l’explication du professeur, une file d’attente d’élèves se forme devant le placard où est enfermé l’Épouvantard, et c’est Neville qui est le premier. La porte s’ouvre, l’Épouvantard prend alors la forme du professeur Snape pour faire peur à Neville. Ce dernier, bien qu’effrayé au début, se re-concentre, imagine Snape dans les habits de sa grand mère, lance la formule, et voilà le terrible professeur dans un accoutrement des plus risibles ! Neville éclate de rire, l’Épouvantard disparaît, et au suivant !</text:p>
+          <text:p text:style-name="Text_20_body">Sous ce titre accrocheur mais complètement débile, je voudrais vous faire part d’une réflexion qui m’a traversé l’esprit à propos d’un livre que je lis en ce moment.</text:p>
+<text:p text:style-name="Text_20_body">Tout d’abord, souvenez-vous de cette scène dans “<text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://fr.wikipedia.org/wiki/Harry_Potter_et_le_Prisonnier_d%27Azkaban">Harry Potter et le Prisonnier d’Azkaban</text:a>”, où le <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://fr.wikipedia.org/wiki/Remus_Lupin">professeur Lupin</text:a> apprend aux élèves à combattre un <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://fr.wikipedia.org/wiki/%C3%89pouvantard#.C3.89pouvantard">Épouvantard</text:a> (<text:span text:style-name="emphasis">Boggart</text:span>). Il explique qu’il faut l’imaginer dans une forme rigolotte, et utiliser la formule « Riddikulus » pour le forcer à prendre cette forme. C’est l’éclat de rire du sorcier qui l’achève. Après l’explication du professeur, une file d’attente d’élèves se forme devant le placard où est enfermé l’Épouvantard, et c’est Neville qui est le premier. La porte s’ouvre, l’Épouvantard prend alors la forme du professeur Snape pour faire peur à Neville. Ce dernier, bien qu’effrayé au début, se re-concentre, imagine Snape dans les habits de sa grand mère, lance la formule, et voilà le terrible professeur dans un accoutrement des plus risibles ! Neville éclate de rire, l’Épouvantard disparaît, et au suivant !</text:p>
 <!--section level 3-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_3" text:outline-level="3">Mais quel est le rapport avec le bouddhisme ?</text:h>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Je suis en train de lire le livre « <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.amazon.fr/Plaidoyer-pour-bonheur-Matthieu-Ricard/dp/226614460X/">Plaidoyer pour le bonheur</text:a> », par <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://fr.wikipedia.org/wiki/Matthieu_Ricard">Matthieu Ricard</text:a> (que je vous recommande chaudement au passage). Un paragraphe m’a amené la scène précédente à l’esprit, je vous le cite ici :</text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Quotations">[… Il faut mener une introspection lucide.] On peut mener celle-ci en recourant à deux méthodes : l’une analytique, l’autre contemplative. </text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Quotations">L’analyse consiste à évaluer honnêtement les tenants et les
+<text:h text:style-name="Heading_20_3" text:outline-level="3">Mais quel est le rapport avec le bouddhisme ?</text:h>
+<text:p text:style-name="Text_20_body">Je suis en train de lire le livre « <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.amazon.fr/Plaidoyer-pour-bonheur-Matthieu-Ricard/dp/226614460X/">Plaidoyer pour le bonheur</text:a> », par <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://fr.wikipedia.org/wiki/Matthieu_Ricard">Matthieu Ricard</text:a> (que je vous recommande chaudement au passage). Un paragraphe m’a amené la scène précédente à l’esprit, je vous le cite ici :</text:p>
+<text:p text:style-name="Quotations">[… Il faut mener une introspection lucide.] On peut mener celle-ci en recourant à deux méthodes : l’une analytique, l’autre contemplative. </text:p>
+<text:p text:style-name="Quotations">L’analyse consiste à évaluer honnêtement les tenants et les
 aboutissants de nos souffrances, ainsi que celles que nous infligeons
 aux autres. Cela implique de comprendre quels sont les pensées, les
 paroles et les actes qui engendrent immanquablement la souffrance et
@@ -269,21 +268,21 @@ quels sont ceux qui contribuent au mieux-être. Le préalable à une telle
 démarche est bien sûr d’avoir pris conscience que quelque chose ne va
 vraiment pas dans notre manière d’être et d’agir. Il faut ensuite
 aspirer ardemment à changer.</text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Quotations">L’attitude contemplative est plus subjective. Elle consiste à délaisser quelques instants le bouillonnement de nos pensées pour regarder calmement au fond de nous, comme on contemplerait un paysage intérieur, afin de découvrir ce qui incarne notre aspiration la plus chère.</text:p>
+<text:p text:style-name="Quotations">L’attitude contemplative est plus subjective. Elle consiste à délaisser quelques instants le bouillonnement de nos pensées pour regarder calmement au fond de nous, comme on contemplerait un paysage intérieur, afin de découvrir ce qui incarne notre aspiration la plus chère.</text:p>
 <!--section level 3-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_3" text:outline-level="3">Il dit qu’il voit pas le rapport…</text:h>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">J’imagine tout à fait regarder au fond de soi les différents traumatismes, les obsessions et les névroses accumulés au fil des années, comme Neville a vu Snape sortir du placard. Ça fait peur, mais il faut rester concentré. Ensuite, on les analyse, on les décortique, et on trouve les causes, aussi minimes ou idiotes soient-elles. Une fois qu’on les a bien étalées au grand jour, et que tout est clair, la volonté de s’en débarrasser s’incarne en un « Riddikulus ! » intérieur. On rit de soi-même, ni pour la première ni pour la dernière fois, parce que finalement ça tenait à bien peu de choses. Et dans un « pop ! » accompagné de volutes de fumées, les névroses sont vaincues, les obsessions disparaissent, les traumatismes sont guéris.</text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Ça a l’air facile comme ça, et je me doute bien que c’est beaucoup plus de boulot que ça en a l’air, mais je trouve amusant que la Voie puisse être montrée par un <text:span text:style-name="emphasis">best seller</text:span> de la littérature pour enfants <draw:frame xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/blog/themes/gauret/smilies/smile.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>:)</svg:title></draw:frame></text:p>
+<text:h text:style-name="Heading_20_3" text:outline-level="3">Il dit qu’il voit pas le rapport…</text:h>
+<text:p text:style-name="Text_20_body">J’imagine tout à fait regarder au fond de soi les différents traumatismes, les obsessions et les névroses accumulés au fil des années, comme Neville a vu Snape sortir du placard. Ça fait peur, mais il faut rester concentré. Ensuite, on les analyse, on les décortique, et on trouve les causes, aussi minimes ou idiotes soient-elles. Une fois qu’on les a bien étalées au grand jour, et que tout est clair, la volonté de s’en débarrasser s’incarne en un « Riddikulus ! » intérieur. On rit de soi-même, ni pour la première ni pour la dernière fois, parce que finalement ça tenait à bien peu de choses. Et dans un « pop ! » accompagné de volutes de fumées, les névroses sont vaincues, les obsessions disparaissent, les traumatismes sont guéris.</text:p>
+<text:p text:style-name="Text_20_body">Ça a l’air facile comme ça, et je me doute bien que c’est beaucoup plus de boulot que ça en a l’air, mais je trouve amusant que la Voie puisse être montrée par un <text:span text:style-name="emphasis">best seller</text:span> de la littérature pour enfants <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/blog/themes/gauret/smilies/smile.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>:)</svg:title></draw:frame></text:p>
     
     
-          <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+          <text:p text:style-name="Text_20_body">
               <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/08/18/J.K.-Rowling%2C-une-experte-de-la-philosophie-bouddhiste#comments">10 commentaires</text:a>
               <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/08/18/J.K.-Rowling%2C-une-experte-de-la-philosophie-bouddhiste#pings">aucun rétrolien</text:a>              </text:p>
         
     
           
 
-        <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+        <text:p text:style-name="Text_20_body">
         
           sam.        
         
@@ -293,40 +292,40 @@ aspirer ardemment à changer.</text:p>
     </text:p>
     
     <!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">
+<text:h text:style-name="Heading_20_2" text:outline-level="2">
   <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/08/01/Au-nom-du-libre-je-te-baptise-%3A-Photo-Imp-%21">Au nom du libre je te baptise : Photo Imp !</text:a>
 </text:h>
     
-    <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+    <text:p text:style-name="Text_20_body">
      Le samedi  1 août 2009, 18:53 
             <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/category/Informatique/Developpement">Développement</text:a>
                         <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/tag/libre">libre</text:a>,                        <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/tag/photo-imp">photo-imp</text:a>                </text:p>
 
     
     
-          <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Mon afficheur web de photos, que <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/post/2008/06/17/Mon-afficheur-de-photos-par-le-web">j’avais présenté</text:a> précédemment, a maintenant un nouveau nom : Photo Imp !</text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">J’en ai profité pour ouvrir <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://gitorious.org/photo-imp">un espace sur Gitorious</text:a>, pour que le développement soit plus accessible et plus visible.</text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">En ce moment, je suis en train de porter la bibliothèque javascript type “Lightbox” qui permettait d’afficher les photos depuis <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.shadowbox-js.com/">ShadowBox</text:a> vers <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.no-margin-for-errors.com/projects/prettyPhoto-jquery-lightbox-clone/">PrettyPhoto</text:a>, puisque <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.shadowbox-js.com/index.html#license">ShadowBox n’est plus libre</text:a> dans les versions récentes (utilisation commerciale interdite). C’est un peu plus long que prévu, mais je vois le bout.</text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Pour en revenir au nom, il a été trouvé par Peuf, et c’est une référence à une créature du monde de Terry Pratchett : le “<text:span text:style-name="emphasis">photo imp</text:span>” est un petit démon dans une boîte noire avec une petite fenêtre, appelée <text:span text:style-name="emphasis">Iconographe</text:span>. Quand on ouvre la fenêtre, le “<text:span text:style-name="emphasis">photo imp</text:span>” peint très rapidement ce qu’il voit sur une toile. L’appareil dispose aussi d’une salamandre pour éclairer rapidement l’objet à dessiner. C’est évidemment une transposition de l’appareil photo, très très bien vu de la part de Peuf, merci beaucoup. Pour les détails : voyez <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://en.wikipedia.org/wiki/Technology_of_the_Discworld#Iconographs">la page Wikipedia</text:a>.</text:p>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Je publierai une nouvelle version quand j’aurais porté le code sur PrettyPhoto. Si vous utilisez Photo Imp, dites-le moi, ça m’intéresse !</text:p>
+          <text:p text:style-name="Text_20_body">Mon afficheur web de photos, que <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/post/2008/06/17/Mon-afficheur-de-photos-par-le-web">j’avais présenté</text:a> précédemment, a maintenant un nouveau nom : Photo Imp !</text:p>
+<text:p text:style-name="Text_20_body">J’en ai profité pour ouvrir <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://gitorious.org/photo-imp">un espace sur Gitorious</text:a>, pour que le développement soit plus accessible et plus visible.</text:p>
+<text:p text:style-name="Text_20_body">En ce moment, je suis en train de porter la bibliothèque javascript type “Lightbox” qui permettait d’afficher les photos depuis <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.shadowbox-js.com/">ShadowBox</text:a> vers <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.no-margin-for-errors.com/projects/prettyPhoto-jquery-lightbox-clone/">PrettyPhoto</text:a>, puisque <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.shadowbox-js.com/index.html#license">ShadowBox n’est plus libre</text:a> dans les versions récentes (utilisation commerciale interdite). C’est un peu plus long que prévu, mais je vois le bout.</text:p>
+<text:p text:style-name="Text_20_body">Pour en revenir au nom, il a été trouvé par Peuf, et c’est une référence à une créature du monde de Terry Pratchett : le “<text:span text:style-name="emphasis">photo imp</text:span>” est un petit démon dans une boîte noire avec une petite fenêtre, appelée <text:span text:style-name="emphasis">Iconographe</text:span>. Quand on ouvre la fenêtre, le “<text:span text:style-name="emphasis">photo imp</text:span>” peint très rapidement ce qu’il voit sur une toile. L’appareil dispose aussi d’une salamandre pour éclairer rapidement l’objet à dessiner. C’est évidemment une transposition de l’appareil photo, très très bien vu de la part de Peuf, merci beaucoup. Pour les détails : voyez <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://en.wikipedia.org/wiki/Technology_of_the_Discworld#Iconographs">la page Wikipedia</text:a>.</text:p>
+<text:p text:style-name="Text_20_body">Je publierai une nouvelle version quand j’aurais porté le code sur PrettyPhoto. Si vous utilisez Photo Imp, dites-le moi, ça m’intéresse !</text:p>
     
     
-          <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+          <text:p text:style-name="Text_20_body">
               <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/08/01/Au-nom-du-libre-je-te-baptise-%3A-Photo-Imp-%21#comments">17 commentaires</text:a>
               <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/post/2009/08/01/Au-nom-du-libre-je-te-baptise-%3A-Photo-Imp-%21#pings">aucun rétrolien</text:a>              </text:p>
         
     
     
-      <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
-  <draw:a xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/odt">
-    <draw:frame xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
+      <text:p text:style-name="Text_20_body">
+  <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/odt">
+    <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
       <draw:image xlink:href="http://aurelien.bompard.org/?pf=odt/img/odt.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
       <svg:title>ODT</svg:title>
     </draw:frame>
   </draw:a>
 </text:p>
 
-              <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body"><text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/page/2">«
+              <text:p text:style-name="Text_20_body"><text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/page/2">«
         billets précédents</text:a> -         page 1 de 17        </text:p>
               
  
@@ -335,7 +334,7 @@ aspirer ardemment à changer.</text:p>
   
   
     <!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">À voir sur le web</text:h><text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
+<text:h text:style-name="Heading_20_2" text:outline-level="2">À voir sur le web</text:h><text:list text:style-name="List_20_1">
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
       <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.matthieuricard.org/index.php/MR/blog/54_the_short_lived_triumph_of_selfishness/">Le triomphe éphémère de l'égoïsme sectaire (Matthieu Ricard)</text:a>
@@ -372,11 +371,11 @@ aspirer ardemment à changer.</text:p>
     </text:p>
   </text:list-item>
 </text:list><!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">Gauret 2.0</text:h><text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
+<text:h text:style-name="Heading_20_2" text:outline-level="2">Gauret 2.0</text:h><text:list text:style-name="List_20_1">
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <draw:a xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.linkedin.com/in/abompard">
-        <draw:frame xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
+      <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.linkedin.com/in/abompard">
+        <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
           <draw:image xlink:href="/images/web/linkedin.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
           <svg:title>LinkedIn</svg:title>
         </draw:frame>
@@ -385,8 +384,8 @@ aspirer ardemment à changer.</text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <draw:a xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://twitter.com/abompard">
-        <draw:frame xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
+      <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://twitter.com/abompard">
+        <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
           <draw:image xlink:href="/images/web/twitter.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
           <svg:title>Twitter</svg:title>
         </draw:frame>
@@ -395,8 +394,8 @@ aspirer ardemment à changer.</text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <draw:a xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://identi.ca/abompard">
-        <draw:frame xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
+      <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://identi.ca/abompard">
+        <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
           <draw:image xlink:href="/images/web/identica.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
           <svg:title>Identica</svg:title>
         </draw:frame>
@@ -405,8 +404,8 @@ aspirer ardemment à changer.</text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <draw:a xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://delicious.com/abompard/shared">
-        <draw:frame xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
+      <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://delicious.com/abompard/shared">
+        <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
           <draw:image xlink:href="/images/web/delicious.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
           <svg:title>Delicious</svg:title>
         </draw:frame>
@@ -415,8 +414,8 @@ aspirer ardemment à changer.</text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <draw:a xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.lastfm.fr/user/gauret">
-        <draw:frame xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
+      <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.lastfm.fr/user/gauret">
+        <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
           <draw:image xlink:href="/images/web/lastfm.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
           <svg:title>Last.FM</svg:title>
         </draw:frame>
@@ -425,8 +424,8 @@ aspirer ardemment à changer.</text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <draw:a xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/fr/user/gauret">
-        <draw:frame xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
+      <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.jamendo.com/fr/user/gauret">
+        <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
           <draw:image xlink:href="/images/web/jamendo.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
           <svg:title>Jamendo</svg:title>
         </draw:frame>
@@ -435,8 +434,8 @@ aspirer ardemment à changer.</text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <draw:a xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.youtube.com/user/abompard">
-        <draw:frame xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
+      <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.youtube.com/user/abompard">
+        <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
           <draw:image xlink:href="/images/web/youtube.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
           <svg:title>YouTube</svg:title>
         </draw:frame>
@@ -445,8 +444,8 @@ aspirer ardemment à changer.</text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <draw:a xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://friendfeed.com/abompard">
-        <draw:frame xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
+      <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://friendfeed.com/abompard">
+        <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
           <draw:image xlink:href="/images/web/friendfeed.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
           <svg:title>FriendFeed</svg:title>
         </draw:frame>
@@ -454,7 +453,7 @@ aspirer ardemment à changer.</text:p>
     </text:p>
   </text:list-item>
 </text:list><!--section level 2-->
-<text:h xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Heading_20_2" text:outline-level="2">S'abonner</text:h><text:list xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="List_20_1">
+<text:h text:style-name="Heading_20_2" text:outline-level="2">S'abonner</text:h><text:list text:style-name="List_20_1">
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
       <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://aurelien.bompard.org/feed/atom">Fil des billets</text:a>
@@ -471,17 +470,17 @@ aspirer ardemment à changer.</text:p>
  
 
 
-  <text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+  <text:p text:style-name="Text_20_body">
 
-  <draw:a xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://validator.w3.org/check?uri=referer"><draw:frame xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="/blog/themes/gauret/img/xhtml10.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>XHTML valide</svg:title></draw:frame></draw:a>
+  <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://validator.w3.org/check?uri=referer"><draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="/blog/themes/gauret/img/xhtml10.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>XHTML valide</svg:title></draw:frame></draw:a>
 
-  <draw:a xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://dotclear.org"><draw:frame xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="/blog/themes/gauret/img/dotclear_pw.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>Propulsé par Dotclear</svg:title></draw:frame></draw:a>
+  <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://dotclear.org"><draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="/blog/themes/gauret/img/dotclear_pw.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>Propulsé par Dotclear</svg:title></draw:frame></draw:a>
 
-  <draw:a xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.planet-libre.org/"><draw:frame xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="http://www.planet-libre.org/promotion/planet-libre-button1.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>Planet Libre</svg:title></draw:frame></draw:a>
+  <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.planet-libre.org/"><draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="http://www.planet-libre.org/promotion/planet-libre-button1.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>Planet Libre</svg:title></draw:frame></draw:a>
 
-  <draw:a xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.april.org/adherer?referent=abompard"><draw:frame xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="/blog/themes/gauret/img/april.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>Promouvoir et soutenir le logiciel libre</svg:title></draw:frame></draw:a>
+  <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.april.org/adherer?referent=abompard"><draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="/blog/themes/gauret/img/april.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>Promouvoir et soutenir le logiciel libre</svg:title></draw:frame></draw:a>
 
-  <draw:a xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://creativecommons.org/licenses/by-sa/2.0/fr/"><draw:frame xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="http://i.creativecommons.org/l/by-sa/2.0/fr/80x15.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>Creative Commons License</svg:title></draw:frame></draw:a>
+  <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://creativecommons.org/licenses/by-sa/2.0/fr/"><draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="http://i.creativecommons.org/l/by-sa/2.0/fr/80x15.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>Creative Commons License</svg:title></draw:frame></draw:a>
 
   </text:p>
 
@@ -490,5 +489,4 @@ aspirer ardemment à changer.</text:p>
 
 
  
-
 

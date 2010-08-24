@@ -10,50 +10,39 @@ class IgnoreElements(unittest.TestCase):
     def test_div(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><div>Test</div></html>'
         odt = xhtml2odt(html)
-        print odt
-        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\nTest\n'
+        self.assertEquals(odt, 'Test')
 
     def test_html(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml">Test</html>'
         odt = xhtml2odt(html)
-        print odt
-        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\nTest\n'
+        self.assertEquals(odt, 'Test')
 
     def test_head(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><head>Test</head></html>'
         odt = xhtml2odt(html)
-        print odt
-        assert str(odt) == ''
+        self.assertEquals(odt, '')
 
     def test_body(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><body>Test</body></html>'
         odt = xhtml2odt(html)
-        print odt
-        assert str(odt) == '<?xml version="1.0" encoding="utf-8"?>\nTest\n'
+        self.assertEquals(odt, 'Test')
 
     def test_span(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><span>Test</span></p></html>'
         odt = xhtml2odt(html)
-        print odt
-        assert str(odt) == '''<?xml version="1.0" encoding="utf-8"?>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">Test</text:p>
-'''
+        self.assertEquals(odt, '''<text:p text:style-name="Text_20_body">Test</text:p>''')
 
     def test_span_outside_p(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><span>Test</span></html>'
         odt = xhtml2odt(html)
-        print odt
-        assert str(odt) == ''
+        self.assertEquals(odt, '')
 
     def test_span_in_a(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><a><span>Test</span></a></p></html>'
         odt = xhtml2odt(html)
-        print odt
-        assert str(odt) == '''<?xml version="1.0" encoding="utf-8"?>
-<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" text:style-name="Text_20_body">
+        self.assertEquals(odt, '''<text:p text:style-name="Text_20_body">
   <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="">Test</text:a>
-</text:p>
-'''
+</text:p>''')
 
 
 if __name__ == '__main__':
