@@ -51,11 +51,20 @@
 
 
     <xsl:param name="debug"></xsl:param>
+
+    <!-- URL of the converted page -->
     <xsl:param name="url">http://localhost</xsl:param>
+
+    <!-- in the text to convert, heading tags start below this level
+         (0 for h1, 1 for h2, etc.) -->
     <xsl:param name="heading_minus_level">0</xsl:param>
-    <xsl:param name="para.padding">0.20cm</xsl:param>
+
+    <!-- default image size -->
     <xsl:param name="img_default_width">8cm</xsl:param>
     <xsl:param name="img_default_height">6cm</xsl:param>
+
+    <!-- images smaller that this will be placed inline (e.g. smileys) -->
+    <xsl:param name="img_inline_threshold">2</xsl:param>
 
 </xsl:stylesheet>
 
