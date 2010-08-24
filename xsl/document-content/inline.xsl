@@ -86,7 +86,9 @@
     </text:span>
 </xsl:template>
 
-<xsl:template match="h:br"/>
+<xsl:template match="h:br">
+    <text:line-break/>
+</xsl:template>
 <xsl:template match="h:br" mode="inparagraph">
     <text:line-break/>
 </xsl:template>

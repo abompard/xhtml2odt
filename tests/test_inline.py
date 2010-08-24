@@ -130,6 +130,14 @@ class InlineElements(unittest.TestCase):
 </text:p>
 '''
 
+    def test_br2(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><br/></html>'
+        odt = xhtml2odt(html)
+        print odt
+        self.assertEquals(str(odt), '''<?xml version="1.0" encoding="utf-8"?>
+<text:line-break xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"/>
+''')
+
     def test_del(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><del>Test</del></p></html>'
         odt = xhtml2odt(html)
