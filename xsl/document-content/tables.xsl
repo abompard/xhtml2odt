@@ -277,7 +277,15 @@
             </xsl:attribute>
         </xsl:if>
 
-        <xsl:call-template name="paragraph"/>
+        <!-- Content -->
+        <xsl:choose>
+            <xsl:when test="h:table"> <!-- nested tables -->
+                <xsl:apply-templates/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:call-template name="paragraph"/>
+            </xsl:otherwise>
+        </xsl:choose>
 
     </table:table-cell>
 

@@ -196,6 +196,47 @@ class TableElements(unittest.TestCase):
                              </table:table> \s*
                              """, str(odt), re.X)
 
+    def test_table_nested(self):
+        html = """<html xmlns="http://www.w3.org/1999/xhtml">
+            <table>
+              <tr>
+                <td>
+                  <table>
+                    <tr>
+                      <td>Cell</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+        </html>
+        """
+        odt = xhtml2odt(html)
+        # remove namespaces
+        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
+        # remove comments
+        odt = re.sub('(<!--[a-z0-9=-]+-->)*', '', odt)
+        print odt
+        assert re.search(r"""
+                             <table:table [^>]* > \s* # Table 1
+                             <table:table-column [^>]* /> \s*
+                             <table:table-row> \s* # -------- Table 1 line 1
+                             <table:table-cell [^>]* > \s* # ---- Table 1 cell 1
+
+                             <table:table [^>]* > \s* # Table 2
+                             <table:table-column [^>]* /> \s*
+                             <table:table-row> \s* # -------- Table 2 line 1
+                             <table:table-cell [^>]* > \s* # ---- Table 2 cell 1
+                             <text:p [^>]* >Cell</text:p> \s*
+                             </table:table-cell> \s*
+                             </table:table-row> \s*
+                             </table:table> \s*
+
+                             </table:table-cell> \s*
+                             </table:table-row> \s*
+                             </table:table> \s*
+                             """, str(odt), re.X)
+
     def test_table_caption(self):
         """Test <caption> tag alone"""
         html = """<html xmlns="http://www.w3.org/1999/xhtml">
