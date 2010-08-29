@@ -110,6 +110,24 @@ class ParagraphElements(unittest.TestCase):
         odt = xhtml2odt(html)
         self.assertEquals(odt, """<text:p text:style-name="center">Test</text:p>""")
 
+    def test_p_left(self):
+        """<p> tag: with text-align: left"""
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><p style="text-align: left">Test</p></html>'
+        odt = xhtml2odt(html)
+        self.assertEquals(odt, """<text:p text:style-name="left">Test</text:p>""")
+
+    def test_p_right(self):
+        """<p> tag: with text-align: right"""
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><p style="text-align: right">Test</p></html>'
+        odt = xhtml2odt(html)
+        self.assertEquals(odt, """<text:p text:style-name="right">Test</text:p>""")
+
+    def test_p_justify(self):
+        """<p> tag: with text-align: justify"""
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><p style="text-align: justify">Test</p></html>'
+        odt = xhtml2odt(html)
+        self.assertEquals(odt, """<text:p text:style-name="justify">Test</text:p>""")
+
     def test_p_inside_p(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><table><tr><td><p>Test</p></td></tr></table></html>'
         odt = xhtml2odt(html)

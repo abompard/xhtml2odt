@@ -57,10 +57,34 @@
         </style:style>
     </xsl:if>
 
+    <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'left']) = 0">
+        <style:style style:name="left" style:family="paragraph"
+                     style:parent-style-name="Text_20_body">
+            <style:paragraph-properties fo:text-align="left"
+                                        style:justify-single-word="false"/>
+        </style:style>
+    </xsl:if>
+
     <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'center']) = 0">
         <style:style style:name="center" style:family="paragraph"
                      style:parent-style-name="Text_20_body">
             <style:paragraph-properties fo:text-align="center"
+                                        style:justify-single-word="false"/>
+        </style:style>
+    </xsl:if>
+
+    <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'right']) = 0">
+        <style:style style:name="right" style:family="paragraph"
+                     style:parent-style-name="Text_20_body">
+            <style:paragraph-properties fo:text-align="right"
+                                        style:justify-single-word="false"/>
+        </style:style>
+    </xsl:if>
+
+    <xsl:if test="count(//office:automatic-styles/style:style[@style:name = 'justify']) = 0">
+        <style:style style:name="justify" style:family="paragraph"
+                     style:parent-style-name="Text_20_body">
+            <style:paragraph-properties fo:text-align="justify"
                                         style:justify-single-word="false"/>
         </style:style>
     </xsl:if>

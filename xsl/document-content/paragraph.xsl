@@ -117,9 +117,10 @@
                     <xsl:text>list-item-number</xsl:text>
                 </xsl:when>
                 <xsl:when test="$subject/../parent::h:blockquote">Quotations</xsl:when>
-                <xsl:when test="contains(@style,'text-align:') and contains(@style,'center')">
-                    <xsl:text>center</xsl:text>
-                </xsl:when>
+                <xsl:when test="contains(@style,'text-align:') and contains(@style,'left')">left</xsl:when>
+                <xsl:when test="contains(@style,'text-align:') and contains(@style,'center')">center</xsl:when>
+                <xsl:when test="contains(@style,'text-align:') and contains(@style,'right')">right</xsl:when>
+                <xsl:when test="contains(@style,'text-align:') and contains(@style,'justify')">justify</xsl:when>
                 <xsl:when test="$subject/self::h:address or (name($subject) = '' and $subject/parent::h:address)">Sender</xsl:when>
                 <xsl:when test="$subject/self::h:center or (name($subject) = '' and $subject/parent::h:center)">center</xsl:when>
                 <xsl:when test="$subject/self::h:th or (name($subject) = '' and $subject/parent::h:th)">Table_20_Heading</xsl:when>
