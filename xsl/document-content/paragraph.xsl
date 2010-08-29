@@ -65,6 +65,7 @@
             child::h:ol|
             child::h:blockquote|
             child::h:pre |
+            child::h:dl |
             child::h:div
             ">
             <xsl:for-each select="
@@ -72,6 +73,7 @@
                     child::h:ol |
                     child::h:blockquote |
                     child::h:pre |
+                    child::h:dl |
                     child::h:div
                     ">
                 <!-- Paragraph with the text before -->

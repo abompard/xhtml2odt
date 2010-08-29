@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import unittest
+import re
 from lxml import etree
 from . import xhtml2odt
 
@@ -40,6 +41,24 @@ class ParagraphElements(unittest.TestCase):
         odt = xhtml2odt(html)
         self.assertEquals(odt, """<text:p text:style-name="Preformatted_20_Text">Test</text:p>"""
                                """<text:p text:style-name="Text_20_body"/>""")
+
+    def test_p_containing_dl(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><dl><dt>Term</dt><dd>Value</dd></dl></p></html>'
+        odt = xhtml2odt(html)
+        print odt
+        self.assert_(re.match("""
+            <table:table [^>]* > \s*
+              <table:table-column [^>]* /> \s*
+              <table:table-row> \s*
+                <table:table-cell [^>]* > \s*
+                  <text:p[ ]text:style-name="Table_20_Contents">Term</text:p> \s*
+                </table:table-cell> \s*
+                <table:table-cell [^>]* > \s*
+                  <text:p[ ]text:style-name="Table_20_Contents">Value</text:p> \s*
+                </table:table-cell> \s*
+              </table:table-row> \s*
+            </table:table> \s*
+            """, odt, re.X))
 
     def test_p_containing_text_and_block(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p>Top text<pre>Test</pre>Bottom text</p></html>'
