@@ -138,6 +138,15 @@
                 <xsl:with-param name="content" select="substring-after($content, '  ')"/>
             </xsl:call-template>
         </xsl:when>
+        <xsl:when test="contains($content, '&#9;')">
+            <xsl:call-template name="pre.line.single">
+                <xsl:with-param name="content" select="substring-before($content, '&#9;')"/>
+            </xsl:call-template>
+            <text:tab/>
+            <xsl:call-template name="pre.line.single">
+                <xsl:with-param name="content" select="substring-after($content, '&#9;')"/>
+            </xsl:call-template>
+        </xsl:when>
         <xsl:otherwise>
             <xsl:value-of select="string($content)"/>
         </xsl:otherwise>

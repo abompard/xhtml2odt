@@ -58,6 +58,13 @@ class BlockElements(unittest.TestCase):
         self.assertEquals(odt, '<text:p text:style-name="Preformatted_20_Text">Line1<text:line-break/>Line2</text:p>'
                                '<text:p text:style-name="Text_20_body"/>')
 
+    def test_pre7(self):
+        """<pre>: tab conversion"""
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><pre>	Line with		tabs</pre></html>'
+        odt = xhtml2odt(html)
+        self.assertEquals(odt, '<text:p text:style-name="Preformatted_20_Text"><text:tab/>Line with<text:tab/><text:tab/>tabs</text:p>'
+                               '<text:p text:style-name="Text_20_body"/>')
+
     def test_address(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><address>Test</address></html>'
         odt = xhtml2odt(html)
