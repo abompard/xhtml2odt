@@ -101,33 +101,25 @@
 <!-- Definition lists -->
 <xsl:template match="h:dl" mode="inparagraph"/>
 <xsl:template match="h:dl">
-    <table:table table:style-name="table-default">
-        <table:table-column table:number-columns-repeated="2"/>
-        <xsl:apply-templates select="h:dt"/>
-    </table:table>
+    <xsl:apply-templates select="h:dt" mode="inparagraph"/>
 </xsl:template>
 
-<xsl:template match="h:dt" mode="inparagraph"/>
-<xsl:template match="h:dt">
-    <table:table-row>
-        <xsl:call-template name="table-cell">
-            <xsl:with-param name="horizontal-position" select="1"/>
-            <xsl:with-param name="horizontal-count" select="2"/>
-            <xsl:with-param name="vertical-position" select="count(preceding-sibling::h:dt) + 1"/>
-            <xsl:with-param name="vertical-count" select="count(../h:dt)"/>
-        </xsl:call-template>
-        <xsl:apply-templates select="following-sibling::h:dd[1]"/>
-    </table:table-row>
+<xsl:template match="h:dt"/>
+<xsl:template match="h:dt" mode="inparagraph">
+    <text:p text:style-name="Text_20_body">
+        <text:span text:style-name="strong">
+            <xsl:apply-templates/>
+        </text:span>
+        <xsl:text>:</xsl:text>
+        <text:line-break/>
+        <xsl:apply-templates select="following-sibling::h:dd[position()=1]" mode="inparagraph"/>
+    </text:p>
 </xsl:template>
 
-<xsl:template match="h:dd" mode="inparagraph"/>
-<xsl:template match="h:dd">
-    <xsl:call-template name="table-cell">
-        <xsl:with-param name="horizontal-position" select="2"/>
-        <xsl:with-param name="horizontal-count" select="2"/>
-        <xsl:with-param name="vertical-position" select="count(preceding-sibling::h:dt)"/>
-        <xsl:with-param name="vertical-count" select="count(../h:dt)"/>
-    </xsl:call-template>
+<xsl:template match="h:dd"/>
+<xsl:template match="h:dd" mode="inparagraph">
+    <text:tab/>
+    <xsl:apply-templates/>
 </xsl:template>
 
 

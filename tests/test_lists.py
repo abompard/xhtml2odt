@@ -74,27 +74,23 @@ class ListElements(unittest.TestCase):
     def test_dl(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><dl><dt>Term1</dt><dd>Def1</dd><dt>Term2</dt><dd>Def2</dd></dl></html>'
         odt = xhtml2odt(html)
-        self.assertEquals(odt.count('table:number-columns-repeated="2"'), 1)
-        self.assertEquals(odt.count('</table:table-row>'), 2)
-        self.assertEquals(odt.count('</table:table-cell>'), 4)
-
-    def test_dl_text_style(self):
-        html = '<html xmlns="http://www.w3.org/1999/xhtml"><dl><dt>Term1</dt><dd>Def1</dd></dl></html>'
-        odt = xhtml2odt(html)
         print odt
-        self.assertEquals(odt.count('text:style-name="Table_20_Contents">'), 2)
+        self.assertEquals(odt, """<text:p text:style-name="Text_20_body">"""
+        """<text:span text:style-name="strong">Term1</text:span>:<text:line-break/>"""
+        """<text:tab/>Def1</text:p>"""
+        """<text:p text:style-name="Text_20_body">"""
+        """<text:span text:style-name="strong">Term2</text:span>:<text:line-break/>"""
+        """<text:tab/>Def2</text:p>""")
 
     def test_ul_in_dl(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><dl><dt>Term1</dt><dd>Def1<ul><li>Def1-LI</li></ul></dd></dl></html>'
         odt = xhtml2odt(html)
-        target = """
-      <text:p text:style-name="Table_20_Contents">Def1</text:p>
-      <text:list text:style-name="List_20_1">
-        <text:list-item>
-          <text:p text:style-name="list-item-bullet">Def1-LI</text:p>
-        </text:list-item>
-      </text:list>"""
-        self.assertEquals(odt.count(target), 1)
+        print odt
+        self.assertEquals(odt, """<text:p text:style-name="Text_20_body">"""
+        """<text:span text:style-name="strong">Term1</text:span>:<text:line-break/>"""
+        """<text:tab/>Def1<text:list text:style-name="List_20_1">"""
+            """<text:list-item><text:p text:style-name="list-item-bullet">Def1-LI</text:p></text:list-item>"""
+        """</text:list></text:p>""")
 
     def test_li_containing_block1(self):
         #http://trac-hacks.org/ticket/6823

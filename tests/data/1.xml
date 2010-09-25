@@ -317,46 +317,12 @@ Example:
 <text:p text:style-name="Preformatted_20_Text"> llama::<text:line-break/><text:s text:c="2"/> some kind of mammal, with hair<text:line-break/> ppython::<text:line-break/><text:s text:c="2"/> some kind of reptile, without hair<text:line-break/><text:s text:c="2"/> (can you spot the typo?)</text:p><text:p text:style-name="Text_20_body"/><text:p text:style-name="Text_20_body">
 Display:
 </text:p>
-<table:table table:style-name="table-default">
-  <table:table-column table:number-columns-repeated="2"/>
-  <table:table-row>
-    
-    
-    
-    
-    <table:table-cell office:value-type="string" table:style-name="table-default.cell-A1">
-      <text:p text:style-name="Table_20_Contents">llama</text:p>
-    </table:table-cell>
-    
-    
-    
-    
-    <table:table-cell office:value-type="string" table:style-name="table-default.cell-C1">
-      <text:p text:style-name="Table_20_Contents">
+<text:p text:style-name="Text_20_body"><text:span text:style-name="strong">llama</text:span>:<text:line-break/><text:tab/>
 some kind of mammal, with hair
-</text:p>
-    </table:table-cell>
-  </table:table-row>
-  <table:table-row>
-    
-    
-    
-    
-    <table:table-cell office:value-type="string" table:style-name="table-default.cell-A3">
-      <text:p text:style-name="Table_20_Contents">ppython</text:p>
-    </table:table-cell>
-    
-    
-    
-    
-    <table:table-cell office:value-type="string" table:style-name="table-default.cell-C3">
-      <text:p text:style-name="Table_20_Contents">
+</text:p><text:p text:style-name="Text_20_body"><text:span text:style-name="strong">ppython</text:span>:<text:line-break/><text:tab/>
 some kind of reptile, without hair
 (can you spot the typo?)
 </text:p>
-    </table:table-cell>
-  </table:table-row>
-</table:table>
 <text:p text:style-name="Text_20_body">
 Note that you need a space in front of the defined term.
 </text:p>
