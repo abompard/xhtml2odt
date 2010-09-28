@@ -49,7 +49,7 @@ xhtml2odt.1: xhtml2odt.py xhtml2odt.1.post
 
 # Release code
 
-LATEST := $(shell git tag | grep ^v | tail -n 1 | tr -d v)
+LATEST := $(shell [ -d .git ] && git tag | grep ^v | tail -n 1 | tr -d v)
 
 release: ChangeLog.txt xhtml2odt-$(LATEST).tar.gz.asc xhtml2odt-$(LATEST).zip.asc
 
