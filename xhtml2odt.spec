@@ -13,6 +13,8 @@ BuildArch:      noarch
 # Unit tests
 BuildRequires:  python-nose
 BuildRequires:  python-lxml
+BuildRequires:  python-tidy
+BuildRequires:  python-imaging
 # Documentation
 BuildRequires:  python-sphinx
 BuildRequires:  phpdoc
