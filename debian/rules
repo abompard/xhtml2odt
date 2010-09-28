@@ -15,7 +15,8 @@ configure-stamp:
 build: build-stamp
 build-stamp:
 	dh_testdir
-	$(MAKE) doc
+	mkdir -p doc-py/_build/html
+	$(MAKE) doc-py
 	rm -rf doc-python
 	mv doc-py/_build/html doc-python
 	rm -f doc-python/.buildinfo
@@ -26,6 +27,7 @@ clean:
 	dh_testroot
 	rm -f build-stamp configure-stamp
 	$(MAKE) clean
+	rm -rf doc-python
 	dh_clean 
 
 install: build

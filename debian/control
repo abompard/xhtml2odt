@@ -2,7 +2,7 @@ Source: xhtml2odt
 Section: text
 Priority: extra
 Maintainer: Aurélien Bompard <aurelien@bompard.org>
-Build-Depends: debhelper (>= 7), python-nose, python-lxml, python-sphinx, php-doc, help2man, dos2unix
+Build-Depends: debhelper (>= 7), python-nose, python-utidylib, python-lxml, python-imaging, python-sphinx, help2man, tofrodos
 Standards-Version: 3.7.3
 Homepage: http://xhtml2odt.org
 
