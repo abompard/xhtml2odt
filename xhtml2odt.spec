@@ -10,20 +10,42 @@ Source0:        http://xhtml2odt.org/dl/xhtml2odt-%{version}.tar.gz
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
-# Unit tests
+## Unit tests
 BuildRequires:  python-nose
 BuildRequires:  python-lxml
-BuildRequires:  python-tidy
 BuildRequires:  python-imaging
-# Documentation
+%if 0%{?mandriva_version}
+BuildRequires:  python-uTidylib
+%else
+%if 0%{?suse_version}
+BuildRequires:  python-utidy
+%else
+BuildRequires:  python-tidy
+%endif
+%endif
+## Documentation
 BuildRequires:  python-sphinx
+%if 0%{?mandriva_version}
+%else
+# No phpdoc on Mandriva
 BuildRequires:  phpdoc
+%endif
 BuildRequires:  help2man
 BuildRequires:  dos2unix
-# Python script
+
+## Python script
+%if 0%{?mandriva_version}
+BuildRequires:  python-uTidylib
+%else
+%if 0%{?suse_version}
+BuildRequires:  python-utidy
+%else
 Requires:       python-tidy
+%endif
+%endif
 Requires:       python-lxml
 Requires:       python-imaging
+
 
 %description
 XHTML2ODT is a converting library from XHTML to ODT. It is based on XSL
@@ -38,7 +60,12 @@ chmod -x xhtml2odt.php xhtml2odt.sh
 
 
 %build
+# No phpdoc on Mandriva
+%if 0%{?mandriva_version}
+make doc-py
+%else
 make doc
+%endif
 rm -rf doc-python
 mv doc-py/_build/html doc-python
 rm -f doc-python/.buildinfo
@@ -65,7 +92,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%doc *.txt doc-php doc-python example-scripts
+%doc *.txt doc-python example-scripts
+# No phpdoc on Mandriva
+%if 0%{?mandriva_version}
+%else
+%doc doc-php
+%endif
 %{_bindir}/*
 %{_datadir}/%{name}
 %{_mandir}/man1/*
