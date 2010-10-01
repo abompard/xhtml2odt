@@ -15,7 +15,7 @@ Version 1.2
 Version 1.1
 -----------
 
-* Beginning of partial support for syntax highlighting. Supported highlighters:
+* Beginning of partial support for syntax highlighting.
 * Bugfixes in the handling of <pre> tags
 * Addition of a simple bash script to run the stylesheets
 * Source code paragraph have their own paragraph style, to ease customization
