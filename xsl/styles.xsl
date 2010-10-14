@@ -128,7 +128,7 @@
             <xsl:text>inline-style.</xsl:text>
             <xsl:value-of select="generate-id(.)"/>
         </xsl:attribute>
-        <xsl:apply-templates mode="inparagraph"/>
+        <xsl:apply-templates/>
     </text:span>
 </xsl:template>
 
