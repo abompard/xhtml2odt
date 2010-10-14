@@ -4,7 +4,7 @@
 import unittest
 import re
 from lxml import etree
-from . import styles
+from . import xhtml2odt, styles
 
 class InlineStyles(unittest.TestCase):
 
@@ -112,6 +112,20 @@ class InlineStyles(unittest.TestCase):
             </style:style>
             """, odt, re.X)
         self.assert_(content_match)
+
+    def test_inline_5(self):
+        """inline styles: span tag is kept"""
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><span style="something">Test</span></p></html>'
+        odt = xhtml2odt(html)
+        self.assertEquals(odt, '''<text:p text:style-name="Text_20_body">
+  <span xmlns="http://www.w3.org/1999/xhtml" style="something">Test</span>
+</text:p>''')
+
+    def test_inline_6(self):
+        """inline styles: no style"""
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><span style="">Test</span></p></html>'
+        odt = xhtml2odt(html)
+        self.assertEquals(odt, '''<text:p text:style-name="Text_20_body">Test</text:p>''')
 
 
 if __name__ == '__main__':
