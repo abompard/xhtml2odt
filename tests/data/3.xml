@@ -13,10 +13,12 @@
       
         <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/wiki/TracIni#header_logo-section">
   <text:bookmark-start text:name="logo"/>
-  <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
-    <draw:image xlink:href="/chrome/site/your_project_logo.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
-    <svg:title>(please configure the [header_logo] section in trac.ini)</svg:title>
-  </draw:frame>
+  <text:p text:style-name="Text_20_body">
+    <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
+      <draw:image xlink:href="/chrome/site/your_project_logo.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+      <svg:title>(please configure the [header_logo] section in trac.ini)</svg:title>
+    </draw:frame>
+  </text:p>
   <text:bookmark-end text:name="logo"/>
 </draw:a>
       
@@ -257,10 +259,12 @@ Image distante :
     <text:p text:style-name="Horizontal_20_Line"/>
       <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://trac.edgewall.org/">
   <text:bookmark-start text:name="tracpowered"/>
-  <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="107" svg:height="30" svg:y="0.20cm" draw:z-index="1">
-    <draw:image xlink:href="/chrome/common/trac_logo_mini.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
-    <svg:title>Trac Powered</svg:title>
-  </draw:frame>
+  <text:p text:style-name="Text_20_body">
+    <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="107" svg:height="30" svg:y="0.20cm" draw:z-index="1">
+      <draw:image xlink:href="/chrome/common/trac_logo_mini.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/>
+      <svg:title>Trac Powered</svg:title>
+    </draw:frame>
+  </text:p>
   <text:bookmark-end text:name="tracpowered"/>
 </draw:a>
       <text:p text:style-name="Text_20_body">

@@ -52,7 +52,9 @@
 
 
 <xsl:template match="h:img">
-    <xsl:call-template name="image"/>
+    <text:p text:style-name="Text_20_body">
+        <xsl:call-template name="image"/>
+    </text:p>
 </xsl:template>
 <xsl:template match="h:img" mode="inparagraph">
     <xsl:call-template name="image"/>

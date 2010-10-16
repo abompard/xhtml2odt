@@ -58,6 +58,21 @@ class MediaElements(unittest.TestCase):
                                  <svg:title/> \s*
                              </draw:frame>""", odt, re.X)
 
+    def test_img3(self):
+        """<img> tag outside a paragraph"""
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><img src="imagesource"/></html>'
+        odt = xhtml2odt(html, {
+            "img_default_width": "8cm",
+            "img_default_height": "6cm",
+        })
+        print odt
+        assert re.search(r"""<text:p [^>]* > \s*
+                             <draw:frame [^>]* > \s*
+                                 <draw:image [^>]* > \s*
+                                 <svg:title/> \s*
+                             </draw:frame> \s*
+                             </text:p>""", odt, re.X)
+
     def test_img_default_size(self):
         """<img> tag: no width nor height given"""
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><img src="imagesource"/></html>'
