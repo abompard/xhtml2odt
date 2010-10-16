@@ -98,7 +98,7 @@ class InlineElements(unittest.TestCase):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><br/></html>'
         odt = xhtml2odt(html)
         print odt
-        self.assertEquals(str(odt), '''<text:line-break xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0"/>''')
+        self.assertEquals(str(odt), '''<text:line-break/>''')
 
     def test_del(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><del>Test</del></p></html>'

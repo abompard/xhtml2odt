@@ -11,7 +11,7 @@
   
     
       
-        <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/wiki/TracIni#header_logo-section">
+        <draw:a xlink:type="simple" xlink:href="/wiki/TracIni#header_logo-section">
   <text:bookmark-start text:name="logo"/>
   <text:p text:style-name="Text_20_body">
     <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1">
@@ -30,22 +30,22 @@
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/logout">Logout</text:a>
+      <text:a xlink:type="simple" xlink:href="/logout">Logout</text:a>
     </text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/prefs">Preferences</text:a>
+      <text:a xlink:type="simple" xlink:href="/prefs">Preferences</text:a>
     </text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/wiki/TracGuide">Help/Guide</text:a>
+      <text:a xlink:type="simple" xlink:href="/wiki/TracGuide">Help/Guide</text:a>
     </text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/about">About Trac</text:a>
+      <text:a xlink:type="simple" xlink:href="/about">About Trac</text:a>
     </text:p>
   </text:list-item>
 </text:list>
@@ -55,42 +55,42 @@
     <text:list text:style-name="List_20_1">
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/wiki">Wiki</text:a>
+      <text:a xlink:type="simple" xlink:href="/wiki">Wiki</text:a>
     </text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/timeline">Timeline</text:a>
+      <text:a xlink:type="simple" xlink:href="/timeline">Timeline</text:a>
     </text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/roadmap">Roadmap</text:a>
+      <text:a xlink:type="simple" xlink:href="/roadmap">Roadmap</text:a>
     </text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/browser">Browse Source</text:a>
+      <text:a xlink:type="simple" xlink:href="/browser">Browse Source</text:a>
     </text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/report">View Tickets</text:a>
+      <text:a xlink:type="simple" xlink:href="/report">View Tickets</text:a>
     </text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/newticket">New Ticket</text:a>
+      <text:a xlink:type="simple" xlink:href="/newticket">New Ticket</text:a>
     </text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/search">Search</text:a>
+      <text:a xlink:type="simple" xlink:href="/search">Search</text:a>
     </text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/admin">Admin</text:a>
+      <text:a xlink:type="simple" xlink:href="/admin">Admin</text:a>
     </text:p>
   </text:list-item>
 </text:list>
@@ -102,22 +102,22 @@
           <text:list text:style-name="List_20_1">
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/wiki/WikiStart">Start Page</text:a>
+      <text:a xlink:type="simple" xlink:href="/wiki/WikiStart">Start Page</text:a>
     </text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/wiki/TitleIndex">Index</text:a>
+      <text:a xlink:type="simple" xlink:href="/wiki/TitleIndex">Index</text:a>
     </text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/wiki/Playground?action=history">History</text:a>
+      <text:a xlink:type="simple" xlink:href="/wiki/Playground?action=history">History</text:a>
     </text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/wiki/Playground?action=diff&amp;version=9">Last Change</text:a>
+      <text:a xlink:type="simple" xlink:href="/wiki/Playground?action=diff&amp;version=9">Last Change</text:a>
     </text:p>
   </text:list-item>
 </text:list>
@@ -135,7 +135,7 @@
 Essai d'export d'une image :
 </text:p>
 <text:p text:style-name="Text_20_body">
-<draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/attachment/wiki/Playground/pony.jpg"><draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="/raw-attachment/wiki/Playground/pony.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title/></draw:frame></draw:a>
+<draw:a xlink:type="simple" xlink:href="/attachment/wiki/Playground/pony.jpg"><draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="/raw-attachment/wiki/Playground/pony.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title/></draw:frame></draw:a>
 </text:p>
 <text:p text:style-name="Text_20_body">
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id nisi et dolor adipiscing congue. Phasellus sagittis varius gravida. Duis eu felis sit amet massa lacinia pulvinar nec a mauris. Fusce a nunc in dolor consectetur iaculis. Integer ligula est, commodo ac volutpat vel, rhoncus at velit. Aliquam sit amet eros ut est mollis rhoncus. Nulla sagittis mattis placerat. Nam vel magna non dui scelerisque pharetra. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed convallis, lectus at tempus gravida, nulla massa molestie lectus, et placerat tellus libero a sapien. Quisque vitae rhoncus ante. Vestibulum ac urna ut nisi lacinia sagittis. Aliquam in augue nibh, a porttitor odio. Nam est tortor, laoreet sit amet tincidunt quis, suscipit at eros. Aenean consequat sem sit amet dui viverra vel fermentum metus sodales. Maecenas porttitor dui a orci volutpat ultricies. Nam ipsum nisi, viverra eu eleifend ut, tempor tincidunt tellus. Sed id mauris sit amet nisi eleifend luctus in dignissim metus.
@@ -144,7 +144,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id nisi et dolor 
 Mauris vitae pretium libero. Ut ut nulla sed nisi dapibus tristique. Phasellus nunc nisi, elementum eu venenatis id, rhoncus sit amet odio. Aliquam condimentum cursus ligula, non consectetur libero faucibus a. Suspendisse volutpat dui nec quam dictum a ullamcorper dui pharetra. Donec venenatis ornare tortor non feugiat. Sed quis diam vel diam pellentesque auctor ut id tortor. Nam nec sem nec nisi sollicitudin malesuada vel ac lorem. Integer ac nisi arcu. Fusce lorem libero, ultricies euismod consectetur vel, ullamcorper eget metus. Mauris nisi mi, sollicitudin sit amet luctus ac, venenatis quis felis. Morbi suscipit ipsum vitae justo rutrum in euismod mauris laoreet.
 </text:p>
 <text:p text:style-name="Text_20_body">
-<draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/attachment/wiki/Playground/pizza.jpg"><draw:frame text:anchor-type="paragraph" draw:style-name="image-right"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="/raw-attachment/wiki/Playground/pizza.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title/></draw:frame></draw:a>
+<draw:a xlink:type="simple" xlink:href="/attachment/wiki/Playground/pizza.jpg"><draw:frame text:anchor-type="paragraph" draw:style-name="image-right"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="/raw-attachment/wiki/Playground/pizza.jpg" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title/></draw:frame></draw:a>
 </text:p>
 <text:p text:style-name="Text_20_body">
 Integer molestie est at massa bibendum vestibulum. Sed viverra elementum congue. In hac habitasse platea dictumst. Vivamus sit amet leo sed metus convallis ullamcorper. Mauris eros libero, luctus sit amet fringilla quis, molestie ut purus. Aliquam erat volutpat. Sed at vehicula diam. Curabitur metus enim, egestas vitae vulputate nec, fringilla ac nisi. Ut tempor, urna ut rhoncus aliquet, libero nibh lacinia nisi, vel congue tellus turpis in quam. Mauris dui urna, interdum quis venenatis aliquam, rutrum vel dolor. Maecenas mi turpis, porttitor quis auctor id, aliquam vitae neque. Nulla tincidunt, elit et sollicitudin rhoncus, lectus lorem hendrerit risus, nec congue nisi massa non magna. Cras leo lacus, posuere ac varius nec, rutrum eget leo. Morbi eu odio eu ligula vehicula placerat quis ultrices ante. Proin id justo at erat consequat varius sed vehicula metus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi iaculis lectus ut urna vulputate porta. Nam nec libero nec orci posuere bibendum. Nulla facilisi. Morbi tempor blandit eros sit amet interdum.
@@ -153,7 +153,7 @@ Integer molestie est at massa bibendum vestibulum. Sed viverra elementum congue.
 Suspendisse justo sapien, mollis eget bibendum eu, viverra sit amet odio. Sed sapien nisi, varius eget scelerisque et, ultrices sit amet lectus. Curabitur sed lacus augue, eget mollis mauris. Proin quis euismod diam. Curabitur enim elit, congue lacinia sollicitudin nec, placerat vel nisi. Suspendisse sed sem in sem adipiscing venenatis sit amet vitae diam. Mauris posuere adipiscing tortor, a tempus justo sollicitudin nec. Fusce vestibulum mauris ut leo sagittis eu accumsan lorem auctor. Nulla dignissim pharetra libero, et sodales lectus lacinia ut. Nulla magna felis, vestibulum sed laoreet vel, ultricies vitae purus. Nulla semper, quam id egestas tincidunt, nisi ipsum tristique leo, id blandit quam felis non neque. Pellentesque purus dui, pulvinar ac mollis ac, consequat in mauris. Phasellus tempor nulla volutpat tortor rhoncus volutpat. Aliquam et ultricies turpis. Maecenas lacinia gravida sem in ultricies. Nullam commodo adipiscing venenatis. Sed congue, diam ac tempor ornare, tortor ligula dignissim neque, elementum condimentum diam ante sit amet tortor. Etiam ornare tincidunt accumsan. Quisque magna magna, aliquet quis commodo eget, lobortis eu nibh. Nunc orci justo, auctor et lacinia quis, sollicitudin in ligula.
 </text:p>
 <text:p text:style-name="Text_20_body">
-<draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://localhost/images/abompard-119x131.png"><draw:frame text:anchor-type="paragraph" draw:style-name="image-right"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="http://localhost/images/abompard-119x131.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>http://localhost/images/abompard-119x131.png</svg:title></draw:frame></draw:a>
+<draw:a xlink:type="simple" xlink:href="http://localhost/images/abompard-119x131.png"><draw:frame text:anchor-type="paragraph" draw:style-name="image-right"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="http://localhost/images/abompard-119x131.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>http://localhost/images/abompard-119x131.png</svg:title></draw:frame></draw:a>
 </text:p>
 <text:p text:style-name="Text_20_body">
 Curabitur placerat imperdiet ultricies. Integer congue sodales orci, eu tristique arcu porta nec. Fusce vitae ipsum neque. Etiam ut augue id justo molestie feugiat ut a lectus. Praesent erat nulla, pellentesque sit amet porta suscipit, malesuada ut urna. Sed ornare, nibh id volutpat volutpat, nulla nisi egestas mi, a placerat mi dui eu tortor. Vestibulum condimentum porttitor cursus. Phasellus nisl odio, euismod non consequat non, commodo eget nisi. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam cursus sodales dui vel tempor. Aliquam non blandit enim. Sed sed nulla non nisl aliquet condimentum nec eu magna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam leo sem, rhoncus vitae tempor ac, pulvinar at lacus. Aliquam sed sapien odio. 
@@ -218,18 +218,18 @@ Image distante :
           <text:list text:style-name="List_20_1">
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/attachment/wiki/Playground/pony.jpg">pony.jpg</text:a>
-      <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/raw-attachment/wiki/Playground/pony.jpg"><draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="/chrome/common/download.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>Download</svg:title></draw:frame></draw:a>
+      <text:a xlink:type="simple" xlink:href="/attachment/wiki/Playground/pony.jpg">pony.jpg</text:a>
+      <draw:a xlink:type="simple" xlink:href="/raw-attachment/wiki/Playground/pony.jpg"><draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="/chrome/common/download.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>Download</svg:title></draw:frame></draw:a>
       (50.5 KB) - added by <text:span text:style-name="emphasis">gauret</text:span>
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/timeline?from=2009-12-29T19%3A12%3A29%2B0100&amp;precision=second">10 days</text:a> ago.
+      <text:a xlink:type="simple" xlink:href="/timeline?from=2009-12-29T19%3A12%3A29%2B0100&amp;precision=second">10 days</text:a> ago.
               </text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/attachment/wiki/Playground/pizza.jpg">pizza.jpg</text:a>
-      <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/raw-attachment/wiki/Playground/pizza.jpg"><draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="/chrome/common/download.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>Download</svg:title></draw:frame></draw:a>
+      <text:a xlink:type="simple" xlink:href="/attachment/wiki/Playground/pizza.jpg">pizza.jpg</text:a>
+      <draw:a xlink:type="simple" xlink:href="/raw-attachment/wiki/Playground/pizza.jpg"><draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="8cm" svg:height="6cm" svg:y="0.20cm" draw:z-index="1"><draw:image xlink:href="/chrome/common/download.png" xlink:type="simple" xlink:show="embed" xlink:actuate="onLoad"/><svg:title>Download</svg:title></draw:frame></draw:a>
       (39.2 KB) - added by <text:span text:style-name="emphasis">gauret</text:span>
-      <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/timeline?from=2009-12-29T19%3A12%3A41%2B0100&amp;precision=second">10 days</text:a> ago.
+      <text:a xlink:type="simple" xlink:href="/timeline?from=2009-12-29T19%3A12%3A41%2B0100&amp;precision=second">10 days</text:a> ago.
               </text:p>
   </text:list-item>
 </text:list>
@@ -245,19 +245,19 @@ Image distante :
       <text:list text:style-name="List_20_1">
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-          <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/wiki/Playground?format=txt">Plain Text</text:a>
+          <text:a xlink:type="simple" xlink:href="/wiki/Playground?format=txt">Plain Text</text:a>
         </text:p>
   </text:list-item>
   <text:list-item>
     <text:p text:style-name="list-item-bullet">
-          <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/wiki/Playground?format=odt">OpenDocument</text:a>
+          <text:a xlink:type="simple" xlink:href="/wiki/Playground?format=odt">OpenDocument</text:a>
         </text:p>
   </text:list-item>
 </text:list>
     
     
     <text:p text:style-name="Horizontal_20_Line"/>
-      <draw:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://trac.edgewall.org/">
+      <draw:a xlink:type="simple" xlink:href="http://trac.edgewall.org/">
   <text:bookmark-start text:name="tracpowered"/>
   <text:p text:style-name="Text_20_body">
     <draw:frame text:anchor-type="paragraph" draw:style-name="image-center"  svg:width="107" svg:height="30" svg:y="0.20cm" draw:z-index="1">
@@ -268,9 +268,9 @@ Image distante :
   <text:bookmark-end text:name="tracpowered"/>
 </draw:a>
       <text:p text:style-name="Text_20_body">
-        Powered by <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="/about"><text:span text:style-name="strong">Trac 0.11.6</text:span></text:a><text:line-break/>
-        By <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://www.edgewall.org/">Edgewall Software</text:a>.
+        Powered by <text:a xlink:type="simple" xlink:href="/about"><text:span text:style-name="strong">Trac 0.11.6</text:span></text:a><text:line-break/>
+        By <text:a xlink:type="simple" xlink:href="http://www.edgewall.org/">Edgewall Software</text:a>.
       </text:p>
-      <text:p text:style-name="Text_20_body">Visit the Trac open source project at<text:line-break/><text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="http://trac.edgewall.org/">http://trac.edgewall.org/</text:a></text:p>
+      <text:p text:style-name="Text_20_body">Visit the Trac open source project at<text:line-break/><text:a xlink:type="simple" xlink:href="http://trac.edgewall.org/">http://trac.edgewall.org/</text:a></text:p>
     
   

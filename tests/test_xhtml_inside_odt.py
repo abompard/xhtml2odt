@@ -74,7 +74,7 @@ class XHTMLInsideODT(unittest.TestCase):
 </text:p>
         """
         odt = xhtml2odt(html)
-        self.assertEquals(odt, """<text:p xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0">
+        self.assertEquals(odt, """<text:p>
   <text:anything>Test</text:anything>
 </text:p>""")
 

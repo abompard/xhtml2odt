@@ -41,7 +41,7 @@ class IgnoreElements(unittest.TestCase):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><a><span>Test</span></a></p></html>'
         odt = xhtml2odt(html)
         self.assertEquals(odt, '''<text:p text:style-name="Text_20_body">
-  <text:a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:type="simple" xlink:href="">Test</text:a>
+  <text:a xlink:type="simple" xlink:href="">Test</text:a>
 </text:p>''')
 
 

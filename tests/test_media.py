@@ -25,7 +25,6 @@ class MediaElements(unittest.TestCase):
                              svg:y="0.20cm" \s+
                              draw:z-index="1"> \s*
                                  <draw:image \s+
-                                 xmlns:xlink="http://www.w3.org/1999/xlink" \s+
                                  xlink:href="imagesource" \s+
                                  xlink:type="simple" \s+
                                  xlink:show="embed" \s+
@@ -50,7 +49,6 @@ class MediaElements(unittest.TestCase):
                              svg:y="0.20cm" \s+
                              draw:z-index="1"> \s*
                                  <draw:image \s+
-                                 xmlns:xlink="http://www.w3.org/1999/xlink" \s+
                                  xlink:href="imagesource" \s+
                                  xlink:type="simple" \s+
                                  xlink:show="embed" \s+
@@ -120,7 +118,6 @@ class MediaElements(unittest.TestCase):
                              svg:y="0.20cm" \s+
                              draw:z-index="1"> \s*
                                  <draw:image \s+
-                                 xmlns:xlink="http://www.w3.org/1999/xlink" \s+
                                  xlink:href="imagesource" \s+
                                  xlink:type="simple" \s+
                                  xlink:show="embed" \s+

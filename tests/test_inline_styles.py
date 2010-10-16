@@ -22,8 +22,6 @@ class InlineStyles(unittest.TestCase):
 </office:text></office:body>
 </office:document-content>"""
         odt = styles(odt)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
         print odt
         # check if style name and style-reference names are identical
         style_match = re.search('style:name="inline-style\.([^"]+)"', odt)
@@ -55,8 +53,6 @@ class InlineStyles(unittest.TestCase):
 </office:text></office:body>
 </office:document-content>"""
         odt = styles(odt)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
         print odt
         content_match = re.search(r"""
             <style:style \s+ style:family="text" \s+ style:name="inline-style\.[^"]+"> \s*
@@ -79,8 +75,6 @@ class InlineStyles(unittest.TestCase):
 </office:text></office:body>
 </office:document-content>"""
         odt = styles(odt)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
         print odt
         content_match = re.search(r"""
             <style:style \s+ style:family="text" \s+ style:name="inline-style\.[^"]+"> \s*
@@ -103,8 +97,6 @@ class InlineStyles(unittest.TestCase):
 </office:text></office:body>
 </office:document-content>"""
         odt = styles(odt)
-        # remove namespaces
-        odt = re.sub('(xmlns:[a-z0-9=:".-]+\s+)*', '', str(odt))
         print odt
         content_match = re.search(r"""
             <style:style \s+ style:family="text" \s+ style:name="inline-style\.[^"]+"> \s*
