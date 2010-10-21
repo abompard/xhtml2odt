@@ -102,6 +102,7 @@ import zipfile
 import urllib2
 import urlparse
 import hashlib
+import mimetypes
 from StringIO import StringIO
 from optparse import OptionParser
 
@@ -202,6 +203,7 @@ class ODTFile(object):
         }
         self.tmpdir = tempfile.mkdtemp(prefix="xhtml2odt-")
         self.zfile = None
+        self._added_images = []
 
     def open(self):
         """
@@ -406,6 +408,7 @@ class ODTFile(object):
         newname = ( hashlib.md5(filename).hexdigest()
                     + os.path.splitext(filename)[1] )
         shutil.copy(filename, os.path.join(self.tmpdir, "Pictures", newname))
+        self._added_images.append(os.path.join("Pictures", newname))
         full_tag = full_tag.replace('src="%s"' % src,
                                     'src="Pictures/%s"' % newname)
         try:
@@ -524,6 +527,25 @@ class ODTFile(object):
         self.xml["content"] = str(transform(contentxml, **params))
         self.xml["styles"] = str(transform(stylesxml, **params))
 
+    def update_manifest(self):
+        manifest_path = os.path.join(self.tmpdir, "META-INF", "manifest.xml")
+        if not os.path.exists(manifest_path):
+            return
+        manifest = etree.parse(manifest_path)
+        manifest_root = manifest.getroot()
+        manifest_ns = "urn:oasis:names:tc:opendocument:xmlns:manifest:1.0"
+        for img in self._added_images:
+            mime_type = mimetypes.guess_type(img, strict=False)[0]
+            if mime_type is None:
+                continue
+            img_el = etree.SubElement(
+                        manifest_root,
+                        "{%s}file-entry" % manifest_ns,
+                        {"{%s}media-type" % manifest_ns: mime_type,
+                         "{%s}full-path" % manifest_ns: img,
+                        })
+        manifest.write(manifest_path)
+
     def compile(self):
         """
         Writes the in-memory ODT XML content and styles to the disk
@@ -533,6 +555,7 @@ class ODTFile(object):
             xmlf = open(os.path.join(self.tmpdir, "%s.xml" % xmlfile), "w")
             xmlf.write(self.xml[xmlfile])
             xmlf.close()
+        self.update_manifest()
 
     def _build_zip(self, document):
         """
