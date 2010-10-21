@@ -72,7 +72,6 @@ The full help message is::
                             Default image height (default is 6cm)
       --dpi=DPI             Screen resolution in Dots Per Inch (default is 96)
       --no-network          Do not download remote images
-      --stylesdir=DIR       Override the style templates directory
 
 
 License
@@ -196,12 +195,6 @@ class ODTFile(object):
 
     def __init__(self, options):
         self.options = options
-        self.template_dirs = []
-        if options.stylesdir:
-            self.template_dirs.append(options.stylesdir)
-        self.template_dirs.append(
-            os.path.join(INSTALL_PATH, "styles")
-        )
         self.xml = {
             "content": "",
             "styles": "",
@@ -634,8 +627,6 @@ def get_options():
     parser.add_option("--no-network", dest="with_network",
                       action="store_false", default=True,
                       help="Do not download remote images")
-    parser.add_option("--stylesdir", dest="stylesdir", metavar="DIR",
-                      help="Override the style templates directory")
     options, args = parser.parse_args()
     if options.version:
         print "xhtml2odt %s" % __version__
