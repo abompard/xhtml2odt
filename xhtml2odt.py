@@ -101,6 +101,7 @@ import sys
 import zipfile
 import urllib2
 import urlparse
+import hashlib
 from StringIO import StringIO
 from optparse import OptionParser
 
@@ -402,10 +403,11 @@ class ODTFile(object):
         # filenames. Maybe use img.format for the extension
         if not os.path.exists(os.path.join(self.tmpdir, "Pictures")):
             os.mkdir(os.path.join(self.tmpdir, "Pictures"))
-        shutil.copy(filename, os.path.join(self.tmpdir, "Pictures",
-                                           os.path.basename(filename)))
+        newname = ( hashlib.md5(filename).hexdigest()
+                    + os.path.splitext(filename)[1] )
+        shutil.copy(filename, os.path.join(self.tmpdir, "Pictures", newname))
         full_tag = full_tag.replace('src="%s"' % src,
-                    'src="Pictures/%s"' % os.path.basename(filename))
+                                    'src="Pictures/%s"' % newname)
         try:
             img = Image.open(filename)
         except IOError:
