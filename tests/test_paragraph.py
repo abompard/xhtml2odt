@@ -121,8 +121,16 @@ class ParagraphElements(unittest.TestCase):
     def test_p_inside_p(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><table><tr><td><p>Test</p></td></tr></table></html>'
         odt = xhtml2odt(html)
+        print odt
         self.assertEquals(str(odt).count("Test"), 1,
             "Paragraphs inside paragraph-like elements should be accepted")
+
+    def test_p_inside_p2(self):
+        html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><p><img src="test"/></p></p></html>'
+        odt = xhtml2odt(html)
+        print odt
+        self.assertEquals(str(odt).count("<text:p"), 1,
+            "Elements inside double-paragraphs must not add their own paragraph wrapper")
 
 
 if __name__ == '__main__':

@@ -54,7 +54,7 @@
     <xsl:apply-templates/>
 </xsl:template>
 <xsl:template match="h:div" mode="inparagraph">
-    <xsl:apply-templates/>
+    <xsl:apply-templates mode="inparagraph"/>
 </xsl:template>
 
 <xsl:template match="h:html">
