@@ -317,9 +317,9 @@ Example:
 <text:p text:style-name="Preformatted_20_Text"> llama::<text:line-break/><text:s text:c="2"/> some kind of mammal, with hair<text:line-break/> ppython::<text:line-break/><text:s text:c="2"/> some kind of reptile, without hair<text:line-break/><text:s text:c="2"/> (can you spot the typo?)</text:p><text:p text:style-name="Text_20_body"/><text:p text:style-name="Text_20_body">
 Display:
 </text:p>
-<text:p text:style-name="Text_20_body"><text:span text:style-name="strong">llama</text:span>:<text:line-break/><text:tab/>
+<text:p text:style-name="Definition_20_Term">llama</text:p><text:p text:style-name="Definition_20_Description">
 some kind of mammal, with hair
-</text:p><text:p text:style-name="Text_20_body"><text:span text:style-name="strong">ppython</text:span>:<text:line-break/><text:tab/>
+</text:p><text:p text:style-name="Definition_20_Term">ppython</text:p><text:p text:style-name="Definition_20_Description">
 some kind of reptile, without hair
 (can you spot the typo?)
 </text:p>

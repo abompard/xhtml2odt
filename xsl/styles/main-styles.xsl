@@ -309,6 +309,24 @@
         </text:list-style>
     </xsl:if>
 
+    <xsl:if test="count(//office:styles/style:style[@style:name = 'Definition_20_Term']) = 0">
+        <style:style style:name="Definition_20_Term"
+                     style:display-name="Definition Term" style:family="paragraph"
+                     style:parent-style-name="Text_20_body" style:class="html">
+            <style:text-properties fo:font-weight="bold"/>
+            <style:paragraph-properties fo:margin-bottom="0cm"/>
+        </style:style>
+    </xsl:if>
+
+    <xsl:if test="count(//office:styles/style:style[@style:name = 'Definition_20_Description']) = 0">
+        <style:style style:name="Definition_20_Description"
+                     style:display-name="Definition Description" style:family="paragraph"
+                     style:parent-style-name="Text_20_body" style:class="html">
+            <style:paragraph-properties fo:margin-top="0cm" fo:margin-left="1cm"
+                                        fo:margin-bottom="0.2cm"/>
+        </style:style>
+    </xsl:if>
+
     <xsl:if test="count(//office:styles/style:style[@style:name = 'Preformatted_20_Text']) = 0">
         <style:style style:name="Preformatted_20_Text"
                      style:display-name="Preformatted Text" style:family="paragraph"

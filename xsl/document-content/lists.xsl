@@ -101,25 +101,29 @@
 <!-- Definition lists -->
 <xsl:template match="h:dl" mode="inparagraph"/>
 <xsl:template match="h:dl">
-    <xsl:apply-templates select="h:dt" mode="inparagraph"/>
-</xsl:template>
-
-<xsl:template match="h:dt"/>
-<xsl:template match="h:dt" mode="inparagraph">
-    <text:p text:style-name="Text_20_body">
-        <text:span text:style-name="strong">
-            <xsl:apply-templates/>
-        </text:span>
-        <xsl:text>:</xsl:text>
-        <text:line-break/>
-        <xsl:apply-templates select="following-sibling::h:dd[position()=1]" mode="inparagraph"/>
-    </text:p>
-</xsl:template>
-
-<xsl:template match="h:dd"/>
-<xsl:template match="h:dd" mode="inparagraph">
-    <text:tab/>
+    <!--<xsl:apply-templates select="h:dt"/>-->
     <xsl:apply-templates/>
+</xsl:template>
+
+<xsl:template match="h:dt" mode="inparagraph"/>
+<xsl:template match="h:dt">
+    <xsl:call-template name="paragraph"/>
+    <!--
+    <text:p text:style-name="Definition_20_Term">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:p>
+    <xsl:apply-templates select="following-sibling::h:dd[position()=1]"/>
+    -->
+</xsl:template>
+
+<xsl:template match="h:dd" mode="inparagraph"/>
+<xsl:template match="h:dd">
+    <xsl:call-template name="paragraph"/>
+    <!--
+    <text:p text:style-name="Definition_20_Description">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:p>
+    -->
 </xsl:template>
 
 

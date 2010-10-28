@@ -75,22 +75,22 @@ class ListElements(unittest.TestCase):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><dl><dt>Term1</dt><dd>Def1</dd><dt>Term2</dt><dd>Def2</dd></dl></html>'
         odt = xhtml2odt(html)
         print odt
-        self.assertEquals(odt, """<text:p text:style-name="Text_20_body">"""
-        """<text:span text:style-name="strong">Term1</text:span>:<text:line-break/>"""
-        """<text:tab/>Def1</text:p>"""
-        """<text:p text:style-name="Text_20_body">"""
-        """<text:span text:style-name="strong">Term2</text:span>:<text:line-break/>"""
-        """<text:tab/>Def2</text:p>""")
+        self.assertEquals(odt, """<text:p text:style-name="Definition_20_Term">Term1</text:p>"""
+        """<text:p text:style-name="Definition_20_Description">Def1</text:p>"""
+        """<text:p text:style-name="Definition_20_Term">Term2</text:p>"""
+        """<text:p text:style-name="Definition_20_Description">Def2</text:p>""")
 
     def test_ul_in_dl(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><dl><dt>Term1</dt><dd>Def1<ul><li>Def1-LI</li></ul></dd></dl></html>'
         odt = xhtml2odt(html)
         print odt
-        self.assertEquals(odt, """<text:p text:style-name="Text_20_body">"""
-        """<text:span text:style-name="strong">Term1</text:span>:<text:line-break/>"""
-        """<text:tab/>Def1<text:list text:style-name="List_20_1">"""
-            """<text:list-item><text:p text:style-name="list-item-bullet">Def1-LI</text:p></text:list-item>"""
-        """</text:list></text:p>""")
+        self.assertEquals(odt, """<text:p text:style-name="Definition_20_Term">Term1</text:p>"""
+        """<text:p text:style-name="Definition_20_Description">Def1</text:p>"""
+        """<text:list text:style-name="List_20_1">
+  <text:list-item>
+    <text:p text:style-name="list-item-bullet">Def1-LI</text:p>
+  </text:list-item>
+</text:list>""")
 
     def test_li_containing_block1(self):
         #http://trac-hacks.org/ticket/6823

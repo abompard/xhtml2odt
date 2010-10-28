@@ -46,9 +46,8 @@ class ParagraphElements(unittest.TestCase):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p><dl><dt>Term</dt><dd>Value</dd></dl></p></html>'
         odt = xhtml2odt(html)
         print odt
-        self.assertEquals(odt, """<text:p text:style-name="Text_20_body">"""
-                               """<text:span text:style-name="strong">Term</text:span>:"""
-                               """<text:line-break/><text:tab/>Value</text:p>""")
+        self.assertEquals(odt, """<text:p text:style-name="Definition_20_Term">Term</text:p>"""
+                               """<text:p text:style-name="Definition_20_Description">Value</text:p>""")
 
     def test_p_containing_text_and_block(self):
         html = '<html xmlns="http://www.w3.org/1999/xhtml"><p>Top text<pre>Test</pre>Bottom text</p></html>'
