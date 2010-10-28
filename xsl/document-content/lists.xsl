@@ -53,7 +53,7 @@
 
 <xsl:template match="h:ul" mode="inparagraph"/>
 <xsl:template match="h:ul">
-    <xsl:param name="nolists" value="false()"/>
+    <xsl:param name="nolists" select="false()"/>
     <!-- No lists inside lists (handled separately, see below) -->
     <xsl:if test="not($nolists)">
         <text:list text:style-name="List_20_1">
@@ -65,7 +65,7 @@
 
 <xsl:template match="h:ol" mode="inparagraph"/>
 <xsl:template match="h:ol">
-    <xsl:param name="nolists" value="false()"/>
+    <xsl:param name="nolists" select="false()"/>
     <!-- No lists inside lists (handled separately, see below) -->
     <xsl:if test="not($nolists)">
         <text:list text:style-name="Numbering_20_1">

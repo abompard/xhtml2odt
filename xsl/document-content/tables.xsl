@@ -283,7 +283,7 @@
                 <xsl:apply-templates/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:call-template name="paragraph" mode="inparagraph"/>
+                <xsl:call-template name="paragraph"/>
             </xsl:otherwise>
         </xsl:choose>
 
