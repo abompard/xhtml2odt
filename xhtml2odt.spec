@@ -55,7 +55,7 @@ to the ODT document format.
 
 %prep
 %setup -q
-dos2unix README.txt
+dos2unix README.txt NEWS.txt LICENSE.txt
 chmod -x xhtml2odt.php xhtml2odt.sh
 
 
