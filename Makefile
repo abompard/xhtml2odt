@@ -24,7 +24,6 @@ tests:
 
 clean:
 	find . -name "*.pyc" -exec rm -f {} \;
-	rm -f xhtml2odt.1
 	rm -rf doc-py/_build
 	rm -rf doc-php/*
 	rm -rf xhtml2odt-*.tar.gz*
@@ -44,35 +43,36 @@ doc-php/index.html: xhtml2odt.php
 	-phpdoc -t doc-php -f xhtml2odt.php -ti "xhtml2odt -- convert XHTML to ODT"
 	find doc-php -name "*.html" | xargs sed -i -e 's/charset=iso-8859-1/charset=utf-8/'
 
-xhtml2odt.1: xhtml2odt.py xhtml2odt.1.post
-	sed -e 's,@DATADIR@,$(DATADIR),g' xhtml2odt.1.post > xhtml2odt.1.post.tmp
-	help2man -n "Convert an XHTML page to an ODT document" -s 1 -N -o $@ -i xhtml2odt.1.post.tmp ./xhtml2odt.py
-	rm -f xhtml2odt.1.post.tmp
 
 # Release code
 
 LATEST := $(shell [ -d .git ] && git tag | grep ^v | tail -n 1 | tr -d v)
 
-release: ChangeLog.txt xhtml2odt-$(LATEST).tar.gz.asc xhtml2odt-$(LATEST).zip.asc
+release: xhtml2odt-$(LATEST).tar.gz.asc xhtml2odt-$(LATEST).zip.asc
 
 ChangeLog.txt: .git/refs/tags/v$(LATEST)
-	git log --pretty --numstat --summary | git2cl > ChangeLog.txt
+	git log --pretty --numstat --summary --no-merges | git2cl > ChangeLog.txt
 
-xhtml2odt-$(LATEST).tar.gz: ChangeLog.txt
+xhtml2odt.1: xhtml2odt.py xhtml2odt.1.post
+	sed -e 's,@DATADIR@,$(DATADIR),g' xhtml2odt.1.post > xhtml2odt.1.post.tmp
+	help2man -n "Convert an XHTML page to an ODT document" -s 1 -N -o $@ -i xhtml2odt.1.post.tmp ./xhtml2odt.py
+	rm -f xhtml2odt.1.post.tmp
+
+xhtml2odt-$(LATEST).tar.gz: ChangeLog.txt xhtml2odt.1
 	git archive --format=tar --prefix=xhtml2odt-$(LATEST)/ -o xhtml2odt-$(LATEST).tar v$(LATEST)
 	mkdir xhtml2odt-$(LATEST)/
-	cp -a ChangeLog.txt xhtml2odt-$(LATEST)/
-	tar -rf xhtml2odt-$(LATEST).tar xhtml2odt-$(LATEST)/ChangeLog.txt
-	rm -f xhtml2odt-$(LATEST)/ChangeLog.txt
+	cp -a ChangeLog.txt xhtml2odt.1 xhtml2odt-$(LATEST)/
+	tar -rf xhtml2odt-$(LATEST).tar xhtml2odt-$(LATEST)/ChangeLog.txt xhtml2odt-$(LATEST)/xhtml2odt.1
+	rm -f xhtml2odt-$(LATEST)/ChangeLog.txt xhtml2odt-$(LATEST)/xhtml2odt.1
 	rmdir xhtml2odt-$(LATEST)/
 	gzip xhtml2odt-$(LATEST).tar
 
-xhtml2odt-$(LATEST).zip: ChangeLog.txt
+xhtml2odt-$(LATEST).zip: ChangeLog.txt xhtml2odt.1
 	git archive --format=zip --prefix=xhtml2odt-$(LATEST)/ -o $@ v$(LATEST)
 	mkdir xhtml2odt-$(LATEST)/
-	cp -a ChangeLog.txt xhtml2odt-$(LATEST)/
-	zip -g $@ xhtml2odt-$(LATEST)/ChangeLog.txt
-	rm -f xhtml2odt-$(LATEST)/ChangeLog.txt
+	cp -a ChangeLog.txt xhtml2odt.1 xhtml2odt-$(LATEST)/
+	zip -g $@ xhtml2odt-$(LATEST)/ChangeLog.txt xhtml2odt-$(LATEST)/xhtml2odt.1
+	rm -f xhtml2odt-$(LATEST)/ChangeLog.txt xhtml2odt-$(LATEST)/xhtml2odt.1
 	rmdir xhtml2odt-$(LATEST)/
 
 %.asc: %

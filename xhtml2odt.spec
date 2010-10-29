@@ -30,7 +30,6 @@ BuildRequires:  python-sphinx
 # No phpdoc on Mandriva
 BuildRequires:  phpdoc
 %endif
-BuildRequires:  help2man
 BuildRequires:  dos2unix
 
 ## Python script
