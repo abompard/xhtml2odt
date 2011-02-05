@@ -196,8 +196,8 @@ class ODTFile {
 
         // replace html codes with unicode
         // http://www.mail-archive.com/analog-help@lists.meer.net/msg03670.html
-        //$xhtml = str_replace("&nbsp;","&#160;",$xhtml);
-        $xhtml = html_entity_decode($xhtml, ENT_COMPAT, "UTF-8");
+        $xhtml = str_replace("&nbsp;","&#160;",$xhtml);
+        //$xhtml = html_entity_decode($xhtml, ENT_COMPAT, "UTF-8");
 
         return $xhtml;
     }
