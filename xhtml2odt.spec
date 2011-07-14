@@ -1,5 +1,5 @@
 Name:           xhtml2odt
-Version:        1.2
+Version:        1.3
 Release:        1%{?dist}
 Summary:        Convert XHTML to OpenDocument (ODT)
 
@@ -103,5 +103,8 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
-* Tue Sep 28 2010 Aurelien Bompard <abompard@fedoraproject.org> -  1.2-1
+* Thu Jul 14 2011 Aurelien Bompard <aurelien@bompard.org> -  1.3-1
+- version 1.3
+
+* Tue Sep 28 2010 Aurelien Bompard <aurelien@bompard.org> -  1.2-1
 - initial package
