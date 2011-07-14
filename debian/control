@@ -2,7 +2,7 @@ Source: xhtml2odt
 Section: text
 Priority: extra
 Maintainer: Aurélien Bompard <aurelien@bompard.org>
-Build-Depends: debhelper (>= 7), python-nose, python-utidylib, python-lxml, python-imaging, python-sphinx, tofrodos
+Build-Depends: debhelper (>= 7), python-nose, python-utidylib, python-lxml, python-imaging, python-sphinx, tofrodos, help2man
 Standards-Version: 3.7.3
 Homepage: http://xhtml2odt.org
 
@@ -12,4 +12,4 @@ Depends: ${shlibs:Depends}, ${misc:Depends}, python-utidylib, python-lxml, pytho
 Description: Convert from XHTML to ODT
  XHTML2ODT is a converting library from XHTML to ODT. It is based on XSL
  style sheets for portability, and is designed to help web applications export
- to the ODT document format. 
+ to the ODT document format.

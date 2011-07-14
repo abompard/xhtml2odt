@@ -1,3 +1,14 @@
+%define python_tidy python-tidy
+%define phpdoc phpdoc
+%if 0%{?mandriva_version}
+%define python_tidy python-uTidylib
+%define phpdoc php-pear-PhpDocumentor
+%endif
+%if 0%{?suse_version}
+%define python_tidy python-utidy
+%define phpdoc php5-pear-phpdocumentor
+%endif
+
 Name:           xhtml2odt
 Version:        1.3
 Release:        1%{?dist}
@@ -14,34 +25,19 @@ BuildArch:      noarch
 BuildRequires:  python-nose
 BuildRequires:  python-lxml
 BuildRequires:  python-imaging
-%if 0%{?mandriva_version}
-BuildRequires:  python-uTidylib
-%else
-%if 0%{?suse_version}
-BuildRequires:  python-utidy
-%else
-BuildRequires:  python-tidy
-%endif
-%endif
+BuildRequires:  %{python_tidy}
 ## Documentation
 BuildRequires:  python-sphinx
-%if 0%{?mandriva_version}
-BuildRequires:  php-pear-PhpDocumentor
+%if 0%{?mandriva_version}%{?suse_version}
+# Can't make it work in OBS for now
 %else
-BuildRequires:  phpdoc
+BuildRequires:  %{phpdoc}
 %endif
 BuildRequires:  dos2unix
+BuildRequires:  help2man
 
 ## Python script
-%if 0%{?mandriva_version}
-BuildRequires:  python-uTidylib
-%else
-%if 0%{?suse_version}
-BuildRequires:  python-utidy
-%else
-Requires:       python-tidy
-%endif
-%endif
+Requires:       %{python_tidy}
 Requires:       python-lxml
 Requires:       python-imaging
 
@@ -59,7 +55,7 @@ chmod -x xhtml2odt.php xhtml2odt.sh
 
 
 %build
-make doc
+make doc || :
 rm -rf doc-python
 mv doc-py/_build/html doc-python
 rm -f doc-python/.buildinfo
@@ -87,7 +83,11 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %doc *.txt doc-python example-scripts
+%if 0%{?mandriva_version}%{?suse_version}
+# Can't make it work in OBS for now
+%else
 %doc doc-php
+%endif
 %{_bindir}/*
 %{_datadir}/%{name}
 %{_mandir}/man1/*
