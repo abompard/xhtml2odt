@@ -79,18 +79,18 @@
 
     <xsl:if test="count(//office:styles/style:style[@style:name = 'Heading_20_1']) = 0">
         <style:style style:name="Heading_20_1" style:display-name="Heading 1"
-                      style:family="paragraph" style:parent-style-name="Heading"
-                      style:next-style-name="Text_20_body" style:class="text"
-                      style:default-outline-level="1">
+                     style:family="paragraph" style:parent-style-name="Heading"
+                     style:next-style-name="Text_20_body" style:class="text"
+                     style:default-outline-level="1">
             <style:text-properties fo:font-size="115%" fo:font-weight="bold"/>
         </style:style>
     </xsl:if>
 
     <xsl:if test="count(//office:styles/style:style[@style:name = 'Heading_20_2']) = 0">
         <style:style style:name="Heading_20_2" style:display-name="Heading 2"
-                      style:family="paragraph" style:parent-style-name="Heading"
-                      style:next-style-name="Text_20_body" style:class="text"
-                      style:default-outline-level="2">
+                     style:family="paragraph" style:parent-style-name="Heading"
+                     style:next-style-name="Text_20_body" style:class="text"
+                     style:default-outline-level="2">
             <style:text-properties fo:font-size="110%" fo:font-weight="bold"
                                    fo:font-style="italic"/>
         </style:style>
@@ -98,40 +98,60 @@
 
     <xsl:if test="count(//office:styles/style:style[@style:name = 'Heading_20_3']) = 0">
         <style:style style:name="Heading_20_3" style:display-name="Heading 3"
-                      style:family="paragraph" style:parent-style-name="Heading"
-                      style:next-style-name="Text_20_body" style:class="text"
-                      style:default-outline-level="3">
+                     style:family="paragraph" style:parent-style-name="Heading"
+                     style:next-style-name="Text_20_body" style:class="text"
+                     style:default-outline-level="3">
             <style:text-properties fo:font-size="105%" fo:font-weight="bold"/>
         </style:style>
     </xsl:if>
 
     <xsl:if test="count(//office:styles/style:style[@style:name = 'Heading_20_4']) = 0">
         <style:style style:name="Heading_20_4" style:display-name="Heading 4"
-                      style:family="paragraph" style:parent-style-name="Heading"
-                      style:next-style-name="Text_20_body" style:class="text"
-                      style:default-outline-level="4">
+                     style:family="paragraph" style:parent-style-name="Heading"
+                     style:next-style-name="Text_20_body" style:class="text"
+                     style:default-outline-level="4">
             <style:text-properties fo:font-size="100%" fo:font-weight="bold"/>
         </style:style>
     </xsl:if>
 
     <xsl:if test="count(//office:styles/style:style[@style:name = 'Heading_20_5']) = 0">
         <style:style style:name="Heading_20_5" style:display-name="Heading 5"
-                      style:family="paragraph" style:parent-style-name="Heading"
-                      style:next-style-name="Text_20_body" style:class="text"
-                      style:default-outline-level="5">
+                     style:family="paragraph" style:parent-style-name="Heading"
+                     style:next-style-name="Text_20_body" style:class="text"
+                     style:default-outline-level="5">
             <style:text-properties fo:font-size="100%" fo:font-style="italic"/>
         </style:style>
     </xsl:if>
 
     <xsl:if test="count(//office:styles/style:style[@style:name = 'Heading_20_6']) = 0">
         <style:style style:name="Heading_20_6" style:display-name="Heading 6"
-                      style:family="paragraph" style:parent-style-name="Heading"
-                      style:next-style-name="Text_20_body" style:class="text"
-                      style:default-outline-level="6">
+                     style:family="paragraph" style:parent-style-name="Heading"
+                     style:next-style-name="Text_20_body" style:class="text"
+                     style:default-outline-level="6">
             <style:text-properties fo:font-size="90%" fo:font-weight="bold"
                                    style:text-underline-style="solid"
                                    style:text-underline-width="auto"
                                    style:text-underline-color="font-color"/>
+        </style:style>
+    </xsl:if>
+
+    <xsl:if test="count(//office:styles/style:style[@style:name = 'Title']) = 0">
+        <style:style style:name="Title" style:display-name="Title"
+                     style:family="paragraph" style:parent-style-name="Heading"
+                     style:next-style-name="Subtitle" style:class="chapter">
+            <style:paragraph-properties fo:text-align="center"
+                                        style:justify-single-word="false"/>
+            <style:text-properties fo:font-size="120%" fo:font-weight="bold"/>
+        </style:style>
+    </xsl:if>
+
+    <xsl:if test="count(//office:styles/style:style[@style:name = 'Subtitle']) = 0">
+        <style:style style:name="Subtitle" style:display-name="Subtitle"
+                     style:family="paragraph" style:parent-style-name="Heading"
+                     style:next-style-name="Text_20_body" style:class="chapter">
+            <style:paragraph-properties fo:text-align="center"
+                                        style:justify-single-word="false"/>
+            <style:text-properties fo:font-size="110%" fo:font-style="italic"/>
         </style:style>
     </xsl:if>
 
