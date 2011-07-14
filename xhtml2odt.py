@@ -112,7 +112,7 @@ from PIL import Image
 
 #pylint#: disable-msg=C0301,C0111
 
-INSTALL_PATH = "."
+INSTALL_PATH = os.path.dirname(__file__)
 
 INCH_TO_CM = 2.54
 CHARSET = "utf-8"
@@ -284,6 +284,8 @@ class ODTFile(object):
             else: # lxml < 2.2
                 params["img_default_height"] = "'%s'" % self.options.img_height
         odt = transform(xhtml, **params)
+        # DEBUG
+        #print str(odt)
         return str(odt).replace('<?xml version="1.0" encoding="utf-8"?>','')
 
     def handle_images(self, xhtml):
