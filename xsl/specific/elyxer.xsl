@@ -25,6 +25,7 @@
 
 -->
 <xsl:stylesheet
+    xmlns:h="http://www.w3.org/1999/xhtml"
     xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -49,9 +50,44 @@
     xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0"
     version="1.0">
 
-<xsl:include href="specific/trac.xsl"/>
-<xsl:include href="specific/pygments.xsl"/>
-<xsl:include href="specific/geshi.xsl"/>
-<xsl:include href="specific/elyxer.xsl"/>
+
+
+<!-- Text -->
+<xsl:template match="h:div[@id='globalWrapper']//h:div[@class='Standard']">
+    <xsl:call-template name="paragraph"/>
+</xsl:template>
+<xsl:template match="h:div[@id='globalWrapper']//h:div[@class='Addsec']">
+    <xsl:call-template name="paragraph"/>
+</xsl:template>
+<xsl:template match="h:div[@id='globalWrapper']//h:div[@class='Description']">
+    <xsl:call-template name="paragraph"/>
+</xsl:template>
+
+<!-- Title and Subtitle -->
+<xsl:template match="h:div[@id='globalWrapper']//h:div[@class='Subject']">
+    <text:p text:style-name="Title">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:p>
+</xsl:template>
+<xsl:template match="h:div[@id='globalWrapper']//h:div[@class='Subtitle']">
+    <text:p text:style-name="Subtitle">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:p>
+</xsl:template>
+
+<!-- Footnotes -->
+<xsl:template match="h:span[@class='FootOuter']" mode="inparagraph">
+    <text:note text:note-class="footnote">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:note>
+</xsl:template>
+<xsl:template match="h:span[@class='SupFootMarker']" mode="inparagraph"/>
+<xsl:template match="h:span[@class='HoverFoot']" mode="inparagraph">
+    <text:note-body>
+        <text:p text:style-name="Footnote">
+            <xsl:apply-templates mode="inparagraph"/>
+        </text:p>
+    </text:note-body>
+</xsl:template>
 
 </xsl:stylesheet>

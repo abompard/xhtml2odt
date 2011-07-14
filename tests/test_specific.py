@@ -105,5 +105,71 @@ class SpecificPygments(unittest.TestCase):
         self._test_mapping("err", "syntax-highlight.error")
 
 
+class SpecificElyxer(unittest.TestCase):
+
+    def test_div_standard(self):
+        html = ('<html xmlns="http://www.w3.org/1999/xhtml">'
+                '<div id="globalWrapper">'
+                '<div class="Standard">Test</div>'
+                '</div></html>')
+        odt = xhtml2odt(html)
+        self.assertEquals(odt,
+                '<text:p text:style-name="Text_20_body">Test</text:p>')
+
+    def test_div_addsec(self):
+        html = ('<html xmlns="http://www.w3.org/1999/xhtml">'
+                '<div id="globalWrapper">'
+                '<div class="Addsec">Test</div>'
+                '</div></html>')
+        odt = xhtml2odt(html)
+        self.assertEquals(odt,
+                '<text:p text:style-name="Text_20_body">Test</text:p>')
+
+    def test_div_description(self):
+        html = ('<html xmlns="http://www.w3.org/1999/xhtml">'
+                '<div id="globalWrapper">'
+                '<div class="Description">Test</div>'
+                '</div></html>')
+        odt = xhtml2odt(html)
+        self.assertEquals(odt,
+                '<text:p text:style-name="Text_20_body">Test</text:p>')
+
+    def test_div_subject(self):
+        html = ('<html xmlns="http://www.w3.org/1999/xhtml">'
+                '<div id="globalWrapper">'
+                '<div class="Subject">Test</div>'
+                '</div></html>')
+        odt = xhtml2odt(html)
+        self.assertEquals(odt,
+                '<text:p text:style-name="Title">Test</text:p>')
+
+    def test_div_subtitle(self):
+        html = ('<html xmlns="http://www.w3.org/1999/xhtml">'
+                '<div id="globalWrapper">'
+                '<div class="Subtitle">Test</div>'
+                '</div></html>')
+        odt = xhtml2odt(html)
+        self.assertEquals(odt,
+                '<text:p text:style-name="Subtitle">Test</text:p>')
+
+    def test_footnote(self):
+        html = ('<html xmlns="http://www.w3.org/1999/xhtml">'
+                '<div id="globalWrapper"><p>Main text'
+                  '<span class="FootOuter">'
+                    '<span class="SupFootMarker"> [A] </span>'
+                    '<span class="HoverFoot">'
+                      '<span class="SupFootMarker"> [A] </span>'
+                      'Note content'
+                    '</span>'
+                  '</span>'
+                '</p></div></html>')
+        odt = xhtml2odt(html)
+        self.assertEquals(odt, '<text:p text:style-name="Text_20_body">'
+            'Main text<text:note text:note-class="footnote"><text:note-body>'
+            '<text:p text:style-name="Footnote">Note content</text:p>'
+            '</text:note-body></text:note></text:p>')
+
+
+
 if __name__ == '__main__':
     unittest.main()
