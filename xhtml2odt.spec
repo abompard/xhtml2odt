@@ -26,8 +26,8 @@ BuildRequires:  python-tidy
 ## Documentation
 BuildRequires:  python-sphinx
 %if 0%{?mandriva_version}
+BuildRequires:  php-pear-PhpDocumentor
 %else
-# No phpdoc on Mandriva
 BuildRequires:  phpdoc
 %endif
 BuildRequires:  dos2unix
@@ -59,12 +59,7 @@ chmod -x xhtml2odt.php xhtml2odt.sh
 
 
 %build
-# No phpdoc on Mandriva
-%if 0%{?mandriva_version}
-make doc-py
-%else
 make doc
-%endif
 rm -rf doc-python
 mv doc-py/_build/html doc-python
 rm -f doc-python/.buildinfo
@@ -92,11 +87,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root,-)
 %doc *.txt doc-python example-scripts
-# No phpdoc on Mandriva
-%if 0%{?mandriva_version}
-%else
 %doc doc-php
-%endif
 %{_bindir}/*
 %{_datadir}/%{name}
 %{_mandir}/man1/*
