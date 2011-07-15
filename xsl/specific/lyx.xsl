@@ -25,6 +25,7 @@
 
 -->
 <xsl:stylesheet
+    xmlns:h="http://www.w3.org/1999/xhtml"
     xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -49,10 +50,52 @@
     xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0"
     version="1.0">
 
-<xsl:include href="specific/trac.xsl"/>
-<xsl:include href="specific/pygments.xsl"/>
-<xsl:include href="specific/geshi.xsl"/>
-<xsl:include href="specific/elyxer.xsl"/>
-<xsl:include href="specific/lyx.xsl"/>
+
+
+<!-- Text -->
+<xsl:template match="h:div[@class='standard']">
+    <text:p text:style-name="Text_20_body">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:p>
+</xsl:template>
+
+<xsl:template match="h:div[@class='date']">
+    <text:p text:style-name="Subtitle">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:p>
+</xsl:template>
+
+<!-- Title and Subtitle -->
+<xsl:template match="h:div[@class='subject']">
+    <text:p text:style-name="Title">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:p>
+</xsl:template>
+<xsl:template match="h:h1[@class='title']">
+    <text:p text:style-name="Title">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:p>
+</xsl:template>
+<xsl:template match="h:h1[@class='subtitle']">
+    <text:p text:style-name="Subtitle">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:p>
+</xsl:template>
+
+<!-- Footnotes -->
+<xsl:template match="h:div[@class='foot']" mode="inparagraph">
+    <text:note text:note-class="footnote">
+        <xsl:apply-templates mode="inparagraph"/>
+    </text:note>
+</xsl:template>
+<xsl:template match="h:span[@class='foot_label']" mode="inparagraph"/>
+<xsl:template match="h:span[@class='foot_label']"/>
+<xsl:template match="h:div[@class='foot_inner']" mode="inparagraph">
+    <text:note-body>
+        <text:p text:style-name="Footnote">
+            <xsl:apply-templates mode="inparagraph"/>
+        </text:p>
+    </text:note-body>
+</xsl:template>
 
 </xsl:stylesheet>

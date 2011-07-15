@@ -170,6 +170,63 @@ class SpecificElyxer(unittest.TestCase):
             '</text:note-body></text:note></text:p>')
 
 
+class SpecificLyx(unittest.TestCase):
+
+    def test_div_standard(self):
+        html = ('<html xmlns="http://www.w3.org/1999/xhtml">'
+                '<div class="standard">Test</div>'
+                '</html>')
+        odt = xhtml2odt(html)
+        self.assertEquals(odt,
+                '<text:p text:style-name="Text_20_body">Test</text:p>')
+
+    def test_date(self):
+        html = ('<html xmlns="http://www.w3.org/1999/xhtml">'
+                '<div class="date">Test</div>'
+                '</html>')
+        odt = xhtml2odt(html)
+        self.assertEquals(odt,
+                '<text:p text:style-name="Subtitle">Test</text:p>')
+
+    def test_subject(self):
+        html = ('<html xmlns="http://www.w3.org/1999/xhtml">'
+                '<div class="subject">Test</div>'
+                '</html>')
+        odt = xhtml2odt(html)
+        self.assertEquals(odt,
+                '<text:p text:style-name="Title">Test</text:p>')
+
+    def test_title(self):
+        html = ('<html xmlns="http://www.w3.org/1999/xhtml">'
+                '<h1 class="title">Test</h1>'
+                '</html>')
+        odt = xhtml2odt(html)
+        self.assertEquals(odt,
+                '<text:p text:style-name="Title">Test</text:p>')
+
+    def test_subtitle(self):
+        html = ('<html xmlns="http://www.w3.org/1999/xhtml">'
+                '<h1 class="subtitle">Test</h1>'
+                '</html>')
+        odt = xhtml2odt(html)
+        self.assertEquals(odt,
+                '<text:p text:style-name="Subtitle">Test</text:p>')
+
+    def test_footnote(self):
+        html = ('<html xmlns="http://www.w3.org/1999/xhtml">'
+                '<div class="standard">Main text'
+                  '<div class="foot">'
+                    '<span class="foot_label">1</span>'
+                    '<div class="foot_inner">Note content</div>'
+                  '</div>'
+                '</div></html>')
+        odt = xhtml2odt(html)
+        self.assertEquals(odt, '<text:p text:style-name="Text_20_body">'
+            'Main text<text:note text:note-class="footnote"><text:note-body>'
+            '<text:p text:style-name="Footnote">Note content</text:p>'
+            '</text:note-body></text:note></text:p>')
+
+
 
 if __name__ == '__main__':
     unittest.main()

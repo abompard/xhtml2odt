@@ -8,7 +8,7 @@ Version 1.3
 * Improve image handling
 * Add RPM and Debian package metadata
 * Better XML escaping in the PHP script
-* Add support for Elyxer
+* Add support for Lyx and Elyxer
 * Other various improvements and bug fixes
 
 
