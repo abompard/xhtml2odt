@@ -24,24 +24,13 @@ tests:
 
 clean:
 	find . -name "*.pyc" -exec rm -f {} \;
-	rm -rf doc-py/_build
-	rm -rf doc-php/*
+	rm -rf doc/python
+	rm -rf doc/php
 	rm -rf xhtml2odt-*.tar.gz*
 	rm -rf xhtml2odt-*.zip*
 
-doc: doc-py doc-php
-	@echo "Python doc is in doc-py/_build/html/index.html"
-	@echo "PHP doc is in doc-php/index.html"
-
-doc-py: doc-py/_build/html/index.html
-doc-py/_build/html/index.html: xhtml2odt.py
-	mkdir -p $(dir $@)
-	-$(MAKE) -C doc-py html
-
-doc-php: doc-php/index.html
-doc-php/index.html: xhtml2odt.php
-	-phpdoc -t doc-php -f xhtml2odt.php -ti "xhtml2odt -- convert XHTML to ODT"
-	find doc-php -name "*.html" | xargs sed -i -e 's/charset=iso-8859-1/charset=utf-8/'
+doc:
+	$(MAKE) -C doc
 
 
 # Release code
@@ -79,4 +68,4 @@ xhtml2odt-$(LATEST).zip: ChangeLog.txt xhtml2odt.1
 	gpg --detach-sign -a $^
 
 
-.PHONY: all install uninstall tests clean doc doc-py doc-php release
+.PHONY: all install uninstall tests clean doc release

@@ -1,6 +1,4 @@
 *.pyc
-doc-py/_build
-doc-php/*
 xhtml2odt.1
 tests/data/*.xml.gen
 ChangeLog.txt

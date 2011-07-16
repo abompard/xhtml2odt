@@ -56,9 +56,7 @@ chmod -x xhtml2odt.php xhtml2odt.sh
 
 %build
 make doc || :
-rm -rf doc-python
-mv doc-py/_build/html doc-python
-rm -f doc-python/.buildinfo
+rm -f doc/python/.buildinfo doc/python/.doctrees
 
 
 %install
@@ -82,11 +80,11 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
-%doc *.txt doc-python example-scripts
+%doc *.txt doc/python example-scripts
 %if 0%{?mandriva_version}%{?suse_version}
 # Can't make it work in OBS for now
 %else
-%doc doc-php
+%doc doc/php
 %endif
 %{_bindir}/*
 %{_datadir}/%{name}

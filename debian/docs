@@ -1,3 +1,4 @@
 *.txt
-doc-python
+doc/php
+doc/python
 example-scripts
