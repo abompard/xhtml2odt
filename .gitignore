@@ -1,5 +1,4 @@
 *.pyc
-xhtml2odt.1
 tests/data/*.xml.gen
 ChangeLog.txt
 xhtml2odt-*.tar.gz
